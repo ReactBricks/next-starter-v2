@@ -10,18 +10,18 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "^13.1.0",
+    "next": "^13.1.6",
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
-    "react-bricks": "latest",
+    "react-bricks": "^3.8.10",
     "react-bricks-ui": "^0.5.3",
     "react-dom": "^18.2.0",
     "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@types/node": "^18.11.17",
+    "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
     "autoprefixer": "^10.4.13",
     "concurrently": "^7.6.0",
