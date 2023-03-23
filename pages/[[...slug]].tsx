@@ -13,7 +13,6 @@ import { GetStaticProps, GetStaticPaths } from "next"
 import config from "../react-bricks/config"
 import Layout from "../components/layout"
 import ErrorNoPage from "../components/errorNoPage"
-import ErrorNoHomePage from "../components/errorNoHomePage"
 import ErrorNoHeader from "../components/errorNoHeader"
 import ErrorNoFooter from "../components/errorNoFooter"
 
@@ -77,9 +76,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const { slug } = context.params
 
-  let errorPage,
-    errorHeader,
-    errorFooter = false
+  let errorPage: boolean = false
+  let errorHeader: boolean = false
+  let errorFooter: boolean = false
 
   const [page, header, footer] = await Promise.all([
     fetchPage(
