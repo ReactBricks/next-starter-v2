@@ -1,26 +1,26 @@
-import classNames from "classnames";
-import * as React from "react";
+import classNames from 'classnames'
+import * as React from 'react'
 import {
   Link,
   RichText,
   Text,
   types,
   useAdminContext,
-} from "react-bricks/frontend";
+} from 'react-bricks/frontend'
 import {
   backgroundColorsEditProps,
   LayoutProps,
   sectionBordersEditProps,
   sectionDefaults,
   textGradientEditProps,
-} from "../../LayoutSideProps";
-import blockNames from "../../blockNames";
-import { gradients, textColors } from "../../colors";
-import Container from "../../shared/components/Container";
-import Section from "../../shared/components/Section";
+} from '../../LayoutSideProps'
+import blockNames from '../../blockNames'
+import { gradients, textColors } from '../../colors'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 
 export interface CallToActionProps extends LayoutProps {
-  textGradient: keyof typeof gradients;
+  textGradient: keyof typeof gradients
 }
 
 const CallToAction: types.Brick<CallToActionProps> = ({
@@ -31,11 +31,11 @@ const CallToAction: types.Brick<CallToActionProps> = ({
   paddingBottom,
   textGradient = gradients.NONE.value,
 }) => {
-  const { isAdmin } = useAdminContext();
+  const { isAdmin } = useAdminContext()
   const titleStyle =
     textGradient !== gradients.NONE.value
-      ? { WebkitTextFillColor: "transparent" }
-      : {};
+      ? { WebkitTextFillColor: 'transparent' }
+      : {}
 
   return (
     <Section
@@ -47,12 +47,12 @@ const CallToAction: types.Brick<CallToActionProps> = ({
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
         className={classNames(
-          "flex flex-col lg:flex-row lg:gap-20 items-start text-left"
+          'flex flex-col lg:flex-row lg:gap-20 items-start text-left'
         )}
       >
         <div className="flex-1 lg:pr-14 mb-4 lg:mb-0">
           <div
-            className={classNames("mb-4", gradients[textGradient].className)}
+            className={classNames('mb-4', gradients[textGradient].className)}
             style={titleStyle}
           >
             <Text
@@ -60,7 +60,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
               renderBlock={(props) => (
                 <p
                   className={classNames(
-                    "font-bold text-[32px] leading-tight md:text-4xl xl:text-5xl bg-clip-text bg-gradient-to-r",
+                    'font-bold text-[32px] leading-tight md:text-4xl xl:text-5xl bg-clip-text bg-gradient-to-r',
                     textColors.GRAY_900
                   )}
                   {...props.attributes}
@@ -75,7 +75,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
             propName="description"
             renderBlock={(props) => (
               <p
-                className={classNames("text-sm", textColors.GRAY_700)}
+                className={classNames('text-sm', textColors.GRAY_700)}
                 {...props.attributes}
               >
                 {props.children}
@@ -91,7 +91,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
               propName="text"
               renderBlock={(props) => (
                 <span
-                  className={classNames("leading-relaxed", textColors.GRAY_800)}
+                  className={classNames('leading-relaxed', textColors.GRAY_800)}
                   {...props.attributes}
                 >
                   {props.children}
@@ -142,7 +142,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
                 renderBlock={(props) => (
                   <span
                     className={classNames(
-                      "text-xs leading-relaxed",
+                      'text-xs leading-relaxed',
                       textColors.GRAY_500
                     )}
                     {...props.attributes}
@@ -163,75 +163,75 @@ const CallToAction: types.Brick<CallToActionProps> = ({
         </div>
       </Container>
     </Section>
-  );
-};
+  )
+}
 
 CallToAction.schema = {
   name: blockNames.NewsletterHero,
-  label: "Newsletter hero",
-  playgroundLinkLabel: "View source code on Github",
-  category: "call to action",
-  tags: ["newsletter", "subscribe", "hero"],
+  label: 'Newsletter hero',
+  playgroundLinkLabel: 'View source code on Github',
+  category: 'call to action',
+  tags: ['newsletter', 'subscribe', 'hero'],
   playgroundLinkUrl:
-    "https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx",
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx',
 
   getDefaultProps: () => ({
     ...sectionDefaults,
-    paddingTop: "12",
-    paddingBottom: "12",
-    title: "Stay in the loop with our newsletter!",
+    paddingTop: '12',
+    paddingBottom: '12',
+    title: 'Stay in the loop with our newsletter!',
     textGradient: gradients.NONE.value,
     description: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         children: [
           {
-            text: "Sent every ",
+            text: 'Sent every ',
           },
           {
-            text: "2 weeks",
+            text: '2 weeks',
             bold: true,
           },
           {
-            text: ", no spam.",
+            text: ', no spam.',
           },
         ],
       },
     ],
-    text: "Join thousands of developers who want to change the way people edit website.",
+    text: 'Join thousands of developers who want to change the way people edit website.',
     privacy: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         children: [
           {
-            text: "By submitting the form you accept our ",
+            text: 'By submitting the form you accept our ',
           },
           {
-            type: "link",
-            url: "https://reactbricks.com/legal/privacy",
+            type: 'link',
+            url: 'https://reactbricks.com/legal/privacy',
             children: [
               {
-                text: "Privacy policy",
+                text: 'Privacy policy',
               },
             ],
           },
         ],
       },
     ],
-    buttonText: "Subscribe",
+    buttonText: 'Subscribe',
   }),
   sideEditProps: [
     {
-      groupName: "Title",
+      groupName: 'Title',
       defaultOpen: true,
       props: [textGradientEditProps],
     },
     {
-      groupName: "Layout",
+      groupName: 'Layout',
       defaultOpen: false,
       props: [backgroundColorsEditProps, ...sectionBordersEditProps],
     },
   ],
-};
+}
 
-export default CallToAction;
+export default CallToAction

@@ -1,6 +1,6 @@
-import classNames from "classnames";
-import * as React from "react";
-import { Repeater, RichText, types } from "react-bricks/frontend";
+import classNames from 'classnames'
+import * as React from 'react'
+import { Repeater, RichText, types } from 'react-bricks/frontend'
 import {
   backgroundWithImageBgSideGroup,
   highlightTextEditProps,
@@ -8,20 +8,20 @@ import {
   paddingBordersSideGroup,
   sectionDefaults,
   textGradientEditProps,
-} from "../../LayoutSideProps";
-import blockNames from "../../blockNames";
+} from '../../LayoutSideProps'
+import blockNames from '../../blockNames'
 import {
   buttonColors,
   gradients,
   highlightTextColors,
   textColors,
-} from "../../colors";
-import Container from "../../shared/components/Container";
-import Section from "../../shared/components/Section";
+} from '../../colors'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 
 export interface HeroUnitProps extends LayoutProps {
-  textGradient: keyof typeof gradients;
-  highlightTextColor: { color: string; className: string };
+  textGradient: keyof typeof gradients
+  highlightTextColor: { color: string; className: string }
 }
 
 const HeroUnit2: types.Brick<HeroUnitProps> = ({
@@ -35,12 +35,12 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
   textGradient,
   highlightTextColor,
 }: HeroUnitProps) => {
-  const titleColor = textColors.GRAY_800;
-  const textColor = textColors.GRAY_700;
+  const titleColor = textColors.GRAY_800
+  const textColor = textColors.GRAY_700
   const titleStyle =
     textGradient !== gradients.NONE.value
-      ? { WebkitTextFillColor: "transparent" }
-      : {};
+      ? { WebkitTextFillColor: 'transparent' }
+      : {}
 
   return (
     <Section
@@ -56,7 +56,7 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
             <div className="lg:flex">
               <Repeater
                 propName="badge"
-                itemProps={{ textAlign: "left" }}
+                itemProps={{ textAlign: 'left' }}
                 renderWrapper={(items) => <div className="mb-4">{items}</div>}
               />
             </div>
@@ -72,7 +72,7 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
                 renderBlock={(props) => (
                   <h1
                     className={classNames(
-                      "text-[28px] leading-8 sm:text-[40px] sm:leading-tight lg:text-[44px] lg:leading-snug text-center lg:text-left font-black mb-4 bg-clip-text bg-gradient-to-r   ",
+                      'text-[28px] leading-8 sm:text-[40px] sm:leading-tight lg:text-[44px] lg:leading-snug text-center lg:text-left font-black mb-4 bg-clip-text bg-gradient-to-r   ',
                       titleColor
                     )}
                     {...props.attributes}
@@ -96,7 +96,7 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
               renderBlock={(props) => (
                 <p
                   className={classNames(
-                    "text-center lg:text-left text-base leading-6 sm:text-xl sm:leading-8",
+                    'text-center lg:text-left text-base leading-6 sm:text-xl sm:leading-8',
                     textColor
                   )}
                   {...props.attributes}
@@ -120,69 +120,69 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
         </div>
       </Container>
     </Section>
-  );
-};
+  )
+}
 
 HeroUnit2.schema = {
   name: blockNames.HeroUnit2,
-  label: "Horizontal Hero",
-  category: "hero sections",
-  tags: ["hero unit", "horizontal hero", "title"],
-  playgroundLinkLabel: "View source code on Github",
+  label: 'Horizontal Hero',
+  category: 'hero sections',
+  tags: ['hero unit', 'horizontal hero', 'title'],
+  playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    "https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Hero%20Unit/HeroUnit.tsx",
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Hero%20Unit/HeroUnit.tsx',
   getDefaultProps: () => ({
     ...sectionDefaults,
-    paddingTop: "20",
-    paddingBottom: "16",
+    paddingTop: '20',
+    paddingBottom: '16',
     textGradient: gradients.NONE.value,
     highlightTextColor: highlightTextColors.LIME.value,
-    title: "We develop beautiful web applications",
+    title: 'We develop beautiful web applications',
     text: "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations.",
     buttons: [
       {
-        text: "Get Started now",
-        href: "",
+        text: 'Get Started now',
+        href: '',
         isTargetBlank: false,
         buttonColor: buttonColors.SKY.value,
-        type: "solid",
-        padding: "normal",
+        type: 'solid',
+        padding: 'normal',
       },
       {
-        text: "Watch demo",
-        href: "",
+        text: 'Watch demo',
+        href: '',
         isTargetBlank: false,
         buttonColor: buttonColors.SKY.value,
-        type: "outline",
-        padding: "normal",
+        type: 'outline',
+        padding: 'normal',
       },
     ],
   }),
   repeaterItems: [
     {
-      name: "badge",
+      name: 'badge',
       itemType: blockNames.Badge,
-      itemLabel: "Badge",
+      itemLabel: 'Badge',
       min: 0,
       max: 1,
     },
     {
-      name: "buttons",
+      name: 'buttons',
       itemType: blockNames.Button,
-      itemLabel: "Button",
+      itemLabel: 'Button',
       min: 0,
       max: 2,
     },
   ],
   sideEditProps: [
     {
-      groupName: "Title",
+      groupName: 'Title',
       defaultOpen: true,
       props: [textGradientEditProps, highlightTextEditProps],
     },
     backgroundWithImageBgSideGroup,
     paddingBordersSideGroup,
   ],
-};
+}
 
-export default HeroUnit2;
+export default HeroUnit2

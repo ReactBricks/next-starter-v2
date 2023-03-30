@@ -1,15 +1,15 @@
-import * as React from "react";
-import classNames from "classnames";
-import { highlightTextColors } from "../../colors";
+import * as React from 'react'
+import classNames from 'classnames'
+import { highlightTextColors } from '../../colors'
 
-import { Text, types } from "react-bricks/frontend";
-import blockNames from "../../blockNames";
-import { badgeColorsEditProps } from "../../LayoutSideProps";
+import { Text, types } from 'react-bricks/frontend'
+import blockNames from '../../blockNames'
+import { badgeColorsEditProps } from '../../LayoutSideProps'
 
 export interface BadgeProps {
-  badgeColor: { color: string; className: string };
-  textAlign: "left" | "center";
-  className?: string;
+  badgeColor: { color: string; className: string }
+  textAlign: 'left' | 'center'
+  className?: string
 }
 
 const Badge: types.Brick<BadgeProps> = ({
@@ -23,12 +23,12 @@ const Badge: types.Brick<BadgeProps> = ({
         renderBlock={(props) => (
           <span
             className={classNames(
-              "text-sm font-black uppercase inline-block min-w-[120px]",
-              textAlign === "center" ? "text-center" : "text-left",
+              'text-sm font-black uppercase inline-block min-w-[120px]',
+              textAlign === 'center' ? 'text-center' : 'text-left',
               badgeColor.className,
               className
             )}
-            style={{ letterSpacing: "0.35em" }}
+            style={{ letterSpacing: '0.35em' }}
           >
             {props.children}
           </span>
@@ -37,23 +37,23 @@ const Badge: types.Brick<BadgeProps> = ({
         propName="text"
       />
     </div>
-  );
-};
+  )
+}
 
 Badge.schema = {
   name: blockNames.Badge,
-  label: "Badge",
-  category: "shared",
+  label: 'Badge',
+  category: 'shared',
   hideFromAddMenu: true,
-  playgroundLinkLabel: "View source code on Github",
+  playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    "https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/shared/Badge.tsx",
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/shared/Badge.tsx',
   getDefaultProps: () => ({
-    text: "Special",
-    textAlign: "center",
+    text: 'Special',
+    textAlign: 'center',
     badgeColor: highlightTextColors.SKY.value,
   }),
   sideEditProps: [badgeColorsEditProps],
-};
+}
 
-export default Badge;
+export default Badge

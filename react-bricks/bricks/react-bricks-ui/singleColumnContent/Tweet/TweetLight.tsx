@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   Image,
   Text,
@@ -6,22 +6,22 @@ import {
   useAdminContext,
   RichText,
   Link,
-} from "react-bricks/frontend";
-import { FaTwitter } from "react-icons/fa";
-import Section from "../../shared/components/Section";
-import blockNames from "../../blockNames";
-import Container from "../../shared/components/Container";
+} from 'react-bricks/frontend'
+import { FaTwitter } from 'react-icons/fa'
+import Section from '../../shared/components/Section'
+import blockNames from '../../blockNames'
+import Container from '../../shared/components/Container'
 import {
   containerWidthSideGroup,
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from "../../LayoutSideProps";
+} from '../../LayoutSideProps'
 
 export interface TweetLightProps extends LayoutProps {
-  tweetLink: string;
-  authorLink: string;
+  tweetLink: string
+  authorLink: string
 }
 
 const TweetLight: types.Brick<TweetLightProps> = ({
@@ -34,17 +34,17 @@ const TweetLight: types.Brick<TweetLightProps> = ({
   paddingBottom,
   width,
 }) => {
-  const { isAdmin, previewMode } = useAdminContext();
-  const [isMouseOver, setIsMouseOver] = useState(false);
+  const { isAdmin, previewMode } = useAdminContext()
+  const [isMouseOver, setIsMouseOver] = useState(false)
 
   const handleClick = (tweetLink: string) => (event: React.MouseEvent) => {
     if (isAdmin && !previewMode) {
-      return event.preventDefault();
+      return event.preventDefault()
     }
     if (typeof window !== undefined) {
-      window.open(tweetLink);
+      window.open(tweetLink)
     }
-  };
+  }
 
   return (
     <Section
@@ -104,7 +104,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
               </Link>
               <div
                 className="text-2xl dark:text-neutral-300"
-                style={{ color: "#1d9bf0" }}
+                style={{ color: '#1d9bf0' }}
               >
                 <FaTwitter />
               </div>
@@ -126,7 +126,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                   className="hover:text-sky-600"
                   onMouseEnter={() => setIsMouseOver(true)}
                   onMouseLeave={() => setIsMouseOver(false)}
-                  style={{ color: isMouseOver ? "#1a8cd8" : "#1d9bf0" }}
+                  style={{ color: isMouseOver ? '#1a8cd8' : '#1d9bf0' }}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -148,65 +148,65 @@ const TweetLight: types.Brick<TweetLightProps> = ({
         </div>
       </Container>
     </Section>
-  );
-};
+  )
+}
 
 TweetLight.schema = {
   name: blockNames.TweetLight,
-  label: "Tweet light",
-  category: "single column / blog",
-  tags: ["tweet", "twitter", "light"],
-  playgroundLinkLabel: "View source code on Github",
+  label: 'Tweet light',
+  category: 'single column / blog',
+  tags: ['tweet', 'twitter', 'light'],
+  playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    "https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/TweetLight.tsx",
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/TweetLight.tsx',
   getDefaultProps: () => ({
     ...sectionDefaults,
-    width: "small",
-    authorName: "John Doe",
+    width: 'small',
+    authorName: 'John Doe',
     author: {
-      src: "https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg",
+      src: 'https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg',
       placeholderSrc:
-        "https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg",
-      srcSet: "",
+        'https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg',
+      srcSet: '',
       width: 1249.24,
       height: 1249.24,
-      alt: "Author name",
-      seoName: "author",
+      alt: 'Author name',
+      seoName: 'author',
     },
-    tweetLink: "https://twitter.com/matfrana/status/1237840583982329857",
-    authorLink: "https://twitter.com/matfrana",
-    authorTwitterHandle: "@JohnDoe",
+    tweetLink: 'https://twitter.com/matfrana/status/1237840583982329857',
+    authorLink: 'https://twitter.com/matfrana',
+    authorTwitterHandle: '@JohnDoe',
     tweetContent: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         children: [
           {
-            text: "Lorem ipsum dolor sit amet ",
+            text: 'Lorem ipsum dolor sit amet ',
           },
           {
-            type: "link",
-            url: "https://twitter.com/ReactBricks",
+            type: 'link',
+            url: 'https://twitter.com/ReactBricks',
             children: [
               {
-                text: "@ReactBricks",
+                text: '@ReactBricks',
               },
             ],
           },
           {
-            text: "",
+            text: '',
           },
         ],
       },
     ],
-    date: "10:18 · Jan 04, 2022",
+    date: '10:18 · Jan 04, 2022',
   }),
   sideEditProps: [
     {
-      groupName: "Tweet",
+      groupName: 'Tweet',
       props: [
         {
-          name: "helper",
-          label: "Why Tweet light?",
+          name: 'helper',
+          label: 'Why Tweet light?',
           type: types.SideEditPropType.Custom,
           component: () => (
             <div className="text-sm">
@@ -218,13 +218,13 @@ TweetLight.schema = {
           ),
         },
         {
-          name: "tweetLink",
-          label: "Tweet Link",
+          name: 'tweetLink',
+          label: 'Tweet Link',
           type: types.SideEditPropType.Text,
         },
         {
-          name: "authorLink",
-          label: "Author Link",
+          name: 'authorLink',
+          label: 'Author Link',
           type: types.SideEditPropType.Text,
         },
       ],
@@ -233,6 +233,6 @@ TweetLight.schema = {
     paddingBordersSideGroup,
     containerWidthSideGroup,
   ],
-};
+}
 
-export default TweetLight;
+export default TweetLight

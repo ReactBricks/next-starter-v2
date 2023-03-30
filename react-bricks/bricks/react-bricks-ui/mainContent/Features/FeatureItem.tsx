@@ -1,29 +1,29 @@
-import * as React from "react";
-import { Image, types, Text, Link, Plain } from "react-bricks/frontend";
-import classNames from "classnames";
-import blockNames from "../../blockNames";
-import { textColors } from "../../colors";
-import { ColsNumber } from "./Features";
-import { icons } from "../../shared/defaultImages";
+import * as React from 'react'
+import { Image, types, Text, Link, Plain } from 'react-bricks/frontend'
+import classNames from 'classnames'
+import blockNames from '../../blockNames'
+import { textColors } from '../../colors'
+import { ColsNumber } from './Features'
+import { icons } from '../../shared/defaultImages'
 
 export interface FeatureItemProps {
-  colsNumber: ColsNumber;
-  withIcon: boolean;
-  withLink: boolean;
-  linkText: any;
-  linkPath: string;
+  colsNumber: ColsNumber
+  withIcon: boolean
+  withLink: boolean
+  linkText: any
+  linkPath: string
 }
 
 const getColumnClass = (colsNumber: ColsNumber) => {
   switch (colsNumber) {
-    case "2":
-      return "sm:flex-[0_1_45%] mb-12 sm:mb-16";
-    case "3":
-      return "sm:flex-[0_1_27%] mb-12 sm:mb-16";
-    case "4":
-      return "sm:flex-[0_1_45%] lg:flex-[0_1_20%] mb-12 sm:mb-16";
+    case '2':
+      return 'sm:flex-[0_1_45%] mb-12 sm:mb-16'
+    case '3':
+      return 'sm:flex-[0_1_27%] mb-12 sm:mb-16'
+    case '4':
+      return 'sm:flex-[0_1_45%] lg:flex-[0_1_20%] mb-12 sm:mb-16'
   }
-};
+}
 
 const FeatureItem: types.Brick<FeatureItemProps> = ({
   colsNumber,
@@ -33,10 +33,10 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
   linkPath,
 }) => {
   const linkTextPlain =
-    typeof linkText === "string" ? linkText : Plain.serialize(linkText);
+    typeof linkText === 'string' ? linkText : Plain.serialize(linkText)
 
   return (
-    <div className={classNames("text-base", getColumnClass(colsNumber))}>
+    <div className={classNames('text-base', getColumnClass(colsNumber))}>
       {withIcon && (
         <Image
           propName="image"
@@ -48,7 +48,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
               <div className="float-left mr-5 mt-1 sm:float-none sm:mr-0 sm:mt-0 sm:mb-5">
                 {children}
               </div>
-            );
+            )
           }}
         />
       )}
@@ -58,7 +58,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
           propName="title"
           placeholder="Title..."
           renderBlock={(props) => (
-            <div className={classNames("font-bold mb-1", textColors.GRAY_800)}>
+            <div className={classNames('font-bold mb-1', textColors.GRAY_800)}>
               {props.children}
             </div>
           )}
@@ -76,8 +76,8 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
               propName="link"
               href={linkPath}
               className={classNames(
-                "cursor-pointer text-sky-500 hover:text-sky-600 hover:-translate-y-px transition-all ease-out duration-150",
-                linkTextPlain ? "flex items-center space-x-1" : ""
+                'cursor-pointer text-sky-500 hover:text-sky-600 hover:-translate-y-px transition-all ease-out duration-150',
+                linkTextPlain ? 'flex items-center space-x-1' : ''
               )}
             >
               <div>
@@ -92,8 +92,8 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
                 width="14px"
                 height="14px"
                 className={classNames(
-                  "w-[10px] h-[10px]",
-                  linkTextPlain ? "inline-block" : "hidden"
+                  'w-[10px] h-[10px]',
+                  linkTextPlain ? 'inline-block' : 'hidden'
                 )}
               >
                 <path
@@ -106,42 +106,42 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 FeatureItem.schema = {
   name: blockNames.FeatureItem,
-  label: "Feature",
-  category: "main content",
+  label: 'Feature',
+  category: 'main content',
   hideFromAddMenu: true,
-  playgroundLinkLabel: "View source code on Github",
+  playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    "https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/FeatureItem.tsx",
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/FeatureItem.tsx',
 
   getDefaultProps: () => ({
-    title: "The best experience for editors",
-    text: "Your marketing team hates gray forms. Give them the easiest UX.",
+    title: 'The best experience for editors',
+    text: 'Your marketing team hates gray forms. Give them the easiest UX.',
     withIcon: true,
     withLink: false,
     image: icons.PHOTO_STACK,
   }),
   sideEditProps: [
     {
-      name: "withIcon",
-      label: "With icon",
+      name: 'withIcon',
+      label: 'With icon',
       type: types.SideEditPropType.Boolean,
     },
     {
-      name: "withLink",
-      label: "With link",
+      name: 'withLink',
+      label: 'With link',
       type: types.SideEditPropType.Boolean,
     },
     {
-      name: "linkPath",
-      label: "Link to",
+      name: 'linkPath',
+      label: 'Link to',
       type: types.SideEditPropType.Text,
       show: ({ withLink }) => !!withLink,
     },
   ],
-};
+}
 
-export default FeatureItem;
+export default FeatureItem

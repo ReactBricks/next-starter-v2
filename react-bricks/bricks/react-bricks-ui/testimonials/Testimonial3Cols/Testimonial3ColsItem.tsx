@@ -1,19 +1,19 @@
-import * as React from "react";
-import { Image, Plain, Text, types } from "react-bricks/frontend";
+import * as React from 'react'
+import { Image, Plain, Text, types } from 'react-bricks/frontend'
 
 import {
   backgroundColorsEditProps,
   sectionBordersEditProps,
-} from "../../LayoutSideProps";
-import { avatars } from "../../shared/defaultImages";
-import blockNames from "../../blockNames";
-import { textColors } from "../../colors";
+} from '../../LayoutSideProps'
+import { avatars } from '../../shared/defaultImages'
+import blockNames from '../../blockNames'
+import { textColors } from '../../colors'
 
 export interface TestimonialProps {
-  authorName: any;
-  authorJobTitle: any;
-  avatarImage: types.IImageSource;
-  logoImage: types.IImageSource;
+  authorName: any
+  authorJobTitle: any
+  avatarImage: types.IImageSource
+  logoImage: types.IImageSource
 }
 
 const Testimonial3ColsItem: types.Brick<TestimonialProps> = ({
@@ -29,7 +29,7 @@ const Testimonial3ColsItem: types.Brick<TestimonialProps> = ({
         )}
         placeholder="Quote..."
         renderPlaceholder={(props) => {
-          return <span>{props.children}</span>;
+          return <span>{props.children}</span>
         }}
         propName="quote"
       />
@@ -63,20 +63,20 @@ const Testimonial3ColsItem: types.Brick<TestimonialProps> = ({
         </div>
       </cite>
     </div>
-  );
-};
+  )
+}
 
 Testimonial3ColsItem.schema = {
   name: blockNames.Testimonial3ColsItem,
-  label: "Single Testimonial",
-  category: "testimonials",
+  label: 'Single Testimonial',
+  category: 'testimonials',
   hideFromAddMenu: true,
   getDefaultProps: () => ({
     quote: "I'm smart enough to know that I'm dumb.",
-    authorName: "Richard Feynman",
-    authorJobTitle: "Theoretical physicist",
+    authorName: 'Richard Feynman',
+    authorJobTitle: 'Theoretical physicist',
     avatarImage: avatars.PLACEHOLDER1,
   }),
-};
+}
 
-export default Testimonial3ColsItem;
+export default Testimonial3ColsItem

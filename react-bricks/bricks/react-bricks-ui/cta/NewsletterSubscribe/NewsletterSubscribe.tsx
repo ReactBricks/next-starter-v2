@@ -1,71 +1,71 @@
-import jsonp from "jsonp";
-import { validate } from "email-validator";
-import React from "react";
-import { types } from "react-bricks/frontend";
-import { RichText, Text } from "react-bricks/frontend";
-import blockNames from "../../blockNames";
+import jsonp from 'jsonp'
+import { validate } from 'email-validator'
+import React from 'react'
+import { types } from 'react-bricks/frontend'
+import { RichText, Text } from 'react-bricks/frontend'
+import blockNames from '../../blockNames'
 
 import {
   containerSizeEditProps,
   LayoutProps,
   neutralBackgroundColorsEditProps,
   sectionDefaults,
-} from "../../LayoutSideProps";
-import Section from "../..//shared/components/Section";
-import Container from "../../shared/components/Container";
-import classNames from "classnames";
-import { textColors } from "../../colors";
+} from '../../LayoutSideProps'
+import Section from '../../shared/components/Section'
+import Container from '../../shared/components/Container'
+import classNames from 'classnames'
+import { textColors } from '../../colors'
 enum NewsletterProvider {
-  MailChimp = "MAILCHIMP",
-  ConvertKit = "CONVERTKIT",
+  MailChimp = 'MAILCHIMP',
+  ConvertKit = 'CONVERTKIT',
 }
 
 export interface NewsletterProps extends LayoutProps {
-  provider: NewsletterProvider;
-  mailchimpUrl: string;
-  buttonText: string;
-  resultOkText: string;
+  provider: NewsletterProvider
+  mailchimpUrl: string
+  buttonText: string
+  resultOkText: string
 }
 
 interface IStatus {
-  status: string;
-  message: string;
+  status: string
+  message: string
 }
 
 const Newsletter: types.Brick<NewsletterProps> = ({
   backgroundColor,
-  width = "small",
+  width = 'small',
   provider,
   mailchimpUrl,
   resultOkText = `Thanks,you're all signed up!`,
 }) => {
-  const [email, setEmail] = React.useState("");
+  const [email, setEmail] = React.useState('')
   const [status, setStatus] = React.useState<IStatus>({
-    status: "IDLE",
-    message: "",
-  });
+    status: 'IDLE',
+    message: '',
+  })
   const sendData = (url: string) => {
-    setStatus({ status: "SENDING", message: "" });
-    jsonp(url, { param: "c", timeout: 3500 }, (err: any, data: any) => {
+    setStatus({ status: 'SENDING', message: '' })
+    jsonp(url, { param: 'c', timeout: 3500 }, (err: any, data: any) => {
       if (err) {
         setStatus({
-          status: "ERROR",
-          message: "An error occurred. Please, try again.",
-        });
-      } else if (data.msg.includes("already subscribed")) {
-        setStatus({ status: "ERROR", message: "You were already subscribed" });
-      } else if (data.result !== "success") {
+          status: 'ERROR',
+          message: 'An error occurred. Please, try again.',
+        })
+      } else if (data.msg.includes('already subscribed')) {
+        setStatus({ status: 'ERROR', message: 'You were already subscribed' })
+      } else if (data.result !== 'success') {
         setStatus({
-          status: "ERROR",
-          message: "An error occurred. Please, try again.",
-        });
+          status: 'ERROR',
+          message: 'An error occurred. Please, try again.',
+        })
       } else {
-        setStatus({ status: "SUCCESS", message: "" });
+        setStatus({ status: 'SUCCESS', message: '' })
       }
-    });
-  };
+    })
+  }
   const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
+    event.preventDefault()
     /*
     if (provider !== NewsletterProvider.MailChimp) {
       setStatus({
@@ -75,33 +75,33 @@ const Newsletter: types.Brick<NewsletterProps> = ({
       return
     }
     */
-    const isEmailValid = validate(email);
+    const isEmailValid = validate(email)
 
     if (!isEmailValid) {
       setStatus({
-        status: "ERROR",
-        message: "Please, enter a valid email address",
-      });
-      return;
+        status: 'ERROR',
+        message: 'Please, enter a valid email address',
+      })
+      return
     }
 
     if (
       !mailchimpUrl ||
       mailchimpUrl.length < 10 ||
-      mailchimpUrl.indexOf("post") === -1
+      mailchimpUrl.indexOf('post') === -1
     ) {
       setStatus({
-        status: "ERROR",
-        message: "Invalid Mailchimp URL",
-      });
-      return;
+        status: 'ERROR',
+        message: 'Invalid Mailchimp URL',
+      })
+      return
     }
 
-    const emailEncoded = encodeURIComponent(email);
-    const endpoint = mailchimpUrl.replace(/\/post/g, "/post-json");
-    const url = `${endpoint}?EMAIL=${emailEncoded}`;
-    sendData(url);
-  };
+    const emailEncoded = encodeURIComponent(email)
+    const endpoint = mailchimpUrl.replace(/\/post/g, '/post-json')
+    const url = `${endpoint}?EMAIL=${emailEncoded}`
+    sendData(url)
+  }
 
   return (
     <Section backgroundColor={backgroundColor}>
@@ -110,7 +110,7 @@ const Newsletter: types.Brick<NewsletterProps> = ({
           className="p-[30px] rounded-[5px] bg-white dark:bg-white/10 dark:border dark:border-white/30"
           style={{
             boxShadow:
-              "rgb(0 0 0 / 10%) 0px 1px 3px 0px, rgb(0 0 0 / 5%) 0px 5px 15px 0px",
+              'rgb(0 0 0 / 10%) 0px 1px 3px 0px, rgb(0 0 0 / 5%) 0px 5px 15px 0px',
           }}
         >
           <div>
@@ -118,7 +118,7 @@ const Newsletter: types.Brick<NewsletterProps> = ({
               renderBlock={(props) => (
                 <h3
                   className={classNames(
-                    "mb-1 font-bold leading-5",
+                    'mb-1 font-bold leading-5',
                     textColors.GRAY_800
                   )}
                   {...props.attributes}
@@ -143,7 +143,7 @@ const Newsletter: types.Brick<NewsletterProps> = ({
             />
           </div>
           <div className="block items-center mt-3 sm:flex">
-            {(status.status === "IDLE" || status.status == "ERROR") && (
+            {(status.status === 'IDLE' || status.status == 'ERROR') && (
               <form className="mr-5 sm:mb-0 mb-3 flex" onSubmit={handleSubmit}>
                 <div className="relative sm:w-full w-[200px]">
                   <svg
@@ -187,7 +187,7 @@ const Newsletter: types.Brick<NewsletterProps> = ({
               </form>
             )}
 
-            {status.status === "SUCCESS" && (
+            {status.status === 'SUCCESS' && (
               <div className="p-2.5 mr-5 text-sm text-center font-bold bg-green-200 rounded-[5px] min-w-[270px]">
                 👍
                 {resultOkText}
@@ -206,48 +206,48 @@ const Newsletter: types.Brick<NewsletterProps> = ({
               />
             </div>
           </div>
-          {status.status === "ERROR" && (
-            <div className="mt-4" style={{ color: "#c00" }}>
+          {status.status === 'ERROR' && (
+            <div className="mt-4" style={{ color: '#c00' }}>
               {status.message}
             </div>
           )}
         </div>
       </Container>
     </Section>
-  );
-};
+  )
+}
 
 Newsletter.schema = {
   name: blockNames.NewsletterSubscribe,
-  label: "Newsletter subscribe",
-  category: "call to action",
+  label: 'Newsletter subscribe',
+  category: 'call to action',
   hideFromAddMenu: false,
   getDefaultProps: () => ({
     ...sectionDefaults,
-    width: "small",
-    title: "Join our newsletter",
-    text: "Never miss our release and new blog articles.",
-    text2: "6,500 developers and counting",
-    buttonText: "Join",
+    width: 'small',
+    title: 'Join our newsletter',
+    text: 'Never miss our release and new blog articles.',
+    text2: '6,500 developers and counting',
+    buttonText: 'Join',
   }),
   sideEditProps: [
     {
-      groupName: "Newsletter",
+      groupName: 'Newsletter',
       defaultOpen: true,
       props: [
         neutralBackgroundColorsEditProps,
         containerSizeEditProps,
         {
-          name: "mailchimpUrl",
-          label: "Mailchimp Form URL",
+          name: 'mailchimpUrl',
+          label: 'Mailchimp Form URL',
           type: types.SideEditPropType.Text,
           validate: (value) =>
-            value && value.length > 10 && value.indexOf("https://") !== -1,
+            value && value.length > 10 && value.indexOf('https://') !== -1,
           //&& value.indexOf('list-manage.com/subscribe/post?') !== -1,
         },
       ],
     },
   ],
-};
+}
 
-export default Newsletter;
+export default Newsletter
