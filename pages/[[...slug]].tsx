@@ -78,12 +78,22 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const { slug } = context.params
 
+  let cleanSlug = ""
+
+  if (!slug) {
+    cleanSlug = "/"
+  } else if (typeof slug === "string") {
+    cleanSlug = slug
+  } else {
+    cleanSlug = slug.join("/")
+  }
+
   let errorPage: boolean = false
   let errorHeader: boolean = false
   let errorFooter: boolean = false
 
   const [page, header, footer] = await Promise.all([
-    fetchPage(slug.toString(), config.apiKey, context.locale).catch(() => {
+    fetchPage(cleanSlug, config.apiKey, context.locale).catch(() => {
       errorPage = true
       return {}
     }),
@@ -125,7 +135,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
         )
         .map((translation) => ({
           params: {
-            slug: [translation.slug],
+            slug: [...translation.slug.split("/")],
           },
           locale: translation.language,
         }))
