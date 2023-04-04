@@ -85,11 +85,7 @@ const Newsletter: types.Brick<NewsletterProps> = ({
       return
     }
 
-    if (
-      !mailchimpUrl ||
-      mailchimpUrl.length < 10 ||
-      mailchimpUrl.indexOf('post') === -1
-    ) {
+    if (!mailchimpUrl || mailchimpUrl.length < 10 || mailchimpUrl.indexOf('post') === -1) {
       setStatus({
         status: 'ERROR',
         message: 'Invalid Mailchimp URL',
@@ -109,18 +105,14 @@ const Newsletter: types.Brick<NewsletterProps> = ({
         <div
           className="p-[30px] rounded-[5px] bg-white dark:bg-white/10 dark:border dark:border-white/30"
           style={{
-            boxShadow:
-              'rgb(0 0 0 / 10%) 0px 1px 3px 0px, rgb(0 0 0 / 5%) 0px 5px 15px 0px',
+            boxShadow: 'rgb(0 0 0 / 10%) 0px 1px 3px 0px, rgb(0 0 0 / 5%) 0px 5px 15px 0px',
           }}
         >
           <div>
             <Text
               renderBlock={(props) => (
                 <h3
-                  className={classNames(
-                    'mb-1 font-bold leading-5',
-                    textColors.GRAY_800
-                  )}
+                  className={classNames('mb-1 font-bold leading-5', textColors.GRAY_800)}
                   {...props.attributes}
                 >
                   {props.children}
@@ -133,10 +125,7 @@ const Newsletter: types.Brick<NewsletterProps> = ({
               propName="text"
               placeholder="Type a text..."
               renderBlock={(props) => (
-                <span
-                  className="text-sm leading-6 dark:text-gray-300"
-                  {...props.attributes}
-                >
+                <span className="text-sm leading-6 dark:text-gray-300" {...props.attributes}>
                   {props.children}
                 </span>
               )}
@@ -175,10 +164,7 @@ const Newsletter: types.Brick<NewsletterProps> = ({
                     propName="buttonText"
                     placeholder="Action"
                     renderBlock={(props) => (
-                      <span
-                        className="text-center dark:text-white"
-                        {...props.attributes}
-                      >
+                      <span className="text-center dark:text-white" {...props.attributes}>
                         {props.children}
                       </span>
                     )}
@@ -222,6 +208,8 @@ Newsletter.schema = {
   label: 'Newsletter subscribe',
   category: 'call to action',
   hideFromAddMenu: false,
+  previewImageUrl:
+    'https://images.reactbricks.com/original/f5b6dc9e-6d18-4f57-97ec-1652b883794b.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',
@@ -229,6 +217,9 @@ Newsletter.schema = {
     text: 'Never miss our release and new blog articles.',
     text2: '6,500 developers and counting',
     buttonText: 'Join',
+    mailchimpUrl: '',
+    provider: NewsletterProvider.MailChimp,
+    resultOkText: '',
   }),
   sideEditProps: [
     {
@@ -241,8 +232,7 @@ Newsletter.schema = {
           name: 'mailchimpUrl',
           label: 'Mailchimp Form URL',
           type: types.SideEditPropType.Text,
-          validate: (value) =>
-            value && value.length > 10 && value.indexOf('https://') !== -1,
+          validate: (value) => value && value.length > 10 && value.indexOf('https://') !== -1,
           //&& value.indexOf('list-manage.com/subscribe/post?') !== -1,
         },
       ],

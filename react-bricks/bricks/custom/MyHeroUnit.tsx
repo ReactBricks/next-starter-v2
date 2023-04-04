@@ -68,6 +68,8 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
 MyHeroUnit.schema = {
   name: 'my-hero-unit',
   label: 'Custom Hero Unit',
+  previewImageUrl:
+    'https://images.reactbricks.com/original/6da8f61b-92bd-401f-be9e-7fa345452dda.png',
   getDefaultProps: () => ({
     padding: 'big',
     title: 'This is a custom Hero Unit',

@@ -22,11 +22,7 @@ const Faq: types.Brick<FaqProps> = ({
   width,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
       <Container
         size={width}
         paddingTop={paddingTop}
@@ -47,7 +43,8 @@ Faq.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faq/Faq.tsx',
-
+  previewImageUrl:
+    'https://images.reactbricks.com/original/09ac2389-db27-4527-bff3-932c5868a1d3.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     borderTop: 'full',
@@ -67,11 +64,7 @@ Faq.schema = {
       itemLabel: 'Question',
     },
   ],
-  sideEditProps: [
-    neutralBackgroundSideGroup,
-    paddingBordersSideGroup,
-    containerWidthSideGroup,
-  ],
+  sideEditProps: [neutralBackgroundSideGroup, paddingBordersSideGroup, containerWidthSideGroup],
 }
 
 export default Faq

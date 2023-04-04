@@ -29,16 +29,8 @@ const LinkCards: types.Brick<LinkCardsProps> = ({
   bigCenteredTitle,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
-      <Container
-        size="medium"
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-      >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+      <Container size="medium" paddingTop={paddingTop} paddingBottom={paddingBottom}>
         {withTitle && (
           <TitleSubtitle
             className={classNames(bigCenteredTitle ? 'mb-12' : 'mb-8')}
@@ -60,14 +52,14 @@ LinkCards.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/Features.tsx',
-
+  previewImageUrl:
+    'https://images.reactbricks.com/original/c8db870c-955d-491b-aaf4-7e16c8c258c3.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     withTitle: true,
     bigCenteredTitle: true,
     title: 'Why you will love React Bricks',
-    subtitle:
-      'We created React Bricks as a "one stop shop" to make everybody happy.',
+    subtitle: 'We created React Bricks as a "one stop shop" to make everybody happy.',
     cards: [
       {
         title: 'Visual editing',

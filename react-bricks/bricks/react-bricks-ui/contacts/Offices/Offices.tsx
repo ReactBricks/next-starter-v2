@@ -28,16 +28,8 @@ const Offices: types.Brick<OfficesProps> = ({
   bigCenteredTitle,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
-      <Container
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-        size={width}
-      >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+      <Container paddingTop={paddingTop} paddingBottom={paddingBottom} size={width}>
         {withTitle && (
           <TitleSubtitle
             bigCentered={bigCenteredTitle}
@@ -58,13 +50,14 @@ Offices.schema = {
   category: 'contact',
   playgroundLinkLabel: '',
   playgroundLinkUrl: '',
+  previewImageUrl:
+    'https://images.reactbricks.com/original/bceca329-51bb-4daa-a7e7-9d7ff5cf263e.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     withTitle: true,
     bigCenteredTitle: false,
     title: 'Our offices',
-    subtitle:
-      'We have offices in the US and in Europe. Call on us for a coffee ☕️',
+    subtitle: 'We have offices in the US and in Europe. Call on us for a coffee ☕️',
     offices: [
       {
         city: 'San Francisco',

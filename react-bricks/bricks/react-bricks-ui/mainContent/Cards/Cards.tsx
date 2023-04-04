@@ -67,6 +67,7 @@ Cards.schema = {
   label: 'Cards',
   category: 'main content',
   tags: ['cards', 'thumbnails', 'features'],
+  previewImageUrl: 'https://images.reactbricks.com/original/797f4f7e-f749-4c88-bfea-b2d1da13758a.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     withTitle: true,

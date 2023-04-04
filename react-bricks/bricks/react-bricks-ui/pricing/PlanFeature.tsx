@@ -11,25 +11,17 @@ interface PlanFeatureProps {
   pricingColor: PricingColorValue
 }
 
-const PlanFeature: types.Brick<PlanFeatureProps> = ({
-  withTag,
-  featureText,
-  pricingColor,
-}) => {
+const PlanFeature: types.Brick<PlanFeatureProps> = ({ withTag, featureText, pricingColor }) => {
   const featureTextContent =
     typeof featureText === 'string' ? featureText : Plain.serialize(featureText)
 
   return (
-    <div
-      className={classNames(
-        featureTextContent === '' ? 'block w-full' : 'flex items-center'
-      )}
-    >
+    <div className={classNames(featureTextContent === '' ? 'block w-full' : 'flex items-center')}>
       {featureTextContent === '' ? null : (
         <svg
           stroke="currentColor"
           fill="currentColor"
-          stroke-width="0"
+          strokeWidth="0"
           viewBox="0 0 512 512"
           className=" text-lg text-lime-500 mr-2"
           height="1em"

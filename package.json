@@ -10,11 +10,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "email-validator": "^2.0.4",
+    "jsonp": "^0.2.1",
     "next": "^13.2.4",
+    "pigeon-maps": "^0.21.3",
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
-    "react-bricks": "^3.8.10",
+    "react-bricks": "^3.9.0-beta.3",
     "react-dom": "^18.2.0",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",

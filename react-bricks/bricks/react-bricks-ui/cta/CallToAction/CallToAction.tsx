@@ -22,18 +22,12 @@ const CallToAction: types.Brick<CallToActionProps> = ({
   paddingBottom,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
       <Container
         size="small"
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
-        className={classNames(
-          'flex flex-col sm:flex-row items-center text-center sm:text-left'
-        )}
+        className={classNames('flex flex-col sm:flex-row items-center text-center sm:text-left')}
       >
         <div className="flex-1 sm:pr-14 mb-4 sm:mb-0">
           <Text
@@ -66,6 +60,8 @@ CallToAction.schema = {
   playgroundLinkLabel: 'View source code on Github',
   category: 'call to action',
   tags: ['cta', 'call to action'],
+  previewImageUrl:
+    'https://images.reactbricks.com/original/650de970-048f-46b2-89ce-2d385d43a9e1.png',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx',
 

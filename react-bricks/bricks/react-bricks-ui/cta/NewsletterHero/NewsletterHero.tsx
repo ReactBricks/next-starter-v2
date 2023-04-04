@@ -1,12 +1,6 @@
 import classNames from 'classnames'
 import * as React from 'react'
-import {
-  Link,
-  RichText,
-  Text,
-  types,
-  useAdminContext,
-} from 'react-bricks/frontend'
+import { Link, RichText, Text, types, useAdminContext } from 'react-bricks/frontend'
 import {
   backgroundColorsEditProps,
   LayoutProps,
@@ -33,28 +27,17 @@ const CallToAction: types.Brick<CallToActionProps> = ({
 }) => {
   const { isAdmin } = useAdminContext()
   const titleStyle =
-    textGradient !== gradients.NONE.value
-      ? { WebkitTextFillColor: 'transparent' }
-      : {}
+    textGradient !== gradients.NONE.value ? { WebkitTextFillColor: 'transparent' } : {}
 
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
       <Container
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
-        className={classNames(
-          'flex flex-col lg:flex-row lg:gap-20 items-start text-left'
-        )}
+        className={classNames('flex flex-col lg:flex-row lg:gap-20 items-start text-left')}
       >
         <div className="flex-1 lg:pr-14 mb-4 lg:mb-0">
-          <div
-            className={classNames('mb-4', gradients[textGradient].className)}
-            style={titleStyle}
-          >
+          <div className={classNames('mb-4', gradients[textGradient].className)} style={titleStyle}>
             <Text
               propName="title"
               renderBlock={(props) => (
@@ -74,10 +57,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
           <RichText
             propName="description"
             renderBlock={(props) => (
-              <p
-                className={classNames('text-sm', textColors.GRAY_700)}
-                {...props.attributes}
-              >
+              <p className={classNames('text-sm', textColors.GRAY_700)} {...props.attributes}>
                 {props.children}
               </p>
             )}
@@ -130,9 +110,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
                 <Text
                   propName="buttonText"
                   placeholder="Action..."
-                  renderBlock={({ children }) => (
-                    <span className="text-center">{children}</span>
-                  )}
+                  renderBlock={({ children }) => <span className="text-center">{children}</span>}
                 />
               </button>
             </form>
@@ -141,10 +119,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
                 propName="privacy"
                 renderBlock={(props) => (
                   <span
-                    className={classNames(
-                      'text-xs leading-relaxed',
-                      textColors.GRAY_500
-                    )}
+                    className={classNames('text-xs leading-relaxed', textColors.GRAY_500)}
                     {...props.attributes}
                   >
                     {props.children}
@@ -172,6 +147,8 @@ CallToAction.schema = {
   playgroundLinkLabel: 'View source code on Github',
   category: 'call to action',
   tags: ['newsletter', 'subscribe', 'hero'],
+  previewImageUrl:
+    'https://images.reactbricks.com/original/2b27ed3d-786c-4c53-9d63-1242e91f95e5.png',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx',
 

@@ -1,12 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 import { Repeater, types, Text, Link, Plain } from 'react-bricks/frontend'
-import {
-  FcAdvance,
-  FcDepartment,
-  FcPhone,
-  FcVoicePresentation,
-} from 'react-icons/fc'
+import { FcAdvance, FcDepartment, FcPhone, FcVoicePresentation } from 'react-icons/fc'
 import blockNames from '../../blockNames'
 import { buttonColors, textColors } from '../../colors'
 import {
@@ -34,11 +29,7 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
   email,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
       <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="pb-12 lg:pb-20 sm:text-left lg:px-8 px-5">
@@ -57,10 +48,7 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
                     placeholder="address..."
                     multiline={true}
                     renderBlock={(props) => (
-                      <span
-                        className="block min-w-[70px]"
-                        {...props.attributes}
-                      >
+                      <span className="block min-w-[70px]" {...props.attributes}>
                         {props.children}
                       </span>
                     )}
@@ -87,9 +75,7 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
               <li>
                 <Link
                   className="flex gap-x-4 text-sky-500 hover:text-sky-600 hover:-translate-y-px transition-all ease-out duration-150"
-                  href={`mailto:${
-                    typeof email === 'string' ? email : Plain.serialize(email)
-                  }`}
+                  href={`mailto:${typeof email === 'string' ? email : Plain.serialize(email)}`}
                 >
                   <FcVoicePresentation size={'28px'} />
                   <Text
@@ -114,6 +100,8 @@ ContactsForm.schema = {
   name: 'ContactsForm',
   label: 'Contacts with Form',
   category: 'contact',
+  previewImageUrl:
+    'https://images.reactbricks.com/original/68564785-516d-4903-a83b-527262262107.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     address: '4556 Brendan Ferry\nLos Angeles, CA 90210',

@@ -10,12 +10,7 @@ import {
   textGradientEditProps,
 } from '../../LayoutSideProps'
 import blockNames from '../../blockNames'
-import {
-  buttonColors,
-  gradients,
-  highlightTextColors,
-  textColors,
-} from '../../colors'
+import { buttonColors, gradients, highlightTextColors, textColors } from '../../colors'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 
@@ -38,9 +33,7 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
   const titleColor = textColors.GRAY_800
   const textColor = textColors.GRAY_700
   const titleStyle =
-    textGradient !== gradients.NONE.value
-      ? { WebkitTextFillColor: 'transparent' }
-      : {}
+    textGradient !== gradients.NONE.value ? { WebkitTextFillColor: 'transparent' } : {}
 
   return (
     <Section
@@ -62,10 +55,7 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
             </div>
 
             <div
-              className={classNames(
-                titleColor,
-                gradients[textGradient]?.className
-              )}
+              className={classNames(titleColor, gradients[textGradient]?.className)}
               style={titleStyle}
             >
               <RichText
@@ -84,9 +74,7 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
                 placeholder="Type a title..."
                 propName="title"
                 renderHighlight={({ children }) => (
-                  <span className={highlightTextColor.className}>
-                    {children}
-                  </span>
+                  <span className={highlightTextColor.className}>{children}</span>
                 )}
               />
             </div>
@@ -131,6 +119,8 @@ HeroUnit2.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Hero%20Unit/HeroUnit.tsx',
+  previewImageUrl:
+    'https://images.reactbricks.com/original/93c4e92d-adbf-43a3-ad71-72f13580ff75.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     paddingTop: '20',

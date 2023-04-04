@@ -22,16 +22,8 @@ const Pricing: types.Brick<PricingProps> = ({
   paddingBottom,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
-      <Container
-        size="medium"
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-      >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+      <Container size="medium" paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <div className={`flex flex-wrap justify-center`}>
           <Repeater propName="plans" />
         </div>
@@ -45,6 +37,8 @@ Pricing.schema = {
   label: 'Pricing',
   category: 'pricing',
   tags: ['pricing', 'plans', 'price'],
+  previewImageUrl:
+    'https://images.reactbricks.com/original/f69eae06-071d-4ad7-801f-e55f24a7e491.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     plans: [

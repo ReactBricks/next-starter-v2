@@ -27,20 +27,12 @@ const Customers: types.Brick<CustomersProps> = ({
   customers,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
       <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <div
-          className={classNames(
-            'flex flex-wrap justify-center items-center -mx-4 md:-mx-5 -my-4',
-            {
-              'md:justify-between':
-                customers.length >= 4 && customers.length <= 5,
-            }
-          )}
+          className={classNames('flex flex-wrap justify-center items-center -mx-4 md:-mx-5 -my-4', {
+            'md:justify-between': customers.length >= 4 && customers.length <= 5,
+          })}
         >
           <Repeater propName="customers" itemProps={{ grayscale }} />
         </div>
@@ -57,7 +49,8 @@ Customers.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/Customers.tsx',
-
+  previewImageUrl:
+    'https://images.reactbricks.com/original/2ebcdf1d-89a5-4a6c-b36d-c561f864437d.png',
   getDefaultProps: () => ({
     backgroundColor: bgColors.WHITE.value,
     paddingTop: '12',

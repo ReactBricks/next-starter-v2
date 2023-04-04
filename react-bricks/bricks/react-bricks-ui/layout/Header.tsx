@@ -3,19 +3,12 @@ import { Image, Repeater, types, Link } from 'react-bricks/frontend'
 import { FiMenu, FiX } from 'react-icons/fi'
 import blockNames from '../blockNames'
 import { bgColors, buttonColors } from '../colors'
-import {
-  backgroundColorsEditProps,
-  borderBottomEditProp,
-  LayoutProps,
-} from '../LayoutSideProps'
+import { backgroundColorsEditProps, borderBottomEditProp, LayoutProps } from '../LayoutSideProps'
 import Section from '../shared/components/Section'
 
 interface HeaderProps extends LayoutProps {}
 
-const Header: types.Brick<HeaderProps> = ({
-  backgroundColor,
-  borderBottom,
-}) => {
+const Header: types.Brick<HeaderProps> = ({ backgroundColor, borderBottom }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -25,11 +18,7 @@ const Header: types.Brick<HeaderProps> = ({
       borderBottom={borderBottom ? 'full' : 'none'}
     >
       <nav className="py-5 px-5 sm:mx-[5.55555%] xl:mx-[11.1111%] flex justify-start items-center">
-        <Link
-          href="/"
-          aria-label="home"
-          className="inline-flex py-1.5 px-2 mr-6"
-        >
+        <Link href="/" aria-label="home" className="inline-flex py-1.5 px-2 mr-6">
           <Image
             propName="logo"
             alt="Logo"
@@ -44,9 +33,7 @@ const Header: types.Brick<HeaderProps> = ({
           <Repeater
             propName="buttons"
             renderWrapper={(items) => (
-              <div className="flex flex-row space-x-5 items-center justify-end">
-                {items}
-              </div>
+              <div className="flex flex-row space-x-5 items-center justify-end">{items}</div>
             )}
           />
         </div>
@@ -73,6 +60,8 @@ Header.schema = {
   label: 'Header',
   category: 'layout',
   tags: ['header', 'menu'],
+  previewImageUrl:
+    'https://images.reactbricks.com/original/358f0a77-15ed-48cb-a274-0ecc3a007fa8.png',
   repeaterItems: [
     {
       name: 'menuItems',
@@ -114,8 +103,7 @@ Header.schema = {
         submenuItems: [
           {
             linkText: 'Visual editing',
-            linkDescription:
-              'The best visual experience for your content editors',
+            linkDescription: 'The best visual experience for your content editors',
             linkPath: '/',
           },
         ],

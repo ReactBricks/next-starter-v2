@@ -10,12 +10,7 @@ import {
   paddingBordersSideGroup,
 } from '../../LayoutSideProps'
 import blockNames from '../../blockNames'
-import {
-  buttonColors,
-  gradients,
-  highlightTextColors,
-  textColors,
-} from '../../colors'
+import { buttonColors, gradients, highlightTextColors, textColors } from '../../colors'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 
@@ -40,9 +35,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
   const titleColor = textColors.GRAY_800
   const textColor = textColors.GRAY_700
   const titleStyle =
-    textGradient !== gradients.NONE.value
-      ? { WebkitTextFillColor: 'transparent' }
-      : {}
+    textGradient !== gradients.NONE.value ? { WebkitTextFillColor: 'transparent' } : {}
 
   return (
     <Section
@@ -60,10 +53,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
           />
 
           <div
-            className={classNames(
-              titleColor,
-              gradients[textGradient]?.className
-            )}
+            className={classNames(titleColor, gradients[textGradient]?.className)}
             style={titleStyle}
           >
             <RichText
@@ -102,10 +92,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
             )}
             placeholder="Type a text..."
             propName="text"
-            allowedFeatures={[
-              types.RichTextFeatures.Bold,
-              types.RichTextFeatures.Link,
-            ]}
+            allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Link]}
           />
           <Repeater
             propName="buttons"
@@ -129,6 +116,8 @@ HeroUnit.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Hero%20Unit/HeroUnit.tsx',
+  previewImageUrl:
+    'https://images.reactbricks.com/original/9a0f94dc-f982-4ba1-b581-dc38423bf875.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     size: 'large',

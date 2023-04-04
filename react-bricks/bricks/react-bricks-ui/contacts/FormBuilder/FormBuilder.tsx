@@ -75,6 +75,7 @@ FormBuilder.schema = {
   name: blockNames.FormBuilder,
   label: 'Form',
   category: 'contact',
+  previewImageUrl: 'https://images.reactbricks.com/original/43fbc2f0-8bf1-4e8f-8cdd-847511071cca.png',
   repeaterItems: [
     {
       name: 'form-elements',

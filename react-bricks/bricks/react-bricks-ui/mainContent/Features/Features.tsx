@@ -28,11 +28,7 @@ const Features: types.Brick<FeaturesProps> = ({
   borderBottom,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
       <Container
         size={colsNumber === '2' ? 'small' : 'medium'}
         paddingTop={paddingTop}
@@ -52,7 +48,8 @@ Features.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/Features.tsx',
-
+  previewImageUrl:
+    'https://images.reactbricks.com/original/28a32610-c1de-4fa7-833b-7465abf99f79.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     paddingBottom: 'none',

@@ -57,12 +57,7 @@ export const neutralBackgroundColorsEditProps: types.ISideEditProp = {
   type: types.SideEditPropType.Select,
   selectOptions: {
     display: types.OptionsDisplay.Color,
-    options: [
-      bgColors.WHITE,
-      bgColors.LIGHT_GRAY,
-      bgColors.GRAY,
-      bgColors.DARK_GRAY,
-    ],
+    options: [bgColors.WHITE, bgColors.LIGHT_GRAY, bgColors.GRAY, bgColors.DARK_GRAY],
   },
 }
 
@@ -155,7 +150,15 @@ export const sectionBordersEditProps: types.ISideEditProp[] = [
   borderBottomEditProp,
 ]
 
-export const sectionDefaults = {
+interface SectionDefaults {
+  backgroundColor: { color: string; className: string }
+  paddingTop: Padding
+  paddingBottom: Padding
+  borderTop: Border
+  borderBottom: Border
+}
+
+export const sectionDefaults: SectionDefaults = {
   backgroundColor: bgColors.WHITE.value,
   paddingTop: '16',
   paddingBottom: '16',

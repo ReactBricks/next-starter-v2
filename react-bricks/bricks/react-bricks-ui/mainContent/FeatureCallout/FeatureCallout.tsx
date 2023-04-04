@@ -25,35 +25,22 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
   paddingBottom,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
       <Container
         size="small"
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
-        className={classNames(
-          'flex flex-col sm:flex-row items-center text-center sm:text-left'
-        )}
+        className={classNames('flex flex-col sm:flex-row items-center text-center sm:text-left')}
       >
         <div className="sm:mr-10 mb-4 sm:mb-0">
-          <Image
-            propName="image"
-            alt="image"
-            imageClassName="w-36 h-36 object-contain"
-          />
+          <Image propName="image" alt="image" imageClassName="w-36 h-36 object-contain" />
         </div>
         <div className="flex-1">
           <Text
             propName="title"
             renderBlock={(props) => (
               <div
-                className={classNames(
-                  'font-extrabold text-xl leading-6 mb-1',
-                  textColors.GRAY_900
-                )}
+                className={classNames('font-extrabold text-xl leading-6 mb-1', textColors.GRAY_900)}
                 {...props.attributes}
               >
                 {props.children}
@@ -64,10 +51,7 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
           <RichText
             propName="text"
             renderBlock={(props) => (
-              <span
-                className={classNames('leading-6', textColors.GRAY_700)}
-                {...props.attributes}
-              >
+              <span className={classNames('leading-6', textColors.GRAY_700)} {...props.attributes}>
                 {props.children}
               </span>
             )}
@@ -88,7 +72,8 @@ FeatureCallout.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/FeatureCallout/FeatureCallout.tsx',
-
+  previewImageUrl:
+    'https://images.reactbricks.com/original/d21151ef-913d-48fe-b3a3-dd8d35e9c892.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     borderTop: 'boxed',

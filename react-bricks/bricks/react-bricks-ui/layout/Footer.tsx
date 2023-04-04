@@ -26,11 +26,7 @@ const Footer: types.Brick<FooterProps> = ({
 }) => {
   return (
     <footer>
-      <Section
-        backgroundColor={backgroundColor}
-        borderTop={borderTop}
-        borderBottom={borderBottom}
-      >
+      <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
         <Container
           paddingTop={paddingTop}
           paddingBottom={paddingBottom}
@@ -74,7 +70,8 @@ Footer.schema = {
   label: 'Footer',
   category: 'layout',
   tags: ['footer'],
-
+  previewImageUrl:
+    'https://images.reactbricks.com/original/c1fac09b-ff06-4c44-a892-2bd6109da129.png',
   repeaterItems: [
     {
       name: 'columns',
@@ -89,6 +86,7 @@ Footer.schema = {
     backgroundColor: bgColors.LIGHT_GRAY.value,
     borderTop: 'full',
     logo: logos.REACT_BRICKS,
+    siteUrl: '',
     copyright: [
       {
         type: 'paragraph',

@@ -47,16 +47,8 @@ export const MapBrick: types.Brick<MapProps> = ({
     }
   }
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
-      <Container
-        size={width}
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-      >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+      <Container size={width} paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <Map
           center={[parseFloat(lat), parseFloat(lng)]}
           height={350}
@@ -83,7 +75,8 @@ MapBrick.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Map/Map.tsx',
-
+  previewImageUrl:
+    'https://images.reactbricks.com/original/f53571c2-7c29-433e-9962-a351486bc51e.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     lat: 45.6782509,
@@ -119,9 +112,8 @@ MapBrick.schema = {
             if (!MAPTILER_ACCESS_TOKEN) {
               return (
                 <p className="text-sm">
-                  For better maps, please create a MapTiler free account and set
-                  the <code className="text-xs">MAPTILER_ACCESS_TOKEN</code>{' '}
-                  string.
+                  For better maps, please create a MapTiler free account and set the{' '}
+                  <code className="text-xs">MAPTILER_ACCESS_TOKEN</code> string.
                 </p>
               )
             }

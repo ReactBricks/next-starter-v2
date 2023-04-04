@@ -29,24 +29,14 @@ const SmallLogoGrid: types.Brick<SmallLogoGridProps> = ({
   targetBlank,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
-      <Container
-        size={width}
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-      >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+      <Container size={width} paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <Repeater
           propName="badge"
           itemProps={{
             textAlign: 'left',
           }}
-          renderWrapper={(items) => (
-            <div className="mb-6 flex justify-start">{items}</div>
-          )}
+          renderWrapper={(items) => <div className="mb-6 flex justify-start">{items}</div>}
         />
         <div
           className={classNames(
@@ -67,7 +57,8 @@ SmallLogoGrid.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/LogoGrid/LogoGrid.tsx',
-
+  previewImageUrl:
+    'https://images.reactbricks.com/original/c75e9deb-5739-43e2-a987-fe201e52484c.png',
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',
