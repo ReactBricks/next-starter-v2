@@ -14,7 +14,6 @@ import {
 } from '../../LayoutSideProps'
 import { avatars } from '../../shared/defaultImages'
 import TitleSubtitle from '../../shared/components/TitleSubtitle'
-import PreviewImg from '../../../bricks-images/team.png'
 
 export interface TeamProps extends LayoutProps {
   withTitle?: boolean
@@ -58,7 +57,7 @@ Team.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Team/Team.tsx',
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.Team}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',

@@ -16,7 +16,6 @@ import {
   LayoutProps,
 } from "../LayoutSideProps"
 import Section from "../shared/components/Section"
-import PreviewImg from '../../bricks-images/header.png'
 
 interface HeaderProps extends LayoutProps {}
 
@@ -108,7 +107,7 @@ Header.schema = {
   label: "Header",
   category: "layout",
   tags: ["header", "menu"],
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.Header}.png`,
   repeaterItems: [
     {
       name: "menuItems",

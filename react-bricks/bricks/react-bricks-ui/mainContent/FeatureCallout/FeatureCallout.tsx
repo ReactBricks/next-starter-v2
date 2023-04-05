@@ -14,7 +14,6 @@ import {
   sectionDefaults,
 } from '../../LayoutSideProps'
 import { icons } from '../../shared/defaultImages'
-import PreviewImg from '../../../bricks-images/feature-callout.png'
 
 export interface FeatureCalloutProps extends LayoutProps {}
 
@@ -73,7 +72,7 @@ FeatureCallout.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/FeatureCallout/FeatureCallout.tsx',
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.FeatureCallout}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     borderTop: 'boxed',

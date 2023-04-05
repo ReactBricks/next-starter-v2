@@ -12,8 +12,6 @@ import {
   sectionDefaults,
 } from '../../LayoutSideProps'
 
-import PreviewImg from '../../../bricks-images/tweet-light.png'
-
 export interface TweetLightProps extends LayoutProps {
   tweetLink: string
   authorLink: string
@@ -143,7 +141,7 @@ TweetLight.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/TweetLight.tsx',
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.TweetLight}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',

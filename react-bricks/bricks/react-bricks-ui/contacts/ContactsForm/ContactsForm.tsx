@@ -13,7 +13,6 @@ import {
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 import TitleSubtitle from '../../shared/components/TitleSubtitle'
-import PreviewImg from '../../../bricks-images/contacts-with-form.png'
 
 export interface ContactsFormProps extends LayoutProps {
   phoneNumber: string
@@ -101,7 +100,7 @@ ContactsForm.schema = {
   name: 'ContactsForm',
   label: 'Contacts with Form',
   category: 'contact',
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/contacts-with-form.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     address: '4556 Brendan Ferry\nLos Angeles, CA 90210',

@@ -11,7 +11,6 @@ import {
   sectionDefaults,
 } from '../LayoutSideProps'
 import { pricingColors } from '../colors'
-import PreviewImg from '../../bricks-images/pricing.png'
 
 interface PricingProps extends LayoutProps {}
 
@@ -38,7 +37,7 @@ Pricing.schema = {
   label: 'Pricing',
   category: 'pricing',
   tags: ['pricing', 'plans', 'price'],
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.Pricing}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     plans: [

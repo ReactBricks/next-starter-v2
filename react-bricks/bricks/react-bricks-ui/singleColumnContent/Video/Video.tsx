@@ -11,7 +11,6 @@ import {
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 import Video from '../../shared/components/Video'
-import PreviewImg from '../../../bricks-images/video.png'
 
 interface SingleColumnVideoProps extends LayoutProps {
   videoType: 'file' | 'streaming'
@@ -52,7 +51,7 @@ SingleColumnVideo.schema = {
   label: 'Video',
   category: 'single column / blog',
   tags: ['blog', 'video'],
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.Video}.png`,
   // Defaults when a new brick is added
   getDefaultProps: () => ({
     ...sectionDefaults,

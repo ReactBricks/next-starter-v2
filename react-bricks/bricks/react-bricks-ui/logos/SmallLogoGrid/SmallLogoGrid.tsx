@@ -14,7 +14,6 @@ import {
   sectionDefaults,
 } from '../../LayoutSideProps'
 import { iconLogos } from '../../shared/defaultImages'
-import PreviewImg from '../../../bricks-images/small-logo-grid.png'
 
 export interface SmallLogoGridProps extends LayoutProps {
   targetBlank: boolean
@@ -58,7 +57,7 @@ SmallLogoGrid.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/LogoGrid/LogoGrid.tsx',
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.SmallLogoGrid}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',

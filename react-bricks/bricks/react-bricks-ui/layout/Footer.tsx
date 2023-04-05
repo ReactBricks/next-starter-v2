@@ -11,7 +11,6 @@ import {
 import { logos } from '../shared/defaultImages'
 import Container from '../shared/components/Container'
 import Section from '../shared/components/Section'
-import PreviewImg from '../../bricks-images/footer.png'
 
 interface FooterProps extends LayoutProps {
   siteUrl: string
@@ -71,7 +70,7 @@ Footer.schema = {
   label: 'Footer',
   category: 'layout',
   tags: ['footer'],
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.Footer}.png`,
   repeaterItems: [
     {
       name: 'columns',

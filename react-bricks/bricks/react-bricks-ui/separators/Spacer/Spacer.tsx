@@ -4,7 +4,6 @@ import { bgColors } from '../../colors'
 import blockNames from '../../blockNames'
 import Section from '../../shared/components/Section'
 import { backgroundColorsEditProps, LayoutProps } from '../../LayoutSideProps'
-import PreviewImg from '../../../bricks-images/spacer.png'
 
 export interface SpacerProps extends LayoutProps {
   height: number
@@ -51,7 +50,7 @@ Spacer.schema = {
   name: blockNames.Spacer,
   label: 'Spacer',
   category: 'separator',
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.Spacer}.png`,
   getDefaultProps: () => ({
     backgroundColor: bgColors.WHITE.value,
     height: '5',

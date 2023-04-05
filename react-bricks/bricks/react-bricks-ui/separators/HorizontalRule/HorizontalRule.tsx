@@ -10,7 +10,6 @@ import {
   sectionPaddingsEditProps,
 } from '../../LayoutSideProps'
 import { bgColors } from '../../colors'
-import PreviewImg from '../../../bricks-images/hr.png'
 
 interface HorizontalRuleProps extends LayoutProps {}
 
@@ -37,7 +36,7 @@ HorizontalRule.schema = {
   name: blockNames.HorizontalRule,
   label: 'Horizontal Rule',
   category: 'separator',
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.HorizontalRule}.png`,
   getDefaultProps: () => ({
     backgroundColor: bgColors.WHITE.value,
     width: 'medium',

@@ -11,7 +11,6 @@ import {
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 import TitleSubtitle from '../../shared/components/TitleSubtitle'
-import PreviewImg from '../../../bricks-images/offices.png'
 
 export interface OfficesProps extends LayoutProps {
   withTitle: boolean
@@ -51,7 +50,7 @@ Offices.schema = {
   category: 'contact',
   playgroundLinkLabel: '',
   playgroundLinkUrl: '',
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.Offices}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     withTitle: true,

@@ -11,7 +11,6 @@ import blockNames from '../../blockNames'
 import { bgColors } from '../../colors'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
-import PreviewImg from '../../../bricks-images/customers.png'
 
 export interface CustomersProps extends LayoutProps {
   grayscale?: boolean
@@ -50,7 +49,7 @@ Customers.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/Customers.tsx',
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.Customers}.png`,
   getDefaultProps: () => ({
     backgroundColor: bgColors.WHITE.value,
     paddingTop: '12',

@@ -14,7 +14,6 @@ import {
   sectionDefaults,
 } from '../../LayoutSideProps'
 import { logos } from '../../shared/defaultImages'
-import PreviewImg from '../../../bricks-images/logo-grid.png'
 
 export interface LogoGridProps extends LayoutProps {
   targetBlank: boolean
@@ -58,7 +57,7 @@ LogoGrid.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/LogoGrid/LogoGrid.tsx',
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.LogoGrid}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     targetBlank: true,

@@ -12,7 +12,6 @@ import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 import TitleSubtitle from '../../shared/components/TitleSubtitle'
 import { avatars } from '../../shared/defaultImages'
-import PreviewImg from '../../../bricks-images/team-2-columns.png'
 
 interface Team2ColsProps extends LayoutProps {
   withTitle?: boolean
@@ -58,7 +57,7 @@ Team2Cols.schema = {
   label: 'Team 2 columns',
   category: 'team',
   repeaterItems: [{ name: 'members', itemType: blockNames.Team2ColsItem }],
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.Team2Cols}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     withTitle: true,

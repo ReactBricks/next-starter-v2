@@ -12,7 +12,6 @@ import blockNames from '../../blockNames'
 import { textColors } from '../../colors'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
-import PreviewImg from '../../../bricks-images/testimonial.png'
 
 export interface TestimonialProps extends LayoutProps {
   authorName: any
@@ -100,7 +99,7 @@ Testimonial.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Testimonial/Testimonial.tsx',
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.Testimonial}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     borderTop: 'boxed',

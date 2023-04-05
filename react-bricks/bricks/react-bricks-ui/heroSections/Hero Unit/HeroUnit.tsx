@@ -13,7 +13,6 @@ import blockNames from '../../blockNames'
 import { buttonColors, gradients, highlightTextColors, textColors } from '../../colors'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
-import PreviewImg from '../../../bricks-images/centered-hero.png'
 
 export interface HeroUnitProps extends LayoutProps {
   size: 'medium' | 'large'
@@ -117,7 +116,7 @@ HeroUnit.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Hero%20Unit/HeroUnit.tsx',
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.HeroUnit}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     size: 'large',

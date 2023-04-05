@@ -15,7 +15,6 @@ import {
 import classNames from 'classnames'
 import { icons } from '../../shared/defaultImages'
 import TitleSubtitle from '../../shared/components/TitleSubtitle'
-import PreviewImg from '../../../bricks-images/cards.png'
 
 interface CardsProps extends LayoutProps {
   colNumber: string
@@ -68,7 +67,7 @@ Cards.schema = {
   label: 'Cards',
   category: 'main content',
   tags: ['cards', 'thumbnails', 'features'],
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.Cards}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     withTitle: true,

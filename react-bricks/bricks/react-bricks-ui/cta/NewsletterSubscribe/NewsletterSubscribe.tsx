@@ -15,7 +15,6 @@ import Section from '../../shared/components/Section'
 import Container from '../../shared/components/Container'
 import classNames from 'classnames'
 import { textColors } from '../../colors'
-import PreviewImg from '../../../bricks-images/newsletter-subscribe.png'
 
 enum NewsletterProvider {
   MailChimp = 'MAILCHIMP',
@@ -210,7 +209,7 @@ Newsletter.schema = {
   label: 'Newsletter subscribe',
   category: 'call to action',
   hideFromAddMenu: false,
-  previewImageUrl: PreviewImg.src,
+  previewImageUrl: `/bricks-preview-images/${blockNames.NewsletterSubscribe}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',
