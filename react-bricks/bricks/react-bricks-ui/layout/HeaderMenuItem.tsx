@@ -19,7 +19,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
   isActive,
 }) => {
   const [open, setOpen] = useState(false)
-  const ref = useRef<HTMLButtonElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
 
   useOnClickOutside(ref, () => setOpen(false))
 
@@ -49,9 +49,8 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
 
   return (
     <div>
-      <div className="hidden lg:block relative">
+      <div ref={ref} className="hidden lg:block relative">
         <button
-          ref={ref}
           className={classNames(
             'text-gray-600 dark:text-white hover:bg-sky-500/20 hover:text-sky-600 inline-flex justify-center items-center text-sm font-bold py-1.5 px-2 rounded-[5px] transition-colors ease-out',
             { 'bg-sky-500/20 text-sky-600': open }
