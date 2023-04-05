@@ -15,6 +15,8 @@ import Section from '../../shared/components/Section'
 import Container from '../../shared/components/Container'
 import classNames from 'classnames'
 import { textColors } from '../../colors'
+import PreviewImg from '../../../bricks-images/newsletter-subscribe.png'
+
 enum NewsletterProvider {
   MailChimp = 'MAILCHIMP',
   ConvertKit = 'CONVERTKIT',
@@ -208,8 +210,7 @@ Newsletter.schema = {
   label: 'Newsletter subscribe',
   category: 'call to action',
   hideFromAddMenu: false,
-  previewImageUrl:
-    'https://images.reactbricks.com/original/f5b6dc9e-6d18-4f57-97ec-1652b883794b.png',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',

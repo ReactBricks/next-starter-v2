@@ -10,6 +10,7 @@ import {
 import blockNames from '../blockNames'
 import Container from '../shared/components/Container'
 import Section from '../shared/components/Section'
+import PreviewImg from '../../bricks-images/faq-2-cols.png'
 
 export interface FaqProps extends LayoutProps {}
 
@@ -43,8 +44,7 @@ Faq2cols.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faq/Faq.tsx',
-  previewImageUrl:
-    'https://images.reactbricks.com/original/c9c375ff-9634-4576-b40f-d5ead8bf3986.png',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     borderTop: 'full',

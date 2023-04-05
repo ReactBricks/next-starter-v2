@@ -14,6 +14,7 @@ import {
 } from '../../LayoutSideProps'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
+import PreviewImg from '../../../bricks-images/form.png'
 
 export interface FormBuilderProps extends LayoutProps {
   buttonPosition: string
@@ -75,7 +76,7 @@ FormBuilder.schema = {
   name: blockNames.FormBuilder,
   label: 'Form',
   category: 'contact',
-  previewImageUrl: 'https://images.reactbricks.com/original/43fbc2f0-8bf1-4e8f-8cdd-847511071cca.png',
+  previewImageUrl: PreviewImg.src,
   repeaterItems: [
     {
       name: 'form-elements',

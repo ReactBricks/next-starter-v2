@@ -16,6 +16,7 @@ import {
   LayoutProps,
 } from "../LayoutSideProps"
 import Section from "../shared/components/Section"
+import PreviewImg from '../../bricks-images/header.png'
 
 interface HeaderProps extends LayoutProps {}
 
@@ -107,8 +108,7 @@ Header.schema = {
   label: "Header",
   category: "layout",
   tags: ["header", "menu"],
-  previewImageUrl:
-    "https://images.reactbricks.com/original/358f0a77-15ed-48cb-a274-0ecc3a007fa8.png",
+  previewImageUrl: PreviewImg.src,
   repeaterItems: [
     {
       name: "menuItems",

@@ -10,6 +10,7 @@ import {
   paddingBordersSideGroup,
   sectionDefaults,
 } from '../../LayoutSideProps'
+import PreviewImg from '../../../bricks-images/paragraph.png'
 
 interface ParagraphProps extends LayoutProps {}
 
@@ -97,6 +98,7 @@ Paragraph.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Paragraph/Paragraph.tsx',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',

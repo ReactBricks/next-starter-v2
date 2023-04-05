@@ -15,6 +15,7 @@ import {
 import classNames from 'classnames'
 import { icons } from '../../shared/defaultImages'
 import TitleSubtitle from '../../shared/components/TitleSubtitle'
+import PreviewImg from '../../../bricks-images/cards.png'
 
 interface CardsProps extends LayoutProps {
   colNumber: string
@@ -67,7 +68,7 @@ Cards.schema = {
   label: 'Cards',
   category: 'main content',
   tags: ['cards', 'thumbnails', 'features'],
-  previewImageUrl: 'https://images.reactbricks.com/original/797f4f7e-f749-4c88-bfea-b2d1da13758a.png',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     withTitle: true,

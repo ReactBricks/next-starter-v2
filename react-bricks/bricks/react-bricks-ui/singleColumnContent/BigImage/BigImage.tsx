@@ -11,6 +11,7 @@ import {
   paddingBordersSideGroup,
   sectionDefaults,
 } from '../../LayoutSideProps'
+import PreviewImg from '../../../bricks-images/image.png'
 
 interface BigImageProps extends LayoutProps {}
 
@@ -44,6 +45,7 @@ BigImage.schema = {
   label: 'Image',
   category: 'single column / blog',
   tags: ['blog', 'image', 'single image'],
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',

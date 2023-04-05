@@ -11,6 +11,7 @@ import { avatars } from '../../shared/defaultImages'
 import blockNames from '../../blockNames'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
+import PreviewImg from '../../../bricks-images/testimonial-3-cols.png'
 
 export interface TestimonialProps extends LayoutProps {
   authorName: any
@@ -27,11 +28,7 @@ const Testimonial3Cols: types.Brick<TestimonialProps> = ({
   paddingBottom,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
       <Container
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
@@ -50,7 +47,7 @@ Testimonial3Cols.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Testimonial/Testimonial.tsx',
-
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     borderTop: 'boxed',

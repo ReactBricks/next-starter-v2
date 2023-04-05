@@ -11,6 +11,7 @@ import {
   sectionDefaults,
 } from '../LayoutSideProps'
 import { pricingColors } from '../colors'
+import PreviewImg from '../../bricks-images/pricing.png'
 
 interface PricingProps extends LayoutProps {}
 
@@ -37,8 +38,7 @@ Pricing.schema = {
   label: 'Pricing',
   category: 'pricing',
   tags: ['pricing', 'plans', 'price'],
-  previewImageUrl:
-    'https://images.reactbricks.com/original/f69eae06-071d-4ad7-801f-e55f24a7e491.png',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     plans: [

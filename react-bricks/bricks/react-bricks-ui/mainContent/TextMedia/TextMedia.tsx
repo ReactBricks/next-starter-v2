@@ -16,6 +16,7 @@ import {
 } from '../../LayoutSideProps'
 import { photos } from '../../shared/defaultImages'
 import Video from '../../shared/components/Video'
+import PreviewImg from '../../../bricks-images/text-media.png'
 
 export interface TextMediaProps extends LayoutProps {
   imageSide: 'left' | 'right'
@@ -189,12 +190,10 @@ TextMedia.schema = {
       <circle cx={5} cy={5} r={4} fill="red"></circle>
     </svg>
   ),
-  previewImageUrl:
-  'https://images.reactbricks.com/original/2faa8447-7778-4b78-88f6-1d4290318fad.png',
+  previewImageUrl: PreviewImg.src,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextMedia/TextMedia.tsx',
-
   getDefaultProps: () => ({
     ...sectionDefaults,
     title: 'Making content editing fun!',

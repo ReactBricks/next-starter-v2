@@ -14,6 +14,7 @@ import {
   paddingBordersSideGroup,
   sectionDefaults,
 } from '../../LayoutSideProps'
+import PreviewImg from '../../../bricks-images/tweet.png'
 
 export interface TweetProps extends LayoutProps {
   id: string
@@ -43,8 +44,7 @@ const Tweet: types.Brick<TweetProps> = ({
   const { isDarkColorMode } = useContext(ReactBricksContext)
 
   useEffect(() => {
-    const isBlackTheme: boolean =
-      theme === 'dark' || (theme === 'auto' && !!isDarkColorMode)
+    const isBlackTheme: boolean = theme === 'dark' || (theme === 'auto' && !!isDarkColorMode)
     const twTheme: string = isBlackTheme ? 'dark' : ''
 
     if (twitterEmbedRef?.current) {
@@ -77,28 +77,11 @@ const Tweet: types.Brick<TweetProps> = ({
       }
       currentDocument.body.appendChild(script)
     }
-  }, [
-    isLoading,
-    id,
-    placeholder,
-    align,
-    cards,
-    conversation,
-    theme,
-    isDarkColorMode,
-  ])
+  }, [isLoading, id, placeholder, align, cards, conversation, theme, isDarkColorMode])
 
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
-      <Container
-        size={width}
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-      >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+      <Container size={width} paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <div ref={twitterEmbedRef}>{isLoading && placeholder}</div>
       </Container>
     </Section>
@@ -112,6 +95,7 @@ Tweet.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/Tweet.tsx',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     id: '1237840583982329857',

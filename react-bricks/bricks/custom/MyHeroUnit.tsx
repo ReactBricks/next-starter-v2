@@ -1,6 +1,8 @@
 import React, { Children } from 'react'
 import { Text, RichText, Image, types } from 'react-bricks/frontend'
 
+import PreviewImg from '../bricks-images/custom-hero-unit.png'
+
 //=============================
 // Local Types
 //=============================
@@ -68,8 +70,7 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
 MyHeroUnit.schema = {
   name: 'my-hero-unit',
   label: 'Custom Hero Unit',
-  previewImageUrl:
-    'https://images.reactbricks.com/original/6da8f61b-92bd-401f-be9e-7fa345452dda.png',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     padding: 'big',
     title: 'This is a custom Hero Unit',

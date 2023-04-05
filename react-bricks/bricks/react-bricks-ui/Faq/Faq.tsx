@@ -10,6 +10,7 @@ import {
 import blockNames from '../blockNames'
 import Container from '../shared/components/Container'
 import Section from '../shared/components/Section'
+import PreviewImg from '../../bricks-images/faq.png'
 
 export interface FaqProps extends LayoutProps {}
 
@@ -43,8 +44,7 @@ Faq.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faq/Faq.tsx',
-  previewImageUrl:
-    'https://images.reactbricks.com/original/09ac2389-db27-4527-bff3-932c5868a1d3.png',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     borderTop: 'full',

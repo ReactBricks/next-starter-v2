@@ -10,6 +10,7 @@ import {
 } from '../../LayoutSideProps'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
+import PreviewImg from '../../../bricks-images/table.png'
 
 export interface TableProps extends LayoutProps {
   striped: boolean
@@ -66,7 +67,7 @@ Table.schema = {
       min: 1,
     },
   ],
-
+  previewImageUrl: PreviewImg.src,
   sideEditProps: [
     {
       groupName: 'Table',

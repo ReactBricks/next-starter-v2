@@ -13,6 +13,7 @@ import {
 import { icons } from '../../shared/defaultImages'
 import classNames from 'classnames'
 import TitleSubtitle from '../../shared/components/TitleSubtitle'
+import PreviewImg from '../../../bricks-images/link-cards.png'
 
 interface LinkCardsProps extends LayoutProps {
   withTitle?: boolean
@@ -52,8 +53,7 @@ LinkCards.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/Features.tsx',
-  previewImageUrl:
-    'https://images.reactbricks.com/original/c8db870c-955d-491b-aaf4-7e16c8c258c3.png',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     withTitle: true,

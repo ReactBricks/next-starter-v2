@@ -14,6 +14,7 @@ import {
   sectionDefaults,
 } from '../../LayoutSideProps'
 import { photos } from '../../shared/defaultImages'
+import PreviewImg from '../../../bricks-images/image-carousel.png'
 
 interface ImageCarouselProps extends LayoutProps {
   slidesToShow: string
@@ -114,8 +115,7 @@ CarouselBrick.schema = {
       max: 5,
     },
   ],
-  previewImageUrl:
-    'https://images.reactbricks.com/original/fafce552-7920-4b32-ac1f-205288bf99d5.png',
+  previewImageUrl: PreviewImg.src,
   sideEditProps: [
     {
       groupName: 'Carousel',

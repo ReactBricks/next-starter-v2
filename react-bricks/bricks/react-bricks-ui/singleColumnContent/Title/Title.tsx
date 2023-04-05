@@ -11,6 +11,7 @@ import {
 import Container, { Padding, Size } from '../../shared/components/Container'
 import Section, { Border } from '../../shared/components/Section'
 import TitleSubtitle from '../../shared/components/TitleSubtitle'
+import PreviewImg from '../../../bricks-images/title.png'
 
 interface TitleProps extends LayoutProps {
   backgroundColor: { color: string; className: string }
@@ -60,7 +61,7 @@ Title.schema = {
   label: 'Title',
   category: 'single column / blog',
   tags: ['title'],
-
+  previewImageUrl: PreviewImg.src,
   // Defaults when a new brick is added
   getDefaultProps: () => ({
     ...sectionDefaults,

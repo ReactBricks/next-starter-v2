@@ -12,6 +12,7 @@ import blockNames from '../../blockNames'
 import { gradients, textColors } from '../../colors'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
+import PreviewImg from '../../../bricks-images/newsletter-hero.png'
 
 export interface CallToActionProps extends LayoutProps {
   textGradient: keyof typeof gradients
@@ -147,8 +148,7 @@ CallToAction.schema = {
   playgroundLinkLabel: 'View source code on Github',
   category: 'call to action',
   tags: ['newsletter', 'subscribe', 'hero'],
-  previewImageUrl:
-    'https://images.reactbricks.com/original/2b27ed3d-786c-4c53-9d63-1242e91f95e5.png',
+  previewImageUrl: PreviewImg.src,
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx',
 

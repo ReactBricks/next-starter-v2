@@ -1,12 +1,5 @@
 import React, { useState } from 'react'
-import {
-  Image,
-  Text,
-  types,
-  useAdminContext,
-  RichText,
-  Link,
-} from 'react-bricks/frontend'
+import { Image, Text, types, useAdminContext, RichText, Link } from 'react-bricks/frontend'
 import { FaTwitter } from 'react-icons/fa'
 import Section from '../../shared/components/Section'
 import blockNames from '../../blockNames'
@@ -18,6 +11,8 @@ import {
   paddingBordersSideGroup,
   sectionDefaults,
 } from '../../LayoutSideProps'
+
+import PreviewImg from '../../../bricks-images/tweet-light.png'
 
 export interface TweetLightProps extends LayoutProps {
   tweetLink: string
@@ -47,16 +42,8 @@ const TweetLight: types.Brick<TweetLightProps> = ({
   }
 
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
-      <Container
-        size={width}
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-      >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+      <Container size={width} paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <div className="mx-auto max-w-lg px-6">
           <div
             onClick={handleClick(tweetLink)}
@@ -102,10 +89,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                   />
                 </div>
               </Link>
-              <div
-                className="text-2xl dark:text-neutral-300"
-                style={{ color: '#1d9bf0' }}
-              >
+              <div className="text-2xl dark:text-neutral-300" style={{ color: '#1d9bf0' }}>
                 <FaTwitter />
               </div>
             </div>
@@ -159,6 +143,7 @@ TweetLight.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/TweetLight.tsx',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',
@@ -210,10 +195,9 @@ TweetLight.schema = {
           type: types.SideEditPropType.Custom,
           component: () => (
             <div className="text-sm">
-              This is a light version of the Tweet content block: it doesn't
-              load the Twitter JavaScript, so it is much better
-              performance-wise, but it requires manually entering the Tweet
-              content and properties.
+              This is a light version of the Tweet content block: it doesn't load the Twitter
+              JavaScript, so it is much better performance-wise, but it requires manually entering
+              the Tweet content and properties.
             </div>
           ),
         },

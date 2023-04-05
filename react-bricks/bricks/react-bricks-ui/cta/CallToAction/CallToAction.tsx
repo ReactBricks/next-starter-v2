@@ -11,6 +11,7 @@ import blockNames from '../../blockNames'
 import { bgColors, buttonColors, textColors } from '../../colors'
 import Container from '../../shared/components/Container'
 import Section, { Border } from '../../shared/components/Section'
+import PreviewImg from '../../../bricks-images/call-to-action.png'
 
 export interface CallToActionProps extends LayoutProps {}
 
@@ -60,11 +61,9 @@ CallToAction.schema = {
   playgroundLinkLabel: 'View source code on Github',
   category: 'call to action',
   tags: ['cta', 'call to action'],
-  previewImageUrl:
-    'https://images.reactbricks.com/original/650de970-048f-46b2-89ce-2d385d43a9e1.png',
+  previewImageUrl: PreviewImg.src,
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx',
-
   getDefaultProps: () => ({
     ...sectionDefaults,
     borderTop: 'boxed',

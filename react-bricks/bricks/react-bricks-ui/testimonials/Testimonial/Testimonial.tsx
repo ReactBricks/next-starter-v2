@@ -12,6 +12,7 @@ import blockNames from '../../blockNames'
 import { textColors } from '../../colors'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
+import PreviewImg from '../../../bricks-images/testimonial.png'
 
 export interface TestimonialProps extends LayoutProps {
   authorName: any
@@ -30,11 +31,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
   paddingBottom,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
       <Container
         size="small"
         paddingTop={paddingTop}
@@ -66,9 +63,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
           <div className="ml-3 dark:text-gray-200 min-w-[90px]">
             <Text
               renderBlock={(props) => (
-                <div
-                  className={`text-sm font-extrabold ${textColors.GRAY_800}`}
-                >
+                <div className={`text-sm font-extrabold ${textColors.GRAY_800}`}>
                   {props.children}
                 </div>
               )}
@@ -77,9 +72,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
             />
             <Text
               renderBlock={(props) => (
-                <div className={`text-xs ${textColors.GRAY_600}`}>
-                  {props.children}
-                </div>
+                <div className={`text-xs ${textColors.GRAY_600}`}>{props.children}</div>
               )}
               placeholder="Job title..."
               propName="authorJobTitle"
@@ -91,9 +84,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
             propName="logoImage"
             imageClassName="w-20 h-10 object-contain object-left"
             renderWrapper={({ children }) => (
-              <div className="ml-5 pl-5 border-l border-gray-300">
-                {children}
-              </div>
+              <div className="ml-5 pl-5 border-l border-gray-300">{children}</div>
             )}
           />
         </cite>
@@ -109,7 +100,7 @@ Testimonial.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Testimonial/Testimonial.tsx',
-
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     borderTop: 'boxed',

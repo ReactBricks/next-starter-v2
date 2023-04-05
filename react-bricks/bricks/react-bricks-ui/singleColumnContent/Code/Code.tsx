@@ -15,6 +15,8 @@ import {
   sectionDefaults,
 } from '../../LayoutSideProps'
 
+import PreviewImg from '../../../bricks-images/code.png'
+
 require('prismjs/components/prism-typescript')
 require('prismjs/components/prism-bash')
 require('prismjs/components/prism-jsx')
@@ -136,6 +138,7 @@ Code.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Code/Code.tsx',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',

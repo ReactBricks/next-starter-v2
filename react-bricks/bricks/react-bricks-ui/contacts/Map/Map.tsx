@@ -16,6 +16,7 @@ import {
   paddingBordersSideGroup,
   sectionDefaults,
 } from '../../LayoutSideProps'
+import PreviewImg from '../../../bricks-images/map.png'
 
 export interface MapProps extends LayoutProps {
   zoom: string
@@ -75,8 +76,7 @@ MapBrick.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Map/Map.tsx',
-  previewImageUrl:
-    'https://images.reactbricks.com/original/f53571c2-7c29-433e-9962-a351486bc51e.png',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     lat: 45.6782509,

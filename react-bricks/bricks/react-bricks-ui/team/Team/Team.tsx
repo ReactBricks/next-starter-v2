@@ -14,6 +14,7 @@ import {
 } from '../../LayoutSideProps'
 import { avatars } from '../../shared/defaultImages'
 import TitleSubtitle from '../../shared/components/TitleSubtitle'
+import PreviewImg from '../../../bricks-images/team.png'
 
 export interface TeamProps extends LayoutProps {
   withTitle?: boolean
@@ -31,16 +32,8 @@ const Team: types.Brick<TeamProps> = ({
   width,
 }) => {
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
-      <Container
-        size={width}
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-      >
+    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+      <Container size={width} paddingTop={paddingTop} paddingBottom={paddingBottom}>
         {withTitle && (
           <TitleSubtitle
             className={classNames(bigCenteredTitle ? 'mb-12' : 'mb-8')}
@@ -48,10 +41,9 @@ const Team: types.Brick<TeamProps> = ({
           />
         )}
         <div
-          className={classNames(
-            'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8',
-            { 'lg:grid-cols-5 lg:gap-10 xl:grid-cols-6': width === 'medium' }
-          )}
+          className={classNames('grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8', {
+            'lg:grid-cols-5 lg:gap-10 xl:grid-cols-6': width === 'medium',
+          })}
         >
           <Repeater propName="members" />
         </div>
@@ -66,7 +58,7 @@ Team.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Team/Team.tsx',
-
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',

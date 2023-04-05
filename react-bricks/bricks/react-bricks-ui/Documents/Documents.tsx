@@ -13,6 +13,8 @@ import {
   sectionDefaults,
 } from '../LayoutSideProps'
 import blockNames from '../blockNames'
+import PreviewImg from '../../bricks-images/documents.png'
+
 export interface DocumentsProps extends LayoutProps {}
 
 const Documents: types.Brick<DocumentsProps> = ({
@@ -51,7 +53,7 @@ Documents.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Documents/Documents.tsx',
-    previewImageUrl: 'https://images.reactbricks.com/original/b1c88f6f-d85d-44ad-bb14-db053c6d2391.png',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     documents: [

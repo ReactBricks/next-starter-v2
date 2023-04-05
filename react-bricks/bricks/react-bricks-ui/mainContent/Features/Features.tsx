@@ -12,6 +12,7 @@ import {
   paddingBordersSideGroup,
 } from '../../LayoutSideProps'
 import { icons } from '../../shared/defaultImages'
+import PreviewImg from '../../../bricks-images/features.png'
 
 export type ColsNumber = '2' | '3' | '4'
 
@@ -48,8 +49,7 @@ Features.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/Features.tsx',
-  previewImageUrl:
-    'https://images.reactbricks.com/original/28a32610-c1de-4fa7-833b-7465abf99f79.png',
+  previewImageUrl: PreviewImg.src,
   getDefaultProps: () => ({
     ...sectionDefaults,
     paddingBottom: 'none',
