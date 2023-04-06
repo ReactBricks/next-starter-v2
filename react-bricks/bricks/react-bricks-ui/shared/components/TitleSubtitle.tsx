@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
-import { Text } from 'react-bricks'
+import { Text } from 'react-bricks/frontend'
 import { textColors } from '../../colors'
 
 interface TitleSubtitleProps {

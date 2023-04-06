@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
-import { types, File } from 'react-bricks'
+import { types, File } from 'react-bricks/frontend'
 
 type VideoPlatform = 'youtube' | 'vimeo'
 

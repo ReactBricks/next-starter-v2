@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 import { bgColors } from '../../colors'
-import { types } from 'react-bricks'
+import { types } from 'react-bricks/frontend'
 import Container from './Container'
 
 export type Border = 'full' | 'boxed' | 'none'
