@@ -161,6 +161,7 @@ Button.schema = {
     },
     {
       groupName: "Visual",
+      defaultOpen: true,
       props: [
         buttonColorsEditProps,
         {
