@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useRef } from 'react'
 import {
   Image,
   Repeater,
@@ -16,7 +16,7 @@ import {
   LayoutProps,
 } from '../LayoutSideProps'
 import Section from '../shared/components/Section'
-
+import useOnClickOutside from './useClickOutside'
 interface HeaderProps extends LayoutProps {}
 
 const Header: types.Brick<HeaderProps> = ({
@@ -25,6 +25,10 @@ const Header: types.Brick<HeaderProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { isDarkColorMode, toggleColorMode } = useContext(ReactBricksContext)
+
+  const ref = useRef<HTMLDivElement>(null)
+
+  useOnClickOutside(ref, () => setMobileMenuOpen(false))
 
   return (
     <Section
@@ -58,7 +62,10 @@ const Header: types.Brick<HeaderProps> = ({
             )}
           />
         </div>
-        <div className="relative ml-auto lg:hidden flex items-center h-full">
+        <div
+          ref={ref}
+          className="relative ml-auto lg:hidden flex items-center h-full sm:gap-x-4"
+        >
           {/* DARK MODE BUTTON */}
           <button
             type="button"
@@ -73,10 +80,17 @@ const Header: types.Brick<HeaderProps> = ({
           </button>
 
           <button
-            className="p-1 w-7 h-7 flex justify-center items-center rounded-[5px] bg-gray-200 hover:bg-sky-500/20 hover:text-sky-600 focus:bg-sky-500/20 focus:text-sky-600"
+            className="group p-1 w-7 h-7 flex justify-center items-center rounded-[5px] bg-gray-200 dark:bg-gray-900 hover:bg-sky-500/20 dark:hover:bg-sky-500/40 hover:text-sky-600 dark:hover:text-sky-500 focus:bg-sky-500/20 dark:focus:bg-sky-500/40 focus:text-sky-600 dark:focus:text-sky-500"
             onClick={() => setMobileMenuOpen((current) => !current)}
           >
-            {mobileMenuOpen ? <FiX /> : <FiMenu />}
+            {mobileMenuOpen ? (
+              <FiX />
+            ) : (
+              <FiMenu
+                className="text-gray-600 dark:text-white group-hover:text-sky-500 group-focus:text-sky-500"
+                size={20}
+              />
+            )}
           </button>
           {mobileMenuOpen && (
             <div className="absolute top-8 right-0 w-64 bg-white dark:border-gray-400 p-5 border rounded-lg shadow-lg z-10 dark:bg-gray-900">

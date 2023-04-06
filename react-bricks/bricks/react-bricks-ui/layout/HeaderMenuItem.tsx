@@ -22,13 +22,13 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
   const ref = useRef<HTMLDivElement>(null)
 
   useOnClickOutside(ref, () => setOpen(false))
-
+  console.log(open)
   if (!submenuItems || !submenuItems.length) {
     return (
       <div>
         <Link
           href={linkPath}
-          className="hidden lg:inline-flex justify-center items-center text-sm font-bold py-1.5 px-2 rounded-[5px] transition-colors ease-out text-gray-600 dark:text-white hover:bg-sky-500/20 hover:text-sky-600"
+          className="hidden lg:inline-flex justify-center items-center text-sm font-bold py-1.5 px-2 rounded-[5px] transition-colors ease-out text-gray-600 dark:text-white hover:bg-sky-500/20 dark:hover:bg-sky-500/40 hover:text-sky-600"
           activeClassName="text-sky-600 bg-sky-500/10"
         >
           <Text
@@ -39,7 +39,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
         </Link>
         <Link
           href={linkPath}
-          className="block lg:hidden text-sm mb-3 transition-colors ease-out text-gray-800 dark:text-white hover:text-sky-600"
+          className="block lg:hidden text-sm mb-3 transition-colors ease-out text-gray-800 dark:text-white hover:text-sky-600 dark:hover:text-sky-500"
         >
           {typeof linkText === 'string' ? linkText : Plain.serialize(linkText)}
         </Link>
@@ -52,8 +52,8 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
       <div ref={ref} className="hidden lg:block relative">
         <button
           className={classNames(
-            'text-gray-600 dark:text-white hover:bg-sky-500/20 hover:text-sky-600 inline-flex justify-center items-center text-sm font-bold py-1.5 px-2 rounded-[5px] transition-colors ease-out',
-            { 'bg-sky-500/20 text-sky-600': open }
+            'text-gray-600 dark:text-white hover:bg-sky-500/20 hover:text-sky-600 dark:hover:bg-sky-500/40 inline-flex justify-center items-center text-sm font-bold py-1.5 px-2 rounded-[5px] transition-colors ease-out',
+            { 'bg-sky-500/20 dark:bg-sky-500/40 text-sky-600': open }
           )}
           onClick={() => setOpen((current) => !current)}
         >
@@ -103,7 +103,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
         )}
       </div>
 
-      <div className="lg:hidden mb-6" role="group">
+      <div ref={ref} className="lg:hidden mb-6" role="group">
         <div
           className={`text-xs font-extrabold ${textColors.GRAY_500} uppercase tracking-[0.35rem] mb-4`}
         >
