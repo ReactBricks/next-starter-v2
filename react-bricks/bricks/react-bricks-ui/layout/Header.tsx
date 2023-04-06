@@ -84,12 +84,9 @@ const Header: types.Brick<HeaderProps> = ({
             onClick={() => setMobileMenuOpen((current) => !current)}
           >
             {mobileMenuOpen ? (
-              <FiX />
+              <FiX className="text-gray-600 dark:text-white" size={18} />
             ) : (
-              <FiMenu
-                className="text-gray-600 dark:text-white group-hover:text-sky-500 group-focus:text-sky-500"
-                size={20}
-              />
+              <FiMenu className="text-gray-600 dark:text-white" size={20} />
             )}
           </button>
           {mobileMenuOpen && (
