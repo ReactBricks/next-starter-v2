@@ -32,5 +32,11 @@
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7",
     "typescript": "^5.0.2"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }
