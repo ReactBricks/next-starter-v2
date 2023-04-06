@@ -9,27 +9,25 @@ interface HeaderMenuItemProps {
   linkPath: string
   linkText: any
   submenuItems?: any
-  isActive: boolean
 }
 
 const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
   linkPath,
   linkText,
   submenuItems,
-  isActive,
 }) => {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
   useOnClickOutside(ref, () => setOpen(false))
-  console.log(open)
+
   if (!submenuItems || !submenuItems.length) {
     return (
       <div>
         <Link
           href={linkPath}
           className="hidden lg:inline-flex justify-center items-center text-sm font-bold py-1.5 px-2 rounded-[5px] transition-colors ease-out text-gray-600 dark:text-white hover:bg-sky-500/20 dark:hover:bg-sky-500/40 hover:text-sky-600"
-          activeClassName="text-sky-600 bg-sky-500/10"
+          activeClassName="text-sky-600 bg-sky-500/10 dark:bg-sky-500/30"
         >
           <Text
             propName="linkText"
@@ -60,15 +58,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
           <Text
             propName="linkText"
             placeholder="Type a text..."
-            renderBlock={({ children }) => (
-              <div
-                className={classNames('', {
-                  'text-sky-600 bg-sky-500/10': isActive,
-                })}
-              >
-                {children}
-              </div>
-            )}
+            renderBlock={({ children }) => <div>{children}</div>}
           />
           {open ? (
             <svg
@@ -130,7 +120,6 @@ HeaderMenuItem.schema = {
 
   getDefaultProps: () => ({
     linkPath: '/about-us',
-    isActive: false,
     linkText: 'About us',
   }),
 
