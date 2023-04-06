@@ -13,8 +13,8 @@ const NextLink: types.RenderLocalLink = ({
 
   let anchorClassName = ''
 
-  if (router.pathname === href) {
-    anchorClassName = activeClassName
+  if (router.asPath === href) {
+    anchorClassName = `${className} ${activeClassName}`
   } else {
     anchorClassName = className
   }
