@@ -123,8 +123,24 @@ HeroUnit.schema = {
     paddingTop: '12',
     paddingBottom: '12',
     textGradient: gradients.NONE.value,
-    highlightTextColor: highlightTextColors.LIME.value,
-    title: 'We develop beautiful web applications',
+    highlightTextColor: highlightTextColors.PINK.value,
+    title: [
+      {
+        type: "paragraph",
+        children: [
+          {
+            text: "We develop "
+          },
+          {
+            text: "beautiful",
+            highlight: true
+          },
+          {
+            text: " web applications"
+          }
+        ]
+      }
+    ],
     text: "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations.",
     badge: [
       {

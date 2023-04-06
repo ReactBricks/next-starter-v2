@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, RichText, types } from 'react-bricks/frontend'
 import {
+  backgroundColorsEditProps,
   backgroundWithImageBgSideGroup,
   highlightTextEditProps,
   LayoutProps,
@@ -10,7 +11,13 @@ import {
   textGradientEditProps,
 } from '../../LayoutSideProps'
 import blockNames from '../../blockNames'
-import { buttonColors, gradients, highlightTextColors, textColors } from '../../colors'
+import {
+  bgColors,
+  buttonColors,
+  gradients,
+  highlightTextColors,
+  textColors,
+} from '../../colors'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 
@@ -33,7 +40,9 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
   const titleColor = textColors.GRAY_800
   const textColor = textColors.GRAY_700
   const titleStyle =
-    textGradient !== gradients.NONE.value ? { WebkitTextFillColor: 'transparent' } : {}
+    textGradient !== gradients.NONE.value
+      ? { WebkitTextFillColor: 'transparent' }
+      : {}
 
   return (
     <Section
@@ -55,7 +64,10 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
             </div>
 
             <div
-              className={classNames(titleColor, gradients[textGradient]?.className)}
+              className={classNames(
+                titleColor,
+                gradients[textGradient]?.className
+              )}
               style={titleStyle}
             >
               <RichText
@@ -74,7 +86,9 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
                 placeholder="Type a title..."
                 propName="title"
                 renderHighlight={({ children }) => (
-                  <span className={highlightTextColor.className}>{children}</span>
+                  <span className={highlightTextColor.className}>
+                    {children}
+                  </span>
                 )}
               />
             </div>
@@ -125,8 +139,24 @@ HeroUnit2.schema = {
     paddingTop: '20',
     paddingBottom: '16',
     textGradient: gradients.NONE.value,
-    highlightTextColor: highlightTextColors.LIME.value,
-    title: 'We develop beautiful web applications',
+    highlightTextColor: highlightTextColors.PINK.value,
+    title: [
+      {
+        type: 'paragraph',
+        children: [
+          {
+            text: 'We develop ',
+          },
+          {
+            text: 'beautiful',
+            highlight: true,
+          },
+          {
+            text: ' web applications',
+          },
+        ],
+      },
+    ],
     text: "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations.",
     buttons: [
       {
@@ -171,6 +201,67 @@ HeroUnit2.schema = {
     },
     backgroundWithImageBgSideGroup,
     paddingBordersSideGroup,
+  ],
+  stories: [
+    {
+      id: 'horizontal-hero-dark',
+      name: 'Horizontal Hero Dark',
+      showAsBrick: true,
+      previewImageUrl: `/bricks-preview-images/horizontal-hero-dark.png`,
+      props: {
+        ...sectionDefaults,
+        paddingTop: '20',
+        paddingBottom: '16',
+        backgroundColor: bgColors.DARK_GRAY.value,
+        textGradient: gradients.NONE.value,
+        highlightTextColor: highlightTextColors.LIME.value,
+        title: [
+          {
+            type: 'paragraph',
+            children: [
+              {
+                text: 'Great ',
+              },
+              {
+                text: 'DX',
+                highlight: true,
+              },
+              {
+                text: ' for Developers, great ',
+              },
+              {
+                text: 'UX',
+                highlight: true,
+              },
+              {
+                text: ' for Content editors.',
+              },
+            ],
+          },
+        ],
+        text: "Forget grey fields, welcome visual editing. Forget going back and forth between the CMS and your editor: it's just React. Enterprise-ready.",
+        buttons: [
+          {
+            type: "link",
+            text: 'Tutorial',
+            href: 'https://reactbricks.com/learn',
+            isTargetBlank: true,
+            buttonColor: buttonColors.SKY.value,
+            variant: 'solid',
+            padding: 'normal',
+          },
+          {
+            type: "link",
+            text: 'View the Docs',
+            href: 'https://docs.reactbricks.com/',
+            isTargetBlank: true,
+            buttonColor: buttonColors.SKY.value,
+            variant: 'outline',
+            padding: 'normal',
+          },
+        ],
+      },
+    },
   ],
 }
 

@@ -158,7 +158,7 @@ export const bgColors = {
     },
   },
   DARK_GRAY: {
-    label: `Light ${tailwindColors.GRAY.label}`,
+    label: `Dark ${tailwindColors.GRAY.label}`,
     value: {
       color: '#1f2937',
       className: 'dark bg-gray-800 dark:bg-gray-900',
