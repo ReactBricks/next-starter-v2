@@ -14,6 +14,7 @@ import {
   backgroundColorsEditProps,
   borderBottomEditProp,
   LayoutProps,
+  sectionDefaults,
 } from '../LayoutSideProps'
 import Section from '../shared/components/Section'
 import useOnClickOutside from './useClickOutside'
@@ -188,6 +189,46 @@ Header.schema = {
       },
     ],
   }),
+  stories: [
+    {
+      id: 'header-dark',
+      name: 'Header dark',
+      previewImageUrl: `/bricks-preview-images/header-dark.png`,
+      showAsBrick: true,
+      props: {
+        ...sectionDefaults,
+        borderBottom: 'none',
+        backgroundColor: bgColors.DARK_GRAY.value,
+        menuItems: [
+          {
+            linkPath: '/docs',
+            linkText: 'Docs',
+          },
+          {
+            linkPath: '/contacts',
+            linkText: 'Contacts',
+          },
+        ],
+        logo: {
+          src: 'https://images.reactbricks.com/original/881feb54-54af-46d5-8825-31e22ccbac25.webp',
+          placeholderSrc:
+            'https://images.reactbricks.com/placeholder/881feb54-54af-46d5-8825-31e22ccbac25.jpg',
+          srcSet:
+            'https://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-600.webp 600w,\nhttps://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-450.webp 450w,\nhttps://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-300.webp 300w,\nhttps://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-150.webp 150w,\nhttps://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-75.webp 75w',
+          width: 5314,
+          height: 1181,
+          alt: 'React Bricks',
+          seoName: 'react-bricks',
+          fallbackSrc:
+            'https://images.reactbricks.com/original/881feb54-54af-46d5-8825-31e22ccbac25.png',
+          fallbackSrcSet:
+            'https://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-600.png 600w,\nhttps://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-450.png 450w,\nhttps://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-300.png 300w,\nhttps://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-150.png 150w,\nhttps://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-75.png 75w',
+          fallbackType: 'image/png',
+        },
+        buttons: [],
+      },
+    },
+  ],
 }
 
 export default Header

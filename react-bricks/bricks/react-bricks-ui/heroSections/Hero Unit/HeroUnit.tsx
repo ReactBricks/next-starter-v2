@@ -10,7 +10,12 @@ import {
   paddingBordersSideGroup,
 } from '../../LayoutSideProps'
 import blockNames from '../../blockNames'
-import { buttonColors, gradients, highlightTextColors, textColors } from '../../colors'
+import {
+  buttonColors,
+  gradients,
+  highlightTextColors,
+  textColors,
+} from '../../colors'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 
@@ -35,7 +40,9 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
   const titleColor = textColors.GRAY_800
   const textColor = textColors.GRAY_700
   const titleStyle =
-    textGradient !== gradients.NONE.value ? { WebkitTextFillColor: 'transparent' } : {}
+    textGradient !== gradients.NONE.value
+      ? { WebkitTextFillColor: 'transparent' }
+      : {}
 
   return (
     <Section
@@ -53,7 +60,10 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
           />
 
           <div
-            className={classNames(titleColor, gradients[textGradient]?.className)}
+            className={classNames(
+              titleColor,
+              gradients[textGradient]?.className
+            )}
             style={titleStyle}
           >
             <RichText
@@ -92,7 +102,10 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
             )}
             placeholder="Type a text..."
             propName="text"
-            allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Link]}
+            allowedFeatures={[
+              types.RichTextFeatures.Bold,
+              types.RichTextFeatures.Link,
+            ]}
           />
           <Repeater
             propName="buttons"
@@ -126,20 +139,20 @@ HeroUnit.schema = {
     highlightTextColor: highlightTextColors.PINK.value,
     title: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         children: [
           {
-            text: "We develop "
+            text: 'We develop ',
           },
           {
-            text: "beautiful",
-            highlight: true
+            text: 'beautiful',
+            highlight: true,
           },
           {
-            text: " web applications"
-          }
-        ]
-      }
+            text: ' web applications',
+          },
+        ],
+      },
     ],
     text: "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations.",
     badge: [
@@ -150,19 +163,21 @@ HeroUnit.schema = {
     ],
     buttons: [
       {
+        type: 'link',
         text: 'Get Started',
         href: '',
         isTargetBlank: false,
         buttonColor: buttonColors.SKY.value,
-        type: 'solid',
+        variant: 'solid',
         padding: 'normal',
       },
       {
+        type: 'link',
         text: 'Learn more',
         href: '',
         isTargetBlank: false,
         buttonColor: buttonColors.SKY.value,
-        type: 'outline',
+        variant: 'outline',
         padding: 'normal',
       },
     ],
@@ -206,6 +221,61 @@ HeroUnit.schema = {
     },
     backgroundWithImageBgSideGroup,
     paddingBordersSideGroup,
+  ],
+  stories: [
+    {
+      id: 'gradient-hero-unit',
+      name: 'Gradient Hero Unit',
+      previewImageUrl: `/bricks-preview-images/gradient-hero-unit.png`,
+      showAsBrick: true,
+      props: {
+        ...sectionDefaults,
+        size: 'large',
+        paddingTop: '12',
+        paddingBottom: '12',
+        textGradient: gradients.DAWN.value,
+        highlightTextColor: highlightTextColors.PINK.value,
+        badge: [],
+        title: "Let's make content editing fun, again!",
+        text: 'Gray forms are a thing of the past. Let your editors enjoy visual editing over your React components!',
+        buttons: [
+          {
+            type: 'link',
+            text: 'Start now!',
+            href: '',
+            isTargetBlank: false,
+            buttonColor: buttonColors.VIOLET.value,
+            variant: 'solid',
+            padding: 'normal',
+          },
+          {
+            type: 'link',
+            text: 'Watch the video',
+            href: '',
+            isTargetBlank: false,
+            buttonColor: buttonColors.VIOLET.value,
+            variant: 'outline',
+            padding: 'normal',
+          },
+        ],
+        backgroundImage: {
+          fallbackSrc:
+            'https://images.reactbricks.com/original/b438575d-f0e2-4f5d-94a7-bb30fb238962.png',
+          fallbackSrcSet:
+            'https://images.reactbricks.com/src_set/b438575d-f0e2-4f5d-94a7-bb30fb238962-1600.png 1600w,\nhttps://images.reactbricks.com/src_set/b438575d-f0e2-4f5d-94a7-bb30fb238962-1200.png 1200w,\nhttps://images.reactbricks.com/src_set/b438575d-f0e2-4f5d-94a7-bb30fb238962-800.png 800w,\nhttps://images.reactbricks.com/src_set/b438575d-f0e2-4f5d-94a7-bb30fb238962-400.png 400w,\nhttps://images.reactbricks.com/src_set/b438575d-f0e2-4f5d-94a7-bb30fb238962-200.png 200w',
+          fallbackType: 'image/png',
+          src: 'https://images.reactbricks.com/original/b438575d-f0e2-4f5d-94a7-bb30fb238962.webp',
+          placeholderSrc:
+            'https://images.reactbricks.com/placeholder/b438575d-f0e2-4f5d-94a7-bb30fb238962.jpg',
+          srcSet:
+            'https://images.reactbricks.com/src_set/b438575d-f0e2-4f5d-94a7-bb30fb238962-1600.webp 1600w,\nhttps://images.reactbricks.com/src_set/b438575d-f0e2-4f5d-94a7-bb30fb238962-1200.webp 1200w,\nhttps://images.reactbricks.com/src_set/b438575d-f0e2-4f5d-94a7-bb30fb238962-800.webp 800w,\nhttps://images.reactbricks.com/src_set/b438575d-f0e2-4f5d-94a7-bb30fb238962-400.webp 400w,\nhttps://images.reactbricks.com/src_set/b438575d-f0e2-4f5d-94a7-bb30fb238962-200.webp 200w',
+          width: 2000,
+          height: 1000,
+          alt: 'backgroundImage',
+          seoName: '',
+        },
+      },
+    },
   ],
 }
 
