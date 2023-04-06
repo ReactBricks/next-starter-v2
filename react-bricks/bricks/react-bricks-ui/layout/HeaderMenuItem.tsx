@@ -8,7 +8,7 @@ import { textColors } from '../colors'
 interface HeaderMenuItemProps {
   linkPath: string
   linkText: any
-  submenuItems: any
+  submenuItems?: any
   isActive: boolean
 }
 
