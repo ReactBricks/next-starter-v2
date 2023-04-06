@@ -2,7 +2,12 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Image, Link, Repeater, RichText, types } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
-import { buttonColors, highlightBgColors, highlightTextColors, textColors } from '../../colors'
+import {
+  buttonColors,
+  highlightBgColors,
+  highlightTextColors,
+  textColors,
+} from '../../colors'
 import Container, { Padding } from '../../shared/components/Container'
 import Section, { Border } from '../../shared/components/Section'
 import {
@@ -55,7 +60,11 @@ const TextMedia: types.Brick<TextMediaProps> = ({
   const textColor = textColors.GRAY_700
 
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
       <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <div
           className={classNames(
@@ -64,12 +73,16 @@ const TextMedia: types.Brick<TextMediaProps> = ({
             imageSide === 'right' ? 'md:flex-row' : 'md:flex-row-reverse'
           )}
         >
-          <div className={classNames('w-full md:w-2/5 lg:pr-[5%] flex flex-col')}>
+          <div
+            className={classNames('w-full md:w-2/5 lg:pr-[5%] flex flex-col')}
+          >
             <Repeater
               propName="badge"
               itemProps={{ textAlign: 'left' }}
               renderWrapper={(items) => (
-                <div className="mb-4 flex justify-center md:justify-start">{items}</div>
+                <div className="mb-4 flex justify-center md:justify-start">
+                  {items}
+                </div>
               )}
             />
 
@@ -110,7 +123,10 @@ const TextMedia: types.Brick<TextMediaProps> = ({
                 </p>
               )}
               placeholder="Type a text..."
-              allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Link]}
+              allowedFeatures={[
+                types.RichTextFeatures.Bold,
+                types.RichTextFeatures.Link,
+              ]}
               renderLink={({ children, href }) => (
                 <Link
                   href={href}
@@ -158,7 +174,8 @@ const TextMedia: types.Brick<TextMediaProps> = ({
                   { 'rounded-lg': isRounded },
                   { 'shadow-2xl': hasShadow },
                   {
-                    'md:h-[500px] md:max-w-none object-cover': bigImage && imageSide === 'right',
+                    'md:h-[500px] md:max-w-none object-cover':
+                      bigImage && imageSide === 'right',
                   }
                 )}
               />
@@ -269,7 +286,8 @@ TextMedia.schema = {
           name: 'bigImage',
           label: 'Big image (only right side)',
           type: types.SideEditPropType.Boolean,
-          show: (props) => props.mediaType === 'image' && props.imageSide === 'right',
+          show: (props) =>
+            props.mediaType === 'image' && props.imageSide === 'right',
         },
         {
           name: 'mobileImageTop',
@@ -382,6 +400,8 @@ TextMedia.schema = {
     {
       id: 'image-hero',
       name: 'Image Hero',
+      previewImageUrl: `/bricks-preview-images/image-hero.png`,
+      showAsBrick: true,
       props: {
         ...sectionDefaults,
         title: 'Add magic to your components',

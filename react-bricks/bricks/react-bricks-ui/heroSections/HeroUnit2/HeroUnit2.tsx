@@ -160,19 +160,21 @@ HeroUnit2.schema = {
     text: "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations.",
     buttons: [
       {
+        type: 'link',
         text: 'Get Started now',
         href: '',
         isTargetBlank: false,
         buttonColor: buttonColors.SKY.value,
-        type: 'solid',
+        variant: 'solid',
         padding: 'normal',
       },
       {
+        type: 'link',
         text: 'Watch demo',
         href: '',
         isTargetBlank: false,
         buttonColor: buttonColors.SKY.value,
-        type: 'outline',
+        variant: 'outline',
         padding: 'normal',
       },
     ],

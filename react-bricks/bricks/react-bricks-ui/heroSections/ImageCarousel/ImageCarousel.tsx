@@ -70,8 +70,16 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
   }
 
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
-      <Container size={width} paddingTop={paddingTop} paddingBottom={paddingBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <style>{`
         .dark .slick-dots li button:before {
           color:white
@@ -150,7 +158,8 @@ CarouselBrick.schema = {
             ],
           },
           validate: (slidesToScroll, props) =>
-            slidesToScroll <= props?.slidesToShow || 'You cannot scroll more slides than you see',
+            slidesToScroll <= props?.slidesToShow ||
+            'You cannot scroll more slides than you see',
         },
         {
           name: 'adaptAspectRatio',
@@ -220,8 +229,10 @@ CarouselBrick.schema = {
   }),
   stories: [
     {
-      id: '4slides',
+      id: '4-slides',
       name: '4 slides',
+      previewImageUrl: `/bricks-preview-images/4-slides.png`,
+      showAsBrick: true,
       props: {
         slidesToShow: '4',
         slidesToScroll: 1,
