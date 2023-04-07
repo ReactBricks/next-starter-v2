@@ -6,9 +6,7 @@ import blockNames from '../../blockNames'
 import { buttonColors } from '../../colors'
 import {
   backgroundSideGroup,
-  containerSizeEditProps,
   LayoutProps,
-  neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
 } from '../../LayoutSideProps'

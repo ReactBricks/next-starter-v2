@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 import { Repeater, types, Text, Link, Plain } from 'react-bricks/frontend'
-import { FcAdvance, FcDepartment, FcPhone, FcVoicePresentation } from 'react-icons/fc'
+import { FcDepartment, FcPhone, FcVoicePresentation } from 'react-icons/fc'
 import blockNames from '../../blockNames'
 import { buttonColors, textColors } from '../../colors'
 import {

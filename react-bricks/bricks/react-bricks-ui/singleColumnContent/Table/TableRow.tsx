@@ -8,6 +8,7 @@ export interface TableRowProps {
   striped?: boolean
   withHeader?: boolean
   borders?: 'none' | 'horizontal' | 'all'
+  cells: any[]
 }
 
 const TableRow: types.Brick<TableRowProps> = ({

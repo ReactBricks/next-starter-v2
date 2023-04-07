@@ -6,7 +6,7 @@ import Section from '../../shared/components/Section'
 import { backgroundColorsEditProps, LayoutProps } from '../../LayoutSideProps'
 
 export interface SpacerProps extends LayoutProps {
-  height: number
+  height: string
 }
 
 const getPadding = (height: string) => {

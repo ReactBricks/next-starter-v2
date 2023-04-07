@@ -235,7 +235,6 @@ HeroUnit.schema = {
         paddingBottom: '12',
         textGradient: gradients.DAWN.value,
         highlightTextColor: highlightTextColors.PINK.value,
-        badge: [],
         title: "Let's make content editing fun, again!",
         text: 'Gray forms are a thing of the past. Let your editors enjoy visual editing over your React components!',
         buttons: [

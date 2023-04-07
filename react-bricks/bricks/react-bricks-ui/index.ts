@@ -25,7 +25,7 @@ import LinkCards from './mainContent/LinkCards/LinkCards'
 import LinkCard from './mainContent/LinkCards/LinkCard'
 
 // HERO UNITS
-import HeroUnit from './heroSections/Hero Unit/HeroUnit'
+import HeroUnit from './heroSections/HeroUnit/HeroUnit'
 import HeroUnit2 from './heroSections/HeroUnit2/HeroUnit2'
 import ImageCarousel from './heroSections/ImageCarousel/ImageCarousel'
 import ImageCarouselItem from './heroSections/ImageCarousel/ImageCarouselItem'
@@ -206,6 +206,16 @@ const allBricks: types.Theme = {
     },
   ],
 }
+
+const brickNames = allBricks.categories.reduce((acc, category) => {
+  const newBricks = category.bricks.map((brick) => ({
+    name: brick.schema.name,
+    hide: brick.schema.hideFromAddMenu,
+  }))
+  return [...acc, ...newBricks]
+}, [])
+
+console.log(brickNames)
 
 // Single bricks
 // export {

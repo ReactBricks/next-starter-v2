@@ -78,9 +78,9 @@ MapBrick.schema = {
   previewImageUrl: `/bricks-preview-images/${blockNames.Map}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
-    lat: 45.6782509,
-    lng: 9.5669407,
-    zoom: 6,
+    lat: '45.6782509',
+    lng: '9.5669407',
+    zoom: '6',
   }),
   sideEditProps: [
     {

@@ -28,7 +28,11 @@ const Features: types.Brick<FeaturesProps> = ({
   borderBottom,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
       <Container
         size={colsNumber === '2' ? 'small' : 'medium'}
         paddingTop={paddingTop}
@@ -51,7 +55,7 @@ Features.schema = {
   previewImageUrl: `/bricks-preview-images/${blockNames.Features}.png`,
   getDefaultProps: () => ({
     ...sectionDefaults,
-    paddingBottom: 'none',
+    paddingBottom: '0',
     colsNumber: '2',
     features: [
       {

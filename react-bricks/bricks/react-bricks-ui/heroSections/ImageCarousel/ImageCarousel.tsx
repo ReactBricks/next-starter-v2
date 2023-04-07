@@ -23,6 +23,7 @@ interface ImageCarouselProps extends LayoutProps {
   speed: string
   className: string
   gap: string
+  images: any[]
 }
 
 const CarouselBrick: types.Brick<ImageCarouselProps> = ({
@@ -212,11 +213,11 @@ CarouselBrick.schema = {
   ],
   getDefaultProps: () => ({
     ...sectionDefaults,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToShow: '1',
+    slidesToScroll: '1',
     adaptAspectRatio: true,
     autoplay: true,
-    speed: 3,
+    speed: '3',
     gap: '30px',
     images: [
       {
@@ -235,10 +236,10 @@ CarouselBrick.schema = {
       showAsBrick: true,
       props: {
         slidesToShow: '4',
-        slidesToScroll: 1,
+        slidesToScroll: '1',
         adaptAspectRatio: true,
         autoplay: true,
-        speed: 3,
+        speed: '3',
         gap: '30px',
         width: 'medium',
         images: [

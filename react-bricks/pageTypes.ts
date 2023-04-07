@@ -1,64 +1,53 @@
-import { types } from "react-bricks/frontend"
-import { v4 as uuid } from "uuid"
+import { types } from 'react-bricks/frontend'
+import { v4 as uuid } from 'uuid'
 
 const pageTypes: types.IPageType[] = [
   {
-    name: "page",
-    pluralName: "pages",
+    name: 'page',
+    pluralName: 'pages',
     defaultLocked: false,
     defaultStatus: types.PageStatus.Published,
     getDefaultContent: () => [],
-    excludedBlockTypes: [
-      "title",
-      "paragraph",
-      "quote",
-      "video",
-      "code-block",
-      "tweet",
-      "tweet-light",
-      "image",
-    ],
   },
   {
-    name: "layout",
-    pluralName: "layout",
+    name: 'layout',
+    pluralName: 'layout',
     defaultLocked: false,
     defaultStatus: types.PageStatus.Published,
     getDefaultContent: () => [],
     isEntity: true,
   },
   {
-    name: "blog",
-    pluralName: "Blog",
+    name: 'blog',
+    pluralName: 'Blog',
     defaultLocked: false,
     defaultStatus: types.PageStatus.Published,
     getDefaultContent: () => [],
     allowedBlockTypes: [
-      "title",
-      "paragraph",
-      "quote",
-      "video",
-      "code-block",
-      "tweet",
-      "tweet-light",
-      "image",
+      'title',
+      'paragraph',
+      'video',
+      'code-block',
+      'tweet',
+      'tweet-light',
+      'image',
     ],
   },
   {
-    name: "product",
-    pluralName: "products",
+    name: 'product',
+    pluralName: 'products',
     defaultLocked: false,
     defaultStatus: types.PageStatus.Published,
     getDefaultContent: () => [
       {
         id: uuid(),
-        type: "default-embed-brick", // or your custom embed brick
+        type: 'default-embed-brick', // or your custom embed brick
         props: {
           [types.EmbedProp]: {
             // mandatory prop of an embed brick
-            id: "fa3393c1-ba80-429c-9316-f1adfd8766cf",
-            slug: "header",
-            language: "en",
+            id: 'fa3393c1-ba80-429c-9316-f1adfd8766cf',
+            slug: 'header',
+            language: 'en',
           },
         },
         isEmbed: true,

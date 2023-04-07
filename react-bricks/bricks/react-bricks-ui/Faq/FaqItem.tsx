@@ -7,6 +7,8 @@ import blockNames from '../blockNames'
 
 interface FaqQuestionProps {
   id: string
+  question?: string
+  answer?: string
 }
 
 const FaqQuestion: types.Brick<FaqQuestionProps> = ({ id }) => {

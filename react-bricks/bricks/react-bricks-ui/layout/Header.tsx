@@ -18,7 +18,11 @@ import {
 } from '../LayoutSideProps'
 import Section from '../shared/components/Section'
 import useOnClickOutside from './useClickOutside'
-interface HeaderProps extends LayoutProps {}
+interface HeaderProps extends LayoutProps {
+  menuItems: any[]
+  logo: types.IImageSource
+  buttons: any[]
+}
 
 const Header: types.Brick<HeaderProps> = ({
   backgroundColor,

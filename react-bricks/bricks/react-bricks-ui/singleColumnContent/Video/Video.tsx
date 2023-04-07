@@ -58,7 +58,7 @@ SingleColumnVideo.schema = {
     width: 'small',
     videoType: 'streaming',
     platform: 'youtube',
-    videoId: 'T4ZMNcNq2Fw',
+    videoId: 'L4NGrMRTY3M',
   }),
 
   // Sidebar Edit controls for props
@@ -106,7 +106,7 @@ SingleColumnVideo.schema = {
         },
         {
           name: 'videoId',
-          label: 'Video ID (i.e. "T4ZMNcNq2Fw")',
+          label: 'Video ID (i.e. "L4NGrMRTY3M")',
           type: types.SideEditPropType.Text,
         },
       ],

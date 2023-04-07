@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, RichText, types } from 'react-bricks/frontend'
 import {
-  backgroundColorsEditProps,
   backgroundWithImageBgSideGroup,
   highlightTextEditProps,
   LayoutProps,
@@ -24,6 +23,9 @@ import Section from '../../shared/components/Section'
 export interface HeroUnitProps extends LayoutProps {
   textGradient: keyof typeof gradients
   highlightTextColor: { color: string; className: string }
+  title: any
+  text: string
+  buttons: any[]
 }
 
 const HeroUnit2: types.Brick<HeroUnitProps> = ({
@@ -244,7 +246,7 @@ HeroUnit2.schema = {
         text: "Forget grey fields, welcome visual editing. Forget going back and forth between the CMS and your editor: it's just React. Enterprise-ready.",
         buttons: [
           {
-            type: "link",
+            type: 'link',
             text: 'Tutorial',
             href: 'https://reactbricks.com/learn',
             isTargetBlank: true,
@@ -253,7 +255,7 @@ HeroUnit2.schema = {
             padding: 'normal',
           },
           {
-            type: "link",
+            type: 'link',
             text: 'View the Docs',
             href: 'https://docs.reactbricks.com/',
             isTargetBlank: true,

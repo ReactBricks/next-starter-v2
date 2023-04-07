@@ -8,33 +8,37 @@ import {
   highlightTextColors,
   textColors,
 } from '../../colors'
-import Container, { Padding } from '../../shared/components/Container'
-import Section, { Border } from '../../shared/components/Section'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 import {
-  backgroundColorsEditProps,
   backgroundSideGroup,
   LayoutProps,
   paddingBordersSideGroup,
-  sectionBordersEditProps,
   sectionDefaults,
-  sectionPaddingsEditProps,
 } from '../../LayoutSideProps'
 import { photos } from '../../shared/defaultImages'
 import Video from '../../shared/components/Video'
 
 export interface TextMediaProps extends LayoutProps {
-  imageSide: 'left' | 'right'
-  bigImage: boolean
-  mobileImageTop: boolean
-  mobileIcon: boolean
-  hasShadow: boolean
-  isRounded: boolean
-  extraBoldTitle: boolean
-  bigText: boolean
-  heroSizeTitle: boolean
   mediaType: 'image' | 'multiple-images' | 'video-file' | 'video-streaming'
-  platform: 'youtube' | 'vimeo'
-  videoId: string
+  imageSide: 'left' | 'right'
+  bigImage?: boolean
+  mobileImageTop?: boolean
+  mobileIcon?: boolean
+  hasShadow?: boolean
+  isRounded?: boolean
+  extraBoldTitle?: boolean
+  bigText?: boolean
+  heroSizeTitle?: boolean
+  platform?: 'youtube' | 'vimeo'
+  videoId?: string
+  title: string
+  text: string
+  imageSource?: types.IImageSource
+  buttons?: any[]
+  bulletListItems: any[]
+  badge: any[]
+  logos: any[]
 }
 
 const TextMedia: types.Brick<TextMediaProps> = ({
@@ -156,7 +160,13 @@ const TextMedia: types.Brick<TextMediaProps> = ({
             />
           </div>
           {mediaType === 'multiple-images' ? (
-            <div className="md:w-1/2 grid grid-cols-3 gap-6">
+            <div
+              className={classNames(
+                'grid grid-cols-3 gap-6',
+                mobileImageTop ? 'mt-0 mb-10' : 'mt-10 mb-0',
+                'md:w-1/2 md:mt-0 md:mb-0'
+              )}
+            >
               <Repeater propName="logos" />
             </div>
           ) : mediaType === 'image' ? (
@@ -181,13 +191,22 @@ const TextMedia: types.Brick<TextMediaProps> = ({
               />
             </div>
           ) : mediaType === 'video-file' ? (
-            <Video type="file" className="w-full mt-10 md:w-1/2 md:mt-0" />
+            <Video
+              type="file"
+              className={classNames(
+                mobileImageTop ? 'mt-0 mb-10' : 'mt-10 mb-0',
+                'w-full md:w-1/2 md:mt-0 md:mb-0'
+              )}
+            />
           ) : (
             <Video
               type="streaming"
               platform={platform}
               videoId={videoId}
-              className="w-full mt-10 md:w-1/2 md:mt-0"
+              className={classNames(
+                mobileImageTop ? 'mt-0 mb-10' : 'mt-10 mb-0',
+                'w-full md:w-1/2 md:mt-0 md:mb-0'
+              )}
             />
           )}
         </div>
@@ -246,7 +265,7 @@ TextMedia.schema = {
   }),
   sideEditProps: [
     {
-      groupName: 'Media type',
+      groupName: 'Media',
       defaultOpen: true,
       props: [
         {
@@ -263,16 +282,9 @@ TextMedia.schema = {
             ],
           },
         },
-      ],
-    },
-    {
-      groupName: 'Image',
-      show: ({ mediaType }) => mediaType === 'image',
-      defaultOpen: false,
-      props: [
         {
           name: 'imageSide',
-          label: 'Image side',
+          label: 'Media side',
           type: types.SideEditPropType.Select,
           selectOptions: {
             display: types.OptionsDisplay.Radio,
@@ -283,16 +295,23 @@ TextMedia.schema = {
           },
         },
         {
+          name: 'mobileImageTop',
+          label: 'Media on top on mobile',
+          type: types.SideEditPropType.Boolean,
+        },
+      ],
+    },
+    {
+      groupName: 'Image',
+      show: ({ mediaType }) => mediaType === 'image',
+      defaultOpen: false,
+      props: [
+        {
           name: 'bigImage',
           label: 'Big image (only right side)',
           type: types.SideEditPropType.Boolean,
           show: (props) =>
             props.mediaType === 'image' && props.imageSide === 'right',
-        },
-        {
-          name: 'mobileImageTop',
-          label: 'Image on top on mobile',
-          type: types.SideEditPropType.Boolean,
         },
         {
           name: 'mobileIcon',
@@ -409,7 +428,6 @@ TextMedia.schema = {
         imageSource: photos.IMAGE_TEXT_STORY_HERO,
         imageSide: 'right',
         bigImage: true,
-        multiple: false,
         mobileImageTop: false,
         mobileIcon: false,
         hasShadow: true,
