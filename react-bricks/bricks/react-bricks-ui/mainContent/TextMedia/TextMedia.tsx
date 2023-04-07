@@ -352,7 +352,7 @@ TextMedia.schema = {
         },
         {
           name: 'videoId',
-          label: 'Video ID (i.e. "A60xWr-nqv0")',
+          label: 'Video ID (i.e. "L4NGrMRTY3M")',
           type: types.SideEditPropType.Text,
         },
       ],
