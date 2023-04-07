@@ -26,11 +26,11 @@ const pageTypes: types.IPageType[] = [
     allowedBlockTypes: [
       'title',
       'paragraph',
+      'big-image',
       'video',
       'code-block',
       'tweet',
       'tweet-light',
-      'image',
     ],
   },
   {
