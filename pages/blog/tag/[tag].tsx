@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import {
   cleanPage,
+  fetchPage,
   fetchPages,
   fetchTags,
   PageViewer,
@@ -60,11 +61,11 @@ const Page: React.FC<PageProps> = ({
           <h1 className="text-center text-4xl sm:text-6xl lg:text-7xl leading-none font-black tracking-tight text-gray-900 pb-4 mt-10 sm:mt-12 mb-4">
             Blog
           </h1>
-          <div className="max-w-6xl mx-auto px-8 py-16">
-            <h2 className="text-pink-500 uppercase mb-8 tracking-widest font-bold">
-              {filterTag}
-            </h2>
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:gap-12">
+          <div className="max-w-6xl mx-auto px-8 py-16 flex space-x-24">
+            <section className="flex-[2] space-y-8">
+              <h2 className="text-pink-500 uppercase mb-8 tracking-widest font-bold">
+                {filterTag}
+              </h2>
               {pagesByTag?.map((post) => (
                 <PostListItem
                   key={post.id}
@@ -76,13 +77,14 @@ const Page: React.FC<PageProps> = ({
                   featuredImg={post.meta.featuredImage || ''}
                 />
               ))}
-            </div>
-            {/* <section className="flex-1 space-y-16">
+            </section>
+            <section className="flex-1 space-y-16">
               <div>
                 <h2 className="text-pink-500 uppercase mb-8 tracking-widest font-bold">
                   Tags
                 </h2>
                 <div className="flex flex-wrap items-center">
+                  {/* T A G  */}
                   {allTags
                     ?.filter((tag) => tag !== 'popular')
                     .map((tag) => (
@@ -118,7 +120,7 @@ const Page: React.FC<PageProps> = ({
                   ))}
                 </ul>
               </div>
-            </section> */}
+            </section>
           </div>
           {footerOk && !errorFooter ? (
             <PageViewer page={footerOk} />
@@ -133,27 +135,49 @@ const Page: React.FC<PageProps> = ({
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  let errorNoKeys: boolean = false
+  let errorPage: boolean = false
+  let errorHeader: boolean = false
+  let errorFooter: boolean = false
+
   if (!config.apiKey) {
+    errorNoKeys = true
     return { props: { error: 'NOKEYS' } }
   }
-  const { tag } = context.params
-  try {
-    const { items: tags } = await fetchTags(process.env.API_KEY)
-    tags.sort()
 
-    const pagesByTag = await fetchPages(config.apiKey, {
-      tag: tag.toString(),
-      type: 'blog',
-      pageSize: 1000,
-      sort: '-publishedAt',
-    })
-    const popularPosts = await fetchPages(config.apiKey, {
-      type: 'blog',
-      tag: 'popular',
-      sort: '-publishedAt',
-    })
+  const { tag } = context.params
+
+  try {
+    const [pagesByTag, tagsResult, header, footer] = await Promise.all([
+      fetchPages(config.apiKey, {
+        tag: tag.toString(),
+        type: 'blog',
+        pageSize: 100,
+        sort: '-publishedAt',
+      }),
+      fetchTags(process.env.API_KEY),
+      fetchPage('header', config.apiKey, context.locale).catch(() => {
+        errorHeader = true
+        return {}
+      }),
+      fetchPage('footer', config.apiKey, context.locale).catch(() => {
+        errorFooter = true
+        return {}
+      }),
+    ])
+
     return {
-      props: { pagesByTag, filterTag: tag, popularPosts, allTags: tags },
+      props: {
+        pagesByTag,
+        filterTag: tag,
+        allTags: tagsResult.items.sort(),
+        header,
+        footer,
+        errorNoKeys,
+        errorPage,
+        errorHeader,
+        errorFooter,
+      },
     }
   } catch {
     return { props: {} }
