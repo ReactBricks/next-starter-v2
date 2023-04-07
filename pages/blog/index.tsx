@@ -70,7 +70,7 @@ const BlogList: React.FC<HomeProps> = ({
                     href={post.slug}
                     content={post.meta.description}
                     author={post.author}
-                    date={post.createdAt}
+                    date={post.publishedAt}
                     featuredImg={post.meta.featuredImage || ''}
                   />
                 )
