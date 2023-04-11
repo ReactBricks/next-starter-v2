@@ -24,7 +24,7 @@ const ChapterHero: types.Brick<ChapterHeroProps> = ({
       <Image
         alt="Hero Image"
         propName="chapterImage"
-        imageClassName="h-[65vh] w-full min-h-[210px] bg-[center_60px] object-cover bg-no-repeat overflow-hidden"
+        imageClassName="h-[75vh] w-full min-h-[210px] bg-[center_60px] object-cover bg-no-repeat overflow-hidden"
       />
 
       <div className="absolute text-[#018da0] top-0 bg-white/90 w-[380px] h-full ml-[calc(((100%-1280px)/2)+260px+2rem*2)] break-words py-0 px-8 mr-auto max-w-[680px] flex flex-col items-start justify-center">
