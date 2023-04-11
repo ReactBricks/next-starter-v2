@@ -23,7 +23,8 @@ const PostListItem: React.FC<PostListItemProps> = ({
   return (
     <Link
       href={`/blog/post/${href}`}
-      className="flex flex-col hover:-translate-y-3 transition-transform duration-300">
+      className="flex flex-col hover:-translate-y-2 transition-transform duration-300"
+    >
       <img src={featuredImg} className="aspect-video object-cover rounded-sm" />
 
       {/* justify-between */}

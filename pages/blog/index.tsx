@@ -54,13 +54,26 @@ const BlogList: React.FC<HomeProps> = ({
           ) : (
             <ErrorNoHeader />
           )}
-          <h1 className="text-center text-4xl sm:text-6xl lg:text-7xl leading-none font-black tracking-tight text-gray-900 pb-4 mt-10 sm:mt-12 mb-4">
-            Blog
-          </h1>
           <div className="max-w-6xl mx-auto px-8 py-16">
-            <h2 className="text-pink-500 uppercase mb-8 tracking-widest font-bold">
-              Recently published
-            </h2>
+            <h1 className="max-w-2xl text-4xl sm:text-6xl lg:text-4xl font-bold tracking-tight text-gray-900 pb-4 mt-10 sm:mt-12 mb-4">
+              Our latest articles
+            </h1>
+
+            <div className="flex flex-wrap items-center">
+              {tags
+                ?.filter((tag) => tag !== 'popular')
+                .map((tag) => (
+                  <Link
+                    href={`/blog/tag/${tag}`}
+                    key={tag}
+                    className="inline-block text-sm mr-2 mb-2 transform transition-all duration-200 text-gray-800 border border-gray-100 bg-gray-100 hover:bg-gray-50 hover:text-sky-600 hover:border-sky-500 hover:-translate-y-0.5 rounded-md py-1.5 px-2.5"
+                  >
+                    {tag}
+                  </Link>
+                ))}
+            </div>
+
+            <hr className="mt-6 mb-10" />
             <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:gap-12">
               {posts?.map((post) => {
                 return (
@@ -77,24 +90,6 @@ const BlogList: React.FC<HomeProps> = ({
               })}
             </div>
             {/* <section className="flex-1 space-y-16">
-              <div>
-                <h2 className="text-pink-500 uppercase mb-8 tracking-widest font-bold">
-                  Tags
-                </h2>
-                <div className="flex flex-wrap items-center">
-                  {tags
-                    ?.filter((tag) => tag !== 'popular')
-                    .map((tag) => (
-                      <Link
-                        href={`/blog/tag/${tag}`}
-                        key={tag}
-                        className="inline-block text-sm font-bold mr-2 mb-2 transform duration-200 text-cyan-800 bg-cyan-100 hover:bg-cyan-200 hover:text-cyan-900 rounded-md px-2 py-1"
-                      >
-                        {tag}
-                      </Link>
-                    ))}
-                </div>
-              </div>
               <div>
                 <h2 className="text-pink-500 uppercase mb-8 tracking-widest font-bold">
                   Most Popular
