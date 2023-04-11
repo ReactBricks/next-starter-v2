@@ -3,10 +3,10 @@ import { Text, RichText, Image, types, Link } from 'react-bricks/frontend'
 import { FiSearch, FiChevronDown } from 'react-icons/fi'
 import useOnClickOutside from './useClickOutside'
 import classNames from 'classnames'
+
 //=============================
 // Local Types
 //=============================
-
 interface HeaderProps {
   title: string
   text: string
