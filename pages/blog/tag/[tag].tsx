@@ -72,6 +72,9 @@ const Page: React.FC<PageProps> = ({
                   title={post.name}
                   href={post.slug}
                   content={post.meta.description}
+                  author={post.author}
+                  date={post.publishedAt}
+                  featuredImg={post.meta.featuredImage || ''}
                 />
               ))}
             </section>
@@ -98,7 +101,6 @@ const Page: React.FC<PageProps> = ({
                         {tag}
                       </Link>
                     ))}
-                  {/*  */}
                 </div>
               </div>
               <div>
