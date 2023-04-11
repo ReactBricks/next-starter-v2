@@ -26,7 +26,11 @@ const Footer: types.Brick<FooterProps> = ({
 }) => {
   return (
     <footer>
-      <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+      <Section
+        backgroundColor={backgroundColor}
+        borderTop={borderTop}
+        borderBottom={borderBottom}
+      >
         <Container
           paddingTop={paddingTop}
           paddingBottom={paddingBottom}
@@ -91,7 +95,7 @@ Footer.schema = {
         type: 'paragraph',
         children: [
           {
-            text: '© React Bricks, Inc.',
+            text: 'Visual editing CMS for React.',
           },
         ],
       },

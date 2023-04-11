@@ -73,6 +73,7 @@ enum blockNames {
   Offices = 'contact-offices',
   Office = 'contact-office',
   ContactsForm = 'contact-form',
+  BlogTitle = 'blog-title',
 }
 
 export default blockNames

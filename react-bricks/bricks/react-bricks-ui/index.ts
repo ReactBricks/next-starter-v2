@@ -92,6 +92,7 @@ import TableRow from './singleColumnContent/Table/TableRow'
 import TableCell from './singleColumnContent/Table/TableCell'
 import Tweet from './singleColumnContent/Tweet/Tweet'
 import TweetLight from './singleColumnContent/Tweet/TweetLight'
+import BlogTitle from './singleColumnContent/BlogTitle/BlogTitle'
 
 // DOCUMENTS
 import Documents from './Documents/Documents'
@@ -183,6 +184,7 @@ const allBricks: types.Theme = {
         TableCell,
         Tweet,
         TweetLight,
+        BlogTitle,
       ],
     },
     {

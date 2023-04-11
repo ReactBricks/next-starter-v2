@@ -53,14 +53,14 @@ const Paragraph: types.Brick<ParagraphProps> = ({
           ]}
           renderH2={({ children }) => {
             return (
-              <h2 className="text-2xl leading-7 font-bold text-gray-800 dark:text-white mt-10 mb-2">
+              <h2 className="text-2xl leading-7 font-bold text-gray-800 dark:text-white mt-6 mb-2">
                 {children}
               </h2>
             )
           }}
           renderH3={({ children }) => {
             return (
-              <h3 className="text-xl font-bold text-gray-800 dark:text-white mt-8 mb-2">
+              <h3 className="text-xl font-bold text-gray-800 dark:text-white mt-6 mb-2">
                 {children}
               </h3>
             )

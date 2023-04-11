@@ -48,6 +48,8 @@ BigImage.schema = {
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',
+    paddingTop: '12',
+    paddingBottom: '12',
     image: photos.SEASIDE,
   }),
   sideEditProps: [

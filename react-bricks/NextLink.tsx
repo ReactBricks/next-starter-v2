@@ -26,8 +26,9 @@ const NextLink: types.RenderLocalLink = ({
       </Link>
     )
   }
+
   return (
-    <Link href="/[[...slug]]" as={href} className={anchorClassName}>
+    <Link href={href} className={anchorClassName}>
       {children}
     </Link>
   )
