@@ -1,18 +1,16 @@
 import { types } from 'react-bricks/frontend'
-import reactBricksUITheme from './react-bricks-ui'
-import HeroUnit from './custom/MyHeroUnit'
+import faoBricks from './fao/index'
 
 const bricks: types.Theme[] = [
-  reactBricksUITheme, // React Bricks UI
   {
-    themeName: 'Custom Theme 1',
+    themeName: 'Fao example',
     categories: [
       {
-        categoryName: 'Hero sections',
-        bricks: [HeroUnit], // Custom Bricks
+        categoryName: 'publications',
+        bricks: [...faoBricks],
       },
     ],
-  },
+  }, // React Bricks UI
 ]
 
 export default bricks
