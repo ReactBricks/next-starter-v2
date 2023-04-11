@@ -39,7 +39,7 @@ const Header: types.Brick<HeaderProps> = ({ open }) => {
           </Link>
         </div>
         <div className="min-[1366px]:w-auto flex items-center justify-end w-full bg-[#018da0]">
-          <div className="md:h-[60px] md:mr-4 flex justify-end items-center h-[50px] mr-8 overflow-hidden">
+          <div className="md:h-[60px]  flex justify-end items-center h-[50px]  overflow-hidden">
             {' '}
             {/*searchBox */}
             <div className="max-w-[200px] min-w-[200px] mb-[4px]">
