@@ -67,7 +67,7 @@ const Page: React.FC<PageProps> = ({
 
                 <Link
                   href="/blog"
-                  className="hover:text-gray-200 hover:-translate-x-2 transition-transform duration-300"
+                  className="hover:-translate-x-2 transition-transform duration-300"
                 >
                   &laquo; Return to blog
                 </Link>
