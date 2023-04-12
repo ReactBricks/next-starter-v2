@@ -30,8 +30,8 @@ const PostListItem: React.FC<PostListItemProps> = ({
       {/* justify-between */}
       <div className="flex flex-col h-full">
         <div className="my-6">
-          <h3 className="font-bold text-xl">{title}</h3>
-          <p className="mt-2 leading-6 text-gray-800">{content}</p>
+          <h3 className="font-bold text-xl dark:text-white">{title}</h3>
+          <p className="mt-2 leading-6 text-gray-800 dark:text-gray-100">{content}</p>
         </div>
 
         <div className="flex items-center space-x-4">
@@ -41,10 +41,10 @@ const PostListItem: React.FC<PostListItemProps> = ({
             className="w-8 rounded-full"
           />
           <div>
-            <div className="text-sm text-gray-800">
+            <div className="text-sm text-gray-800 dark:text-gray-100">
               {author.firstName} {author.lastName}
             </div>
-            <div className="text-xs text-gray-500">
+            <div className="text-xs text-gray-500 dark:text-gray-400">
               {dayjs(date).format('DD MMM YYYY')}
             </div>
           </div>

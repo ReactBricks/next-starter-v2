@@ -1,6 +1,5 @@
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
 import {
   cleanPage,
   fetchPage,
@@ -17,6 +16,7 @@ import ErrorNoFooter from '../../components/errorNoFooter'
 import Layout from '../../components/layout'
 import config from '../../react-bricks/config'
 import { useContext } from 'react'
+import TagListItem from '../../components/TagListItem'
 
 interface HomeProps {
   errorNoKeys: string
@@ -54,64 +54,61 @@ const BlogList: React.FC<HomeProps> = ({
           ) : (
             <ErrorNoHeader />
           )}
-          <div className="max-w-6xl mx-auto px-8 py-16">
-            <h1 className="max-w-2xl text-4xl sm:text-6xl lg:text-4xl font-bold tracking-tight text-gray-900 pb-4 mt-10 sm:mt-12 mb-4">
-              Our latest articles
-            </h1>
+          <div className="bg-white dark:bg-gray-900">
+            <div className="max-w-6xl mx-auto px-8 py-16">
+              <h1 className="max-w-2xl text-4xl sm:text-6xl lg:text-4xl font-bold tracking-tight text-gray-900 dark:text-white pb-4 mt-10 sm:mt-12 mb-4">
+                Our latest articles
+              </h1>
 
-            <div className="flex flex-wrap items-center">
-              {tags
-                ?.filter((tag) => tag !== 'popular')
-                .map((tag) => (
-                  <Link
-                    href={`/blog/tag/${tag}`}
-                    key={tag}
-                    className="inline-block text-sm mr-2 mb-2 transform transition-all duration-200 text-gray-800 border border-gray-100 bg-gray-100 hover:bg-gray-50 hover:text-sky-600 hover:border-sky-500 hover:-translate-y-0.5 rounded-md py-1.5 px-2.5"
-                  >
-                    {tag}
-                  </Link>
-                ))}
-            </div>
-
-            <hr className="mt-6 mb-10" />
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:gap-12">
-              {posts?.map((post) => {
-                return (
-                  <PostListItem
-                    key={post.id}
-                    title={post.name}
-                    href={post.slug}
-                    content={post.meta.description}
-                    author={post.author}
-                    date={post.publishedAt}
-                    featuredImg={post.meta.featuredImage || ''}
-                  />
-                )
-              })}
-            </div>
-            {/* <section className="flex-1 space-y-16">
-              <div>
-                <h2 className="text-pink-500 uppercase mb-8 tracking-widest font-bold">
-                  Most Popular
-                </h2>
-                <ul>
-                  {posts
-                    ?.filter((post) =>
-                      post.tags.find((tag) => tag === 'popular')
-                    )
-                    .map((post) => (
-                      <li key={post.id}>
-                        <Link
-                          href={`/blog/post/${post.slug}`}
-                          className="text-gray-900 hover:text-cyan-600 font-bold text-lg leading-10 transition-colors"
-                        >
-                          {post.name}
-                        </Link>
-                      </li>
-                    ))}
-                </ul>
+              <div className="flex flex-wrap items-center">
+                {tags
+                  ?.filter((tag) => tag !== 'popular')
+                  .map((tag) => (
+                    <TagListItem tag={tag} key={tag} />
+                  ))}
               </div>
-            </section> */}
+
+              <hr className="mt-6 mb-10 dark:border-gray-600" />
+
+              <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:gap-12">
+                {posts?.map((post) => {
+                  return (
+                    <PostListItem
+                      key={post.id}
+                      title={post.name}
+                      href={post.slug}
+                      content={post.meta.description}
+                      author={post.author}
+                      date={post.publishedAt}
+                      featuredImg={post.meta.featuredImage || ''}
+                    />
+                  )
+                })}
+              </div>
+              {/* <section className="flex-1 space-y-16">
+                <div>
+                  <h2 className="text-pink-500 uppercase mb-8 tracking-widest font-bold">
+                    Most Popular
+                  </h2>
+                  <ul>
+                    {posts
+                      ?.filter((post) =>
+                        post.tags.find((tag) => tag === 'popular')
+                      )
+                      .map((post) => (
+                        <li key={post.id}>
+                          <Link
+                            href={`/blog/post/${post.slug}`}
+                            className="text-gray-900 hover:text-cyan-600 font-bold text-lg leading-10 transition-colors"
+                          >
+                            {post.name}
+                          </Link>
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+              </section> */}
+            </div>
           </div>
           {footerOk && !errorFooter ? (
             <PageViewer page={footerOk} />

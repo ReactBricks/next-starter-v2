@@ -17,6 +17,7 @@ import { useContext } from 'react'
 import ErrorNoKeys from '../../../components/errorNoKeys'
 import ErrorNoHeader from '../../../components/errorNoHeader'
 import ErrorNoFooter from '../../../components/errorNoFooter'
+import TagListItem from '../../../components/TagListItem'
 
 interface PageProps {
   pagesByTag: types.Page[]
@@ -57,38 +58,44 @@ const Page: React.FC<PageProps> = ({
           ) : (
             <ErrorNoHeader />
           )}
-          <div className="max-w-6xl mx-auto px-8 py-16">
-            <h1 className="max-w-2xl text-4xl sm:text-6xl lg:text-4xl font-bold tracking-tight text-gray-900 pb-4 mt-10 sm:mt-12 mb-4">
-              {filterTag} articles
-            </h1>
+          <div className="bg-white dark:bg-gray-900">
+            <div className="max-w-6xl mx-auto px-8 py-16">
+              <div className="flex items-center justify-between  text-gray-900 dark:text-white pb-4 mt-10 sm:mt-12 mb-4">
+                <h1 className="max-w-2xl text-4xl sm:text-6xl lg:text-4xl font-bold tracking-tight">
+                  {filterTag} articles
+                </h1>
 
-            <div className="flex flex-wrap items-center">
-              {allTags
-                ?.filter((tag) => tag !== 'popular')
-                .map((tag) => (
-                  <Link
-                    href={`/blog/tag/${tag}`}
-                    key={tag}
-                    className="inline-block text-sm mr-2 mb-2 transform transition-all duration-200 text-gray-800 border border-gray-100 bg-gray-100 hover:bg-gray-50 hover:text-sky-600 hover:border-sky-500 hover:-translate-y-0.5 rounded-md py-1.5 px-2.5"
-                  >
-                    {tag}
-                  </Link>
+                <Link
+                  href="/blog"
+                  className="hover:text-gray-200 hover:-translate-x-2 transition-transform duration-300"
+                >
+                  &laquo; Return to blog
+                </Link>
+              </div>
+
+              <div className="flex flex-wrap items-center">
+                {allTags
+                  ?.filter((tag) => tag !== 'popular')
+                  .map((tag) => (
+                    <TagListItem tag={tag} key={tag} />
+                  ))}
+              </div>
+
+              <hr className="mt-6 mb-10 dark:border-gray-600" />
+
+              <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:gap-12">
+                {pagesByTag?.map((post) => (
+                  <PostListItem
+                    key={post.id}
+                    title={post.name}
+                    href={post.slug}
+                    content={post.meta.description}
+                    author={post.author}
+                    date={post.publishedAt}
+                    featuredImg={post.meta.featuredImage || ''}
+                  />
                 ))}
-            </div>
-
-            <hr className="mt-6 mb-10" />
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:gap-12">
-              {pagesByTag?.map((post) => (
-                <PostListItem
-                  key={post.id}
-                  title={post.name}
-                  href={post.slug}
-                  content={post.meta.description}
-                  author={post.author}
-                  date={post.publishedAt}
-                  featuredImg={post.meta.featuredImage || ''}
-                />
-              ))}
+              </div>
             </div>
           </div>
           {footerOk && !errorFooter ? (
