@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useContext } from 'react'
 import {
   Image,
   Repeater,
   types,
   Link,
+  ReactBricksContext,
 } from 'react-bricks/frontend'
 import { FiMenu, FiX } from 'react-icons/fi'
 import { BsMoonFill, BsSunFill } from 'react-icons/bs'
@@ -30,18 +31,11 @@ const Header: types.Brick<HeaderProps> = ({
   borderBottom,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { resolvedTheme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const { isDarkColorMode, toggleColorMode } = useContext(ReactBricksContext)
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-  
   const ref = useRef<HTMLDivElement>(null)
 
   useOnClickOutside(ref, () => setMobileMenuOpen(false))
-
-  if (!mounted) return <></>
 
   return (
     <Section
@@ -82,11 +76,9 @@ const Header: types.Brick<HeaderProps> = ({
           <button
             type="button"
             className="flex items-center justify-center w-8 h-8 mr-4 sm:mr-0 sm:ml-4 md:ml-8 text-gray-400 dark:text-gray-200"
-            onClick={() => {
-              setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-            }}
+            onClick={toggleColorMode}
           >
-            {resolvedTheme === 'light' ? (
+            {!isDarkColorMode ? (
               <BsSunFill className="text-xl" />
             ) : (
               <BsMoonFill />
@@ -114,11 +106,9 @@ const Header: types.Brick<HeaderProps> = ({
         <button
           type="button"
           className="hidden lg:flex items-center justify-center w-8 h-8 mr-4 sm:mr-0 sm:ml-4 md:ml-8 text-gray-400 dark:text-gray-200"
-          onClick={() => {
-            setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-          }}
+          onClick={toggleColorMode}
         >
-          {resolvedTheme === 'light' ? (
+          {!isDarkColorMode ? (
             <BsSunFill className="text-xl" />
           ) : (
             <BsMoonFill />
