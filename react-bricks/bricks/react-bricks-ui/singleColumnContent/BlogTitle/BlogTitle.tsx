@@ -9,11 +9,11 @@ import blockNames from '../../blockNames'
 import { textColors } from '../../colors'
 import { LayoutProps, sectionDefaults } from '../../LayoutSideProps'
 
-export interface TitleProps extends LayoutProps {
+export interface BlogTitleProps extends LayoutProps {
   title?: string
 }
 
-const Title: types.Brick<TitleProps> = ({
+const BlogTitle: types.Brick<BlogTitleProps> = ({
   backgroundColor,
   borderTop,
   borderBottom,
@@ -122,14 +122,15 @@ const Title: types.Brick<TitleProps> = ({
   )
 }
 
-Title.schema = {
+BlogTitle.schema = {
   name: blockNames.BlogTitle,
-  label: 'Title',
+  label: 'Blog Title',
   category: 'single column / blog',
   tags: ['blog', 'title', 'blog title'],
   playgroundLinkLabel: 'View source code on Github',
+  previewImageUrl: `/bricks-preview-images/${blockNames.BlogTitle}.png`,
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Title/Title.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/BlogTitle/BlogTitle.tsx',
   getDefaultProps: () => ({
     ...sectionDefaults,
     width: 'small',
@@ -140,4 +141,4 @@ Title.schema = {
   }),
 }
 
-export default Title
+export default BlogTitle
