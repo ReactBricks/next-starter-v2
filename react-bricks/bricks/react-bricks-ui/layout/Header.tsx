@@ -37,7 +37,6 @@ const Header: types.Brick<HeaderProps> = ({
 
   return (
     <Section
-      allowOverflow
       backgroundColor={backgroundColor}
       borderBottom={borderBottom ? 'full' : 'none'}
     >

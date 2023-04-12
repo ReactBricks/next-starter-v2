@@ -34,7 +34,7 @@ const BlogTitle: types.Brick<BlogTitleProps> = ({
         paddingBottom={paddingBottom}
       >
         <Text
-          propName="title"
+          metaFieldName="title"
           renderBlock={(prop) => {
             return (
               <h1

@@ -87,7 +87,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
           )}
         </button>
         {open && (
-          <div className="w-64 bg-white p-3 border rounded-lg shadow-lg absolute top-9 z-10 dark:bg-gray-900 dark:border-gray-400">
+          <div className="w-64 bg-white p-3 border rounded-md shadow-lg absolute top-9 z-[1000]">
             <Repeater propName="submenuItems" />
           </div>
         )}
