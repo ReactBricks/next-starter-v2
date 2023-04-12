@@ -7,6 +7,8 @@ import Highlights from './Highlights'
 import HighlightsItem from './HighlightsItem'
 import Chapters from './Chapters'
 import ChaptersItem from './ChapterItem'
+import BottomHighlights from './BottomHighlights'
+import HighlightsLinkItem from './HighlightsLinkItem'
 const faoBricks: types.Brick<any>[] = [
   Header,
   ChapterHero,
@@ -16,6 +18,8 @@ const faoBricks: types.Brick<any>[] = [
   HighlightsItem,
   Chapters,
   ChaptersItem,
+  BottomHighlights,
+  HighlightsLinkItem,
 ]
 
 export default faoBricks
