@@ -1,10 +1,9 @@
-import React, { useContext, useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import {
   Image,
   Repeater,
   types,
   Link,
-  ReactBricksContext,
 } from 'react-bricks/frontend'
 import { FiMenu, FiX } from 'react-icons/fi'
 import { BsMoonFill, BsSunFill } from 'react-icons/bs'
@@ -18,6 +17,8 @@ import {
 } from '../LayoutSideProps'
 import Section from '../shared/components/Section'
 import useOnClickOutside from './useClickOutside'
+import { useTheme } from 'next-themes'
+
 interface HeaderProps extends LayoutProps {
   menuItems: any[]
   logo: types.IImageSource
@@ -29,11 +30,18 @@ const Header: types.Brick<HeaderProps> = ({
   borderBottom,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { isDarkColorMode, toggleColorMode } = useContext(ReactBricksContext)
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+  
   const ref = useRef<HTMLDivElement>(null)
 
   useOnClickOutside(ref, () => setMobileMenuOpen(false))
+
+  if (!mounted) return <></>
 
   return (
     <Section
@@ -70,13 +78,15 @@ const Header: types.Brick<HeaderProps> = ({
           ref={ref}
           className="relative ml-auto lg:hidden flex items-center h-full sm:gap-x-4"
         >
-          {/* DARK MODE BUTTON */}
+          {/* DARK MODE BUTTON MOBILE */}
           <button
             type="button"
             className="flex items-center justify-center w-8 h-8 mr-4 sm:mr-0 sm:ml-4 md:ml-8 text-gray-400 dark:text-gray-200"
-            onClick={toggleColorMode}
+            onClick={() => {
+              setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+            }}
           >
-            {!isDarkColorMode ? (
+            {resolvedTheme === 'light' ? (
               <BsSunFill className="text-xl" />
             ) : (
               <BsMoonFill />
@@ -100,13 +110,15 @@ const Header: types.Brick<HeaderProps> = ({
           )}
         </div>
 
-        {/* DARK MODE BUTTON */}
+        {/* DARK MODE BUTTON DESKTOP */}
         <button
           type="button"
           className="hidden lg:flex items-center justify-center w-8 h-8 mr-4 sm:mr-0 sm:ml-4 md:ml-8 text-gray-400 dark:text-gray-200"
-          onClick={toggleColorMode}
+          onClick={() => {
+            setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+          }}
         >
-          {!isDarkColorMode ? (
+          {resolvedTheme === 'light' ? (
             <BsSunFill className="text-xl" />
           ) : (
             <BsMoonFill />
