@@ -50,7 +50,17 @@ const Page: React.FC<PageProps> = ({
             <meta name="description" content={page.meta.description} />
           </Head>
           {headerOk && !errorHeader ? (
-            <PageViewer page={headerOk} />
+            <>
+              <style>{`
+h2 + p {
+  margin-top: 0!important;
+}
+h3 + p {
+  margin-top: 0!important;
+}
+              `}</style>
+              <PageViewer page={headerOk} />
+            </>
           ) : (
             <ErrorNoHeader />
           )}

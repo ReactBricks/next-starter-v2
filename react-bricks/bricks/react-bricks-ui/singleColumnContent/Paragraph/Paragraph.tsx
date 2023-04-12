@@ -36,7 +36,7 @@ const Paragraph: types.Brick<ParagraphProps> = ({
           propName="text"
           placeholder="Paragraph..."
           renderBlock={({ children }) => (
-            <p className="text-base leading-7 first-of-type:mt-0 mt-6 mb-6 text-gray-800 dark:text-gray-100">
+            <p className="text-base leading-7 mt-6 mb-6 text-gray-800 dark:text-gray-100">
               {children}
             </p>
           )}
