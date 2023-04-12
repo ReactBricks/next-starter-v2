@@ -93,7 +93,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
         )}
       </div>
 
-      <div ref={ref} className="lg:hidden mb-6" role="group">
+      <div className="lg:hidden mb-6" role="group">
         <div
           className={`text-xs font-extrabold ${textColors.GRAY_500} uppercase tracking-[0.35rem] mb-4`}
         >
