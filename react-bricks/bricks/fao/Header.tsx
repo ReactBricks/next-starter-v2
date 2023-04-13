@@ -26,7 +26,7 @@ const Header: types.Brick<HeaderProps> = ({ open }) => {
       <div className="min-[1366px]:justify-between min-[1366px]:flex-row xl:max-w-[calc(1380px_-_2rem_*_2)]  md:min-w-[680px] flex items-center flex-col w-full py-0 px-8 my-0 mx-auto min-h-[25px]">
         <div className="min-[1366px]:w-auto min-[1366px]:flex-nowrap min-[1366px]:pb-0 flex w-full justify-start pb-4 relative">
           <Link
-            propNmae=""
+            propname=""
             href={'https://www.fao.org'}
             target="_blank"
             title="FAO - Food and Agriculture Organization"

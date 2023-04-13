@@ -4,41 +4,54 @@ import { types, Text, RichText } from 'react-bricks/frontend'
 //=============================
 // Local Types
 //=============================
-interface ParagraphProps {}
+interface ParagraphProps {
+  anchorName: string
+}
 
 //=============================
 // Component to be rendered
 //=============================
-const Paragraph: types.Brick<ParagraphProps> = () => {
+const Paragraph: types.Brick<ParagraphProps> = ({ anchorName }) => {
   return (
-    <>
-      {/* <Text
-        renderBlock={(props) => <h3>{props.children}</h3>}
-        placeholder="Chapter name..."
-        propName="chapterName"
-      /> */}
-
-      <RichText
-        renderH3={({ children, attributes }) => (
-          <h3 className="font-bold text-blue-900">{children}</h3>
-        )}
-        renderBlock={(props: any) => (
-          <p className="text-lg sm:text-xl text-center">{props.children}</p>
-        )}
-        placeholder="Type a text..."
-        propName="text"
-        allowedFeatures={[
-          types.RichTextFeatures.Heading3,
-          types.RichTextFeatures.Bold,
-          types.RichTextFeatures.Italic,
-          types.RichTextFeatures.Code,
-          types.RichTextFeatures.Highlight,
-          types.RichTextFeatures.Link,
-          types.RichTextFeatures.UnorderedList,
-          types.RichTextFeatures.Quote,
-        ]}
-      />
-    </>
+    <div className="w-full flex">
+      <div className="mx-auto max-w-[680px] float-left flex-1">
+        <RichText
+          renderH3={({ children, attributes }) => (
+            <h3
+              className="pt-16 text-[2.4rem] leading-[2.4rem] font-extrabold font-[trade-gothic-next-condensed,sans-serif;] text-[#018da0] mt-12 mb-4 relative uppercase"
+              id={anchorName}
+            >
+              {children}
+            </h3>
+          )}
+          renderBlock={(props: any) => (
+            <p className="pb-16 font-[merriweather,serif;] font-light leading-[28px] text-[16px]">
+              {props.children}
+            </p>
+          )}
+          renderLink={(props: any) => (
+            <a
+              href={props.href}
+              className="font-semibold font-[trade-gothic-next-condensed,sans-serif;] text-[#018da0]"
+            >
+              {props.children}
+            </a>
+          )}
+          placeholder="Type a text..."
+          propName="text"
+          allowedFeatures={[
+            types.RichTextFeatures.Heading3,
+            types.RichTextFeatures.Bold,
+            types.RichTextFeatures.Italic,
+            types.RichTextFeatures.Code,
+            types.RichTextFeatures.Highlight,
+            types.RichTextFeatures.Link,
+            types.RichTextFeatures.UnorderedList,
+            types.RichTextFeatures.Quote,
+          ]}
+        />
+      </div>
+    </div>
   )
 }
 
