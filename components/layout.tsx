@@ -11,7 +11,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div
       className={`${
         isDarkColorMode ? 'dark' : 'light'
-      } flex flex-col h-screen justify-between font-content antialiased text-[62.5%]`}
+      } flex flex-col h-screen justify-between font-content antialiased`}
     >
       <main className="mb-auto">{children}</main>
     </div>
