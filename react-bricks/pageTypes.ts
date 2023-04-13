@@ -24,6 +24,7 @@ const pageTypes: types.IPageType[] = [
       'tweet',
       'tweet-light',
       'blog-title',
+      'newsletter-subscribe',
     ],
   },
   {

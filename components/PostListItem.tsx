@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { types } from 'react-bricks'
+import { types } from 'react-bricks/frontend'
 import dayjs from 'dayjs'
 
 interface PostListItemProps {
