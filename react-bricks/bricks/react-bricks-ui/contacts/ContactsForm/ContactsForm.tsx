@@ -29,10 +29,14 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
   email,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
       <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="pb-12 lg:pb-20 sm:text-left lg:px-8 px-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="pb-12 lg:pb-20 sm:text-left lg:pr-8 pr-5">
             <TitleSubtitle />
             <ul
               className={classNames(
@@ -48,7 +52,10 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
                     placeholder="address..."
                     multiline={true}
                     renderBlock={(props) => (
-                      <span className="block min-w-[70px]" {...props.attributes}>
+                      <span
+                        className="block min-w-[70px]"
+                        {...props.attributes}
+                      >
                         {props.children}
                       </span>
                     )}
@@ -75,7 +82,9 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
               <li>
                 <Link
                   className="flex gap-x-4 text-sky-500 hover:text-sky-600 hover:-translate-y-px transition-all ease-out duration-150"
-                  href={`mailto:${typeof email === 'string' ? email : Plain.serialize(email)}`}
+                  href={`mailto:${
+                    typeof email === 'string' ? email : Plain.serialize(email)
+                  }`}
                 >
                   <FcVoicePresentation size={'28px'} />
                   <Text

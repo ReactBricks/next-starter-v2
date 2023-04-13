@@ -34,7 +34,7 @@ const FormTextarea: types.Brick<FormTextareaProps> = ({
   return (
     <div
       className={classNames(
-        'px-2 py-1 group block col-span-2',
+        'py-1 group block col-span-2',
         columns === '1' && 'sm:col-span-1'
       )}
     >
