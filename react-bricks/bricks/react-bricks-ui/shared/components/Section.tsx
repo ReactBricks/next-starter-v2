@@ -37,7 +37,7 @@ const Section: React.FC<SectionProps> = ({
       ${
         backgroundImageDark
           ? `.dark .hero-bg-img { background-image: url(${backgroundImageDark.src}); background-repeat: no-repeat; background-size: cover; background-position: center}`
-          : ``
+          : `.dark .hero-bg-img { background-image: none }`
       }
     `
 

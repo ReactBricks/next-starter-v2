@@ -23,6 +23,9 @@ export interface HeroUnitProps extends LayoutProps {
   size: 'medium' | 'large'
   textGradient: keyof typeof gradients
   highlightTextColor: { color: string; className: string }
+  title: any
+  text: string
+  buttons: any[]
 }
 
 const HeroUnit: types.Brick<HeroUnitProps> = ({
