@@ -9,6 +9,7 @@ import {
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
+  containerWidthSideGroup,
 } from '../../LayoutSideProps'
 import { icons } from '../../shared/defaultImages'
 import classNames from 'classnames'
@@ -25,12 +26,21 @@ const LinkCards: types.Brick<LinkCardsProps> = ({
   paddingBottom,
   borderTop,
   borderBottom,
+  width,
   withTitle,
   bigCenteredTitle,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
-      <Container size="medium" paddingTop={paddingTop} paddingBottom={paddingBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         {withTitle && (
           <TitleSubtitle
             className={classNames(bigCenteredTitle ? 'mb-12' : 'mb-8')}
@@ -58,7 +68,8 @@ LinkCards.schema = {
     withTitle: true,
     bigCenteredTitle: true,
     title: 'Why you will love React Bricks',
-    subtitle: 'We created React Bricks as a "one stop shop" to make everybody happy.',
+    subtitle:
+      'We created React Bricks as a "one stop shop" to make everybody happy.',
     cards: [
       {
         title: 'Visual editing',
@@ -117,6 +128,7 @@ LinkCards.schema = {
     },
     neutralBackgroundSideGroup,
     paddingBordersSideGroup,
+    containerWidthSideGroup,
   ],
 }
 export default LinkCards
