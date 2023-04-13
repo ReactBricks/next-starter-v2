@@ -18,14 +18,14 @@ const Paragraph: types.Brick<ParagraphProps> = ({ anchorName }) => {
         <RichText
           renderH3={({ children, attributes }) => (
             <h3
-              className="pt-16 text-[2.4rem] leading-[2.4rem] font-extrabold font-[trade-gothic-next-condensed,sans-serif;] text-[#018da0] mt-12 mb-4 relative uppercase"
+              className="pt-24 text-[2.4rem] leading-[2.4rem] font-extrabold font-[trade-gothic-next-condensed,sans-serif;] text-[#018da0] mt-12 mb-4 relative uppercase"
               id={anchorName}
             >
               {children}
             </h3>
           )}
           renderBlock={(props: any) => (
-            <p className="pb-16 font-[merriweather,serif;] font-light leading-[28px] text-[16px]">
+            <p className="pb-24 font-[merriweather,serif;] font-light leading-[28px] text-[16px]">
               {props.children}
             </p>
           )}
