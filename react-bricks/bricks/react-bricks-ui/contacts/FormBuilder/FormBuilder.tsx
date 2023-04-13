@@ -40,10 +40,14 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({
         borderTop={borderTop}
         borderBottom={borderBottom}
       >
-        <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
+        <Container
+          size="full"
+          paddingTop={paddingTop}
+          paddingBottom={paddingBottom}
+        >
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="max-w-2xl mx-auto grid grid-cols-2 gap-4 py-6"
+            className="grid grid-cols-2 gap-4 py-6"
           >
             <Repeater
               propName="form-elements"

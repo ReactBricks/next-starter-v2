@@ -9,18 +9,22 @@ interface HeaderMenuItemProps {
   linkPath: string
   linkText: any
   submenuItems?: any
+  mobileRef?: React.MutableRefObject<HTMLDivElement>
+  setMobileMenuOpen?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
   linkPath,
   linkText,
   submenuItems,
+  mobileRef,
+  setMobileMenuOpen,
 }) => {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
   useOnClickOutside(ref, () => setOpen(false))
-
+  useOnClickOutside(mobileRef, () => setMobileMenuOpen(false))
   if (!submenuItems || !submenuItems.length) {
     return (
       <div>
@@ -39,7 +43,12 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
           href={linkPath}
           className="block lg:hidden text-sm mb-3 transition-colors ease-out text-gray-800 dark:text-white hover:text-sky-600 dark:hover:text-sky-500"
         >
-          {typeof linkText === 'string' ? linkText : Plain.serialize(linkText)}
+          <div onClick={() => setMobileMenuOpen(false)}>
+            {' '}
+            {typeof linkText === 'string'
+              ? linkText
+              : Plain.serialize(linkText)}
+          </div>
         </Link>
       </div>
     )
@@ -88,7 +97,14 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
         </button>
         {open && (
           <div className="w-64 bg-white p-3 border rounded-md shadow-lg absolute top-9 z-[1000]">
-            <Repeater propName="submenuItems" />
+            <Repeater
+              propName="submenuItems"
+              renderItemWrapper={(props) => (
+                <div onClick={() => setOpen((current) => !current)}>
+                  {props}
+                </div>
+              )}
+            />
           </div>
         )}
       </div>
@@ -99,7 +115,12 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
         >
           {typeof linkText === 'string' ? linkText : Plain.serialize(linkText)}
         </div>
-        <Repeater propName="submenuItems" />
+        <Repeater
+          propName="submenuItems"
+          renderItemWrapper={(props) => (
+            <div onClick={() => setMobileMenuOpen(false)}>{props}</div>
+          )}
+        />
       </div>
     </div>
   )

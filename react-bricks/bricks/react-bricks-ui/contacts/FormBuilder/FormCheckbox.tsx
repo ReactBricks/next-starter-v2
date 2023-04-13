@@ -34,7 +34,7 @@ const FormCheckbox: types.Brick<FormCheckboxProps> = ({
   return (
     <div
       className={classNames(
-        'col-span-2 px-2 py-1',
+        'col-span-2 py-1',
         columns === '1' && 'sm:col-span-1'
       )}
     >

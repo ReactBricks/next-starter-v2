@@ -56,7 +56,10 @@ const Header: types.Brick<HeaderProps> = ({
           />
         </Link>
         <div className="hidden lg:flex items-center space-x-2">
-          <Repeater propName="menuItems" />
+          <Repeater
+            propName="menuItems"
+            itemProps={{ mobileRef: ref, setMobileMenuOpen }}
+          />
         </div>
         <div className="hidden lg:block ml-auto">
           <Repeater
@@ -68,10 +71,7 @@ const Header: types.Brick<HeaderProps> = ({
             )}
           />
         </div>
-        <div
-          ref={ref}
-          className="relative ml-auto lg:hidden flex items-center h-full sm:gap-x-4"
-        >
+        <div className="relative ml-auto lg:hidden flex items-center h-full sm:gap-x-4">
           {/* DARK MODE BUTTON MOBILE */}
           <button
             type="button"
@@ -96,8 +96,17 @@ const Header: types.Brick<HeaderProps> = ({
             )}
           </button>
           {mobileMenuOpen && (
-            <div className="absolute top-8 right-0 w-64 bg-white dark:border-gray-400 p-5 border rounded-lg shadow-lg z-10 dark:bg-gray-900">
-              <Repeater propName="menuItems" />
+            <div
+              ref={ref}
+              className="absolute top-8 right-0 w-64 bg-white dark:border-gray-400 p-5 border rounded-lg shadow-lg z-10 dark:bg-gray-900"
+            >
+              <Repeater
+                propName="menuItems"
+                itemProps={{
+                  mobileRef: ref,
+                  setMobileMenuOpen,
+                }}
+              />
             </div>
           )}
         </div>

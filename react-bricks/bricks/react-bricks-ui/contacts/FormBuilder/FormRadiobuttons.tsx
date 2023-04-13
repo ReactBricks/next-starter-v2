@@ -31,7 +31,7 @@ const FormRadiobuttons: types.Brick<FormRadiobuttonsProps> = ({
   return (
     <div
       className={classNames(
-        'w-full px-2 py-1 col-span-2',
+        'w-full py-1 col-span-2',
         columns === '1' && 'sm:col-span-1'
       )}
     >
