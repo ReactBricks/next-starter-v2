@@ -87,7 +87,7 @@ const Page: React.FC<PageProps> = ({
                 {pagesByTag?.map((post) => (
                   <PostListItem
                     key={post.id}
-                    title={post.name}
+                    title={post.meta.title}
                     href={post.slug}
                     content={post.meta.description}
                     author={post.author}

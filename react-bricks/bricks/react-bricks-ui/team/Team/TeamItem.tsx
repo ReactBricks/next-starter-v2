@@ -108,7 +108,7 @@ TeamItem.schema = {
   getDefaultProps: () => ({
     memberName: 'Matteo Frana',
     jobTitle: 'Founder and CEO',
-    twitter: 'https://twitter.com/matfrana',
+    twitter: 'matfrana',
     github: '',
     linkedin: '',
     picture: avatars.MATTEO_FRANA,

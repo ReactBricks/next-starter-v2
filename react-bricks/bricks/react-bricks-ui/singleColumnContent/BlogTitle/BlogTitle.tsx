@@ -50,7 +50,7 @@ const BlogTitle: types.Brick<BlogTitleProps> = ({
           placeholder="Post title"
         />
         <Text
-          propName="subtitle"
+          metaFieldName="description"
           renderBlock={(prop) => {
             return (
               <h2

@@ -75,7 +75,7 @@ const BlogList: React.FC<HomeProps> = ({
                   return (
                     <PostListItem
                       key={post.id}
-                      title={post.name}
+                      title={post.meta.title}
                       href={post.slug}
                       content={post.meta.description}
                       author={post.author}

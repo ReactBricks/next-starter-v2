@@ -20,7 +20,7 @@ const pageTypes: types.IPageType[] = [
       'paragraph',
       'big-image',
       'video',
-      'code-block',
+      'code',
       'tweet',
       'tweet-light',
       'blog-title',
