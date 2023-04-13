@@ -26,12 +26,12 @@ const HomeHero: types.Brick<HomeHeroProps> = ({ open }) => {
           propName="heroTitle"
           placeholder="Title.."
           renderBlock={({ children }) => (
-            <h1 className="text-[5.2vh] leading-[5.2vh] mr-[10rem] text-white -tracking-[6px] drop-shadow-[-3px_5px_8px_#000]">
+            <h1 className="text-[5.2vh] leading-[5.2vh] mr-[10rem] text-white -tracking-[4px] drop-shadow-[-3px_5px_8px_#000] font-[trade-gothic-next-condensed,sans-serif]">
               {children}
             </h1>
           )}
           renderBold={({ children }) => (
-            <b className="text-[9vh] leading-[7.5vh] font-extrabold">
+            <b className="text-[11vh] leading-[7.5vh] font-extrabold">
               {children}
             </b>
           )}
@@ -50,7 +50,7 @@ const HomeHero: types.Brick<HomeHeroProps> = ({ open }) => {
           propName="subTitle"
           placeholder="Subtitle.."
           renderBlock={({ children }) => (
-            <h2 className="w-[450px] text-[3vh] leading-[2.8vh] mr-40 drop-shadow-[-1px_3px_5px_#000] text-white mt-8 -tracking-[2px] font-extrabold">
+            <h2 className="w-[450px] text-[3vh] leading-[2.8vh] mr-40 drop-shadow-[-1px_3px_5px_#000] text-white mt-8 -tracking-[2px] font-extrabold font-[trade-gothic-next-condensed,sans-serif] ">
               {children}
             </h2>
           )}
