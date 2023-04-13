@@ -22,7 +22,6 @@ const BlogTitle: types.Brick<BlogTitleProps> = ({
   width,
 }) => {
   const [pageValues] = usePageValues()
-  console.log(pageValues)
   return (
     <Section
       backgroundColor={backgroundColor}
