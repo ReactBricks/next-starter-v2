@@ -8,7 +8,7 @@ import {
   Repeater,
 } from 'react-bricks/frontend'
 import { FiSearch, FiChevronDown } from 'react-icons/fi'
-import useOnClickOutside from './useClickOutside'
+
 import classNames from 'classnames'
 //=============================
 // Local Types

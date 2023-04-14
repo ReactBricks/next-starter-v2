@@ -1,7 +1,7 @@
 import React, { useContext, useState, useRef } from 'react'
 import { Text, RichText, Image, types, Link } from 'react-bricks/frontend'
 import { FiSearch, FiChevronDown } from 'react-icons/fi'
-import useOnClickOutside from './useClickOutside'
+
 import classNames from 'classnames'
 //=============================
 // Local Types
@@ -17,7 +17,7 @@ const HighlightsItem: types.Brick<HighlightsItemProps> = ({}) => {
     <Link href={'href'} className="self-center">
       <Text
         renderBlock={(props) => (
-          <span className="text-xl font-semibold leading-[1.9rem] no-underline w-auto py-8 font-[trade-gothic-next-condensed,sans-serif]">
+          <span className="text-[2rem] font-semibold leading-[1.9rem] no-underline w-auto py-8 font-[trade-gothic-next-condensed,sans-serif]">
             {props.children}
           </span>
         )}

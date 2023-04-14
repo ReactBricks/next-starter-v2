@@ -1,7 +1,7 @@
 import React, { useContext, useState, useRef } from 'react'
 import { Text, RichText, Image, types, Link } from 'react-bricks/frontend'
 import { FiSearch, FiChevronDown } from 'react-icons/fi'
-import useOnClickOutside from './useClickOutside'
+
 import classNames from 'classnames'
 //=============================
 // Local Types
@@ -33,15 +33,15 @@ const ChaptersItem: types.Brick<ChaptersItemProps> = ({ index }) => {
           </div>
         )}
       />
-      <div className="p-4">
+      <div className="p-4 relative">
         <Text
           renderBlock={(props) => (
             <span
               className={classNames(
-                '-tracking-[1px] font-[trade-gothic-next-condensed,sans-serif] text-white font-light mb-0.5 absolute  min-w-[120px] text-lg before:w-[60px] before:bg-white before:h-[6px] before:absolute',
+                '-tracking-[1px] font-[trade-gothic-next-condensed,sans-serif] text-white font-light mb-0.5 absolute min-w-[120px] text-[1.8rem] before:w-[60px] before:bg-white before:h-[6px] before:absolute',
                 index % 2 === 0
-                  ? 'before:-top-[4px] before:left-0 top-[10px]'
-                  : ' before:-top-[4px] before:left-0 -top-[15px]'
+                  ? 'before:-top-[8px] before:left-0 top-[10px]'
+                  : ' before:-top-[8px] before:left-0 -top-[15px]'
               )}
             >
               {props.children}
@@ -56,8 +56,10 @@ const ChaptersItem: types.Brick<ChaptersItemProps> = ({ index }) => {
           renderBlock={(props) => (
             <div
               className={classNames(
-                index % 2 !== 0 ? '-mt-3.5' : 'mt-2.5',
-                'text-xl font-extrabold text-white -tracking-[2px]'
+                index % 2 !== 0
+                  ? '-mt-3.5 mt-[1px] leading-[20px]'
+                  : 'mt-10 leading-[20px]',
+                'text-[2.3rem] font-bold text-white font-[trade-gothic-next-condensed,sans-serif]'
               )}
             >
               {props.children}

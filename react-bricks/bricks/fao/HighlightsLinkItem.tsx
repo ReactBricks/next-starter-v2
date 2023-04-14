@@ -1,7 +1,7 @@
 import React, { useContext, useState, useRef } from 'react'
 import { Text, RichText, Image, types, Link } from 'react-bricks/frontend'
 import { FiSearch, FiChevronDown } from 'react-icons/fi'
-import useOnClickOutside from './useClickOutside'
+
 import classNames from 'classnames'
 //=============================
 // Local Types
@@ -22,27 +22,31 @@ const HighlightsLinkItem: types.Brick<HighlightsLinkItemProps> = ({
   return (
     console.log(index),
     (
-      <Link
-        href={'href'}
+      <div
         className={classNames(
-          index === 0 || index === 1 || index === 2 ? '' : 'pl-[20px]',
-          'text-left text-white py-1.5'
+          index++ % 3 !== 0 ? 'pl-[40px]' : '',
+          'inline-block w-4/12 align-middle py-4'
         )}
       >
-        <Text
-          renderBlock={(props) => (
-            <span
-              className={classNames(
-                'text-lg w-4/12 text-left uppercase font-[trade-gothic-next-condensed,sans-serif] font-bold'
-              )}
-            >
-              {props.children}
-            </span>
-          )}
-          placeholder="link..."
-          propName="link"
-        />
-      </Link>
+        <Link
+          href={'href'}
+          className={classNames('text-left text-white w-4/12')}
+        >
+          <Text
+            renderBlock={(props) => (
+              <span
+                className={classNames(
+                  'text-[1.8rem] leading-[1.9rem] w-4/12 text-left uppercase font-[trade-gothic-next-condensed,sans-serif] font-bold'
+                )}
+              >
+                {props.children}
+              </span>
+            )}
+            placeholder="link..."
+            propName="link"
+          />
+        </Link>
+      </div>
     )
   )
 }
