@@ -1,8 +1,5 @@
-import React, { useContext, useState, useRef } from 'react'
-import { Text, RichText, Image, types, Link } from 'react-bricks/frontend'
-import { FiSearch, FiChevronDown } from 'react-icons/fi'
-
-import classNames from 'classnames'
+import React from 'react'
+import { RichText, types } from 'react-bricks/frontend'
 //=============================
 // Local Types
 //=============================
@@ -19,7 +16,7 @@ const BoxParagraph: types.Brick<BoxParagraphProps> = ({ index }) => {
   return (
     <RichText
       renderBlock={(props: any) => (
-        <p className="text-xl font-light font-[trade-gothic-next-condensed,sans-serif]">
+        <p className="font-thin font-[trade-gothic-next-condensed,sans-serif]">
           {props.children}
         </p>
       )}

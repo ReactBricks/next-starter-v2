@@ -1,19 +1,9 @@
-import React, { useContext, useState, useRef } from 'react'
-import {
-  Text,
-  RichText,
-  Image,
-  types,
-  Link,
-  Repeater,
-} from 'react-bricks/frontend'
-import { FiSearch, FiChevronDown } from 'react-icons/fi'
+import React from 'react'
+import { types, Repeater } from 'react-bricks/frontend'
 
-import classNames from 'classnames'
 //=============================
 // Local Types
 //=============================
-
 interface BoxProps {}
 
 //=============================
@@ -21,32 +11,28 @@ interface BoxProps {}
 //=============================
 const Box: types.Brick<BoxProps> = ({}) => {
   return (
-    <section className="bg-[#f1eded]">
-      <Repeater
-        propName="boxTitle"
-        renderItemWrapper={(props) => (
-          <div className="max-w-[680px] mx-auto min-w-[200px]">{props}</div>
-        )}
-      />
-      <Repeater
-        propName="boxParagraph"
-        renderItemWrapper={(props) => (
-          <div className="max-w-[680px] mx-auto">{props}</div>
-        )}
-      />
-      <Repeater
-        propName="boxImage"
-        renderItemWrapper={(props) => (
-          <div className="max-w-[680px] mx-auto">{props}</div>
-        )}
-      />
-      <Repeater
-        propName="boxNotes"
-        renderItemWrapper={(props) => (
-          <div className="max-w-[680px] mx-auto">{props}</div>
-        )}
-      />
-    </section>
+    <div className="w-full flex bg-[#f1eded]">
+      <div className="max-w-[680px] mx-auto float-left flex-1 relative font-light text-[1.76rem] leading-[2.7rem] mb-16 pt-12 pb-8">
+        <Repeater
+          propName="boxTitle"
+          renderItemWrapper={(props) => (
+            <>{props}</>
+          )}
+        />
+        <Repeater
+          propName="boxParagraph"
+          renderItemWrapper={(props) => <>{props}</>}
+        />
+        <Repeater
+          propName="boxImage"
+          renderItemWrapper={(props) => <>{props}</>}
+        />
+        <Repeater
+          propName="boxNotes"
+          renderItemWrapper={(props) => <>{props}</>}
+        />
+      </div>
+    </div>
   )
 }
 

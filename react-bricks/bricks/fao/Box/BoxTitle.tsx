@@ -19,31 +19,26 @@ interface BoxTitleProps {
 //=============================
 const BoxTitle: types.Brick<BoxTitleProps> = ({ anchorTag }) => {
   return (
-    <h3 id={anchorTag} className="border-b border-white py-8 mb-4">
-      <span className="float-left mr-[8px]">
-        <Text
-          propName="boxName"
-          placeholder="name.."
-          renderBlock={({ children }) => (
-            <h3 className="px-[7px] pb-[2px] min-w-[50px] text-white font-[trade-gothic-next-condensed,sans-serif] bg-[#018da0]">
-              {children}
-            </h3>
-          )}
-        />
-      </span>
+    <h3
+      id={anchorTag}
+      className="font-bold font-[trade-gothic-next-condensed,sans-serif;] text-[1.8rem] uppercase leading-[2.2rem] border-b border-white py-8 mb-4"
+    >
+      <Text
+        propName="boxName"
+        placeholder="name.."
+        renderBlock={({ children }) => (
+          <span className="px-[7px] pb-[2px] mr-[8px] font-light leading-[0.9rem] uppercase text-white bg-[#018da0]">
+            {children}
+          </span>
+        )}
+      />
 
-      <div>
-        <Text
-          multiline={true}
-          propName="boxTitle"
-          placeholder="title.."
-          renderBlock={({ children }) => (
-            <h3 className="font-bold font-[trade-gothic-next-condensed,sans-serif] text-[1.2rem]">
-              {children}
-            </h3>
-          )}
-        />
-      </div>
+      <Text
+        multiline={true}
+        propName="boxTitle"
+        placeholder="title.."
+        renderBlock={({ children }) => <>{children}</>}
+      />
     </h3>
   )
 }
