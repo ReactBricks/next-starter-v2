@@ -41,7 +41,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
         </Link>
         <Link
           href={linkPath}
-          className="block lg:hidden text-sm mb-3 transition-colors ease-out text-gray-800 dark:text-white hover:text-sky-600 dark:hover:text-sky-500"
+          className="block lg:hidden text-sm mb-3 transition-colors ease-out text-gray-800 hover:text-sky-600"
         >
           <div onClick={() => setMobileMenuOpen(false)}>
             {' '}
@@ -111,7 +111,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
 
       <div className="lg:hidden mb-6" role="group">
         <div
-          className={`text-xs font-extrabold ${textColors.GRAY_500} uppercase tracking-[0.35rem] mb-4`}
+          className={`text-xs font-extrabold text-gray-500 uppercase tracking-[0.35rem] mb-4`}
         >
           {typeof linkText === 'string' ? linkText : Plain.serialize(linkText)}
         </div>
