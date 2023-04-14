@@ -101,7 +101,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   const [page, header, footer] = await Promise.all([
-    fetchPage(cleanSlug.toString(), config.apiKey, context.locale).catch(() => {
+    fetchPage(
+      cleanSlug.toString(),
+      config.apiKey,
+      context.locale,
+      config.pageTypes
+    ).catch(() => {
       errorPage = true
       return {}
     }),

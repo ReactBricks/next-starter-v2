@@ -25,8 +25,16 @@ const pageTypes: types.IPageType[] = [
       'tweet-light',
       'blog-title',
       'newsletter-subscribe',
+      'external-data-example',
     ],
+    getExternalData: () =>
+      fetch('https://catfact.ninja/fact')
+        .then((response) => response.json())
+        .then((data) => ({
+          catFact: data.fact,
+        })),
   },
+
   {
     name: 'layout',
     pluralName: 'layout',

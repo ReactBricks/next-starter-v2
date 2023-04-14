@@ -19,7 +19,6 @@ const BlogTitle: types.Brick<BlogTitleProps> = ({
   borderBottom,
   paddingTop,
   paddingBottom,
-  width,
 }) => {
   const [pageValues] = usePageValues()
   return (
@@ -29,7 +28,7 @@ const BlogTitle: types.Brick<BlogTitleProps> = ({
       borderBottom={borderBottom}
     >
       <Container
-        size={width}
+        size="small"
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
       >
@@ -97,25 +96,6 @@ const BlogTitle: types.Brick<BlogTitleProps> = ({
               )}
             </div>
           </div>
-
-          {/* If you want the author to be editable instead of the author from react Bricks, uncomment below */}
-          {/* <Image
-            propName="authorImage"
-            alt="Author name"
-            imageClassName="rounded-full w-12"
-          /> */}
-
-          {/* <Text
-            propName="author"
-            renderBlock={prop => {
-              return (
-                <div className="text-gray-700 dark:text-gray-200">
-                  {prop.children}
-                </div>
-              )
-            }}
-            placeholder="Type an author..."
-          /> */}
         </div>
       </Container>
     </Section>
