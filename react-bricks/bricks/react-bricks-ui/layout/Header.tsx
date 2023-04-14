@@ -86,7 +86,7 @@ const Header: types.Brick<HeaderProps> = ({
           </button>
 
           <button
-            className="group p-1 w-7 h-7 flex justify-center items-center rounded-[5px] bg-gray-200 dark:bg-gray-900 hover:bg-sky-500/20 dark:hover:bg-sky-500/40 hover:text-sky-600 dark:hover:text-sky-500 focus:bg-sky-500/20 dark:focus:bg-sky-500/40 focus:text-sky-600 dark:focus:text-sky-500"
+            className="group p-1 w-7 h-7 flex justify-center items-center rounded-[5px] bg-gray-200 dark:bg-transparent hover:bg-sky-500/20 dark:hover:bg-sky-500/40 hover:text-sky-600 dark:hover:text-sky-500 focus:bg-sky-500/20 dark:focus:bg-sky-500/40 focus:text-sky-600 dark:focus:text-sky-500"
             onClick={() => setMobileMenuOpen((current) => !current)}
           >
             {mobileMenuOpen ? (
@@ -98,7 +98,7 @@ const Header: types.Brick<HeaderProps> = ({
           {mobileMenuOpen && (
             <div
               ref={ref}
-              className="absolute top-8 right-0 w-64 bg-white dark:border-gray-400 p-5 border rounded-lg shadow-lg z-10 dark:bg-gray-900"
+              className="absolute top-8 right-0 w-64 bg-white p-5 border rounded-lg shadow-lg z-10"
             >
               <Repeater
                 propName="menuItems"
