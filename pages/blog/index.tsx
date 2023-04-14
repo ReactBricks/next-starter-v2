@@ -6,16 +6,15 @@ import {
   fetchPages,
   fetchTags,
   types,
-  ReactBricksContext,
   PageViewer,
 } from 'react-bricks/frontend'
+import { useReactBricksContext } from 'react-bricks/frontend'
 import PostListItem from '../../components/PostListItem'
 import ErrorNoKeys from '../../components/errorNoKeys'
 import ErrorNoHeader from '../../components/errorNoHeader'
 import ErrorNoFooter from '../../components/errorNoFooter'
 import Layout from '../../components/layout'
 import config from '../../react-bricks/config'
-import { useContext } from 'react'
 import TagListItem from '../../components/TagListItem'
 
 interface HomeProps {
@@ -37,7 +36,7 @@ const BlogList: React.FC<HomeProps> = ({
   header,
   footer,
 }) => {
-  const { pageTypes, bricks } = useContext(ReactBricksContext)
+  const { pageTypes, bricks } = useReactBricksContext()
   const headerOk = header ? cleanPage(header, pageTypes, bricks) : null
   const footerOk = footer ? cleanPage(footer, pageTypes, bricks) : null
 

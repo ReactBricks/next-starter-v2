@@ -1,11 +1,6 @@
-import React, { useState, useRef, useContext } from 'react'
-import {
-  Image,
-  Repeater,
-  types,
-  Link,
-  ReactBricksContext,
-} from 'react-bricks/frontend'
+import React, { useState, useRef } from 'react'
+import { Image, Repeater, types, Link } from 'react-bricks/frontend'
+import { useReactBricksContext } from 'react-bricks/frontend'
 import { FiMenu, FiX } from 'react-icons/fi'
 import { BsMoonFill, BsSunFill } from 'react-icons/bs'
 import blockNames from '../blockNames'
@@ -18,7 +13,6 @@ import {
 } from '../LayoutSideProps'
 import Section from '../shared/components/Section'
 import useOnClickOutside from './useClickOutside'
-import { useTheme } from 'next-themes'
 
 interface HeaderProps extends LayoutProps {
   menuItems: any[]
@@ -31,7 +25,7 @@ const Header: types.Brick<HeaderProps> = ({
   borderBottom,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { isDarkColorMode, toggleColorMode } = useContext(ReactBricksContext)
+  const { isDarkColorMode, toggleColorMode } = useReactBricksContext()
 
   const ref = useRef<HTMLDivElement>(null)
 

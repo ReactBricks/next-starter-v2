@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { useEffect, useRef, useState, useContext } from 'react'
-import { types, ReactBricksContext } from 'react-bricks/frontend'
+import { useEffect, useRef, useState } from 'react'
+import { types } from 'react-bricks/frontend'
+import { useReactBricksContext } from 'react-bricks/frontend'
 
 import blockNames from '../../blockNames'
 
@@ -39,10 +40,11 @@ const Tweet: types.Brick<TweetProps> = ({
 }) => {
   const twitterEmbedRef = useRef<HTMLDivElement>(null)
   const [isLoading, setIsLoading] = useState(true)
-  const { isDarkColorMode } = useContext(ReactBricksContext)
+  const { isDarkColorMode } = useReactBricksContext()
 
   useEffect(() => {
-    const isBlackTheme: boolean = theme === 'dark' || (theme === 'auto' && !!isDarkColorMode)
+    const isBlackTheme: boolean =
+      theme === 'dark' || (theme === 'auto' && !!isDarkColorMode)
     const twTheme: string = isBlackTheme ? 'dark' : ''
 
     if (twitterEmbedRef?.current) {
@@ -75,11 +77,28 @@ const Tweet: types.Brick<TweetProps> = ({
       }
       currentDocument.body.appendChild(script)
     }
-  }, [isLoading, id, placeholder, align, cards, conversation, theme, isDarkColorMode])
+  }, [
+    isLoading,
+    id,
+    placeholder,
+    align,
+    cards,
+    conversation,
+    theme,
+    isDarkColorMode,
+  ])
 
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
-      <Container size={width} paddingTop={paddingTop} paddingBottom={paddingBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <div ref={twitterEmbedRef}>{isLoading && placeholder}</div>
       </Container>
     </Section>

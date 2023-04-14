@@ -7,13 +7,12 @@ import {
   fetchPages,
   fetchTags,
   PageViewer,
-  ReactBricksContext,
   types,
 } from 'react-bricks/frontend'
+import { useReactBricksContext } from 'react-bricks/frontend'
 import PostListItem from '../../../components/PostListItem'
 import Layout from '../../../components/layout'
 import config from '../../../react-bricks/config'
-import { useContext } from 'react'
 import ErrorNoKeys from '../../../components/errorNoKeys'
 import ErrorNoHeader from '../../../components/errorNoHeader'
 import ErrorNoFooter from '../../../components/errorNoFooter'
@@ -42,7 +41,7 @@ const Page: React.FC<PageProps> = ({
   header,
   footer,
 }) => {
-  const { pageTypes, bricks } = useContext(ReactBricksContext)
+  const { pageTypes, bricks } = useReactBricksContext()
   const headerOk = header ? cleanPage(header, pageTypes, bricks) : null
   const footerOk = footer ? cleanPage(footer, pageTypes, bricks) : null
   return (
