@@ -17,26 +17,23 @@ interface HighlightsLinkItemProps {
 // Component to be rendered
 //=============================
 const HighlightsLinkItem: types.Brick<HighlightsLinkItemProps> = ({
-  index,
+  index = 1,
 }) => {
   return (
     console.log(index),
     (
       <div
         className={classNames(
-          index++ % 3 !== 0 ? 'pl-[40px]' : '',
-          'inline-block w-4/12 align-middle py-4'
+          index === 2 || index === 5 ? 'pl-14' : '',
+          'py-2 w-4/12'
         )}
       >
-        <Link
-          href={'href'}
-          className={classNames('text-left text-white w-4/12')}
-        >
+        <Link href={'href'} className={classNames('text-white w-full')}>
           <Text
             renderBlock={(props) => (
               <span
                 className={classNames(
-                  'text-[1.8rem] leading-[1.9rem] w-4/12 text-left uppercase font-[trade-gothic-next-condensed,sans-serif] font-bold'
+                  'text-[1.8rem] leading-[1.9rem] w-full text-left uppercase font-[trade-gothic-next-condensed,sans-serif] font-bold'
                 )}
               >
                 {props.children}

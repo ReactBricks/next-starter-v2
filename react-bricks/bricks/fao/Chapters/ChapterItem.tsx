@@ -40,8 +40,8 @@ const ChaptersItem: types.Brick<ChaptersItemProps> = ({ index }) => {
               className={classNames(
                 '-tracking-[1px] font-[trade-gothic-next-condensed,sans-serif] text-white font-light mb-0.5 absolute min-w-[120px] text-[1.8rem] before:w-[60px] before:bg-white before:h-[6px] before:absolute',
                 index % 2 === 0
-                  ? 'before:-top-[8px] before:left-0 top-[10px]'
-                  : ' before:-top-[8px] before:left-0 -top-[15px]'
+                  ? 'before:-top-[8px] before:left-0 top-[30px]'
+                  : ' before:-top-[8px] before:left-0 -top-[0px]'
               )}
             >
               {props.children}
@@ -57,8 +57,8 @@ const ChaptersItem: types.Brick<ChaptersItemProps> = ({ index }) => {
             <div
               className={classNames(
                 index % 2 !== 0
-                  ? '-mt-3.5 mt-[1px] leading-[20px]'
-                  : 'mt-10 leading-[20px]',
+                  ? 'mt-8 leading-[20px]'
+                  : 'mt-20 leading-[20px]',
                 'text-[2.3rem] font-bold text-white font-[trade-gothic-next-condensed,sans-serif]'
               )}
             >
