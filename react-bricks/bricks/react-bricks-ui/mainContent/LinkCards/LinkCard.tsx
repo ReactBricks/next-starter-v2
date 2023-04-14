@@ -22,7 +22,6 @@ const LinkCard: types.Brick<LinkCardProps> = ({
   return (
     <div>
       <Link
-        propName="link"
         href={linkPath}
         className={classNames(
           'flex items-center border border-black/10 dark:border-white/10 bg-white dark:bg-white/10 p-5 rounded group hover:-translate-y-[3px] hover:border-sky-500/50 hover:shadow-lg hover:text-sky-600 transition-all ease-out duration-150',

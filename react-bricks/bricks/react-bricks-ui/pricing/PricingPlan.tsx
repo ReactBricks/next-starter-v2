@@ -128,8 +128,10 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
           <Repeater
             propName="features"
             itemProps={{ pricingColor }}
-            renderItemWrapper={(items) => (
-              <li className="flex items-center space-x-2 mb-2">{items}</li>
+            renderItemWrapper={(item) => (
+              <li key={item.key} className="flex items-center space-x-2 mb-2">
+                {item}
+              </li>
             )}
           />
         </ul>

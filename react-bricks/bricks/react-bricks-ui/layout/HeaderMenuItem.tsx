@@ -99,9 +99,12 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
           <div className="w-64 bg-white p-3 border rounded-md shadow-lg absolute top-9 z-[1000]">
             <Repeater
               propName="submenuItems"
-              renderItemWrapper={(props) => (
-                <div onClick={() => setOpen((current) => !current)}>
-                  {props}
+              renderItemWrapper={(item) => (
+                <div
+                  key={item.key}
+                  onClick={() => setOpen((current) => !current)}
+                >
+                  {item}
                 </div>
               )}
             />
@@ -117,8 +120,10 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
         </div>
         <Repeater
           propName="submenuItems"
-          renderItemWrapper={(props) => (
-            <div onClick={() => setMobileMenuOpen(false)}>{props}</div>
+          renderItemWrapper={(item) => (
+            <div key={item.key} onClick={() => setMobileMenuOpen(false)}>
+              {item}
+            </div>
           )}
         />
       </div>
