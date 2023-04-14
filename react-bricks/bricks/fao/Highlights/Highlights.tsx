@@ -1,15 +1,6 @@
-import React, { useContext, useState, useRef } from 'react'
-import {
-  Text,
-  RichText,
-  Image,
-  types,
-  Link,
-  Repeater,
-} from 'react-bricks/frontend'
-import { FiSearch, FiChevronDown } from 'react-icons/fi'
-import useOnClickOutside from './useClickOutside'
-import classNames from 'classnames'
+import React from 'react'
+import { types, Repeater } from 'react-bricks/frontend'
+
 //=============================
 // Local Types
 //=============================
@@ -45,21 +36,14 @@ Highlights.schema = {
   name: 'highlights',
   label: 'Highlights',
   //previewImageUrl: ``,
-  getDefaultProps: () => ({}),
-  sideEditProps: [
-    {
-      name: '',
-      label: '',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: '', label: '' },
-          { value: '', label: '' },
-        ],
-      },
-    },
-  ],
+  getDefaultProps: () => ({
+    highlights: [
+      { highligthsText: 'KEY MESSAGE' },
+      { highligthsText: 'FOREWORD' },
+      { highligthsText: 'EXECUTIVE SUMMARY' },
+    ],
+  }),
+  sideEditProps: [],
   repeaterItems: [
     {
       name: 'highlights',

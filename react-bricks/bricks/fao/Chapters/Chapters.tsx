@@ -1,15 +1,6 @@
-import React, { useContext, useState, useRef } from 'react'
-import {
-  Text,
-  RichText,
-  Image,
-  types,
-  Link,
-  Repeater,
-} from 'react-bricks/frontend'
-import { FiSearch, FiChevronDown } from 'react-icons/fi'
+import React from 'react'
+import { types, Repeater } from 'react-bricks/frontend'
 
-import classNames from 'classnames'
 //=============================
 // Local Types
 //=============================
@@ -45,26 +36,35 @@ Chapters.schema = {
   name: 'chapters',
   label: 'Chapters',
   //previewImageUrl: ``,
-  getDefaultProps: () => ({}),
-  sideEditProps: [
-    {
-      name: '',
-      label: '',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: '', label: '' },
-          { value: '', label: '' },
-        ],
+  getDefaultProps: () => ({
+    chapters: [
+      {
+        chapterTitle: 'WORLD REVIEW',
+        chapterName: 'PART 1',
       },
-    },
-  ],
+      {
+        chapterTitle: 'TOWARDS BLUE TRANSFORMATION',
+        chapterName: 'PART 2',
+        chapterImage: '',
+      },
+      {
+        chapterTitle:
+          'BLUE TRANSFORMATION TO ACHIEVE THE 2030 AGENDA FOR SUSTAINABLE DEVELOPMENT',
+        chapterName: 'PART 3',
+      },
+      { chapterTitle: 'EMERGING ISSUES AND OUTLOOK', chapterName: 'PART 4' },
+    ],
+  }),
+
+  sideEditProps: [],
   repeaterItems: [
     {
       name: 'chapters',
       itemType: 'chapter-item',
       itemLabel: 'Chapter item',
+      getDefaultProps() {
+        return { chapterTitle: 'c', chapterName: 'selle' }
+      },
     },
   ],
 }

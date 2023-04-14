@@ -1,6 +1,5 @@
-import React, { useContext, useState, useRef } from 'react'
-import { Text, RichText, Image, types, Link } from 'react-bricks/frontend'
-import { FiSearch, FiChevronDown } from 'react-icons/fi'
+import React from 'react'
+import { Text, Image, types, Link } from 'react-bricks/frontend'
 
 import classNames from 'classnames'
 //=============================
@@ -9,14 +8,15 @@ import classNames from 'classnames'
 
 interface ChaptersItemProps {
   index: number
+  href: string
 }
 
 //=============================
 // Component to be rendered
 //=============================
-const ChaptersItem: types.Brick<ChaptersItemProps> = ({ index }) => {
+const ChaptersItem: types.Brick<ChaptersItemProps> = ({ index, href }) => {
   return (
-    <Link href={'href'} className="self-center">
+    <Link href={href} className="self-center">
       <Image
         propName="chapterImage"
         alt="logo"
@@ -51,7 +51,7 @@ const ChaptersItem: types.Brick<ChaptersItemProps> = ({ index }) => {
           propName="chapterName"
         />
         <Text
-          propName="ChapterTitle"
+          propName="chapterTitle"
           placeholder="Chapter title..."
           renderBlock={(props) => (
             <div

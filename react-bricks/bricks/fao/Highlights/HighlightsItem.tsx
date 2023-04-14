@@ -1,20 +1,21 @@
-import React, { useContext, useState, useRef } from 'react'
-import { Text, RichText, Image, types, Link } from 'react-bricks/frontend'
-import { FiSearch, FiChevronDown } from 'react-icons/fi'
+import React from 'react'
+import { Text, types, Link } from 'react-bricks/frontend'
 
-import classNames from 'classnames'
 //=============================
 // Local Types
 //=============================
 
-interface HighlightsItemProps {}
+interface HighlightsItemProps {
+  href: string
+  highligthsText: string
+}
 
 //=============================
 // Component to be rendered
 //=============================
-const HighlightsItem: types.Brick<HighlightsItemProps> = ({}) => {
+const HighlightsItem: types.Brick<HighlightsItemProps> = ({ href }) => {
   return (
-    <Link href={'href'} className="self-center">
+    <Link href={href} className="self-center">
       <Text
         renderBlock={(props) => (
           <span className="text-[2rem] font-semibold leading-[1.9rem] no-underline w-auto py-8 font-[trade-gothic-next-condensed,sans-serif]">
@@ -36,9 +37,7 @@ HighlightsItem.schema = {
   label: 'Highlights item',
   hideFromAddMenu: true,
   //previewImageUrl: ``,
-  getDefaultProps: () => ({
-    highligthsText: 'KEY MESSAGE',
-  }),
+  getDefaultProps: () => ({}),
   sideEditProps: [
     {
       name: 'href',

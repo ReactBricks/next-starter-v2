@@ -1,15 +1,6 @@
-import React, { useContext, useState, useRef } from 'react'
-import {
-  Text,
-  RichText,
-  Image,
-  types,
-  Link,
-  Repeater,
-} from 'react-bricks/frontend'
-import { FiSearch, FiChevronDown } from 'react-icons/fi'
+import React from 'react'
+import { types, Repeater } from 'react-bricks/frontend'
 
-import classNames from 'classnames'
 //=============================
 // Local Types
 //=============================
@@ -66,21 +57,18 @@ BottomHighlights.schema = {
   name: 'bottom-highlights',
   label: 'BottomHighlights',
   //previewImageUrl: ``,
-  getDefaultProps: () => ({}),
-  sideEditProps: [
-    {
-      name: '',
-      label: '',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: '', label: '' },
-          { value: '', label: '' },
-        ],
-      },
-    },
-  ],
+  getDefaultProps: () => ({
+    links: [
+      { link: 'ABOUT THIS PUBLICATION' },
+      { link: 'ACKNOWLEDGEMENTS' },
+      { link: 'GLOSSARY' },
+      { link: 'TABLE,FIGURES AND BOXES' },
+      { link: 'ABBREVIATIONS AND ACRONYMS' },
+      { link: 'REFERENCES' },
+      { link: 'METHODOLOGY' },
+    ],
+  }),
+  sideEditProps: [],
   repeaterItems: [
     {
       name: 'links',

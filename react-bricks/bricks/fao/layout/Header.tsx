@@ -1,6 +1,6 @@
-import React, { useContext, useState, useRef } from 'react'
-import { Text, RichText, Image, types, Link } from 'react-bricks/frontend'
-import { FiSearch, FiChevronDown } from 'react-icons/fi'
+import React, { useState, useRef } from 'react'
+import { types, Link } from 'react-bricks/frontend'
+import { FiChevronDown } from 'react-icons/fi'
 import useOnClickOutside from './useClickOutside'
 import classNames from 'classnames'
 
@@ -135,20 +135,7 @@ Header.schema = {
   label: 'Header',
   //previewImageUrl: ``,
   getDefaultProps: () => ({}),
-  sideEditProps: [
-    {
-      name: '',
-      label: '',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: '', label: '' },
-          { value: '', label: '' },
-        ],
-      },
-    },
-  ],
+  sideEditProps: [],
 }
 
 export default Header

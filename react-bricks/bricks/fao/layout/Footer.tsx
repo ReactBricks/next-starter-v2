@@ -1,8 +1,5 @@
-import React, { useContext, useState, useRef } from 'react'
-import { Text, RichText, Image, types, Link } from 'react-bricks/frontend'
-import { FiSearch, FiChevronDown } from 'react-icons/fi'
-import useOnClickOutside from './useClickOutside'
-import classNames from 'classnames'
+import React from 'react'
+import { types } from 'react-bricks/frontend'
 
 //=============================
 // Local Types
@@ -10,17 +7,12 @@ import classNames from 'classnames'
 interface FooterProps {
   title: string
   text: string
-  open: boolean
 }
 
 //=============================
 // Component to be rendered
 //=============================
-const Footer: types.Brick<FooterProps> = ({ open }) => {
-  const [languageMenuOpen, setLanguageMenuOpen] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-
-  useOnClickOutside(ref, () => setLanguageMenuOpen(false))
+const Footer: types.Brick<FooterProps> = ({}) => {
   return (
     <footer className="bg-[#018da0] border-t-white  border-t w-full  py-8 flex font-bold justify-between ">
       <div className="flex flex-1 text-white max-w-[calc(1280px_-_2rem_*_2)] mx-auto justify-between ">
@@ -69,20 +61,7 @@ Footer.schema = {
   label: 'Footer',
   //previewImageUrl: ``,
   getDefaultProps: () => ({}),
-  sideEditProps: [
-    {
-      name: '',
-      label: '',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: '', label: '' },
-          { value: '', label: '' },
-        ],
-      },
-    },
-  ],
+  sideEditProps: [],
 }
 
 export default Footer
