@@ -1,14 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
-import { useContext } from 'react'
 import {
   cleanPage,
   fetchPage,
   fetchPages,
   PageViewer,
-  ReactBricksContext,
   types,
 } from 'react-bricks/frontend'
+import { useReactBricksContext } from 'react-bricks/frontend'
 import ErrorNoKeys from '../../../components/errorNoKeys'
 import ErrorNoHeader from '../../../components/errorNoHeader'
 import ErrorNoFooter from '../../../components/errorNoFooter'
@@ -36,7 +35,7 @@ const Page: React.FC<PageProps> = ({
 }) => {
   // Clean the received content
   // Removes unknown or not allowed bricks
-  const { pageTypes, bricks } = useContext(ReactBricksContext)
+  const { pageTypes, bricks } = useReactBricksContext()
   const pageOk = page ? cleanPage(page, pageTypes, bricks) : null
   const headerOk = header ? cleanPage(header, pageTypes, bricks) : null
   const footerOk = footer ? cleanPage(footer, pageTypes, bricks) : null
