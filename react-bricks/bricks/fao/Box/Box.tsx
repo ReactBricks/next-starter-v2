@@ -15,9 +15,7 @@ const Box: types.Brick<BoxProps> = ({}) => {
       <div className="max-w-[680px] mx-auto float-left flex-1 relative font-light text-[1.76rem] leading-[2.7rem] mb-16 pt-12 pb-8">
         <Repeater
           propName="boxTitle"
-          renderItemWrapper={(props) => (
-            <>{props}</>
-          )}
+          renderItemWrapper={(props) => <>{props}</>}
         />
         <Repeater
           propName="boxParagraph"
@@ -44,20 +42,7 @@ Box.schema = {
   label: 'Box',
   //previewImageUrl: ``,
   getDefaultProps: () => ({}),
-  sideEditProps: [
-    {
-      name: '',
-      label: '',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: '', label: '' },
-          { value: '', label: '' },
-        ],
-      },
-    },
-  ],
+  sideEditProps: [],
   repeaterItems: [
     {
       name: 'boxTitle',

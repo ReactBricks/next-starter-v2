@@ -16,7 +16,7 @@ const BoxParagraph: types.Brick<BoxParagraphProps> = ({ index }) => {
   return (
     <RichText
       renderBlock={(props: any) => (
-        <p className="font-thin font-[trade-gothic-next-condensed,sans-serif]">
+        <p className="font-thin font-[trade-gothic-next,sans-serif]">
           {props.children}
         </p>
       )}

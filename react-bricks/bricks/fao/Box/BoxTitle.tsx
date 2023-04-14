@@ -1,12 +1,9 @@
-import React, { useContext, useState, useRef } from 'react'
-import { Text, RichText, Image, types, Link } from 'react-bricks/frontend'
-import { FiSearch, FiChevronDown } from 'react-icons/fi'
+import React from 'react'
+import { Text, types } from 'react-bricks/frontend'
 
-import classNames from 'classnames'
 //=============================
 // Local Types
 //=============================
-
 interface BoxTitleProps {
   index: number
   boxTitle: string
@@ -27,7 +24,7 @@ const BoxTitle: types.Brick<BoxTitleProps> = ({ anchorTag }) => {
         propName="boxName"
         placeholder="name.."
         renderBlock={({ children }) => (
-          <span className="px-[7px] pb-[2px] mr-[8px] font-light leading-[0.9rem] uppercase text-white bg-[#018da0]">
+          <span className="inline-block px-[7px] pb-[2px] mr-[8px] font-bold leading-[0.9em] uppercase text-white bg-[#018da0]">
             {children}
           </span>
         )}
