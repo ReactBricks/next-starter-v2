@@ -1,9 +1,9 @@
-import Router from "next/router"
-import { types } from "react-bricks/frontend"
+import Router from 'next/router'
+import { types } from 'react-bricks/frontend'
 
-import bricks from "./bricks"
-import pageTypes from "./pageTypes"
-import NextLink from "./NextLink"
+import bricks from './bricks'
+import pageTypes from './pageTypes'
+import NextLink from './NextLink'
 
 const config: types.ReactBricksConfig = {
   appId: process.env.NEXT_PUBLIC_APP_ID,
@@ -11,22 +11,22 @@ const config: types.ReactBricksConfig = {
   bricks,
   pageTypes,
   customFields: [],
-  logo: "/logo.svg",
+  logo: '/logo.svg',
   loginUI: {},
-  contentClassName: "",
+  contentClassName: '',
   //defaultTheme: "",
   renderLocalLink: NextLink,
   navigate: (path: string) => Router.push(path),
-  loginPath: "/admin",
-  editorPath: "/admin/editor",
-  playgroundPath: "/admin/playground",
-  appSettingsPath: "/admin/app-settings",
-  previewPath: "/preview",
+  loginPath: '/admin',
+  editorPath: '/admin/editor',
+  playgroundPath: '/admin/playground',
+  appSettingsPath: '/admin/app-settings',
+  previewPath: '/preview',
   // getAdminMenu: () => [],
   isDarkColorMode: false,
   toggleColorMode: () => {},
   useCssInJs: false,
-  appRootElement: "#__next",
+  appRootElement: '#__next',
   clickToEditSide: types.ClickToEditSide.BottomRight,
   //responsiveBreakpoints: [{ type: types.DeviceType.Phone, width: 480, label: "Smartphone" },],
   enableAutoSave: true,
@@ -34,7 +34,7 @@ const config: types.ReactBricksConfig = {
   enablePreview: true,
   blockIconsPosition: types.BlockIconsPosition.OutsideBlock,
   enableUnsplash: true,
-  unsplashApiKey: "",
+  unsplashApiKey: '',
   enablePreviewImage: true,
   enableDefaultEmbedBrick: true,
   //permissions,  Fine-grained permissions for enterprise plans
