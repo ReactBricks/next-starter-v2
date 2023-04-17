@@ -21,7 +21,7 @@ const getColumnClass = (colsNumber: ColsNumber) => {
     case '3':
       return 'sm:flex-[0_1_27%] mb-12 sm:mb-16'
     case '4':
-      return 'sm:flex-[0_1_45%] lg:flex-[0_1_20%] mb-12 sm:mb-16'
+      return 'sm:flex-[0_1_45%] lg:flex-[0_1_20.1%] mb-12 sm:mb-16'
   }
 }
 
