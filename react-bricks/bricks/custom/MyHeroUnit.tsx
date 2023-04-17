@@ -32,7 +32,7 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
         />
         <Text
           renderBlock={(props) => (
-            <h1 className="text-3xl sm:text-4xl text-center font-black text-gray-900 dark:text-white leading-tight mb-3">
+            <h1 className="text-3xl sm:text-4xl text-center font-extrabold text-gray-900 dark:text-white leading-tight mb-3">
               {props.children}
             </h1>
           )}

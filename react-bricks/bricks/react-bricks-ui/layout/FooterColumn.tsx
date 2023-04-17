@@ -20,7 +20,7 @@ const FooterColumn: types.Brick<FooterColumnProps> = (props) => {
         placeholder="Title..."
         renderBlock={({ children }) => (
           <div
-            className={`mb-3 text-xs font-black uppercase tracking-[0.35em] min-w-[120px] ${textColors.GRAY_400}`}
+            className={`mb-3 text-xs font-extrabold uppercase tracking-[0.35em] min-w-[120px] ${textColors.GRAY_400}`}
           >
             {children}
           </div>

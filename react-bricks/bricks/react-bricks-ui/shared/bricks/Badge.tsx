@@ -23,7 +23,7 @@ const Badge: types.Brick<BadgeProps> = ({
         renderBlock={(props) => (
           <span
             className={classNames(
-              'text-sm font-black uppercase inline-block min-w-[120px]',
+              'text-sm font-extrabold uppercase inline-block min-w-[120px]',
               textAlign === 'center' ? 'text-center' : 'text-left',
               badgeColor.className,
               className

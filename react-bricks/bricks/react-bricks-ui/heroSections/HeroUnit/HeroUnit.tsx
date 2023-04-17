@@ -73,7 +73,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
               renderBlock={(props) => (
                 <h1
                   className={classNames(
-                    'text-[28px] leading-8 sm:text-[40px] sm:leading-tight text-center font-black mb-4 pb-1 bg-clip-text bg-gradient-to-r',
+                    'text-[28px] leading-8 sm:text-[40px] sm:leading-tight text-center font-extrabold mb-4 pb-1 bg-clip-text bg-gradient-to-r',
                     { 'lg:text-5xl lg:leading-snug': size === 'large' },
                     titleColor
                   )}

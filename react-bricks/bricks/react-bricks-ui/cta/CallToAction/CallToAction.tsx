@@ -22,12 +22,18 @@ const CallToAction: types.Brick<CallToActionProps> = ({
   paddingBottom,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
       <Container
         size="small"
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
-        className={classNames('flex flex-col sm:flex-row items-center text-center sm:text-left')}
+        className={classNames(
+          'flex flex-col sm:flex-row items-center text-center sm:text-left'
+        )}
       >
         <div className="flex-1 sm:pr-14 mb-4 sm:mb-0">
           <Text
@@ -35,7 +41,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
             renderBlock={(props) => (
               <span
                 className={classNames(
-                  'font-black text-xl leading-6 sm:text-2xl sm:leading-7',
+                  'font-extrabold text-xl leading-6 sm:text-2xl sm:leading-7',
                   textColors.GRAY_800
                 )}
                 {...props.attributes}
