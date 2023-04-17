@@ -8,34 +8,35 @@ interface BoxTitleProps {
   index: number
   boxTitle: string
   boxName: string
-  anchorTag: string
 }
 
 //=============================
 // Component to be rendered
 //=============================
-const BoxTitle: types.Brick<BoxTitleProps> = ({ anchorTag }) => {
+const BoxTitle: types.Brick<BoxTitleProps> = ({}) => {
   return (
-    <h3
-      id={anchorTag}
-      className="font-bold font-[trade-gothic-next-condensed,sans-serif;] text-[1.8rem] uppercase leading-[2.2rem] border-b border-white py-8 mb-4"
-    >
-      <Text
-        propName="boxName"
-        placeholder="name.."
-        renderBlock={({ children }) => (
-          <span className="inline-block px-[7px] pb-[2px] mr-[8px] font-bold leading-[0.9em] uppercase text-white bg-[#018da0]">
-            {children}
-          </span>
-        )}
-      />
+    <h3 className="font-bold font-[trade-gothic-next-condensed,sans-serif] text-[1.8rem] uppercase leading-[2.2rem] border-b border-white py-8 mb-4">
+      <div className="float-left">
+        {' '}
+        <Text
+          propName="boxName"
+          placeholder="name.."
+          renderBlock={({ children }) => (
+            <span className="px-[7px] align-middle mr-[8px] font-bold leading-[0.9em] uppercase text-white bg-[#018da0]">
+              {children}
+            </span>
+          )}
+        />
+      </div>
 
-      <Text
-        multiline={true}
-        propName="boxTitle"
-        placeholder="title.."
-        renderBlock={({ children }) => <>{children}</>}
-      />
+      <div>
+        <Text
+          multiline={true}
+          propName="boxTitle"
+          placeholder="title.."
+          renderBlock={({ children }) => <>{children}</>}
+        />
+      </div>
     </h3>
   )
 }
@@ -53,13 +54,7 @@ BoxTitle.schema = {
     boxTitle:
       'MORE THAN SEVEN DECADES OF FAO FISHERIES AND AQUACULTURE STATISTICS: 1950-2020',
   }),
-  sideEditProps: [
-    {
-      name: 'anchorTag',
-      label: 'Anchor tag',
-      type: types.SideEditPropType.Text,
-    },
-  ],
+  sideEditProps: [],
 }
 
 export default BoxTitle
