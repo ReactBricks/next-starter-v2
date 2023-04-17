@@ -17,12 +17,12 @@ interface HeroUnitProps {
 //=============================
 const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
   return (
-    <div
-      className={`max-w-xl mx-auto px-6 ${
-        padding === 'big' ? 'py-20' : 'py-12'
-      }`}
-    >
-      <div>
+    <div className="dark:bg-gray-900">
+      <div
+        className={`max-w-xl mx-auto px-6 ${
+          padding === 'big' ? 'py-20' : 'py-12'
+        }`}
+      >
         <Image
           propName="icon"
           alt="Icon"
