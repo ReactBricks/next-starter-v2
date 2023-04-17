@@ -11,8 +11,8 @@ const ExternalData: types.Brick<Props> = ({ catFact }) => {
   return (
     <Section>
       <Container size="small" paddingBottom="0" paddingTop="0">
-        <div className="p-4 border bg-gray-50">
-          <h3 className="text-lg font-bold mb-3">
+        <div className="p-4 border bg-gray-50 dark:bg-gray-900">
+          <h3 className="text-lg font-bold mb-3 dark:text-white">
             Example of external data in brick{' '}
             <small>(using the cat facts public API)</small>
             <br />

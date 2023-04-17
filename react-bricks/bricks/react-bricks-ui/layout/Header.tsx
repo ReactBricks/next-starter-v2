@@ -73,9 +73,9 @@ const Header: types.Brick<HeaderProps> = ({
             onClick={toggleColorMode}
           >
             {!isDarkColorMode ? (
-              <BsSunFill className="text-xl" />
-            ) : (
               <BsMoonFill />
+            ) : (
+              <BsSunFill className="text-xl" />
             )}
           </button>
 
@@ -112,9 +112,9 @@ const Header: types.Brick<HeaderProps> = ({
           onClick={toggleColorMode}
         >
           {!isDarkColorMode ? (
-            <BsSunFill className="text-xl" />
-          ) : (
             <BsMoonFill />
+          ) : (
+            <BsSunFill className="text-xl" />
           )}
         </button>
       </nav>
