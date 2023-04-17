@@ -4,14 +4,16 @@ import { types, Repeater } from 'react-bricks/frontend'
 //=============================
 // Local Types
 //=============================
-interface BoxProps {}
+interface BoxProps {
+  anchorTag: string
+}
 
 //=============================
 // Component to be rendered
 //=============================
-const Box: types.Brick<BoxProps> = ({}) => {
+const Box: types.Brick<BoxProps> = ({ anchorTag }) => {
   return (
-    <div className="w-full flex bg-[#f1eded]">
+    <div id={anchorTag} className="w-full flex bg-[#f1eded]">
       <div className="max-w-[680px] mx-auto float-left flex-1 relative font-light text-[1.76rem] leading-[2.7rem] mb-16 pt-12 pb-8">
         <Repeater
           propName="boxTitle"
@@ -42,7 +44,13 @@ Box.schema = {
   label: 'Box',
   //previewImageUrl: ``,
   getDefaultProps: () => ({}),
-  sideEditProps: [],
+  sideEditProps: [
+    {
+      name: 'anchorTag',
+      label: 'Anchor tag',
+      type: types.SideEditPropType.Text,
+    },
+  ],
   repeaterItems: [
     {
       name: 'boxTitle',

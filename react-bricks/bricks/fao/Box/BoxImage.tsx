@@ -1,8 +1,6 @@
-import React, { useContext, useState, useRef } from 'react'
-import { Text, RichText, Image, types, Link } from 'react-bricks/frontend'
-import { FiSearch, FiChevronDown } from 'react-icons/fi'
+import React from 'react'
+import { Image, types } from 'react-bricks/frontend'
 
-import classNames from 'classnames'
 //=============================
 // Local Types
 //=============================

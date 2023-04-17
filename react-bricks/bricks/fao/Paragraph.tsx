@@ -1,5 +1,5 @@
 import React from 'react'
-import { types, Text, RichText } from 'react-bricks/frontend'
+import { types, RichText } from 'react-bricks/frontend'
 
 //=============================
 // Local Types
