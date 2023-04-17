@@ -89,7 +89,6 @@ const TextMedia: types.Brick<TextMediaProps> = ({
                 </div>
               )}
             />
-
             <RichText
               propName="title"
               renderBlock={(props) => (
@@ -111,7 +110,6 @@ const TextMedia: types.Brick<TextMediaProps> = ({
               placeholder="Type a title..."
               allowedFeatures={[types.RichTextFeatures.Highlight]}
             />
-
             <RichText
               propName="text"
               renderBlock={(props) => (
@@ -140,7 +138,6 @@ const TextMedia: types.Brick<TextMediaProps> = ({
                 </Link>
               )}
             />
-
             <Repeater
               propName="bulletListItems"
               itemProps={{
@@ -164,7 +161,7 @@ const TextMedia: types.Brick<TextMediaProps> = ({
               className={classNames(
                 'grid grid-cols-3 gap-6',
                 mobileImageTop ? 'mt-0 mb-10' : 'mt-10 mb-0',
-                'md:w-1/2 md:mt-0 md:mb-0'
+                'md:w-1/2 md:mt-0 md:mb-0 overflow-hidden'
               )}
             >
               <Repeater propName="logos" />
@@ -174,7 +171,7 @@ const TextMedia: types.Brick<TextMediaProps> = ({
               className={classNames(
                 mobileIcon ? 'w-24' : 'w-full',
                 mobileImageTop ? 'mt-0 mb-10' : 'mt-10 mb-0',
-                'md:w-1/2 md:mt-0 md:mb-0'
+                'md:w-1/2 md:mt-0 md:mb-0 overflow-hidden'
               )}
             >
               <Image
