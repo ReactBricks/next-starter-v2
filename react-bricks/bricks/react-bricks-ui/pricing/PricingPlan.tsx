@@ -99,7 +99,8 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
         className={classNames(
           'cursor-pointer block mb-8',
           'text-center text-lg py-2 px-3 sm:px-5 rounded hover:text-white font-medium border-2 hover:shadow-lg transition duration-200',
-          pricingColor.buttonClassName
+          pricingColor.buttonClassName,
+          'dark:hover:text-white'
         )}
       >
         <Text
