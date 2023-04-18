@@ -12,7 +12,7 @@ export interface FormSelectProps {
   label: string
   options?: string
   isRequired: boolean
-  key: string
+  index: number
   errors: FieldErrorsImpl<{
     [x: string]: any
   }>
@@ -26,7 +26,7 @@ const FormSelect: types.Brick<FormSelectProps> = ({
   register,
   fieldName = 'select',
   label,
-  key,
+  index,
   errors,
   requiredError,
   columns,
@@ -77,9 +77,12 @@ const FormSelect: types.Brick<FormSelectProps> = ({
             ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
             : 'border-gray-300 dark:border-gray-500 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
         )}
-        {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key, {
-          required: isRequired,
-        })}
+        {...register(
+          fieldName?.replace(/\s/g, '').toLowerCase() || index + '',
+          {
+            required: isRequired,
+          }
+        )}
       >
         {options?.split('\n').map((valuelabel, index) => {
           const [value, label] = valuelabel.trim().split(':')
