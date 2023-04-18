@@ -55,6 +55,20 @@ const FormInput: types.Brick<FormInputProps> = ({
   const labelTextContent =
     typeof label === 'string' ? label : Plain.serialize(label)
   const { isAdmin } = useAdminContext()
+
+  const registerAttributes = fieldName
+    ? register(
+        fieldName?.replace(/\s/g, '').toLowerCase(),
+        //@ts-ignore
+        {
+          required: isRequired,
+          valueAsNumber: inputType === 'number',
+          valueAsDate: inputType === 'date',
+          pattern: strToRegex(pattern),
+        }
+      )
+    : {}
+
   return (
     <div
       className={classNames(
@@ -100,16 +114,7 @@ const FormInput: types.Brick<FormInputProps> = ({
             ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
             : 'border-gray-300 dark:border-gray-500 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
         )}
-        {...register(
-          fieldName?.replace(/\s/g, '').toLowerCase() || index + '',
-          //@ts-ignore
-          {
-            required: isRequired,
-            valueAsNumber: inputType === 'number',
-            valueAsDate: inputType === 'date',
-            pattern: strToRegex(pattern),
-          }
-        )}
+        {...registerAttributes}
       />
 
       {errors[fieldName] && (
