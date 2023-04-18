@@ -6,7 +6,6 @@ import blockNames from '../../blockNames'
 import { useAdminContext } from 'react-bricks/frontend'
 import { textColors } from '../../colors'
 export interface FormSingleRadioProps {
-  index: number
   register: UseFormRegister<any>
   fieldName: string
   label: string
@@ -23,13 +22,22 @@ const FormSingleRadio: types.Brick<FormSingleRadioProps> = ({
   fieldName,
   label,
   value,
-  index,
+
   isRequired,
   errors,
 }) => {
   const labelTextContent =
     typeof label === 'string' ? label : Plain.serialize(label)
   const { isAdmin } = useAdminContext()
+  const registerAttributes = fieldName
+    ? register(
+        fieldName?.replace(/\s/g, '').toLowerCase(),
+        //@ts-ignore
+        {
+          required: isRequired,
+        }
+      )
+    : {}
 
   return (
     <div className="flex items-center">
@@ -41,12 +49,7 @@ const FormSingleRadio: types.Brick<FormSingleRadioProps> = ({
             ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
             : 'border-gray-300 dark:border-gray-500 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
         )}
-        {...register(
-          fieldName?.replace(/\s/g, '').toLowerCase() || index + '',
-          {
-            required: isRequired,
-          }
-        )}
+        {...registerAttributes}
         type="radio"
         value={value}
       />

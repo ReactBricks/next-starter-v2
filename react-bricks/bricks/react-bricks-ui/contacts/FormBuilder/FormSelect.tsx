@@ -12,7 +12,7 @@ export interface FormSelectProps {
   label: string
   options?: string
   isRequired: boolean
-  index: number
+
   errors: FieldErrorsImpl<{
     [x: string]: any
   }>
@@ -26,7 +26,7 @@ const FormSelect: types.Brick<FormSelectProps> = ({
   register,
   fieldName = 'select',
   label,
-  index,
+
   errors,
   requiredError,
   columns,
@@ -34,6 +34,15 @@ const FormSelect: types.Brick<FormSelectProps> = ({
   const labelTextContent =
     typeof label === 'string' ? label : Plain.serialize(label)
   const { isAdmin } = useAdminContext()
+  const registerAttributes = fieldName
+    ? register(
+        fieldName?.replace(/\s/g, '').toLowerCase(),
+        //@ts-ignore
+        {
+          required: isRequired,
+        }
+      )
+    : {}
   return (
     <div
       className={classNames(
@@ -77,12 +86,7 @@ const FormSelect: types.Brick<FormSelectProps> = ({
             ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
             : 'border-gray-300 dark:border-gray-500 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
         )}
-        {...register(
-          fieldName?.replace(/\s/g, '').toLowerCase() || index + '',
-          {
-            required: isRequired,
-          }
-        )}
+        {...registerAttributes}
       >
         {options?.split('\n').map((valuelabel, index) => {
           const [value, label] = valuelabel.trim().split(':')

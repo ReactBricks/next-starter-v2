@@ -18,7 +18,6 @@ export interface FormInputProps {
   patternError?: string
   requiredError?: string
   columns: '1' | '2'
-  index: number
 }
 
 const isRegex = (strRegex: string): boolean => {
@@ -50,7 +49,6 @@ const FormInput: types.Brick<FormInputProps> = ({
   patternError,
   requiredError,
   columns,
-  index,
 }) => {
   const labelTextContent =
     typeof label === 'string' ? label : Plain.serialize(label)

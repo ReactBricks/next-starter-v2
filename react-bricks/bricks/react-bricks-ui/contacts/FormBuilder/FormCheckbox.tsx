@@ -10,7 +10,7 @@ export interface FormCheckboxProps {
   fieldName: string
   label: string
   isRequired: boolean
-  index: number
+
   errors: FieldErrorsImpl<{
     [x: string]: any
   }>
@@ -25,12 +25,21 @@ const FormCheckbox: types.Brick<FormCheckboxProps> = ({
   label,
   errors,
   requiredError,
-  index,
+
   columns,
 }) => {
   const labelTextContent =
     typeof label === 'string' ? label : Plain.serialize(label)
   const { isAdmin } = useAdminContext()
+  const registerAttributes = fieldName
+    ? register(
+        fieldName?.replace(/\s/g, '').toLowerCase(),
+        //@ts-ignore
+        {
+          required: isRequired,
+        }
+      )
+    : {}
   return (
     <div
       className={classNames(
@@ -48,9 +57,7 @@ const FormCheckbox: types.Brick<FormCheckboxProps> = ({
               ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
               : 'border-gray-300 dark:border-gray-500 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
           )}
-          {...register(fieldName?.replace(/\s/g, '') || index + '', {
-            required: isRequired,
-          })}
+          {...registerAttributes}
         />
         <label
           htmlFor={isAdmin ? '' : fieldName}

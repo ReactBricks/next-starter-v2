@@ -15,7 +15,6 @@ export interface FormTextareaProps {
   requiredError?: string
   columns: '1' | '2'
   label: any
-  index: number
 }
 
 const FormTextarea: types.Brick<FormTextareaProps> = ({
@@ -26,11 +25,19 @@ const FormTextarea: types.Brick<FormTextareaProps> = ({
   errors,
   requiredError,
   columns,
-  index,
 }) => {
   const labelTextContent =
     typeof label === 'string' ? label : Plain.serialize(label)
   const { isAdmin } = useAdminContext()
+  const registerAttributes = fieldName
+    ? register(
+        fieldName?.replace(/\s/g, '').toLowerCase(),
+        //@ts-ignore
+        {
+          required: isRequired,
+        }
+      )
+    : {}
   return (
     <div
       className={classNames(
@@ -75,9 +82,7 @@ const FormTextarea: types.Brick<FormTextareaProps> = ({
             ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
             : 'border-gray-300 dark:border-gray-500 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
         )}
-        {...register(fieldName.toLowerCase() || index + '', {
-          required: isRequired,
-        })}
+        {...registerAttributes}
       />
 
       {errors[fieldName] && (
