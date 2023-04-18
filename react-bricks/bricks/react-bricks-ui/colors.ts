@@ -835,7 +835,8 @@ export const pricingColors = {
       planNameClassName: 'text-gray-500',
       buttonClassName:
         'text-gray-600 dark:text-gray-500 border-gray-500 hover:bg-gray-500',
-      featureTagClassName: 'bg-gray-200 text-gray-800',
+      featureTagClassName:
+        'bg-gray-200 dark:bg-gray-200/30 text-gray-800 dark:text-white',
     },
   },
   RED: {
@@ -847,7 +848,8 @@ export const pricingColors = {
       planNameClassName: 'text-red-500',
       buttonClassName:
         'text-red-600 dark:text-red-500 border-red-500 hover:bg-red-500',
-      featureTagClassName: 'bg-red-200 text-red-800',
+      featureTagClassName:
+        'bg-red-200 dark:bg-red-200/30 text-red-800 dark:text-white',
     },
   },
   ORANGE: {
@@ -859,7 +861,8 @@ export const pricingColors = {
       planNameClassName: 'text-orange-500',
       buttonClassName:
         'text-orange-600 dark:text-orange-500 border-orange-500 hover:bg-orange-500',
-      featureTagClassName: 'bg-orange-200 text-orange-800',
+      featureTagClassName:
+        'bg-orange-200 dark:bg-orange-200/30 text-orange-800 dark:text-white',
     },
   },
   AMBER: {
@@ -871,7 +874,8 @@ export const pricingColors = {
       planNameClassName: 'text-amber-500',
       buttonClassName:
         'text-amber-600 dark:text-amber-500 border-amber-500 hover:bg-amber-500',
-      featureTagClassName: 'bg-amber-200 text-amber-800',
+      featureTagClassName:
+        'bg-amber-200 dark:bg-amber-200/30 text-amber-800 dark:text-white',
     },
   },
   YELLOW: {
@@ -883,7 +887,8 @@ export const pricingColors = {
       planNameClassName: 'text-yellow-500',
       buttonClassName:
         'text-yellow-600 dark:text-yellow-500 border-yellow-500 hover:bg-yellow-500',
-      featureTagClassName: 'bg-yellow-200 text-yellow-800',
+      featureTagClassName:
+        'bg-yellow-200 dark:bg-yellow-200/30 text-yellow-800 dark:text-white',
     },
   },
   LIME: {
@@ -895,7 +900,8 @@ export const pricingColors = {
       planNameClassName: 'text-lime-500',
       buttonClassName:
         'text-lime-600 dark:text-lime-500 border-lime-500 hover:bg-lime-500',
-      featureTagClassName: 'bg-lime-200 text-lime-800',
+      featureTagClassName:
+        'bg-lime-200 dark:bg-lime-200/30 text-lime-800 dark:text-white',
     },
   },
   GREEN: {
@@ -907,7 +913,8 @@ export const pricingColors = {
       planNameClassName: 'text-green-500',
       buttonClassName:
         'text-green-600 dark:text-green-500 border-green-500 hover:bg-green-500',
-      featureTagClassName: 'bg-green-200 text-green-800',
+      featureTagClassName:
+        'bg-green-200 dark:bg-green-200/30 text-green-800 dark:text-white',
     },
   },
   EMERALD: {
@@ -919,7 +926,8 @@ export const pricingColors = {
       planNameClassName: 'text-emerald-500',
       buttonClassName:
         'text-emerald-600 dark:text-emerald-500 border-emerald-500 hover:bg-emerald-500',
-      featureTagClassName: 'bg-emerald-200 text-emerald-800',
+      featureTagClassName:
+        'bg-emerald-200 dark:bg-emerald-200/30 text-emerald-800 dark:text-white',
     },
   },
   TEAL: {
@@ -931,7 +939,8 @@ export const pricingColors = {
       planNameClassName: 'text-teal-500',
       buttonClassName:
         'text-teal-600 dark:text-teal-500 border-teal-500 hover:bg-teal-500',
-      featureTagClassName: 'bg-teal-200 text-teal-800',
+      featureTagClassName:
+        'bg-teal-200 dark:bg-teal-200/30 text-teal-800 dark:text-white',
     },
   },
   CYAN: {
@@ -943,7 +952,8 @@ export const pricingColors = {
       planNameClassName: 'text-cyan-500',
       buttonClassName:
         'text-cyan-600 dark:text-cyan-500 border-cyan-500 hover:bg-cyan-500',
-      featureTagClassName: 'bg-cyan-200 text-cyan-800',
+      featureTagClassName:
+        'bg-cyan-200 dark:bg-cyan-200/30 text-cyan-800 dark:text-white',
     },
   },
   SKY: {
@@ -955,7 +965,8 @@ export const pricingColors = {
       planNameClassName: 'text-sky-500',
       buttonClassName:
         'text-sky-600 dark:text-sky-500 border-sky-500 hover:bg-sky-500',
-      featureTagClassName: 'bg-sky-200 text-sky-800',
+      featureTagClassName:
+        'bg-sky-200 dark:bg-sky-200/30 text-sky-800 dark:text-white',
     },
   },
   BLUE: {
@@ -967,7 +978,8 @@ export const pricingColors = {
       planNameClassName: 'text-blue-500',
       buttonClassName:
         'text-blue-600 dark:text-blue-500 border-blue-500 hover:bg-blue-500',
-      featureTagClassName: 'bg-blue-200 text-blue-800',
+      featureTagClassName:
+        'bg-blue-200 dark:bg-blue-200/30 text-blue-800 dark:text-white',
     },
   },
   INDIGO: {
@@ -979,7 +991,8 @@ export const pricingColors = {
       planNameClassName: 'text-indigo-500',
       buttonClassName:
         'text-indigo-600 dark:text-indigo-500 border-indigo-500 hover:bg-indigo-500',
-      featureTagClassName: 'bg-indigo-200 text-indigo-800',
+      featureTagClassName:
+        'bg-indigo-200 dark:bg-indigo-200/30 text-indigo-800 dark:text-white',
     },
   },
   VIOLET: {
@@ -991,7 +1004,8 @@ export const pricingColors = {
       planNameClassName: 'text-violet-500',
       buttonClassName:
         'text-violet-600 dark:text-violet-500 border-violet-500 hover:bg-violet-500',
-      featureTagClassName: 'bg-violet-200 text-violet-800',
+      featureTagClassName:
+        'bg-violet-200 dark:bg-violet-200/30 text-violet-800 dark:text-white',
     },
   },
   PURPLE: {
@@ -1003,7 +1017,8 @@ export const pricingColors = {
       planNameClassName: 'text-purple-500',
       buttonClassName:
         'text-purple-600 dark:text-purple-500 border-purple-500 hover:bg-purple-500',
-      featureTagClassName: 'bg-purple-200 text-purple-800',
+      featureTagClassName:
+        'bg-purple-200 dark:bg-purple-200/30 text-purple-800 dark:text-white',
     },
   },
   FUCHSIA: {
@@ -1015,7 +1030,8 @@ export const pricingColors = {
       planNameClassName: 'text-fuchsia-500',
       buttonClassName:
         'text-fuchsia-600 dark:text-fuchsia-500 border-fuchsia-500 hover:bg-fuchsia-500',
-      featureTagClassName: 'bg-fuchsia-200 text-fuchsia-800',
+      featureTagClassName:
+        'bg-fuchsia-200 dark:bg-fuchsia-200/30 text-fuchsia-800 dark:text-white',
     },
   },
   PINK: {
@@ -1027,7 +1043,8 @@ export const pricingColors = {
       planNameClassName: 'text-pink-500',
       buttonClassName:
         'text-pink-600 dark:text-pink-500 border-pink-500 hover:bg-pink-500',
-      featureTagClassName: 'bg-pink-200 text-pink-800',
+      featureTagClassName:
+        'bg-pink-200 dark:bg-pink-200/30 text-pink-800 dark:text-white',
     },
   },
   ROSE: {
@@ -1039,7 +1056,8 @@ export const pricingColors = {
       planNameClassName: 'text-rose-500',
       buttonClassName:
         'text-rose-600 dark:text-rose-500 border-rose-500 hover:bg-rose-500',
-      featureTagClassName: 'bg-rose-200 text-rose-800',
+      featureTagClassName:
+        'bg-rose-200 dark:bg-rose-200/30 text-rose-800 dark:text-white',
     },
   },
 } as const satisfies PricingColors
