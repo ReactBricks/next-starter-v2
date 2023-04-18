@@ -14,11 +14,11 @@ export interface FormInputProps {
   label?: any
   isRequired: boolean
   inputType: 'text' | 'number' | 'date' | 'email'
-  key: string
   pattern?: string
   patternError?: string
   requiredError?: string
-  columns: '1' | '1'
+  columns: '1' | '2'
+  index: number
 }
 
 const isRegex = (strRegex: string): boolean => {
@@ -45,12 +45,12 @@ const FormInput: types.Brick<FormInputProps> = ({
   fieldName = '',
   label,
   inputType,
-  key,
   pattern,
   errors,
   patternError,
   requiredError,
   columns,
+  index,
 }) => {
   const labelTextContent =
     typeof label === 'string' ? label : Plain.serialize(label)
@@ -100,15 +100,16 @@ const FormInput: types.Brick<FormInputProps> = ({
             ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
             : 'border-gray-300 dark:border-gray-500 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
         )}
-        {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key, {
-          required: isRequired,
+        {...register(
+          fieldName?.replace(/\s/g, '').toLowerCase() || index + '',
           //@ts-ignore
-          valueAsNumber: inputType === 'number',
-          //@ts-ignore
-          valueAsDate: inputType === 'date',
-          //@ts-ignore
-          pattern: strToRegex(pattern),
-        })}
+          {
+            required: isRequired,
+            valueAsNumber: inputType === 'number',
+            valueAsDate: inputType === 'date',
+            pattern: strToRegex(pattern),
+          }
+        )}
       />
 
       {errors[fieldName] && (

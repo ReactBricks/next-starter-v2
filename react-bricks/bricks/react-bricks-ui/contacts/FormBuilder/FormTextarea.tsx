@@ -9,24 +9,24 @@ export interface FormTextareaProps {
   register: UseFormRegister<any>
   isRequired: boolean
   fieldName?: string
-  key: string
   errors: FieldErrorsImpl<{
     [x: string]: any
   }>
   requiredError?: string
   columns: '1' | '2'
   label: any
+  index: number
 }
 
 const FormTextarea: types.Brick<FormTextareaProps> = ({
   fieldName = 'text area',
   isRequired = true,
-  key,
   label,
   register,
   errors,
   requiredError,
   columns,
+  index,
 }) => {
   const labelTextContent =
     typeof label === 'string' ? label : Plain.serialize(label)
@@ -75,7 +75,7 @@ const FormTextarea: types.Brick<FormTextareaProps> = ({
             ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
             : 'border-gray-300 dark:border-gray-500 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
         )}
-        {...register(fieldName.toLowerCase() || key, {
+        {...register(fieldName.toLowerCase() || index + '', {
           required: isRequired,
         })}
       />
