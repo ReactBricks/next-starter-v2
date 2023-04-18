@@ -10,7 +10,7 @@ export interface FormCheckboxProps {
   fieldName: string
   label: string
   isRequired: boolean
-  key: string
+  index: number
   errors: FieldErrorsImpl<{
     [x: string]: any
   }>
@@ -25,7 +25,7 @@ const FormCheckbox: types.Brick<FormCheckboxProps> = ({
   label,
   errors,
   requiredError,
-  key,
+  index,
   columns,
 }) => {
   const labelTextContent =
@@ -48,7 +48,7 @@ const FormCheckbox: types.Brick<FormCheckboxProps> = ({
               ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
               : 'border-gray-300 dark:border-gray-500 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
           )}
-          {...register(fieldName?.replace(/\s/g, '') || key, {
+          {...register(fieldName?.replace(/\s/g, '') || index + '', {
             required: isRequired,
           })}
         />

@@ -11,7 +11,7 @@ export interface FormSingleRadioProps {
   fieldName: string
   label: string
   value: string
-  key: string
+
   isRequired: boolean
   errors: FieldErrorsImpl<{
     [x: string]: any
@@ -23,7 +23,7 @@ const FormSingleRadio: types.Brick<FormSingleRadioProps> = ({
   fieldName,
   label,
   value,
-  key,
+  index,
   isRequired,
   errors,
 }) => {
@@ -41,9 +41,12 @@ const FormSingleRadio: types.Brick<FormSingleRadioProps> = ({
             ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
             : 'border-gray-300 dark:border-gray-500 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
         )}
-        {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key, {
-          required: isRequired,
-        })}
+        {...register(
+          fieldName?.replace(/\s/g, '').toLowerCase() || index + '',
+          {
+            required: isRequired,
+          }
+        )}
         type="radio"
         value={value}
       />
