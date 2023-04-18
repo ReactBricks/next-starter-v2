@@ -67,7 +67,6 @@ const Card: types.Brick<CardProps> = ({
         {withLink && (
           <div className="mt-2">
             <Link
-              propName="link"
               href={linkPath}
               className={classNames(
                 'cursor-pointer text-sky-500 hover:text-sky-600 hover:-translate-y-px transition-all ease-out duration-150',
