@@ -58,9 +58,16 @@ const Header: types.Brick<HeaderProps> = ({
         <div className="hidden lg:block ml-auto">
           <Repeater
             propName="buttons"
-            renderWrapper={(items) => (
-              <div className="flex flex-row space-x-5 items-center justify-end">
-                {items}
+            // No local link to avoid prefetching
+            // of the Admin bundle in case of link
+            // to Edit content
+            itemProps={{ simpleAnchorLink: true }}
+            renderWrapper={(item) => (
+              <div
+                key={item.key}
+                className="flex flex-row space-x-5 items-center justify-end"
+              >
+                {item}
               </div>
             )}
           />
