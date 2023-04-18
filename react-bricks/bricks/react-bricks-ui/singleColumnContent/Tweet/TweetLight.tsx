@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
-import { Image, Text, types, useAdminContext, RichText, Link } from 'react-bricks/frontend'
+import {
+  Image,
+  Text,
+  types,
+  useAdminContext,
+  RichText,
+  Link,
+} from 'react-bricks/frontend'
 import { FaTwitter } from 'react-icons/fa'
 import Section from '../../shared/components/Section'
 import blockNames from '../../blockNames'
@@ -40,8 +47,16 @@ const TweetLight: types.Brick<TweetLightProps> = ({
   }
 
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
-      <Container size={width} paddingTop={paddingTop} paddingBottom={paddingBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <div className="mx-auto max-w-lg px-6">
           <div
             onClick={handleClick(tweetLink)}
@@ -87,7 +102,10 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                   />
                 </div>
               </Link>
-              <div className="text-2xl dark:text-neutral-300" style={{ color: '#1d9bf0' }}>
+              <div
+                className="text-2xl dark:text-neutral-300"
+                style={{ color: '#1d9bf0' }}
+              >
                 <FaTwitter />
               </div>
             </div>
@@ -100,9 +118,8 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                 </div>
               )}
               allowedFeatures={[types.RichTextFeatures.Link]}
-              renderLink={({ children, href, attributes }) => (
+              renderLink={({ children, href }) => (
                 <Link
-                  {...attributes}
                   href={href}
                   onClick={(event: React.MouseEvent) => event.stopPropagation()}
                   className="hover:text-sky-600"
@@ -193,9 +210,10 @@ TweetLight.schema = {
           type: types.SideEditPropType.Custom,
           component: () => (
             <div className="text-sm">
-              This is a light version of the Tweet content block: it doesn't load the Twitter
-              JavaScript, so it is much better performance-wise, but it requires manually entering
-              the Tweet content and properties.
+              This is a light version of the Tweet content block: it doesn't
+              load the Twitter JavaScript, so it is much better
+              performance-wise, but it requires manually entering the Tweet
+              content and properties.
             </div>
           ),
         },
