@@ -14,6 +14,7 @@ interface SectionProps {
   borderBottom?: Border
   className?: string
   children?: React.ReactNode
+  noOverflowX?: boolean
 }
 
 const Section: React.FC<SectionProps> = ({
@@ -23,6 +24,7 @@ const Section: React.FC<SectionProps> = ({
   borderTop = 'none',
   borderBottom = 'none',
   className = '',
+  noOverflowX = false,
   children,
 }) => {
   const bgColor = backgroundColor.className
@@ -45,9 +47,14 @@ const Section: React.FC<SectionProps> = ({
     <>
       <style>{backgroundImageCss}</style>
       <section
-        className={classNames(bgColor, className, {
-          'hero-bg-img': backgroundImage || backgroundImageDark,
-        })}
+        className={classNames(
+          bgColor,
+          className,
+          {
+            'hero-bg-img': backgroundImage || backgroundImageDark,
+          },
+          { 'overflow-x-hidden': noOverflowX }
+        )}
       >
         {borderTop !== 'none' && (
           <Container
