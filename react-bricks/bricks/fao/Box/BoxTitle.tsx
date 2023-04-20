@@ -18,13 +18,14 @@ const BoxTitle: types.Brick<BoxTitleProps> = ({ box }) => {
   return (
     <h3 className="font-bold font-title text-[1.8rem] uppercase leading-[2.2rem] border-b border-white py-8 mb-4 flex">
       <Text
+        multiline={false}
         propName="boxName"
         placeholder="title.."
         renderBlock={({ children }) => (
           <div
             className={classNames(
-              box ? 'block' : 'hidden',
-              'px-[7px] min-w-[30px] align-middle mr-[8px] font-bold leading-[0.9em] pb-[2px] uppercase text-white bg-[#018da0]'
+              box ? 'inline-block' : 'hidden',
+              'px-[7px] whitespace-pre max-h-[20px] font-bold leading-[0.9em] pb-[2px] uppercase text-white bg-[#018da0] mr-2'
             )}
           >
             {children}
