@@ -4,8 +4,7 @@ import Slider from 'react-slick'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 import blockNames from '../../blockNames'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import CarouselStyles from './CarouselStyles'
 import {
   containerWidthSideGroupWithFull,
   LayoutProps,
@@ -81,13 +80,9 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
       >
+        <CarouselStyles />
         <style>{`
-        .dark .slick-dots li button:before {
-          color:white
-        }
-        .dark .slick-dots li.slick-active button:before {
-          color:white
-        }
+       
         .slick-track {
           display:flex;
           gap:${gap};
