@@ -278,8 +278,9 @@ const CarouselStyles = () => {
             }
 
             .dark .slick-dots li button:focus:before {
-                color:#c6c6c6
+                color:#585b64
             }
+
             .dark .slick-dots li button:before {
                 color:white
               }
