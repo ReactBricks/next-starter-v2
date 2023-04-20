@@ -253,9 +253,7 @@ const CarouselStyles = () => {
             .slick-dots li button:focus:before{
                 color:#c6c6c6
             }
-            .dark .slick-dots li button:focus:before{
-                color:#c6c6c6
-            }
+            
             .slick-dots li button:before
             {
                 font-family: 'slick';
@@ -277,6 +275,10 @@ const CarouselStyles = () => {
             {
                 opacity: .75;
                 color: black;
+            }
+
+            .dark .slick-dots li button:focus:before {
+                color:#c6c6c6
             }
             .dark .slick-dots li button:before {
                 color:white
