@@ -28,7 +28,7 @@ const ChapterHero: types.Brick<ChapterHeroProps> = ({
       />
 
       <div className="absolute text-[#018da0] top-0 bg-white/90 w-[380px] h-full ml-[calc(((100%-1280px)/2)+260px+2rem*2)] break-words py-0 px-8 mr-auto max-w-[680px] flex flex-col items-start justify-center">
-        <h2 className="leading-[3.1rem] text-[3.2rem] w-4/5 max-w-[680px] font-black not-italic font-[trade-gothic-next-condensed,sans-serif] z-[98] pt-8 uppercase -tracking-[0.35px] before:w-1/4 before:content-[''] before:h-[10px] before:bg-[#018da0] before:inline-block before:absolute before:top-0 before:left:0 flex flex-col relative mx-8">
+        <h2 className="leading-[3.1rem] text-[3.2rem] w-4/5 max-w-[680px] font-black not-italic font-title z-[98] pt-8 uppercase -tracking-[0.35px] before:w-1/4 before:content-[''] before:h-[10px] before:bg-[#018da0] before:inline-block before:absolute before:top-0 before:left:0 flex flex-col relative mx-8">
           <Text
             renderBlock={(props) => (
               <span className="font-normal mb-[1px] text-[0.86em]">

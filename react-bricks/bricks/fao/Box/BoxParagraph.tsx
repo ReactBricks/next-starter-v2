@@ -16,22 +16,16 @@ const BoxParagraph: types.Brick<BoxParagraphProps> = ({ index }) => {
   return (
     <RichText
       renderBlock={(props: any) => (
-        <p className="font-thin font-[trade-gothic-next,sans-serif]">
+        <p className="font-thin font-title">{props.children}</p>
+      )}
+      renderLink={(props) => (
+        <a href={`#${props.href}`} className="text-[#018da0] font-title">
           {props.children}
-        </p>
+        </a>
       )}
       placeholder="Type a text..."
       propName="boxParagraph"
-      allowedFeatures={[
-        types.RichTextFeatures.Heading3,
-        types.RichTextFeatures.Bold,
-        types.RichTextFeatures.Italic,
-        types.RichTextFeatures.Code,
-        types.RichTextFeatures.Highlight,
-        types.RichTextFeatures.Link,
-        types.RichTextFeatures.UnorderedList,
-        types.RichTextFeatures.Quote,
-      ]}
+      allowedFeatures={[types.RichTextFeatures.Link]}
     />
   )
 }

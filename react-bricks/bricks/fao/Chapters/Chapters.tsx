@@ -63,7 +63,7 @@ Chapters.schema = {
       itemType: 'chapter-item',
       itemLabel: 'Chapter item',
       getDefaultProps() {
-        return { chapterTitle: 'c', chapterName: 'selle' }
+        return { chapterTitle: 'WORLD REVIEW', chapterName: 'PART 1' }
       },
     },
   ],

@@ -14,7 +14,7 @@ const BottomHighlights: types.Brick<BottomHighlightsProps> = ({}) => {
   return (
     <div className="bg-[#005472] flex justify-center">
       <div className="flex  w-[calc(552px-4rem)] justify-end pr-14 pl-[6.5rem] items-center max-h-[200px] overflow-hidden">
-        <p className="mr-10 pt-8 text-[1.6rem] rounded-[1.9rem] min-w-[200px] text-white font-bold  font-[trade-gothic-next-condensed,sans-serif]">
+        <p className="mr-10 pt-8 text-[1.6rem] rounded-[1.9rem] min-w-[200px] text-white font-bold  font-title">
           Download the publication in the most common reader formats:
           <br />
           <a

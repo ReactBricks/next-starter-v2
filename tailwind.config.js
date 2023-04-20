@@ -10,7 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
+        sans: ['trade-gothic-next', ...defaultTheme.fontFamily.sans],
+        title: ['trade-gothic-next-condensed', ...defaultTheme.fontFamily.sans],
       },
       screens: {
         sm: '600px',

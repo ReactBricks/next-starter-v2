@@ -66,7 +66,7 @@ const Header: types.Brick<HeaderProps> = ({ open }) => {
               {' '}
               {/* language */}
               <ul className="-top-5 flex flex-col last:gap-y-3 absolute left-0 list-none z-50">
-                <li className="flex mb-2 cursor-pointer pt-2 pl-4 pr-4 text-white items-center text-[1.6rem] font-semibold font-[trade-gothic-next-condensed,sans-serif] text-left">
+                <li className="flex mb-2 cursor-pointer pt-2 pl-4 pr-4 text-white items-center text-[1.6rem] font-semibold font-title text-left">
                   English
                   <FiChevronDown size={20} className="ml-[8px] mt-2" />
                 </li>
@@ -74,7 +74,7 @@ const Header: types.Brick<HeaderProps> = ({ open }) => {
                   <li
                     className={classNames(
                       languageMenuOpen ? 'opacity-1' : 'opacity-0',
-                      'pb-2 pt-2 opacity-1 pl-4 pr-4 bg-white font-[trade-gothic-next-condensed,sans-serif] text-left text-[#2b2e34] text-[1.4rem] font-semibold hover:text-[#018da0] transition-opacity ease-linear duration-300'
+                      'pb-2 pt-2 opacity-1 pl-4 pr-4 bg-white font-title text-left text-[#2b2e34] text-[1.4rem] font-semibold hover:text-[#018da0] transition-opacity ease-linear duration-300'
                     )}
                   >
                     <a href="">العربية</a>
@@ -82,7 +82,7 @@ const Header: types.Brick<HeaderProps> = ({ open }) => {
                   <li
                     className={classNames(
                       languageMenuOpen ? 'opacity-1' : 'opacity-0',
-                      'pb-2 pt-2 opacity-1 pl-4 pr-4 bg-white font-[trade-gothic-next-condensed,sans-serif] text-left text-[#2b2e34] text-[1.4rem] font-semibold hover:text-[#018da0] transition-opacity ease-linear duration-300'
+                      'pb-2 pt-2 opacity-1 pl-4 pr-4 bg-white font-title text-left text-[#2b2e34] text-[1.4rem] font-semibold hover:text-[#018da0] transition-opacity ease-linear duration-300'
                     )}
                   >
                     <a href="">中文</a>
@@ -90,7 +90,7 @@ const Header: types.Brick<HeaderProps> = ({ open }) => {
                   <li
                     className={classNames(
                       languageMenuOpen ? 'opacity-1' : 'opacity-0',
-                      'pb-2 pt-2 opacity-1 pl-4 pr-4 bg-white font-[trade-gothic-next-condensed,sans-serif] text-left text-[#2b2e34] text-[1.4rem] font-semibold hover:text-[#018da0] transition-opacity ease-linear duration-300'
+                      'pb-2 pt-2 opacity-1 pl-4 pr-4 bg-white font-title text-left text-[#2b2e34] text-[1.4rem] font-semibold hover:text-[#018da0] transition-opacity ease-linear duration-300'
                     )}
                   >
                     <a href="">Français</a>
@@ -98,7 +98,7 @@ const Header: types.Brick<HeaderProps> = ({ open }) => {
                   <li
                     className={classNames(
                       languageMenuOpen ? 'opacity-1' : 'opacity-0',
-                      'pb-2 pt-2 opacity-1 pl-4 pr-4 bg-white font-[trade-gothic-next-condensed,sans-serif] text-left text-[#2b2e34] text-[1.4rem]  hover:text-[#018da0] transition-opacity ease-linear duration-300'
+                      'pb-2 pt-2 opacity-1 pl-4 pr-4 bg-white font-title text-left text-[#2b2e34] text-[1.4rem]  hover:text-[#018da0] transition-opacity ease-linear duration-300'
                     )}
                   >
                     <a href="">Русский</a>
@@ -106,7 +106,7 @@ const Header: types.Brick<HeaderProps> = ({ open }) => {
                   <li
                     className={classNames(
                       languageMenuOpen ? 'opacity-1' : 'opacity-0',
-                      'pb-2 pt-2 opacity-1 pl-4 pr-4 bg-white font-[trade-gothic-next-condensed,sans-serif] text-left text-[#2b2e34] text-[1.4rem] font-semibold hover:text-[#018da0] transition-opacity ease-linear duration-300'
+                      'pb-2 pt-2 opacity-1 pl-4 pr-4 bg-white font-title text-left text-[#2b2e34] text-[1.4rem] font-semibold hover:text-[#018da0] transition-opacity ease-linear duration-300'
                     )}
                   >
                     <a href="">Español</a>

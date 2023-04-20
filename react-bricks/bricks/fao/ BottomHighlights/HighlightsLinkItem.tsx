@@ -31,7 +31,7 @@ const HighlightsLinkItem: types.Brick<HighlightsLinkItemProps> = ({
           renderBlock={(props) => (
             <span
               className={classNames(
-                'text-[1.8rem] leading-[1.9rem] w-full text-left uppercase font-[trade-gothic-next-condensed,sans-serif] font-bold'
+                'text-[1.8rem] leading-[1.9rem] w-full text-left uppercase font-title font-bold'
               )}
             >
               {props.children}

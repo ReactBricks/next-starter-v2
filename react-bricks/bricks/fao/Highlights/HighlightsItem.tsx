@@ -15,14 +15,14 @@ interface HighlightsItemProps {
 //=============================
 const HighlightsItem: types.Brick<HighlightsItemProps> = ({ href }) => {
   return (
-    <Link href={href} className="self-center">
+    <Link href={href} className="self-center w-full text-center">
       <Text
         renderBlock={(props) => (
-          <span className="text-[2rem] font-semibold leading-[1.9rem] no-underline w-auto py-8 font-[trade-gothic-next-condensed,sans-serif]">
+          <span className="text-[2rem] font-semibold leading-[1.9rem] no-underline w-auto py-8 font-title">
             {props.children}
           </span>
         )}
-        placeholder="Chapter name..."
+        placeholder="text.."
         propName="highligthsText"
       />
     </Link>

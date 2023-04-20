@@ -6,35 +6,39 @@ import { RichText, types } from 'react-bricks/frontend'
 //=============================
 
 interface BoxNotesProps {
-  index: number
-  boxNotes: string
+  notes: string
 }
 
 //=============================
 // Component to be rendered
 //=============================
-const BoxNotes: types.Brick<BoxNotesProps> = ({ index }) => {
+const BoxNotes: types.Brick<BoxNotesProps> = ({}) => {
   return (
     <div className="mt-8 border-t border-[#707070] pt-[7px]">
       <RichText
         renderLink={(props) => (
-          <a href={`#${props.href}`} className="text-[#018da0]">
+          <a
+            href={`#${props.href}`}
+            className="text-[#018da0] text-[1.3rem] leading-[2rem] font-thin font-sans"
+          >
             {props.children}
           </a>
         )}
         renderOL={(props) => (
-          <ol className="list-decimal list-outside ml-2">{props.children}</ol>
+          <ol className="list-decimal list-outside ml-5">{props.children}</ol>
         )}
         renderLI={(props) => (
-          <li className="cursor-pointer">{props.children}</li>
+          <li className="cursor-pointer text-[1.3rem] leading-[2rem] font-thin font-sans">
+            {props.children}
+          </li>
         )}
         renderBlock={(props: any) => (
-          <p className="text-xl font-light font-[trade-gothic-next-condensed,sans-serif]">
+          <p className="text-[1.3rem] leading-[2rem] font-thin font-sans">
             {props.children}
           </p>
         )}
         placeholder="Type a text..."
-        propName="boxParagraph"
+        propName="notes"
         allowedFeatures={[
           types.RichTextFeatures.Link,
           types.RichTextFeatures.OrderedList,
@@ -53,13 +57,7 @@ BoxNotes.schema = {
   hideFromAddMenu: true,
   //previewImageUrl: ``,
   getDefaultProps: () => ({}),
-  sideEditProps: [
-    {
-      name: 'href',
-      label: 'href',
-      type: types.SideEditPropType.Text,
-    },
-  ],
+  sideEditProps: [],
 }
 
 export default BoxNotes
