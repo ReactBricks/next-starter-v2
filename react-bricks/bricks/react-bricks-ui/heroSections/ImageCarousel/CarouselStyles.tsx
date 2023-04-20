@@ -112,15 +112,7 @@ const CarouselStyles = () => {
             {
                 background: #fff url('./ajax-loader.gif') center center no-repeat;
             }
-            /* Icons */
-            @font-face
-            {
-                font-family: 'slick';
-                font-weight: normal;
-                font-style: normal;
-                src: url('./fonts/slick.eot');
-                src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
-            }
+            
             /* Arrows */
             .slick-prev,
             .slick-next
@@ -257,6 +249,9 @@ const CarouselStyles = () => {
             .slick-dots li button:focus:before
             {
                 opacity: 1;
+            }
+            .slick-dots li button:focus:before{
+                color:#c6c6c6
             }
             .slick-dots li button:before
             {
