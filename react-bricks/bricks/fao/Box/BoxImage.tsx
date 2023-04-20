@@ -5,14 +5,12 @@ import { Image, types } from 'react-bricks/frontend'
 // Local Types
 //=============================
 
-interface BoxImageProps {
-  index: number
-}
+interface BoxImageProps {}
 
 //=============================
 // Component to be rendered
 //=============================
-const BoxImage: types.Brick<BoxImageProps> = ({ index }) => {
+const BoxImage: types.Brick<BoxImageProps> = ({}) => {
   return (
     <div className="cursor-pointer relative pb-12 mt-8">
       <Image
@@ -34,13 +32,7 @@ BoxImage.schema = {
   hideFromAddMenu: true,
   //previewImageUrl: ``,
   getDefaultProps: () => ({}),
-  sideEditProps: [
-    {
-      name: 'href',
-      label: 'href',
-      type: types.SideEditPropType.Text,
-    },
-  ],
+  sideEditProps: [],
 }
 
 export default BoxImage

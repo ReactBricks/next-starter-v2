@@ -14,13 +14,9 @@ interface ChapterHeroProps {
 //=============================
 // Component to be rendered
 //=============================
-const ChapterHero: types.Brick<ChapterHeroProps> = ({
-  chapterImage,
-  chapterName,
-  chapterTitle,
-}) => {
+const ChapterHero: types.Brick<ChapterHeroProps> = ({}) => {
   return (
-    <div className="relative">
+    <div className="relative pt-[60px]">
       <Image
         alt="Hero Image"
         propName="chapterImage"

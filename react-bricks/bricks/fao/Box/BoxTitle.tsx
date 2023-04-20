@@ -5,7 +5,6 @@ import classNames from 'classnames'
 // Local Types
 //=============================
 interface BoxTitleProps {
-  index: number
   boxTitle: string
   boxName: string
   box: boolean

@@ -83,7 +83,7 @@ ChaptersItem.schema = {
   sideEditProps: [
     {
       name: 'href',
-      label: 'href',
+      label: 'Link path',
       type: types.SideEditPropType.Text,
     },
   ],
