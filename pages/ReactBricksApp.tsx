@@ -17,7 +17,6 @@ const ReactBricksApp = ({ Component, pageProps }: AppProps) => {
     const newColorMode = colorMode === 'light' ? 'dark' : 'light'
     setColorMode(newColorMode)
     localStorage.setItem('color-mode', newColorMode)
-
     setTheme(newColorMode)
   }
 
@@ -29,14 +28,6 @@ const ReactBricksApp = ({ Component, pageProps }: AppProps) => {
       colorMode === 'dark' ? 'dark bg-gray-900' : 'light bg-white'
     }`,
   }
-
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) return <></>
 
   return (
     <ReactBricks {...reactBricksConfig}>

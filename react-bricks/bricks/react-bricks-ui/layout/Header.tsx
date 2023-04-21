@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Image, Repeater, types, Link } from 'react-bricks/frontend'
 import { useReactBricksContext } from 'react-bricks/frontend'
 import { FiMenu, FiX } from 'react-icons/fi'
@@ -26,6 +26,11 @@ const Header: types.Brick<HeaderProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { isDarkColorMode, toggleColorMode } = useReactBricksContext()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const ref = useRef<HTMLDivElement>(null)
 
@@ -72,11 +77,12 @@ const Header: types.Brick<HeaderProps> = ({
             )}
           />
         </div>
-        <div className="relative ml-auto lg:hidden flex items-center h-full sm:gap-x-4">
-          {/* DARK MODE BUTTON MOBILE */}
+
+        {/* DARK MODE BUTTON DESKTOP */}
+        {mounted && (
           <button
             type="button"
-            className="flex items-center justify-center w-8 h-8 mr-4 sm:mr-0 sm:ml-4 md:ml-8 text-gray-400 dark:text-gray-200"
+            className="flex items-center justify-center w-8 h-8 mr-4 ml-auto lg:ml-8 text-gray-400 dark:text-gray-200"
             onClick={toggleColorMode}
           >
             {!isDarkColorMode ? (
@@ -85,7 +91,9 @@ const Header: types.Brick<HeaderProps> = ({
               <BsSunFill className="text-xl" />
             )}
           </button>
+        )}
 
+        <div ref={ref} className="relative lg:hidden flex items-center h-full sm:gap-x-4">
           <button
             className="group p-1 w-7 h-7 flex justify-center items-center rounded-[5px] bg-gray-200 dark:bg-transparent hover:bg-sky-500/20 dark:hover:bg-sky-500/40 hover:text-sky-600 dark:hover:text-sky-500 focus:bg-sky-500/20 dark:focus:bg-sky-500/40 focus:text-sky-600 dark:focus:text-sky-500"
             onClick={() => setMobileMenuOpen((current) => !current)}
@@ -97,10 +105,7 @@ const Header: types.Brick<HeaderProps> = ({
             )}
           </button>
           {mobileMenuOpen && (
-            <div
-              ref={ref}
-              className="absolute top-8 right-0 w-64 bg-white p-5 border rounded-lg shadow-lg z-10"
-            >
+            <div className="absolute top-8 right-0 w-64 bg-white p-5 border rounded-lg shadow-lg z-10">
               <Repeater
                 propName="menuItems"
                 itemProps={{
@@ -111,19 +116,6 @@ const Header: types.Brick<HeaderProps> = ({
             </div>
           )}
         </div>
-
-        {/* DARK MODE BUTTON DESKTOP */}
-        <button
-          type="button"
-          className="hidden lg:flex items-center justify-center w-8 h-8 mr-4 sm:mr-0 sm:ml-4 md:ml-8 text-gray-400 dark:text-gray-200"
-          onClick={toggleColorMode}
-        >
-          {!isDarkColorMode ? (
-            <BsMoonFill />
-          ) : (
-            <BsSunFill className="text-xl" />
-          )}
-        </button>
       </nav>
     </Section>
   )
