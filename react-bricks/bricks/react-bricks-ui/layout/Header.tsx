@@ -93,7 +93,10 @@ const Header: types.Brick<HeaderProps> = ({
           </button>
         )}
 
-        <div ref={ref} className="relative lg:hidden flex items-center h-full sm:gap-x-4">
+        <div
+          ref={ref}
+          className="relative lg:hidden flex items-center h-full sm:gap-x-4"
+        >
           <button
             className="group p-1 w-7 h-7 flex justify-center items-center rounded-[5px] bg-gray-200 dark:bg-transparent hover:bg-sky-500/20 dark:hover:bg-sky-500/40 hover:text-sky-600 dark:hover:text-sky-500 focus:bg-sky-500/20 dark:focus:bg-sky-500/40 focus:text-sky-600 dark:focus:text-sky-500"
             onClick={() => setMobileMenuOpen((current) => !current)}
@@ -176,9 +179,9 @@ Header.schema = {
       },
     ],
     logo: {
-      src: 'https://images.reactbricks.com/original/8d0eb40f-6e1a-4f6c-9895-a06767fcf5fa.svg',
+      src: 'https://images.reactbricks.com/original/a63a73db-8df4-4a01-9084-44b8217332cf.svg',
       placeholderSrc:
-        'https://images.reactbricks.com/original/8d0eb40f-6e1a-4f6c-9895-a06767fcf5fa.svg',
+        'https://images.reactbricks.com/original/a63a73db-8df4-4a01-9084-44b8217332cf.svg',
       srcSet: '',
       width: 450,
       height: 100,
@@ -187,12 +190,15 @@ Header.schema = {
     },
     buttons: [
       {
+        type: 'link',
         text: 'Edit content',
         href: '/admin',
-        isTargetBlank: false,
+        isTargetBlank: true,
+        buttonType: 'submit',
         buttonColor: buttonColors.SKY.value,
-        type: 'solid',
+        variant: 'solid',
         padding: 'small',
+        simpleAnchorLink: true,
       },
     ],
   }),
@@ -208,12 +214,12 @@ Header.schema = {
         backgroundColor: bgColors.DARK_GRAY.value,
         menuItems: [
           {
-            linkPath: '/docs',
-            linkText: 'Docs',
+            linkPath: '/',
+            linkText: 'Home',
           },
           {
-            linkPath: '/contacts',
-            linkText: 'Contacts',
+            linkPath: '/about-us',
+            linkText: 'About us',
           },
         ],
         logo: {
@@ -232,7 +238,19 @@ Header.schema = {
             'https://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-600.png 600w,\nhttps://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-450.png 450w,\nhttps://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-300.png 300w,\nhttps://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-150.png 150w,\nhttps://images.reactbricks.com/src_set/881feb54-54af-46d5-8825-31e22ccbac25-75.png 75w',
           fallbackType: 'image/png',
         },
-        buttons: [],
+        buttons: [
+          {
+            type: 'link',
+            text: 'Edit content',
+            href: '/admin',
+            isTargetBlank: true,
+            buttonType: 'submit',
+            buttonColor: buttonColors.SKY.value,
+            variant: 'outline',
+            padding: 'small',
+            simpleAnchorLink: true,
+          },
+        ],
       },
     },
   ],

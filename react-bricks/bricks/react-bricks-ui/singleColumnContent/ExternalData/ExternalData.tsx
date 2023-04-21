@@ -33,6 +33,7 @@ ExternalData.schema = {
   label: 'External Data Example',
   category: 'single column / blog',
   tags: ['external', 'data', 'external data', 'external content', 'api'],
+  previewImageUrl: '/bricks-preview-images/external-data-example.png',
   sideEditProps: [],
   mapExternalDataToProps: ({ catFact }) => ({
     catFact,
