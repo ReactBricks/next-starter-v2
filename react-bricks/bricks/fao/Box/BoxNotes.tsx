@@ -18,7 +18,7 @@ const BoxNotes: types.Brick<BoxNotesProps> = ({}) => {
       <RichText
         renderLink={(props) => (
           <a
-            href={`#${props.href}`}
+            href={`${props.href}`}
             className="text-[#018da0] text-[1.3rem] leading-[2rem] font-thin font-sans"
           >
             {props.children}

@@ -18,7 +18,7 @@ const HighlightsItem: types.Brick<HighlightsItemProps> = ({ href }) => {
     <Link href={href} className="self-center w-full text-center">
       <Text
         renderBlock={(props) => (
-          <span className="text-[2rem] font-semibold leading-[1.9rem] no-underline w-auto py-8 font-title">
+          <span className="text-[2rem] font-semibold leading-[1.9rem] no-underline w-auto py-8 font-title uppercase">
             {props.children}
           </span>
         )}

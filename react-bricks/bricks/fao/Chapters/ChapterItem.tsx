@@ -38,7 +38,7 @@ const ChaptersItem: types.Brick<ChaptersItemProps> = ({ index, href }) => {
           renderBlock={(props) => (
             <span
               className={classNames(
-                'font-semibold -tracking-[1px] font-title text-white  mb-0.5 absolute min-w-[120px] text-[1.8rem] before:w-[60px] before:bg-white before:h-[6px] before:absolute',
+                'font-semibold uppercase -tracking-[1px] font-title text-white  mb-0.5 absolute min-w-[120px] text-[1.8rem] before:w-[60px] before:bg-white before:h-[6px] before:absolute',
                 index % 2 === 0
                   ? 'before:-top-[8px] before:left-0 top-[30px]'
                   : ' before:-top-[8px] before:left-0 -top-[0px]'
@@ -59,7 +59,7 @@ const ChaptersItem: types.Brick<ChaptersItemProps> = ({ index, href }) => {
                 index % 2 !== 0
                   ? 'mt-8 leading-[20px]'
                   : 'mt-20 leading-[20px]',
-                'text-[2.3rem] font-bold text-white font-title'
+                'text-[2.3rem] font-bold text-white font-title uppercase'
               )}
             >
               {props.children}
