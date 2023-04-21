@@ -49,7 +49,7 @@ const BlogList: React.FC<HomeProps> = ({
             <meta name="description" content="React Bricks blog starter" />
           </Head>
           {headerOk && !errorHeader ? (
-            <PageViewer page={headerOk} />
+            <PageViewer page={headerOk} showClickToEdit={false} />
           ) : (
             <ErrorNoHeader />
           )}
@@ -84,33 +84,10 @@ const BlogList: React.FC<HomeProps> = ({
                   )
                 })}
               </div>
-              {/* <section className="flex-1 space-y-16">
-                <div>
-                  <h2 className="text-pink-500 uppercase mb-8 tracking-widest font-bold">
-                    Most Popular
-                  </h2>
-                  <ul>
-                    {posts
-                      ?.filter((post) =>
-                        post.tags.find((tag) => tag === 'popular')
-                      )
-                      .map((post) => (
-                        <li key={post.id}>
-                          <Link
-                            href={`/blog/post/${post.slug}`}
-                            className="text-gray-900 hover:text-cyan-600 font-bold text-lg leading-10 transition-colors"
-                          >
-                            {post.name}
-                          </Link>
-                        </li>
-                      ))}
-                  </ul>
-                </div>
-              </section> */}
             </div>
           </div>
           {footerOk && !errorFooter ? (
-            <PageViewer page={footerOk} />
+            <PageViewer page={footerOk} showClickToEdit={false} />
           ) : (
             <ErrorNoFooter />
           )}
