@@ -16,6 +16,7 @@ const ExternalData: types.Brick<Props> = ({ catFact }) => {
             Example of external data in brick{' '}
             <small>(using the cat facts public API)</small>
             <br />
+            <p>It works in the blog pages.</p>
             <small>
               See the `BlogTitle` brick and the `blog` pageType for
               implementation
