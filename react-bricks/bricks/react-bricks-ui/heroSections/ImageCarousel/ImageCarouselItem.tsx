@@ -5,6 +5,7 @@ import blockNames from '../../blockNames'
 interface Props {
   adaptAspectRatio: boolean
   slidesToShow: number
+  image: types.IImageSource
 }
 
 const ImageCarouselItem: types.Brick<Props> = ({
