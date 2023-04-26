@@ -6,6 +6,7 @@ import blockNames from '../../blockNames'
 
 export interface CustomerProps {
   grayscale?: boolean
+  image: types.IImageSource
 }
 
 const Customer: types.Brick<CustomerProps> = ({ grayscale = true }) => {

@@ -67,7 +67,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
             }}
           >
             <div className="flex items-start justify-between mb-3">
-              <Link
+              <a
                 href={authorLink}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -101,7 +101,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                     )}
                   />
                 </div>
-              </Link>
+              </a>
               <div
                 className="text-2xl dark:text-neutral-300"
                 style={{ color: '#1d9bf0' }}
