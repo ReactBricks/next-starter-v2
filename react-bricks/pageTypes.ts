@@ -1,5 +1,4 @@
 import { types } from 'react-bricks/frontend'
-import { v4 as uuid } from 'uuid'
 
 const pageTypes: types.IPageType[] = [
   {

@@ -1,21 +1,22 @@
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import {
+  PageViewer,
   cleanPage,
   fetchPage,
   fetchPages,
   fetchTags,
   types,
-  PageViewer,
+  useReactBricksContext,
 } from 'react-bricks/frontend'
-import { useReactBricksContext } from 'react-bricks/frontend'
+
 import PostListItem from '../../components/PostListItem'
-import ErrorNoKeys from '../../components/errorNoKeys'
-import ErrorNoHeader from '../../components/errorNoHeader'
+import TagListItem from '../../components/TagListItem'
 import ErrorNoFooter from '../../components/errorNoFooter'
+import ErrorNoHeader from '../../components/errorNoHeader'
+import ErrorNoKeys from '../../components/errorNoKeys'
 import Layout from '../../components/layout'
 import config from '../../react-bricks/config'
-import TagListItem from '../../components/TagListItem'
 
 interface HomeProps {
   errorNoKeys: string

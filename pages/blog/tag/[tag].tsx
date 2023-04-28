@@ -2,21 +2,22 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import {
+  PageViewer,
   cleanPage,
   fetchPage,
   fetchPages,
   fetchTags,
-  PageViewer,
   types,
+  useReactBricksContext,
 } from 'react-bricks/frontend'
-import { useReactBricksContext } from 'react-bricks/frontend'
+
 import PostListItem from '../../../components/PostListItem'
+import TagListItem from '../../../components/TagListItem'
+import ErrorNoFooter from '../../../components/errorNoFooter'
+import ErrorNoHeader from '../../../components/errorNoHeader'
+import ErrorNoKeys from '../../../components/errorNoKeys'
 import Layout from '../../../components/layout'
 import config from '../../../react-bricks/config'
-import ErrorNoKeys from '../../../components/errorNoKeys'
-import ErrorNoHeader from '../../../components/errorNoHeader'
-import ErrorNoFooter from '../../../components/errorNoFooter'
-import TagListItem from '../../../components/TagListItem'
 
 interface PageProps {
   pagesByTag: types.Page[]

@@ -1,16 +1,17 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import {
+  PageViewer,
   cleanPage,
   fetchPage,
   fetchPages,
-  PageViewer,
   types,
+  useReactBricksContext,
 } from 'react-bricks/frontend'
-import { useReactBricksContext } from 'react-bricks/frontend'
-import ErrorNoKeys from '../../../components/errorNoKeys'
-import ErrorNoHeader from '../../../components/errorNoHeader'
+
 import ErrorNoFooter from '../../../components/errorNoFooter'
+import ErrorNoHeader from '../../../components/errorNoHeader'
+import ErrorNoKeys from '../../../components/errorNoKeys'
 import Layout from '../../../components/layout'
 import config from '../../../react-bricks/config'
 
