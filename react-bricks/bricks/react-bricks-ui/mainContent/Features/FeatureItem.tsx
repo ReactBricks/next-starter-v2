@@ -65,7 +65,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
         />
         <Text
           propName="text"
-          placeholder="Title..."
+          placeholder="Text..."
           renderBlock={(props) => (
             <div className={textColors.GRAY_500}>{props.children}</div>
           )}
