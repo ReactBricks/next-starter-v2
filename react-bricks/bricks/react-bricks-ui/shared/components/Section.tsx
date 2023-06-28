@@ -1,9 +1,9 @@
-import * as React from 'react'
+import React, { useState, useEffect } from 'react'
 import classNames from 'classnames'
 import { bgColors } from '../../colors'
 import { types } from 'react-bricks/frontend'
 import Container from './Container'
-
+import { useTheme } from 'next-themes'
 export type Border = 'full' | 'boxed' | 'none'
 
 interface SectionProps {
@@ -28,18 +28,26 @@ const Section: React.FC<SectionProps> = ({
   children,
 }) => {
   const bgColor = backgroundColor.className
-
+  const { theme } = useTheme()
+  const [imgClass, setImgClass] = useState<string>('')
+  useEffect(() => {
+    backgroundImage || backgroundImageDark
+      ? backgroundImageDark
+        ? setImgClass('hero-bg-img')
+        : setImgClass('hero-bg-img dark:bg-none')
+      : setImgClass('')
+  }, [theme])
   let backgroundImageCss = `
       ${
         backgroundImage
-          ? `.hero-bg-img { background-image: url(${backgroundImage.src}); background-repeat: no-repeat; background-size: cover; background-position: center}`
+          ? `.hero-bg-img { background-image: url(${backgroundImage.src}); }`
           : ``
       }
 
       ${
         backgroundImageDark
-          ? `.dark .hero-bg-img { background-image: url(${backgroundImageDark.src}); background-repeat: no-repeat; background-size: cover; background-position: center}`
-          : `.dark .hero-bg-img { background-image: none }`
+          ? `.dark .hero-bg-img { background-image: url(${backgroundImageDark.src}); }`
+          : ``
       }
     `
 
@@ -50,10 +58,11 @@ const Section: React.FC<SectionProps> = ({
         className={classNames(
           bgColor,
           className,
+          imgClass,
           {
-            'hero-bg-img': backgroundImage || backgroundImageDark,
+            'overflow-x-hidden': noOverflowX,
           },
-          { 'overflow-x-hidden': noOverflowX }
+          `bg-no-repeat bg-cover bg-center`
         )}
       >
         {borderTop !== 'none' && (
