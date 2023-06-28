@@ -551,6 +551,7 @@ type ButtonColor = {
     color: string
     classNameSolid: string
     classNameOutline: string
+    classNameGhost: string
   }
 }
 
@@ -564,6 +565,7 @@ export const buttonColors = {
       classNameSolid: 'bg-gray-500 text-white hover:bg-gray-600',
       classNameOutline:
         'border border-gray-600 text-gray-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-gray-600 dark:text-white',
     },
   },
   RED: {
@@ -573,6 +575,7 @@ export const buttonColors = {
       classNameSolid: 'bg-red-500 text-white hover:bg-red-600',
       classNameOutline:
         'border border-red-600 text-red-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-red-600 dark:text-white',
     },
   },
   ORANGE: {
@@ -582,6 +585,7 @@ export const buttonColors = {
       classNameSolid: 'bg-orange-500 text-white hover:bg-orange-600',
       classNameOutline:
         'border border-orange-600 text-orange-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-orange-600 dark:text-white',
     },
   },
   AMBER: {
@@ -591,6 +595,7 @@ export const buttonColors = {
       classNameSolid: 'bg-amber-500 text-white hover:bg-amber-600',
       classNameOutline:
         'border border-amber-600 text-amber-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-amber-600 dark:text-white',
     },
   },
   YELLOW: {
@@ -600,6 +605,7 @@ export const buttonColors = {
       classNameSolid: 'bg-yellow-500 text-white hover:bg-yellow-600',
       classNameOutline:
         'border border-yellow-600 text-yellow-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-yellow-600 dark:text-white',
     },
   },
   LIME: {
@@ -609,6 +615,7 @@ export const buttonColors = {
       classNameSolid: 'bg-lime-500 text-white hover:bg-lime-600',
       classNameOutline:
         'border border-lime-600 text-lime-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-lime-600 dark:text-white',
     },
   },
   GREEN: {
@@ -618,6 +625,7 @@ export const buttonColors = {
       classNameSolid: 'bg-green-500 text-white hover:bg-green-600',
       classNameOutline:
         'border border-green-600 text-green-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-green-600 dark:text-white',
     },
   },
   EMERALD: {
@@ -627,6 +635,7 @@ export const buttonColors = {
       classNameSolid: 'bg-emerald-500 text-white hover:bg-emerald-600',
       classNameOutline:
         'border border-emerald-600 text-emerald-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-emerald-600 dark:text-white',
     },
   },
   TEAL: {
@@ -636,6 +645,7 @@ export const buttonColors = {
       classNameSolid: 'bg-teal-500 text-white hover:bg-teal-600',
       classNameOutline:
         'border border-teal-600 text-teal-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-teal-600 dark:text-white',
     },
   },
   CYAN: {
@@ -645,6 +655,7 @@ export const buttonColors = {
       classNameSolid: 'bg-cyan-500 text-white hover:bg-cyan-600',
       classNameOutline:
         'border border-cyan-600 text-cyan-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-cyan-600 dark:text-white',
     },
   },
   SKY: {
@@ -654,6 +665,7 @@ export const buttonColors = {
       classNameSolid: 'bg-sky-500 text-white hover:bg-sky-600',
       classNameOutline:
         'border border-sky-600 text-sky-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-sky-600 dark:text-white',
     },
   },
   BLUE: {
@@ -663,6 +675,7 @@ export const buttonColors = {
       classNameSolid: 'bg-blue-500 text-white hover:bg-blue-600',
       classNameOutline:
         'border border-blue-600 text-blue-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-blue-600 dark:text-white',
     },
   },
   INDIGO: {
@@ -672,6 +685,7 @@ export const buttonColors = {
       classNameSolid: 'bg-indigo-500 text-white hover:bg-indigo-600',
       classNameOutline:
         'border border-indigo-600 text-indigo-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-indigo-600 dark:text-white',
     },
   },
   VIOLET: {
@@ -681,6 +695,7 @@ export const buttonColors = {
       classNameSolid: 'bg-violet-500 text-white hover:bg-violet-600',
       classNameOutline:
         'border border-violet-600 text-violet-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-violet-600 dark:text-white',
     },
   },
   PURPLE: {
@@ -690,6 +705,7 @@ export const buttonColors = {
       classNameSolid: 'bg-purple-500 text-white hover:bg-purple-600',
       classNameOutline:
         'border border-purple-600 text-purple-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-purple-600 dark:text-white',
     },
   },
   FUCHSIA: {
@@ -699,6 +715,7 @@ export const buttonColors = {
       classNameSolid: 'bg-fuchsia-500 text-white hover:bg-fuchsia-600',
       classNameOutline:
         'border border-fuchsia-600 text-fuchsia-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-fuchsia-600 dark:text-white',
     },
   },
   PINK: {
@@ -708,6 +725,7 @@ export const buttonColors = {
       classNameSolid: 'bg-pink-500 text-white hover:bg-pink-600',
       classNameOutline:
         'border border-pink-600 text-pink-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-pink-600 dark:text-white',
     },
   },
   ROSE: {
@@ -717,6 +735,7 @@ export const buttonColors = {
       classNameSolid: 'bg-rose-500 text-white hover:bg-rose-600',
       classNameOutline:
         'border border-rose-600 text-rose-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-rose-600 dark:text-white',
     },
   },
 } as const satisfies ButtonColors
