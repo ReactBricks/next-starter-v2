@@ -7,7 +7,6 @@ import {
   useReactBricksContext,
 } from 'react-bricks/frontend'
 import Container from './Container'
-import { useTheme } from 'next-themes'
 export type Border = 'full' | 'boxed' | 'none'
 
 interface SectionProps {
