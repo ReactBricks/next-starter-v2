@@ -41,37 +41,22 @@ const Section: React.FC<SectionProps> = ({
     : typeof window === 'undefined'
     ? ''
     : localStorage.getItem('color-mode')
-  const [imgClass, setImgClass] = useState<string>('')
+
+  const [bgStyle, setBgStyle] = useState<string>('')
 
   useEffect(() => {
-    backgroundImage || backgroundImageDark
-      ? backgroundImageDark
-        ? setImgClass('hero-bg-img')
-        : setImgClass('hero-bg-img dark:bg-none')
-      : setImgClass('')
+    currentTheme === 'light'
+      ? setBgStyle(`url(${backgroundImage?.src}`)
+      : setBgStyle(`url(${backgroundImageDark?.src}`)
   }, [currentTheme])
-  let backgroundImageCss = `
-      ${
-        backgroundImage
-          ? `.hero-bg-img { background-image: url(${backgroundImage.src}); }`
-          : ``
-      }
-
-      ${
-        backgroundImageDark
-          ? `.dark .hero-bg-img { background-image: url(${backgroundImageDark.src}); }`
-          : ``
-      }
-    `
 
   return (
     <>
-      <style>{backgroundImageCss}</style>
       <section
+        style={{ backgroundImage: bgStyle }}
         className={classNames(
           bgColor,
           className,
-          imgClass,
           {
             'overflow-x-hidden': noOverflowX,
           },
