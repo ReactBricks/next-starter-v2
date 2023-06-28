@@ -1,5 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Image, Repeater, types, Link } from 'react-bricks/frontend'
+import {
+  Image,
+  Repeater,
+  types,
+  Link,
+  useAdminContext,
+} from 'react-bricks/frontend'
 import { useReactBricksContext } from 'react-bricks/frontend'
 import { FiMenu, FiX } from 'react-icons/fi'
 import { BsMoonFill, BsSunFill } from 'react-icons/bs'
@@ -27,6 +33,18 @@ const Header: types.Brick<HeaderProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { isDarkColorMode, toggleColorMode } = useReactBricksContext()
   const [mounted, setMounted] = useState(false)
+  const { isAdmin } = useAdminContext()
+
+  // - in Admin get the current theme from `isDarkColorMode`
+  // - in the frontend page get the current theme from localStorage
+
+  const currentTheme = isAdmin
+    ? isDarkColorMode
+      ? 'dark'
+      : 'light'
+    : typeof window === 'undefined'
+    ? ''
+    : localStorage.getItem('color-mode')
 
   useEffect(() => {
     setMounted(true)
@@ -85,7 +103,7 @@ const Header: types.Brick<HeaderProps> = ({
             className="flex items-center justify-center w-8 h-8 mr-4 ml-auto lg:ml-8 text-gray-400 dark:text-gray-200"
             onClick={toggleColorMode}
           >
-            {!isDarkColorMode ? (
+            {currentTheme === 'light' ? (
               <BsMoonFill />
             ) : (
               <BsSunFill className="text-xl" />
