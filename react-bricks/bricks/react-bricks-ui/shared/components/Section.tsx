@@ -42,7 +42,7 @@ const Section: React.FC<SectionProps> = ({
     ? ''
     : localStorage.getItem('color-mode')
 
-  const [bgStyle, setBgStyle] = useState<string>('')
+  const [bgStyle, setBgStyle] = useState<string>('none')
 
   useEffect(() => {
     currentTheme === 'light'
