@@ -11,13 +11,16 @@ export interface DocumentProps {
   withSize?: boolean
 }
 
-function formatBytes(bytes: number) {
-  if (!bytes) return '0 Bytes'
-  const k = 1000
-  const dm = 1
-  const sizes = ['KB', 'MB']
-  const i = Math.floor(Math.log(bytes) / Math.log(k))
-  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
+const formatFileSize = (kilobytes: number) => {
+  if (!kilobytes) return ''
+  if (kilobytes < 1) {
+    return `${kilobytes.toFixed(1)} KB`
+  }
+  if (kilobytes < 1024) {
+    return `${kilobytes.toFixed(0)} KB`
+  } else {
+    return `${(kilobytes / 1024).toFixed(0)} MB`
+  }
 }
 
 const Document: types.Brick<DocumentProps> = ({ withSize }) => {
@@ -75,9 +78,9 @@ const Document: types.Brick<DocumentProps> = ({ withSize }) => {
                     placeholder=""
                     propName="linkText"
                   />
-                  {withSize && (
-                    <span className="text-xs ml-1">
-                      ({formatBytes(file.size)})
+                  {withSize && !!file.size && (
+                    <span className="p-1 rounded bg-gray-100 text-gray-500 text-xs ml-2">
+                      {formatFileSize(file.size)}
                     </span>
                   )}
                 </a>
