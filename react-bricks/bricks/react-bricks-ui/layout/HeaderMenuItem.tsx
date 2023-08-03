@@ -9,8 +9,8 @@ interface HeaderMenuItemProps {
   linkPath: string
   linkText: any
   submenuItems?: any
-  mobileRef?: React.MutableRefObject<HTMLDivElement>
-  setMobileMenuOpen?: React.Dispatch<React.SetStateAction<boolean>>
+  mobileRef: React.MutableRefObject<HTMLDivElement>
+  setMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({

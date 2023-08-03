@@ -60,9 +60,9 @@ const FormInput: types.Brick<FormInputProps> = ({
         //@ts-ignore
         {
           required: isRequired,
-          valueAsNumber: inputType === 'number',
-          valueAsDate: inputType === 'date',
           pattern: strToRegex(pattern),
+          // valueAsNumber: inputType === 'number',
+          // valueAsDate: inputType === 'date',
         }
       )
     : {}

@@ -22,8 +22,8 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({
   backgroundColor = bgColors.WHITE.value,
-  backgroundImage,
-  backgroundImageDark,
+  backgroundImage = '',
+  backgroundImageDark = '',
   borderTop = 'none',
   borderBottom = 'none',
   className = '',
@@ -33,9 +33,6 @@ const Section: React.FC<SectionProps> = ({
   const bgColor = backgroundColor.className
   const { isAdmin } = useAdminContext()
   const { isDarkColorMode, toggleColorMode } = useReactBricksContext()
-  const image = backgroundImage?.src !== undefined ? backgroundImage?.src : ''
-  const imageDark =
-    backgroundImage?.src !== undefined ? backgroundImageDark?.src : ''
 
   const currentTheme = isAdmin
     ? isDarkColorMode
@@ -49,8 +46,8 @@ const Section: React.FC<SectionProps> = ({
 
   useEffect(() => {
     currentTheme === 'light'
-      ? setBgStyle(`url(${image})`)
-      : setBgStyle(`url(${imageDark})`)
+      ? setBgStyle(`url(${backgroundImage})`)
+      : setBgStyle(`url(${backgroundImageDark})`)
   }, [currentTheme])
 
   return (
