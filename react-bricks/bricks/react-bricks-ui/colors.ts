@@ -745,7 +745,7 @@ export const buttonColors = {
 //====================
 type Gradient = {
   label: string
-  value: any
+  value: string
   className: string
 }
 

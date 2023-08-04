@@ -54,17 +54,45 @@ const FormInput: types.Brick<FormInputProps> = ({
     typeof label === 'string' ? label : Plain.serialize(label)
   const { isAdmin } = useAdminContext()
 
-  const registerAttributes = fieldName
-    ? register(
-        fieldName?.replace(/\s/g, '').toLowerCase(),
-        //@ts-ignore
-        {
-          required: isRequired,
-          pattern: strToRegex(pattern),
-          // valueAsNumber: inputType === 'number',
-          // valueAsDate: inputType === 'date',
+  const patternObj:
+    | {
+        pattern?: RegExp
+        valueAsNumber?: false
+        valueAsDate?: false
+      }
+    | {
+        pattern?: undefined
+        valueAsNumber?: false
+        valueAsDate?: true
+      }
+    | {
+        pattern?: undefined
+        valueAsNumber?: true
+        valueAsDate?: false
+      } =
+    inputType === 'number'
+      ? {
+          pattern: undefined,
+          valueAsNumber: true,
+          valueAsDate: false,
         }
-      )
+      : inputType === 'date'
+      ? {
+          pattern: undefined,
+          valueAsNumber: false,
+          valueAsDate: true,
+        }
+      : {
+          pattern: strToRegex(pattern),
+          valueAsNumber: false,
+          valueAsDate: false,
+        }
+
+  const registerAttributes = fieldName
+    ? register(fieldName?.replace(/\s/g, '').toLowerCase(), {
+        required: isRequired,
+        ...patternObj,
+      })
     : {}
 
   return (

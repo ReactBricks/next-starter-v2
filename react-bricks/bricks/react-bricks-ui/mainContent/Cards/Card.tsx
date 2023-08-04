@@ -10,7 +10,7 @@ interface CardProps {
   withIcon: boolean
   withTitle: boolean
   withLink: boolean
-  linkText: any
+  linkText: string
   linkPath: string
 }
 

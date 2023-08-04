@@ -13,8 +13,8 @@ import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 
 export interface TestimonialProps extends LayoutProps {
-  authorName: any
-  authorJobTitle: any
+  authorName: string
+  authorJobTitle: string
   avatarImage: types.IImageSource
   logoImage: types.IImageSource
 }
@@ -27,7 +27,11 @@ const Testimonial3Cols: types.Brick<TestimonialProps> = ({
   paddingBottom,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
       <Container
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}

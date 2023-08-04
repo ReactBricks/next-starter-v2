@@ -22,7 +22,9 @@ interface ImageCarouselProps extends LayoutProps {
   speed: string
   className: string
   gap: string
-  images: any[]
+  images: {
+    image: types.IImageSource
+  }[]
 }
 
 const CarouselBrick: types.Brick<ImageCarouselProps> = ({

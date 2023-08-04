@@ -31,7 +31,7 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (values: any) => console.log(values)
+  const onSubmit = () => {}
 
   return (
     <div>

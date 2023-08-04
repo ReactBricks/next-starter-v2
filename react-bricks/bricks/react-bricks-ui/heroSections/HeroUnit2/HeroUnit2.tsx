@@ -19,13 +19,16 @@ import {
 } from '../../colors'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
+import { ButtonProps } from '../../shared/bricks/Button'
 
 export interface HeroUnitProps extends LayoutProps {
   textGradient: keyof typeof gradients
   highlightTextColor: { color: string; className: string }
-  title: any
+  title:
+    | [{ type: string; children: { text: string; highlight?: boolean }[] }]
+    | string
   text: string
-  buttons: any[]
+  buttons: ButtonProps[]
 }
 
 const HeroUnit2: types.Brick<HeroUnitProps> = ({
@@ -166,18 +169,22 @@ HeroUnit2.schema = {
         text: 'Get Started now',
         href: '',
         isTargetBlank: false,
+        buttonType: 'submit',
         buttonColor: buttonColors.SKY.value,
         variant: 'solid',
         padding: 'normal',
+        simpleAnchorLink: false,
       },
       {
         type: 'link',
         text: 'Watch demo',
         href: '',
         isTargetBlank: false,
+        buttonType: 'submit',
         buttonColor: buttonColors.SKY.value,
         variant: 'outline',
         padding: 'normal',
+        simpleAnchorLink: false,
       },
     ],
   }),
@@ -250,18 +257,22 @@ HeroUnit2.schema = {
             text: 'Tutorial',
             href: 'https://reactbricks.com/learn',
             isTargetBlank: true,
+            buttonType: 'submit',
             buttonColor: buttonColors.SKY.value,
             variant: 'solid',
             padding: 'normal',
+            simpleAnchorLink: false,
           },
           {
             type: 'link',
             text: 'View the Docs',
             href: 'https://docs.reactbricks.com/',
             isTargetBlank: true,
+            buttonType: 'submit',
             buttonColor: buttonColors.SKY.value,
             variant: 'outline',
             padding: 'normal',
+            simpleAnchorLink: false,
           },
         ],
       },

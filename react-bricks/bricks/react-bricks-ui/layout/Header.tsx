@@ -19,11 +19,13 @@ import {
 } from '../LayoutSideProps'
 import Section from '../shared/components/Section'
 import useOnClickOutside from './useClickOutside'
+import { ButtonProps } from '../shared/bricks/Button'
+import { MenuItems } from './HeaderMenuItem'
 
 interface HeaderProps extends LayoutProps {
-  menuItems: any[]
+  menuItems: MenuItems[]
   logo: types.IImageSource
-  buttons: any[]
+  buttons: ButtonProps[]
 }
 
 const Header: types.Brick<HeaderProps> = ({

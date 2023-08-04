@@ -10,7 +10,7 @@ export interface FeatureItemProps {
   colsNumber: ColsNumber
   withIcon: boolean
   withLink: boolean
-  linkText: any
+  linkText: string
   linkPath: string
 }
 

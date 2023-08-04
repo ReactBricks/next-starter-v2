@@ -1,17 +1,12 @@
 import * as React from 'react'
 import { Image, Plain, Text, types } from 'react-bricks/frontend'
-
-import {
-  backgroundColorsEditProps,
-  sectionBordersEditProps,
-} from '../../LayoutSideProps'
 import { avatars } from '../../shared/defaultImages'
 import blockNames from '../../blockNames'
 import { textColors } from '../../colors'
 
 export interface TestimonialProps {
-  authorName: any
-  authorJobTitle: any
+  authorName: string
+  authorJobTitle: string
   avatarImage: types.IImageSource
   logoImage: types.IImageSource
 }
@@ -35,7 +30,11 @@ const Testimonial3ColsItem: types.Brick<TestimonialProps> = ({
       />
       <cite className="flex items-center not-italic">
         <Image
-          alt={Plain.serialize(authorName)}
+          alt={
+            typeof authorName === 'string'
+              ? authorName
+              : Plain.serialize(authorName)
+          }
           propName="avatarImage"
           aspectRatio={1}
           imageClassName="rounded-full w-10 h-10 object-contain"

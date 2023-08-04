@@ -14,7 +14,7 @@ import Section from '../../shared/components/Section'
 
 export interface CustomersProps extends LayoutProps {
   grayscale?: boolean
-  customers: any
+  customers: { image: types.IImageSource }[]
 }
 
 const Customers: types.Brick<CustomersProps> = ({
@@ -27,12 +27,20 @@ const Customers: types.Brick<CustomersProps> = ({
   customers,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
       <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <div
-          className={classNames('flex flex-wrap justify-center items-center -mx-4 md:-mx-5 -my-4', {
-            'md:justify-between': customers.length >= 4 && customers.length <= 5,
-          })}
+          className={classNames(
+            'flex flex-wrap justify-center items-center -mx-4 md:-mx-5 -my-4',
+            {
+              'md:justify-between':
+                customers.length >= 4 && customers.length <= 5,
+            }
+          )}
         >
           <Repeater propName="customers" itemProps={{ grayscale }} />
         </div>

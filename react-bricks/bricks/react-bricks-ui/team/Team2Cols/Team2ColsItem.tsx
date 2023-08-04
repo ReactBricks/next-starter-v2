@@ -7,7 +7,7 @@ import { textColors } from '../../colors'
 import { avatars } from '../../shared/defaultImages'
 
 interface Props {
-  name?: any
+  name?: string
   twitter?: string
   linkedin?: string
   github?: string
@@ -22,7 +22,7 @@ const Team2ColsItem: types.Brick<Props> = ({
   return (
     <li className="flex space-x-4">
       <Image
-        alt={Plain.serialize(name)}
+        alt={typeof name === 'string' ? name : Plain.serialize(name)}
         propName="picture"
         aspectRatio={1}
         imageClassName="rounded-full w-12 h-12 object-contain"

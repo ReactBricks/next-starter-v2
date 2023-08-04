@@ -3,12 +3,18 @@ import classNames from 'classnames'
 import React, { useRef, useState } from 'react'
 import { Text, Repeater, types, Link, Plain } from 'react-bricks/frontend'
 import useOnClickOutside from './useClickOutside'
-import { textColors } from '../colors'
 
-interface HeaderMenuItemProps {
+export interface MenuItems {
   linkPath: string
-  linkText: any
-  submenuItems?: any
+  linkText: string
+  submenuItems?: {
+    linkText: string
+    linkDescription: string
+    linkPath: string
+  }[]
+}
+
+interface HeaderMenuItemProps extends MenuItems {
   mobileRef: React.MutableRefObject<HTMLDivElement>
   setMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
