@@ -29,7 +29,7 @@ const ImageCarouselItem: types.Brick<Props> = ({
   const { isAdmin } = useAdminContext()
 
   return (
-    <div className={`${isAdmin && 'p-6 m-px hover:bg-gray-100'}`}>
+    <div className={`${isAdmin && 'p-6 m-2 hover:bg-gray-100'}`}>
       <Image
         propName="image"
         alt="altText"
