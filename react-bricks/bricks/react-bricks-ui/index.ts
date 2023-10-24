@@ -97,7 +97,6 @@ import BlogTitle from './singleColumnContent/BlogTitle/BlogTitle'
 // DOCUMENTS
 import Documents from './Documents/Documents'
 import Document from './Documents/Document'
-import ExternalData from './singleColumnContent/ExternalData/ExternalData'
 
 // Theme structure
 const allBricks: types.Theme = {
@@ -186,7 +185,6 @@ const allBricks: types.Theme = {
         Tweet,
         TweetLight,
         BlogTitle,
-        ExternalData,
       ],
     },
     {
