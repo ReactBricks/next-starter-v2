@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, types } from 'react-bricks/frontend'
+import { Image, types, useAdminContext } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
 
 interface Props {
@@ -26,14 +26,18 @@ const ImageCarouselItem: types.Brick<Props> = ({
     }
   }
 
+  const { isAdmin } = useAdminContext()
+
   return (
-    <Image
-      propName="image"
-      alt="altText"
-      maxWidth={1200}
-      imageClassName="w-full h-32 sm:h-48 md:h-72 object-cover object-center transition-all duration-300"
-      {...aspectRatioProp}
-    />
+    <div className={`${isAdmin && 'p-6 m-px hover:bg-gray-100'}`}>
+      <Image
+        propName="image"
+        alt="altText"
+        maxWidth={1200}
+        imageClassName={`w-full h-32 sm:h-48 md:h-72 object-cover object-center transition-all duration-300`}
+        {...aspectRatioProp}
+      />
+    </div>
   )
 }
 
