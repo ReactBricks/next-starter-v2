@@ -8,7 +8,7 @@ import {
 } from 'react-bricks/frontend'
 import Container from './Container'
 export type Border = 'full' | 'boxed' | 'none'
-
+ 
 interface SectionProps {
   backgroundColor?: { color: string; className: string }
   backgroundImage?: types.IImageSource
@@ -19,11 +19,11 @@ interface SectionProps {
   children?: React.ReactNode
   noOverflowX?: boolean
 }
-
+ 
 const Section: React.FC<SectionProps> = ({
   backgroundColor = bgColors.WHITE.value,
-  backgroundImage = '',
-  backgroundImageDark = '',
+  backgroundImage,
+  backgroundImageDark,
   borderTop = 'none',
   borderBottom = 'none',
   className = '',
@@ -33,7 +33,7 @@ const Section: React.FC<SectionProps> = ({
   const bgColor = backgroundColor.className
   const { isAdmin } = useAdminContext()
   const { isDarkColorMode, toggleColorMode } = useReactBricksContext()
-
+ 
   const currentTheme = isAdmin
     ? isDarkColorMode
       ? 'dark'
@@ -41,15 +41,17 @@ const Section: React.FC<SectionProps> = ({
     : typeof window === 'undefined'
     ? ''
     : localStorage.getItem('color-mode')
-
+ 
   const [bgStyle, setBgStyle] = useState<string>('none')
-
+ 
   useEffect(() => {
     currentTheme === 'light'
-      ? setBgStyle(`url(${backgroundImage})`)
-      : setBgStyle(`url(${backgroundImageDark})`)
-  }, [currentTheme])
-
+      ? setBgStyle(backgroundImage ? `url(${backgroundImage.src})` : 'none')
+      : setBgStyle(
+          backgroundImageDark ? `url(${backgroundImageDark.src})` : 'none'
+        )
+  }, [currentTheme, backgroundImage, backgroundImageDark])
+ 
   return (
     <>
       <section
@@ -86,5 +88,5 @@ const Section: React.FC<SectionProps> = ({
     </>
   )
 }
-
+ 
 export default Section
