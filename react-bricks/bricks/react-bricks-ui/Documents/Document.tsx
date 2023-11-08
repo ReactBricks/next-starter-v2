@@ -11,15 +11,15 @@ export interface DocumentProps {
   withSize?: boolean
 }
 
-const formatFileSize = (kilobytes: number) => {
-  if (!kilobytes) return ''
-  if (kilobytes < 1) {
-    return `${kilobytes.toFixed(1)} KB`
+const formatFileSize = (bytes: number) => {
+  if (!bytes) return ''
+  if (bytes < 1) {
+    return `${bytes.toFixed(1)} B`
   }
-  if (kilobytes < 1024) {
-    return `${kilobytes.toFixed(0)} KB`
+  if (bytes < 1024) {
+    return `${bytes.toFixed(0)} B`
   } else {
-    return `${(kilobytes / 1024).toFixed(0)} MB`
+    return `${(bytes / 1024).toFixed(0)} KB`
   }
 }
 
