@@ -49,13 +49,13 @@ const Button: types.Brick<ButtonProps> = ({
             ? 'py-2 px-4 text-sm min-w-[75px]'
             : 'py-3 px-5 min-w-[120px]',
           {
-            [buttonColor.classNameSolid]: variant === 'solid',
+            [buttonColor?.classNameSolid]: variant === 'solid',
           },
           {
-            [buttonColor.classNameOutline]: variant === 'outline',
+            [buttonColor?.classNameOutline]: variant === 'outline',
           },
           {
-            [buttonColor.classNameGhost]: variant === 'ghost',
+            [buttonColor?.classNameGhost]: variant === 'ghost',
           },
           className
         )}
