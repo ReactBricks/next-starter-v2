@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import Slider from 'react-slick'
+
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 import blockNames from '../../blockNames'
@@ -13,6 +14,9 @@ import {
   sectionDefaults,
 } from '../../LayoutSideProps'
 import { photos } from '../../shared/defaultImages'
+
+// @ts-ignore
+const SliderComponent = !!Slider.default ? Slider.default : Slider
 
 interface ImageCarouselProps extends LayoutProps {
   slidesToShow: string
@@ -91,7 +95,7 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
         }
     `}</style>
 
-        <Slider {...settings}>
+        <SliderComponent {...settings}>
           {/*@ts-ignore*/}
           {repeaterElement?.props?.children?.map((child, index) => {
             return (
@@ -100,7 +104,7 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
               </div>
             )
           })}
-        </Slider>
+        </SliderComponent>
       </Container>
     </Section>
   )
