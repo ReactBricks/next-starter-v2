@@ -52,9 +52,11 @@ const Footer: types.Brick<FooterProps> = ({
                 <p className={`text-sm ${textColors.GRAY_500}`}>{children}</p>
               )}
               allowedFeatures={[types.RichTextFeatures.Link]}
-              renderLink={({ children, href }) => (
+              renderLink={({ children, href, target, rel }) => (
                 <Link
                   href={href}
+                  target={target}
+                  rel={rel}
                   className="text-sky-500 hover:text-sky-600 hover:-translate-y-px transition-all ease-out duration-150"
                 >
                   {children}

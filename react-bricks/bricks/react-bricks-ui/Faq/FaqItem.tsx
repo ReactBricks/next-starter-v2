@@ -56,9 +56,11 @@ const FaqQuestion: types.Brick<FaqQuestionProps> = ({ id }) => {
         )}
         placeholder="Answer..."
         allowedFeatures={[types.RichTextFeatures.Link]}
-        renderLink={({ children, href }) => (
+        renderLink={({ children, href, target, rel }) => (
           <Link
             href={href}
+            target={target}
+            rel={rel}
             className="inline-block text-sky-500 hover:text-sky-600 hover:-translate-y-px transition-all ease-out duration-150"
           >
             {children}
