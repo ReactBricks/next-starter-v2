@@ -112,6 +112,16 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
               types.RichTextFeatures.Bold,
               types.RichTextFeatures.Link,
             ]}
+            renderLink={(props) => (
+              <a
+                href={props.href}
+                target={props.target}
+                rel={props.rel}
+                className="text-sky-500 hover:text-sky-600 transition-colors"
+              >
+                {props.children}
+              </a>
+            )}
           />
           <Repeater
             propName="buttons"
