@@ -7,13 +7,15 @@ import { pricingColors, PricingColorValue } from '../colors'
 
 interface PlanFeatureProps {
   withTag?: boolean
-  featureText: string
+  featureText: types.TextValue
+  tag: types.TextValue
   pricingColor: PricingColorValue
 }
 
 const PlanFeature: types.Brick<PlanFeatureProps> = ({
   withTag,
   featureText,
+  tag,
   pricingColor,
 }) => {
   const featureTextContent =
@@ -44,6 +46,7 @@ const PlanFeature: types.Brick<PlanFeatureProps> = ({
         renderBlock={(props) => <span>{props.children}</span>}
         placeholder="type a text"
         propName="featureText"
+        value={featureText}
       />
       {withTag && featureTextContent !== '' ? (
         <Text
@@ -59,6 +62,7 @@ const PlanFeature: types.Brick<PlanFeatureProps> = ({
           )}
           placeholder="tag"
           propName="tag"
+          value={tag}
         />
       ) : null}
     </div>

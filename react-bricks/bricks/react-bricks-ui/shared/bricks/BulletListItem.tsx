@@ -10,11 +10,13 @@ export interface BulletListItemProps {
   bulletColor: { color: string; className: string }
   className: string
   attributes: string
+  text: types.TextValue
 }
 
 const BulletListItem: types.Brick<BulletListItemProps> = ({
   bulletColor = highlightBgColors.SKY.value,
   className,
+  text,
 }) => {
   return (
     <div
@@ -34,6 +36,7 @@ const BulletListItem: types.Brick<BulletListItemProps> = ({
       <div>
         <Text
           propName="text"
+          value={text}
           renderBlock={(props) => (
             <span
               className="text-gray-700 dark:text-gray-100 leading-tight inline-block min-w-[120px]"

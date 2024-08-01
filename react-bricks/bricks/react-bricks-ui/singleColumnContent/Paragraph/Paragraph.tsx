@@ -11,7 +11,9 @@ import {
   sectionDefaults,
 } from '../../LayoutSideProps'
 
-interface ParagraphProps extends LayoutProps {}
+interface ParagraphProps extends LayoutProps {
+  text: types.TextValue
+}
 
 const Paragraph: types.Brick<ParagraphProps> = ({
   backgroundColor,
@@ -20,6 +22,7 @@ const Paragraph: types.Brick<ParagraphProps> = ({
   paddingTop,
   paddingBottom,
   width,
+  text
 }) => {
   return (
     <Section
@@ -35,6 +38,7 @@ const Paragraph: types.Brick<ParagraphProps> = ({
         <RichText
           propName="text"
           placeholder="Paragraph..."
+          value={text}
           renderBlock={({ children }) => (
             <p className="text-base leading-7 mt-6 mb-6 text-gray-800 dark:text-gray-100">
               {children}

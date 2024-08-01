@@ -10,12 +10,14 @@ export interface BadgeProps {
   badgeColor: { color: string; className: string }
   textAlign: 'left' | 'center'
   className?: string
+  badgeText: types.TextValue
 }
 
 const Badge: types.Brick<BadgeProps> = ({
   badgeColor,
   textAlign,
   className,
+  badgeText,
 }) => {
   return (
     <div className="flex justify-center items-center">
@@ -35,6 +37,7 @@ const Badge: types.Brick<BadgeProps> = ({
         )}
         placeholder="Badge..."
         propName="text"
+        value={badgeText}
       />
     </div>
   )

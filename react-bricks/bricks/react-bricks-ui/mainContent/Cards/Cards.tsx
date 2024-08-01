@@ -20,6 +20,9 @@ interface CardsProps extends LayoutProps {
   colNumber: string
   withTitle?: boolean
   bigCenteredTitle?: boolean
+  cards: types.RepeaterItems
+  title: types.TextValue
+  subtitle: types.TextValue
 }
 
 const Cards: types.Brick<CardsProps> = ({
@@ -31,6 +34,9 @@ const Cards: types.Brick<CardsProps> = ({
   width,
   withTitle,
   bigCenteredTitle,
+  cards,
+  title,
+  subtitle
 }) => {
   return (
     <Section
@@ -47,6 +53,8 @@ const Cards: types.Brick<CardsProps> = ({
           <TitleSubtitle
             className={classNames(bigCenteredTitle ? 'mb-10' : 'mb-8')}
             bigCentered={bigCenteredTitle}
+            title={title}
+            subtitle={subtitle}
           />
         )}
         <div
@@ -55,7 +63,7 @@ const Cards: types.Brick<CardsProps> = ({
             width === 'small' ? 'lg:grid-cols-2' : 'md:grid-cols-2'
           )}
         >
-          <Repeater propName="cards" />
+          <Repeater propName="cards" items={cards} />
         </div>
       </Container>
     </Section>

@@ -11,12 +11,18 @@ interface LinkCardProps {
   withTitle: boolean
   withLink: boolean
   linkPath: string
+  logo: types.IImageSource
+  title: types.TextValue
+  text: types.TextValue
 }
 
 const LinkCard: types.Brick<LinkCardProps> = ({
   withIcon,
   withTitle,
   linkPath,
+  logo,
+  title,
+  text,
 }) => {
   return (
     <div>
@@ -31,6 +37,7 @@ const LinkCard: types.Brick<LinkCardProps> = ({
           <Image
             propName="icon"
             alt="logo"
+            source={logo}
             imageClassName={`w-10 h-10 object-contain ml-0.5 mr-4`}
           />
         )}
@@ -43,6 +50,7 @@ const LinkCard: types.Brick<LinkCardProps> = ({
               )}
               placeholder="Title..."
               propName="title"
+              value={title}
             />
           )}
 
@@ -50,6 +58,7 @@ const LinkCard: types.Brick<LinkCardProps> = ({
             renderBlock={(props) => <div>{props.children}</div>}
             placeholder="Text..."
             propName="text"
+            value={text}
           />
         </div>
       </Link>

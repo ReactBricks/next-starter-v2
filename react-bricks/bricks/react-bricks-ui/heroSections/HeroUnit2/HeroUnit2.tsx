@@ -24,11 +24,10 @@ import { ButtonProps } from '../../shared/bricks/Button'
 export interface HeroUnitProps extends LayoutProps {
   textGradient: keyof typeof gradients
   highlightTextColor: { color: string; className: string }
-  title:
-    | [{ type: string; children: { text: string; highlight?: boolean }[] }]
-    | string
-  text: string
-  buttons: ButtonProps[]
+  badges: types.RepeaterItems
+  title: types.TextValue
+  text: types.TextValue
+  buttons: types.RepeaterItems
 }
 
 const HeroUnit2: types.Brick<HeroUnitProps> = ({
@@ -41,6 +40,10 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
   paddingBottom,
   textGradient,
   highlightTextColor,
+  badges,
+  title,
+  text,
+  buttons,
 }: HeroUnitProps) => {
   const titleColor = textColors.GRAY_800
   const textColor = textColors.GRAY_700
@@ -63,6 +66,7 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
             <div className="lg:flex">
               <Repeater
                 propName="badge"
+                items={badges}
                 itemProps={{ textAlign: 'left' }}
                 renderWrapper={(items) => <div className="mb-4">{items}</div>}
               />
@@ -90,6 +94,7 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
                 allowedFeatures={[types.RichTextFeatures.Highlight]}
                 placeholder="Type a title..."
                 propName="title"
+                value={title}
                 renderHighlight={({ children }) => (
                   <span className={highlightTextColor.className}>
                     {children}
@@ -113,10 +118,12 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
               )}
               placeholder="Type a text..."
               propName="text"
+              value={text}
               allowedFeatures={[types.RichTextFeatures.Bold]}
             />
             <Repeater
               propName="buttons"
+              items={buttons}
               renderWrapper={(items) => (
                 <div className="flex flex-row space-x-5 items-center justify-center lg:justify-start mt-6">
                   {items}

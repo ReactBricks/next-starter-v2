@@ -16,6 +16,7 @@ interface SingleColumnVideoProps extends LayoutProps {
   videoType: 'file' | 'streaming'
   platform: 'youtube' | 'vimeo'
   videoId: string
+  videoFile: types.IFileSource
 }
 
 const SingleColumnVideo: types.Brick<SingleColumnVideoProps> = ({
@@ -28,6 +29,7 @@ const SingleColumnVideo: types.Brick<SingleColumnVideoProps> = ({
   videoType,
   platform,
   videoId,
+  videoFile,
 }) => {
   return (
     <Section
@@ -40,7 +42,12 @@ const SingleColumnVideo: types.Brick<SingleColumnVideoProps> = ({
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
       >
-        <Video type={videoType} platform={platform} videoId={videoId} />
+        <Video
+          type={videoType}
+          platform={platform}
+          videoId={videoId}
+          videoFile={videoFile}
+        />
       </Container>
     </Section>
   )

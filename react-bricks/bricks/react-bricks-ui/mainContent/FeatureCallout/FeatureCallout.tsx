@@ -15,7 +15,11 @@ import {
 } from '../../LayoutSideProps'
 import { icons } from '../../shared/defaultImages'
 
-export interface FeatureCalloutProps extends LayoutProps {}
+export interface FeatureCalloutProps extends LayoutProps {
+  image: types.IImageSource
+  title: types.TextValue
+  text: types.TextValue
+}
 
 const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
   backgroundColor,
@@ -23,6 +27,9 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
   borderBottom,
   paddingTop,
   paddingBottom,
+  image,
+  title,
+  text,
 }) => {
   return (
     <Section
@@ -42,12 +49,14 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
           <Image
             propName="image"
             alt="image"
+            source={image}
             imageClassName="w-36 h-36 object-contain"
           />
         </div>
         <div className="flex-1">
           <Text
             propName="title"
+            value={title}
             renderBlock={(props) => (
               <div
                 className={classNames(
@@ -63,6 +72,7 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
           />
           <RichText
             propName="text"
+            value={text}
             renderBlock={(props) => (
               <span
                 className={classNames('leading-6', textColors.GRAY_700)}

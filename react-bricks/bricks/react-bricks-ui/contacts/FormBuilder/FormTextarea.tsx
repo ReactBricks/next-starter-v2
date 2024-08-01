@@ -14,7 +14,7 @@ export interface FormTextareaProps {
   }>
   requiredError?: string
   columns: '1' | '2'
-  label: any
+  label: types.TextValue
 }
 
 const FormTextarea: types.Brick<FormTextareaProps> = ({
@@ -58,6 +58,7 @@ const FormTextarea: types.Brick<FormTextareaProps> = ({
         <Text
           propName="label"
           placeholder="label..."
+          value={label}
           renderBlock={(props) => (
             <span
               className={classNames(textColors.GRAY_600, 'mb-1 text-sm')}

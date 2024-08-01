@@ -21,6 +21,7 @@ export interface ButtonProps {
   padding: 'normal' | 'small'
   className?: string
   simpleAnchorLink: boolean
+  buttonText: types.TextValue
 }
 
 const Button: types.Brick<ButtonProps> = ({
@@ -33,6 +34,7 @@ const Button: types.Brick<ButtonProps> = ({
   padding,
   className,
   simpleAnchorLink = false,
+  buttonText,
 }) => {
   const target = isTargetBlank
     ? { target: '_blank', rel: 'noopener noreferrer' }
@@ -64,6 +66,7 @@ const Button: types.Brick<ButtonProps> = ({
         <Text
           propName="text"
           placeholder="Action"
+          value={buttonText}
           renderBlock={({ children }) => <span>{children}</span>}
         />
       </Link>
@@ -97,6 +100,7 @@ const Button: types.Brick<ButtonProps> = ({
       <Text
         propName="text"
         placeholder="Action"
+        value={buttonText}
         renderBlock={({ children }) => <span>{children}</span>}
       />
     </button>

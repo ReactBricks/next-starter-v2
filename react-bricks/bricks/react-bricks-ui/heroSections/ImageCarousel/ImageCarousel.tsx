@@ -29,6 +29,7 @@ interface ImageCarouselProps extends LayoutProps {
   images: {
     image: types.IImageSource
   }[]
+  slides: types.RepeaterItems
 }
 
 const CarouselBrick: types.Brick<ImageCarouselProps> = ({
@@ -44,6 +45,7 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
   autoplay,
   speed,
   gap,
+  slides,
 }) => {
   const settings = {
     dots: true,
@@ -60,6 +62,7 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
 
   const repeaterElement = Repeater({
     propName: 'images',
+    items: slides,
     itemProps: {
       adaptAspectRatio,
       slidesToShow: slidesToShow ? parseInt(slidesToShow) : 1,

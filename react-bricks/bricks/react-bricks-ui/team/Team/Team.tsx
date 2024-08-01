@@ -18,6 +18,9 @@ import TitleSubtitle from '../../shared/components/TitleSubtitle'
 export interface TeamProps extends LayoutProps {
   withTitle?: boolean
   bigCenteredTitle?: boolean
+  title: types.TextValue
+  subtitle: types.TextValue
+  members: types.RepeaterItems
 }
 
 const Team: types.Brick<TeamProps> = ({
@@ -29,22 +32,38 @@ const Team: types.Brick<TeamProps> = ({
   paddingTop,
   paddingBottom,
   width,
+  title,
+  subtitle,
+  members,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
-      <Container size={width} paddingTop={paddingTop} paddingBottom={paddingBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         {withTitle && (
           <TitleSubtitle
             className={classNames(bigCenteredTitle ? 'mb-12' : 'mb-8')}
             bigCentered={bigCenteredTitle}
+            title={title}
+            subtitle={subtitle}
           />
         )}
         <div
-          className={classNames('grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8', {
-            'lg:grid-cols-5 lg:gap-10 xl:grid-cols-6': width === 'medium',
-          })}
+          className={classNames(
+            'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8',
+            {
+              'lg:grid-cols-5 lg:gap-10 xl:grid-cols-6': width === 'medium',
+            }
+          )}
         >
-          <Repeater propName="members" />
+          <Repeater propName="members" items={members} />
         </div>
       </Container>
     </Section>

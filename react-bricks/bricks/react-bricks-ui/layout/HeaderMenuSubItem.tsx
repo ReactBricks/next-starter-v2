@@ -7,10 +7,14 @@ import { FiChevronRight } from 'react-icons/fi'
 
 interface HeaderMenuSubItemProps {
   linkPath: string
+  linkText: types.TextValue
+  linkDescription: types.TextValue
 }
 
 const HeaderMenuSubItem: types.Brick<HeaderMenuSubItemProps> = ({
   linkPath,
+  linkText,
+  linkDescription,
 }) => {
   return (
     <Link href={linkPath} className="group p-0 mb-3 lg:p-3 flex items-start">
@@ -21,6 +25,7 @@ const HeaderMenuSubItem: types.Brick<HeaderMenuSubItemProps> = ({
         <Text
           propName="linkText"
           placeholder="Type a text..."
+          value={linkText}
           renderBlock={({ children }) => (
             <div
               className={classNames(
@@ -35,6 +40,7 @@ const HeaderMenuSubItem: types.Brick<HeaderMenuSubItemProps> = ({
           <Text
             propName="linkDescription"
             placeholder="Type a text..."
+            value={linkDescription}
             renderBlock={({ children }) => (
               <div
                 className={classNames(

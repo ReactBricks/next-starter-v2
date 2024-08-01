@@ -14,7 +14,7 @@ import Section from '../../shared/components/Section'
 
 export interface CustomersProps extends LayoutProps {
   grayscale?: boolean
-  customers: { image: types.IImageSource }[]
+  customers: types.RepeaterItems
 }
 
 const Customers: types.Brick<CustomersProps> = ({
@@ -42,7 +42,11 @@ const Customers: types.Brick<CustomersProps> = ({
             }
           )}
         >
-          <Repeater propName="customers" itemProps={{ grayscale }} />
+          <Repeater
+            propName="customers"
+            items={customers}
+            itemProps={{ grayscale }}
+          />
         </div>
       </Container>
     </Section>

@@ -10,12 +10,28 @@ interface PricingPlanProps {
   pricingColor: PricingColorValue
   withPopularTag: boolean
   buttonLinkPath: string
+  popularTagText: types.TextValue
+  planName: types.TextValue
+  planDescription: types.TextValue
+  planPrice: types.TextValue
+  planConditions: types.TextValue
+  buttonText: types.TextValue
+  featuresTitle: types.TextValue
+  features: types.RepeaterItems
 }
 
 const PricingPlan: types.Brick<PricingPlanProps> = ({
   pricingColor = pricingColors.CYAN.value,
   withPopularTag,
   buttonLinkPath,
+  popularTagText,
+  planName,
+  planDescription,
+  planPrice,
+  planConditions,
+  buttonText,
+  featuresTitle,
+  features,
 }) => {
   return (
     <div
@@ -39,6 +55,7 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
             )}
             placeholder="Tag"
             propName="popularTagText"
+            value={popularTagText}
           />
         ) : null}
       </div>
@@ -56,6 +73,7 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
           )}
           placeholder="Plan name..."
           propName="planName"
+          value={planName}
         />
 
         <RichText
@@ -66,6 +84,7 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
           )}
           placeholder="Description..."
           propName="planDescription"
+          value={planDescription}
         />
       </div>
       <div className="text-center mb-4">
@@ -82,6 +101,7 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
           )}
           placeholder="Price"
           propName="planPrice"
+          value={planPrice}
         />
 
         <Text
@@ -92,6 +112,7 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
           )}
           placeholder="per user / per month..."
           propName="planConditions"
+          value={planConditions}
         />
       </div>
       <Link
@@ -107,6 +128,7 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
           renderBlock={(props) => <div>{props.children}</div>}
           placeholder="Action"
           propName="buttonText"
+          value={buttonText}
         />
       </Link>
       <div className="flex-1 flex flex-col ">
@@ -123,11 +145,13 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
           )}
           placeholder="type a text"
           propName="featuresTitle"
+          value={featuresTitle}
         />
 
         <ul className={classNames('text-lg text-left', textColors.GRAY_700)}>
           <Repeater
             propName="features"
+            items={features}
             itemProps={{ pricingColor }}
             renderItemWrapper={(item) => (
               <li key={item.key} className="flex items-center space-x-2 mb-2">

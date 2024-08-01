@@ -15,6 +15,8 @@ import Section from '../../shared/components/Section'
 
 export interface FormBuilderProps extends LayoutProps {
   buttonPosition: string
+  formElements: types.RepeaterItems
+  formButtons: types.RepeaterItems
 }
 
 const FormBuilder: types.Brick<FormBuilderProps> = ({
@@ -24,6 +26,8 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({
   paddingTop,
   paddingBottom,
   buttonPosition,
+  formElements,
+  formButtons,
 }) => {
   const {
     register,
@@ -51,10 +55,12 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({
           >
             <Repeater
               propName="form-elements"
+              items={formElements}
               itemProps={{ register, errors }}
             />
             <Repeater
               propName="form-buttons"
+              items={formButtons}
               renderWrapper={(items) => (
                 <div
                   className={classNames(

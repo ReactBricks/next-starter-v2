@@ -10,6 +10,7 @@ export interface TableCellProps {
   isHeader: boolean
   textAlign: TextAlign
   borders: 'none' | 'horizontal' | 'all'
+  cellText: types.TextValue
 }
 
 const getAlignClass = (textAlign: TextAlign) => {
@@ -27,6 +28,7 @@ const TableCell: types.Brick<TableCellProps> = ({
   isHeader = false,
   textAlign = 'left',
   borders,
+  cellText,
 }) => {
   if (isHeader) {
     return (
@@ -40,6 +42,7 @@ const TableCell: types.Brick<TableCellProps> = ({
         <Text
           propName="cellText"
           placeholder=""
+          value={cellText}
           renderBlock={({ children }) => (
             <span className={textColors.GRAY_900}>{children}</span>
           )}
@@ -59,6 +62,7 @@ const TableCell: types.Brick<TableCellProps> = ({
       <Text
         propName="cellText"
         placeholder=""
+        value={cellText}
         renderBlock={({ children }) => <span>{children}</span>}
       />
     </td>

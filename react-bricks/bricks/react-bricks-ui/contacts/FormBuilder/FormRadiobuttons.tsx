@@ -8,13 +8,14 @@ import blockNames from '../../blockNames'
 export interface FormRadiobuttonsProps {
   register?: UseFormRegister<any>
   fieldName: string
-  label: string
+  label: types.TextValue
   isRequired: boolean
   requiredError?: string
   columns: '1' | '2'
   errors: FieldErrorsImpl<{
     [x: string]: any
   }>
+  radioButtons: types.RepeaterItems
 }
 
 const FormRadiobuttons: types.Brick<FormRadiobuttonsProps> = ({
@@ -25,6 +26,7 @@ const FormRadiobuttons: types.Brick<FormRadiobuttonsProps> = ({
   requiredError,
   columns,
   errors,
+  radioButtons,
 }) => {
   const labelTextContent =
     typeof label === 'string' ? label : Plain.serialize(label)
@@ -48,6 +50,7 @@ const FormRadiobuttons: types.Brick<FormRadiobuttonsProps> = ({
         <Text
           propName="label"
           placeholder="label..."
+          value={label}
           renderBlock={(props) => (
             <span
               className={classNames(textColors.GRAY_600, 'mb-1 text-sm')}
@@ -65,6 +68,7 @@ const FormRadiobuttons: types.Brick<FormRadiobuttonsProps> = ({
       </div>
       <Repeater
         propName="radiobuttons"
+        items={radioButtons}
         itemProps={{
           fieldName,
           register,

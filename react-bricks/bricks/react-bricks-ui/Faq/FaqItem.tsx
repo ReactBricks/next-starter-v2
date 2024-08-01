@@ -7,17 +7,22 @@ import blockNames from '../blockNames'
 
 interface FaqQuestionProps {
   id: string
-  question?: string
-  answer?: string
+  question?: types.TextValue
+  answer?: types.TextValue
 }
 
-const FaqQuestion: types.Brick<FaqQuestionProps> = ({ id }) => {
+const FaqQuestion: types.Brick<FaqQuestionProps> = ({
+  id,
+  question,
+  answer,
+}) => {
   const idAttribute = id ? { id } : {}
 
   return (
     <div className="leading-6">
       <Text
         propName="question"
+        value={question}
         renderBlock={(props) => (
           <h3
             {...idAttribute}
@@ -49,6 +54,7 @@ const FaqQuestion: types.Brick<FaqQuestionProps> = ({ id }) => {
       />
       <RichText
         propName="answer"
+        value={answer}
         renderBlock={(props) => (
           <p className={textColors.GRAY_800} {...props.attributes}>
             {props.children}

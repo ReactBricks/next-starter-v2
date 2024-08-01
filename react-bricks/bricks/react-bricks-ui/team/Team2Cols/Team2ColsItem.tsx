@@ -11,6 +11,9 @@ interface Props {
   twitter?: string
   linkedin?: string
   github?: string
+  picture: types.IImageSource
+  memberName: types.TextValue
+  jobTitle: types.TextValue
 }
 
 const Team2ColsItem: types.Brick<Props> = ({
@@ -18,12 +21,16 @@ const Team2ColsItem: types.Brick<Props> = ({
   twitter,
   linkedin,
   github,
+  picture,
+  memberName,
+  jobTitle,
 }) => {
   return (
     <li className="flex space-x-4">
       <Image
         alt={typeof name === 'string' ? name : Plain.serialize(name)}
         propName="picture"
+        source={picture}
         aspectRatio={1}
         imageClassName="rounded-full w-12 h-12 object-contain"
       />
@@ -37,6 +44,7 @@ const Team2ColsItem: types.Brick<Props> = ({
           )}
           placeholder="Name..."
           propName="name"
+          value={memberName}
         />
         <Text
           renderBlock={(props) => (
@@ -46,6 +54,7 @@ const Team2ColsItem: types.Brick<Props> = ({
           )}
           placeholder="Job title..."
           propName="jobTitle"
+          value={jobTitle}
         />
         <div className="flex flex-row items-center space-x-2">
           {twitter && (

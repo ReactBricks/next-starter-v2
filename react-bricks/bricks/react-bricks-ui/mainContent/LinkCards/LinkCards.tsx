@@ -18,6 +18,9 @@ import TitleSubtitle from '../../shared/components/TitleSubtitle'
 interface LinkCardsProps extends LayoutProps {
   withTitle?: boolean
   bigCenteredTitle?: boolean
+  cards: types.RepeaterItems
+  title: types.TextValue
+  subtitle: types.TextValue
 }
 
 const LinkCards: types.Brick<LinkCardsProps> = ({
@@ -29,6 +32,9 @@ const LinkCards: types.Brick<LinkCardsProps> = ({
   width,
   withTitle,
   bigCenteredTitle,
+  cards,
+  title,
+  subtitle,
 }) => {
   return (
     <Section
@@ -45,10 +51,12 @@ const LinkCards: types.Brick<LinkCardsProps> = ({
           <TitleSubtitle
             className={classNames(bigCenteredTitle ? 'mb-12' : 'mb-8')}
             bigCentered={bigCenteredTitle}
+            title={title}
+            subtitle={subtitle}
           />
         )}
         <div className="grid gap-5 sm:grid-cols-2">
-          <Repeater propName="cards" />
+          <Repeater propName="cards" items={cards} />
         </div>
       </Container>
     </Section>

@@ -7,13 +7,19 @@ import blockNames from '../../blockNames'
 export interface LogoGridItemProps {
   link: string
   targetBlank: boolean
+  logo: types.IImageSource
 }
 
-const Content: React.FC = () => (
+interface ContentProps {
+  logo: types.IImageSource
+}
+
+const Content: React.FC<ContentProps> = ({ logo }) => (
   <div className="content-none pb-[100%] relative">
     <Image
       propName="image"
       alt="customer"
+      source={logo}
       imageClassName="absolute top-0 left-0 w-full h-full object-contain"
     />
   </div>
@@ -22,6 +28,7 @@ const Content: React.FC = () => (
 const LogoGridItem: types.Brick<LogoGridItemProps> = ({
   link,
   targetBlank,
+  logo,
 }) => {
   return (
     <Link
@@ -32,7 +39,7 @@ const LogoGridItem: types.Brick<LogoGridItemProps> = ({
           link,
       })}
     >
-      <Content />
+      <Content logo={logo} />
     </Link>
   )
 }

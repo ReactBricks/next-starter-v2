@@ -23,6 +23,8 @@ interface TitleProps extends LayoutProps {
   width: Size
   bigCentered: boolean
   extraboldTitle: boolean
+  title: types.TextValue
+  subtitle: types.TextValue
 }
 
 const Title: types.Brick<TitleProps> = ({
@@ -34,6 +36,8 @@ const Title: types.Brick<TitleProps> = ({
   paddingTop,
   paddingBottom,
   width,
+  title,
+  subtitle,
 }) => {
   return (
     <Section
@@ -49,6 +53,8 @@ const Title: types.Brick<TitleProps> = ({
         <TitleSubtitle
           bigCentered={bigCentered}
           extraboldTitle={extraboldTitle}
+          title={title}
+          subtitle={subtitle}
         />
       </Container>
     </Section>

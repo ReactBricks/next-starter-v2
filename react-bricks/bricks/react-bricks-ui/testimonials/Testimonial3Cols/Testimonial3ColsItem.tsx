@@ -5,14 +5,17 @@ import blockNames from '../../blockNames'
 import { textColors } from '../../colors'
 
 export interface TestimonialProps {
-  authorName: string
-  authorJobTitle: string
+  authorName: types.TextValue
+  authorJobTitle: types.TextValue
   avatarImage: types.IImageSource
-  logoImage: types.IImageSource
+  quote: types.TextValue
 }
 
 const Testimonial3ColsItem: types.Brick<TestimonialProps> = ({
   authorName,
+  authorJobTitle,
+  avatarImage,
+  quote,
 }) => {
   return (
     <div>
@@ -27,6 +30,7 @@ const Testimonial3ColsItem: types.Brick<TestimonialProps> = ({
           return <span>{props.children}</span>
         }}
         propName="quote"
+        value={quote}
       />
       <cite className="flex items-center not-italic">
         <Image
@@ -36,6 +40,7 @@ const Testimonial3ColsItem: types.Brick<TestimonialProps> = ({
               : Plain.serialize(authorName)
           }
           propName="avatarImage"
+          source={avatarImage}
           aspectRatio={1}
           imageClassName="rounded-full w-10 h-10 object-contain"
         />
@@ -49,6 +54,7 @@ const Testimonial3ColsItem: types.Brick<TestimonialProps> = ({
             )}
             placeholder="Name..."
             propName="authorName"
+            value={authorName}
           />
           <Text
             renderBlock={(props) => (
@@ -58,6 +64,7 @@ const Testimonial3ColsItem: types.Brick<TestimonialProps> = ({
             )}
             placeholder="Job title..."
             propName="authorJobTitle"
+            value={authorJobTitle}
           />
         </div>
       </cite>

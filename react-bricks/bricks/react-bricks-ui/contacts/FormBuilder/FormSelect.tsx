@@ -9,7 +9,7 @@ import { textColors } from '../../colors'
 export interface FormSelectProps {
   register: UseFormRegister<any>
   fieldName?: string
-  label: string
+  label: types.TextValue
   options?: string
   isRequired: boolean
 
@@ -63,6 +63,7 @@ const FormSelect: types.Brick<FormSelectProps> = ({
         <Text
           propName="label"
           placeholder="label..."
+          value={label}
           renderBlock={(props) => (
             <span
               className={classNames(textColors.GRAY_600, ' mb-1 text-sm')}

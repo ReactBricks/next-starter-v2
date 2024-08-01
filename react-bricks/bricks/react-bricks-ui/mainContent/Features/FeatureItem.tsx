@@ -10,8 +10,11 @@ export interface FeatureItemProps {
   colsNumber: ColsNumber
   withIcon: boolean
   withLink: boolean
-  linkText: string
+  linkText: types.TextValue
   linkPath: string
+  featureImage: types.IImageSource
+  title: types.TextValue
+  text: types.TextValue
 }
 
 const getColumnClass = (colsNumber: ColsNumber) => {
@@ -31,6 +34,9 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
   withLink,
   linkText,
   linkPath,
+  featureImage,
+  title,
+  text,
 }) => {
   const linkTextPlain =
     typeof linkText === 'string' ? linkText : Plain.serialize(linkText)
@@ -41,6 +47,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
         <Image
           propName="image"
           alt="feature"
+          source={featureImage}
           aspectRatio={1}
           imageClassName="block w-12 h-12 object-contain"
           renderWrapper={({ children }) => {
@@ -57,6 +64,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
         <Text
           propName="title"
           placeholder="Title..."
+          value={title}
           renderBlock={(props) => (
             <div className={classNames('font-bold mb-1', textColors.GRAY_800)}>
               {props.children}
@@ -66,6 +74,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
         <Text
           propName="text"
           placeholder="Text..."
+          value={text}
           renderBlock={(props) => (
             <div className={textColors.GRAY_500}>{props.children}</div>
           )}
@@ -84,6 +93,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
                   renderBlock={(props) => <p>{props.children}</p>}
                   placeholder="Link..."
                   propName="linkText"
+                  value={linkText}
                 />
               </div>
               <svg

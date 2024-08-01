@@ -10,8 +10,11 @@ interface CardProps {
   withIcon: boolean
   withTitle: boolean
   withLink: boolean
-  linkText: string
+  linkText: types.TextValue
   linkPath: string
+  logo: types.IImageSource
+  title: types.TextValue
+  description: types.TextValue
 }
 
 const Card: types.Brick<CardProps> = ({
@@ -20,6 +23,9 @@ const Card: types.Brick<CardProps> = ({
   withLink,
   linkText,
   linkPath,
+  logo,
+  title,
+  description,
 }) => {
   const linkTextPlain =
     typeof linkText === 'string' ? linkText : Plain.serialize(linkText)
@@ -32,6 +38,7 @@ const Card: types.Brick<CardProps> = ({
         <Image
           propName="icon"
           alt="logo"
+          source={logo}
           imageClassName={`text-left object-contain w-10 h-10 mr-5`}
         />
       )}
@@ -48,6 +55,7 @@ const Card: types.Brick<CardProps> = ({
             )}
             placeholder="Title..."
             propName="title"
+            value={title}
           />
         )}
         <RichText
@@ -63,6 +71,7 @@ const Card: types.Brick<CardProps> = ({
           )}
           placeholder="Description..."
           propName="description"
+          value={description}
         />
         {withLink && (
           <div className="mt-2">
@@ -78,6 +87,7 @@ const Card: types.Brick<CardProps> = ({
                   renderBlock={(props) => <p>{props.children}</p>}
                   placeholder="Link..."
                   propName="linkText"
+                  value={linkText}
                 />
               </div>
               <svg

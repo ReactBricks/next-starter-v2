@@ -8,7 +8,7 @@ import { textColors } from '../../colors'
 export interface FormCheckboxProps {
   register: UseFormRegister<any>
   fieldName: string
-  label: string
+  label: types.TextValue
   isRequired: boolean
 
   errors: FieldErrorsImpl<{
@@ -25,7 +25,6 @@ const FormCheckbox: types.Brick<FormCheckboxProps> = ({
   label,
   errors,
   requiredError,
-
   columns,
 }) => {
   const labelTextContent =
@@ -73,6 +72,7 @@ const FormCheckbox: types.Brick<FormCheckboxProps> = ({
           <Text
             propName="label"
             placeholder="label..."
+            value={label}
             renderBlock={(props) => (
               <span
                 className={classNames(textColors.GRAY_800)}

@@ -2,14 +2,19 @@ import React from 'react'
 import { types, Text } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
 
-export interface OfficeProps {}
+export interface OfficeProps {
+  contactTitle: string
+  contactAddress: string
+  city: types.TextValue
+}
 
-const Office: types.Brick<OfficeProps> = ({}) => {
+const Office: types.Brick<OfficeProps> = ({ city }) => {
   return (
     <div className="py-3 pl-4 bg-gradient-to-r from-gray-50 via-transparent border-l border-gray-300 dark:from-transparent dark:border-gray-700">
       <Text
         propName="city"
         placeholder="City..."
+        value={city}
         renderBlock={(props) => (
           <h3
             className="font-semibold mb-2 text-gray-900 dark:text-white"

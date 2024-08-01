@@ -23,14 +23,17 @@ import { ButtonProps } from '../shared/bricks/Button'
 import { MenuItems } from './HeaderMenuItem'
 
 interface HeaderProps extends LayoutProps {
-  menuItems: MenuItems[]
+  menuItems: types.RepeaterItems
   logo: types.IImageSource
-  buttons: ButtonProps[]
+  buttons: types.RepeaterItems
 }
 
 const Header: types.Brick<HeaderProps> = ({
   backgroundColor,
   borderBottom,
+  logo,
+  menuItems,
+  buttons,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { isDarkColorMode, toggleColorMode } = useReactBricksContext()
@@ -70,6 +73,7 @@ const Header: types.Brick<HeaderProps> = ({
           <Image
             propName="logo"
             alt="Logo"
+            source={logo}
             maxWidth={300}
             imageClassName="block w-32 h-7 object-contain object-left"
           />
@@ -77,12 +81,14 @@ const Header: types.Brick<HeaderProps> = ({
         <div className="hidden lg:flex items-center space-x-2">
           <Repeater
             propName="menuItems"
+            items={menuItems}
             itemProps={{ mobileRef: ref, setMobileMenuOpen }}
           />
         </div>
         <div className="hidden lg:block ml-auto">
           <Repeater
             propName="buttons"
+            items={buttons}
             // No local link to avoid prefetching
             // of the Admin bundle in case of link
             // to Edit content
@@ -131,6 +137,7 @@ const Header: types.Brick<HeaderProps> = ({
             <div className="absolute top-8 right-0 w-64 bg-white p-5 border rounded-lg shadow-lg z-10">
               <Repeater
                 propName="menuItems"
+                items={menuItems}
                 itemProps={{
                   mobileRef: ref,
                   setMobileMenuOpen,

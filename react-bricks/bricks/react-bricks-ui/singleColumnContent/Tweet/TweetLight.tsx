@@ -22,6 +22,11 @@ import {
 export interface TweetLightProps extends LayoutProps {
   tweetLink: string
   authorLink: string
+  authorImage: types.IImageSource
+  authorName: types.TextValue
+  authorHandle: types.TextValue
+  tweetContent: types.TextValue
+  date: types.TextValue
 }
 
 const TweetLight: types.Brick<TweetLightProps> = ({
@@ -33,6 +38,11 @@ const TweetLight: types.Brick<TweetLightProps> = ({
   paddingTop,
   paddingBottom,
   width,
+  authorImage,
+  authorName,
+  authorHandle,
+  tweetContent,
+  date,
 }) => {
   const { isAdmin, previewMode } = useAdminContext()
   const [isMouseOver, setIsMouseOver] = useState(false)
@@ -67,7 +77,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
             }}
           >
             <div className="flex items-start justify-between mb-3">
-              <a
+              <Link
                 href={authorLink}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -78,6 +88,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                   <Image
                     propName="author"
                     alt="author-name"
+                    source={authorImage}
                     imageClassName="rounded-full filter hover:brightness-90"
                   />
                 </div>
@@ -85,6 +96,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                   <Text
                     propName="authorName"
                     placeholder="Author Name"
+                    value={authorName}
                     renderBlock={({ children }) => (
                       <div className="text-md text-gray-900 font-bold leading-tight group-hover:underline dark:text-neutral-300">
                         {children}
@@ -94,6 +106,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                   <Text
                     propName="authorTwitterHandle"
                     placeholder="Author @"
+                    value={authorHandle}
                     renderBlock={({ children }) => (
                       <div className="text-sm text-gray-500 font-medium tracking-tight">
                         {children}
@@ -101,7 +114,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                     )}
                   />
                 </div>
-              </a>
+              </Link>
               <div
                 className="text-2xl dark:text-neutral-300"
                 style={{ color: '#1d9bf0' }}
@@ -112,6 +125,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
             <RichText
               propName="tweetContent"
               placeholder="tweet content"
+              value={tweetContent}
               renderBlock={({ children }) => (
                 <div className="mb-2 text-xl font-medium leading-tight dark:text-neutral-300">
                   {children}
@@ -137,6 +151,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
             <Text
               propName="date"
               placeholder="Date"
+              value={date}
               renderBlock={({ children }) => (
                 <div className="inline-block font-normal text-gray-500 tracking-tight hover:underline">
                   {children}

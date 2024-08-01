@@ -14,10 +14,11 @@ import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 
 export interface TestimonialProps extends LayoutProps {
-  authorName: string
-  authorJobTitle: string
+  authorName: types.TextValue
+  authorJobTitle: types.TextValue
   avatarImage: types.IImageSource
   logoImage: types.IImageSource
+  quote: types.TextValue
 }
 
 const Testimonial: types.Brick<TestimonialProps> = ({
@@ -28,6 +29,9 @@ const Testimonial: types.Brick<TestimonialProps> = ({
   borderBottom,
   paddingTop,
   paddingBottom,
+  quote,
+  avatarImage,
+  logoImage,
 }) => {
   return (
     <Section
@@ -54,6 +58,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
             return <span>{props.children}</span>
           }}
           propName="quote"
+          value={quote}
         />
         <cite className="flex items-center justify-center not-italic">
           <Image
@@ -63,6 +68,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
                 : Plain.serialize(authorName)
             }
             propName="avatarImage"
+            source={avatarImage}
             aspectRatio={1}
             imageClassName="rounded-full w-10 h-10 object-contain"
           />
@@ -78,6 +84,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
               )}
               placeholder="Name..."
               propName="authorName"
+              value={authorName}
             />
             <Text
               renderBlock={(props) => (
@@ -87,6 +94,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
               )}
               placeholder="Job title..."
               propName="authorJobTitle"
+              value={authorJobTitle}
             />
           </div>
 
@@ -97,6 +105,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
                 : Plain.serialize(authorJobTitle)
             }
             propName="logoImage"
+            source={logoImage}
             imageClassName="w-20 h-10 object-contain object-left"
             renderWrapper={({ children }) => (
               <div className="ml-5 pl-5 border-l border-gray-300">

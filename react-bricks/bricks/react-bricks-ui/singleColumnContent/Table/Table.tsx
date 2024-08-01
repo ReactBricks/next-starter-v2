@@ -15,6 +15,7 @@ export interface TableProps extends LayoutProps {
   striped: boolean
   withHeader: boolean
   borders: 'none' | 'horizontal' | 'all'
+  rows: types.RepeaterItems
 }
 
 const Table: types.Brick<TableProps> = ({
@@ -27,6 +28,7 @@ const Table: types.Brick<TableProps> = ({
   paddingTop,
   paddingBottom,
   width,
+  rows
 }) => {
   return (
     <Section
@@ -42,6 +44,7 @@ const Table: types.Brick<TableProps> = ({
         <table className="w-full border-collapse border-spacing-0.5 sm:overflow-x-auto">
           <Repeater
             propName="rows"
+            items={rows}
             itemProps={{
               striped,
               withHeader,

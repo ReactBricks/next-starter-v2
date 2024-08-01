@@ -1,24 +1,29 @@
 import classNames from 'classnames'
 import React from 'react'
-import { Text } from 'react-bricks/frontend'
+import { Text, types } from 'react-bricks/frontend'
 import { textColors } from '../../colors'
 
 interface TitleSubtitleProps {
   bigCentered?: boolean
   extraboldTitle?: boolean
   className?: string
+  title: types.TextValue
+  subtitle: types.TextValue
 }
 
 const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
   bigCentered = false,
   extraboldTitle = false,
   className = '',
+  title,
+  subtitle,
 }) => {
   return (
     <div className={className}>
       <Text
         propName="title"
         placeholder="Title..."
+        value={title}
         renderBlock={({ children }) => (
           <h2
             className={classNames(
@@ -35,6 +40,7 @@ const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
       <Text
         propName="subtitle"
         placeholder="Subtitle..."
+        value={subtitle}
         renderBlock={({ children }) => (
           <p
             className={classNames(

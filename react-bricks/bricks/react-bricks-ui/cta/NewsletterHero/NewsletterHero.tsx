@@ -21,6 +21,11 @@ import Section from '../../shared/components/Section'
 
 export interface CallToActionProps extends LayoutProps {
   textGradient: keyof typeof gradients
+  title: types.TextValue
+  description: types.TextValue
+  text: types.TextValue
+  buttonText: types.TextValue
+  privacy: types.TextValue
 }
 
 const CallToAction: types.Brick<CallToActionProps> = ({
@@ -30,6 +35,11 @@ const CallToAction: types.Brick<CallToActionProps> = ({
   paddingTop,
   paddingBottom,
   textGradient = gradients.NONE.value,
+  title,
+  description,
+  text,
+  buttonText,
+  privacy,
 }) => {
   const { isAdmin } = useAdminContext()
   const titleStyle =
@@ -57,6 +67,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
           >
             <Text
               propName="title"
+              value={title}
               renderBlock={(props) => (
                 <p
                   className={classNames(
@@ -73,6 +84,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
           </div>
           <RichText
             propName="description"
+            value={description}
             renderBlock={(props) => (
               <p
                 className={classNames('text-sm', textColors.GRAY_700)}
@@ -89,6 +101,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
           <div className="mb-6">
             <Text
               propName="text"
+              value={text}
               renderBlock={(props) => (
                 <span
                   className={classNames('leading-relaxed', textColors.GRAY_800)}
@@ -129,6 +142,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
               >
                 <Text
                   propName="buttonText"
+                  value={buttonText}
                   placeholder="Action..."
                   renderBlock={({ children }) => (
                     <span className="text-center">{children}</span>
@@ -139,6 +153,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
             <div className="mt-2">
               <RichText
                 propName="privacy"
+                value={privacy}
                 renderBlock={(props) => (
                   <span
                     className={classNames(

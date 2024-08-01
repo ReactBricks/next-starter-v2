@@ -8,14 +8,20 @@ type Padding = 'big' | 'small'
 
 interface HeroUnitProps {
   padding: Padding
-  title: string
-  text: string
+  title: types.TextValue
+  text: types.TextValue
+  source: types.IImageSource
 }
 
 //=============================
 // Component to be rendered
 //=============================
-const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
+const MyHeroUnit: types.Brick<HeroUnitProps> = ({
+  padding,
+  title,
+  text,
+  source,
+}) => {
   return (
     <div className="dark:bg-gray-900">
       <div
@@ -26,6 +32,7 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
         <Image
           propName="icon"
           alt="Icon"
+          source={source}
           maxWidth={80}
           aspectRatio={1}
           imageClassName="w-20 mb-5 mx-auto"
@@ -41,6 +48,7 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
           )}
           placeholder="Type a title..."
           propName="title"
+          value={title}
         />
         <RichText
           renderBlock={(props) => (
@@ -50,6 +58,7 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
           )}
           placeholder="Type a text..."
           propName="text"
+          value={text}
           allowedFeatures={[
             types.RichTextFeatures.Bold,
             types.RichTextFeatures.Italic,
@@ -63,7 +72,12 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
             </code>
           )}
           renderLink={(props) => (
-            <a href={props.href} target={props.target} rel={props.rel} className="text-sky-500 hover:text-sky-600 transition-colors">
+            <a
+              href={props.href}
+              target={props.target}
+              rel={props.rel}
+              className="text-sky-500 hover:text-sky-600 transition-colors"
+            >
               {props.children}
             </a>
           )}

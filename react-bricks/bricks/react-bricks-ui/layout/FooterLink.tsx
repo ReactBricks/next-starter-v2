@@ -1,26 +1,20 @@
 import blockNames from '../blockNames'
 import React from 'react'
-import {
-  Text,
-  RichText,
-  Image,
-  File,
-  Repeater,
-  types,
-  Link,
-} from 'react-bricks/frontend'
+import { Text, types, Link } from 'react-bricks/frontend'
 import { textColors } from '../colors'
 
 interface FooterLinkProps {
   linkPath: string
+  linkText: types.TextValue
 }
 
-const FooterLink: types.Brick<FooterLinkProps> = ({ linkPath }) => {
+const FooterLink: types.Brick<FooterLinkProps> = ({ linkPath, linkText }) => {
   return (
     <Link href={linkPath}>
       <Text
         propName="linkText"
         placeholder="Link..."
+        value={linkText}
         renderBlock={({ children }) => (
           <div
             className={`text-sm mb-3 ${textColors.GRAY_500} hover:text-gray-600 dark:hover:text-white transition-all ease-out duration-150 hover:-translate-y-px`}

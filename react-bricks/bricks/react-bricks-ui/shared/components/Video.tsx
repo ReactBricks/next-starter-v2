@@ -24,6 +24,7 @@ export interface FileVideoProps {
     size: number
   }
   className?: string
+  videoFile: types.IFileSource
 }
 
 const Video: React.FC<StreamingVideoProps | FileVideoProps> = (props) => {
@@ -44,6 +45,7 @@ const Video: React.FC<StreamingVideoProps | FileVideoProps> = (props) => {
     return (
       <File
         propName="videoFile"
+        source={props.videoFile}
         allowedExtensions={['.mp4']}
         renderBlock={(file) => {
           return file ? (

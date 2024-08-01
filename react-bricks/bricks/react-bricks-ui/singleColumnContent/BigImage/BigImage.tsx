@@ -12,7 +12,9 @@ import {
   sectionDefaults,
 } from '../../LayoutSideProps'
 
-interface BigImageProps extends LayoutProps {}
+interface BigImageProps extends LayoutProps {
+  image: types.IImageSource
+}
 
 const BigImage: types.Brick<BigImageProps> = ({
   backgroundColor,
@@ -21,6 +23,7 @@ const BigImage: types.Brick<BigImageProps> = ({
   paddingTop,
   paddingBottom,
   width,
+  image
 }) => {
   return (
     <Section
@@ -33,7 +36,7 @@ const BigImage: types.Brick<BigImageProps> = ({
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
       >
-        <Image propName="image" alt="Image" maxWidth={1200} />
+        <Image propName="image" alt="Image" source={image} maxWidth={1200} />
       </Container>
     </Section>
   )

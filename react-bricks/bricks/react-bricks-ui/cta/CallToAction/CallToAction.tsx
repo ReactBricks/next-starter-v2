@@ -12,7 +12,10 @@ import { bgColors, buttonColors, textColors } from '../../colors'
 import Container from '../../shared/components/Container'
 import Section, { Border } from '../../shared/components/Section'
 
-export interface CallToActionProps extends LayoutProps {}
+export interface CallToActionProps extends LayoutProps {
+  text: types.TextValue
+  buttons: types.RepeaterItems
+}
 
 const CallToAction: types.Brick<CallToActionProps> = ({
   backgroundColor,
@@ -20,6 +23,8 @@ const CallToAction: types.Brick<CallToActionProps> = ({
   borderBottom,
   paddingTop,
   paddingBottom,
+  text,
+  buttons,
 }) => {
   return (
     <Section
@@ -38,6 +43,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
         <div className="flex-1 sm:pr-14 mb-4 sm:mb-0">
           <Text
             propName="text"
+            value={text}
             renderBlock={(props) => (
               <span
                 className={classNames(
@@ -53,7 +59,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
           />
         </div>
         <div>
-          <Repeater propName="buttons" />
+          <Repeater propName="buttons" items={buttons} />
         </div>
       </Container>
     </Section>

@@ -11,6 +11,7 @@ interface Props {
 const ImageCarouselItem: types.Brick<Props> = ({
   adaptAspectRatio,
   slidesToShow,
+  image,
 }) => {
   let aspectRatioProp = {}
 
@@ -33,6 +34,7 @@ const ImageCarouselItem: types.Brick<Props> = ({
       <Image
         propName="image"
         alt="altText"
+        source={image}
         maxWidth={1200}
         imageClassName={`w-full h-32 sm:h-48 md:h-72 object-cover object-center transition-all duration-300`}
         {...aspectRatioProp}

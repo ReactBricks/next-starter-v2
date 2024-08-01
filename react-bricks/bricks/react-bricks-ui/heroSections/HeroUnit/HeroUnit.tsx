@@ -24,11 +24,10 @@ export interface HeroUnitProps extends LayoutProps {
   size: 'medium' | 'large'
   textGradient: keyof typeof gradients
   highlightTextColor: { color: string; className: string }
-  title:
-    | [{ type: string; children: { text: string; highlight?: boolean }[] }]
-    | string
-  text: string
-  buttons: ButtonProps[]
+  badges: types.RepeaterItems
+  title: types.TextValue
+  text: types.TextValue
+  buttons: types.RepeaterItems
 }
 
 const HeroUnit: types.Brick<HeroUnitProps> = ({
@@ -42,6 +41,10 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
   size = 'large',
   textGradient = gradients.NONE.value,
   highlightTextColor = highlightTextColors.LIME.value,
+  badges,
+  title,
+  text,
+  buttons,
 }: HeroUnitProps) => {
   const titleColor = textColors.GRAY_800
   const textColor = textColors.GRAY_700
@@ -62,6 +65,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
         <div className="max-w-xl mx-auto px-5">
           <Repeater
             propName="badge"
+            items={badges}
             renderWrapper={(items) => <div className="mb-4">{items}</div>}
           />
 
@@ -88,6 +92,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
               allowedFeatures={[types.RichTextFeatures.Highlight]}
               placeholder="Type a title..."
               propName="title"
+              value={title}
               renderHighlight={({ children }) => (
                 <span className={highlightTextColor.className}>{children}</span>
               )}
@@ -108,6 +113,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
             )}
             placeholder="Type a text..."
             propName="text"
+            value={text}
             allowedFeatures={[
               types.RichTextFeatures.Bold,
               types.RichTextFeatures.Link,
@@ -125,6 +131,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
           />
           <Repeater
             propName="buttons"
+            items={buttons}
             renderWrapper={(items) => (
               <div className="flex flex-row space-x-5 items-center justify-center mt-6">
                 {items}

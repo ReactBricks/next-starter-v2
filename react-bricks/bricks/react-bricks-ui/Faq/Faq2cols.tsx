@@ -11,7 +11,9 @@ import blockNames from '../blockNames'
 import Container from '../shared/components/Container'
 import Section from '../shared/components/Section'
 
-export interface FaqProps extends LayoutProps {}
+export interface FaqProps extends LayoutProps {
+  faqs: types.RepeaterItems
+}
 
 const Faq2cols: types.Brick<FaqProps> = ({
   backgroundColor,
@@ -20,16 +22,21 @@ const Faq2cols: types.Brick<FaqProps> = ({
   paddingTop,
   paddingBottom,
   width,
+  faqs,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
       <Container
         size={width}
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
         className="grid sm:grid-cols-2 gap-12"
       >
-        <Repeater propName="faqs" />
+        <Repeater propName="faqs" items={faqs} />
       </Container>
     </Section>
   )
@@ -68,7 +75,11 @@ Faq2cols.schema = {
       itemLabel: 'Question',
     },
   ],
-  sideEditProps: [neutralBackgroundSideGroup, paddingBordersSideGroup, containerWidthSideGroup],
+  sideEditProps: [
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
+    containerWidthSideGroup,
+  ],
 }
 
 export default Faq2cols

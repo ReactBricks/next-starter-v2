@@ -14,6 +14,9 @@ import Section from '../shared/components/Section'
 
 interface FooterProps extends LayoutProps {
   siteUrl: string
+  logo: types.IImageSource
+  copyright: types.TextValue
+  columns: types.RepeaterItems
 }
 
 const Footer: types.Brick<FooterProps> = ({
@@ -23,6 +26,9 @@ const Footer: types.Brick<FooterProps> = ({
   paddingTop,
   paddingBottom,
   siteUrl,
+  logo,
+  copyright,
+  columns,
 }) => {
   return (
     <footer>
@@ -41,12 +47,14 @@ const Footer: types.Brick<FooterProps> = ({
               <Image
                 propName="logo"
                 alt="Logo"
+                source={logo}
                 maxWidth={300}
                 imageClassName="w-48 h-7 object-contain object-left"
               />
             </Link>
             <RichText
               propName="copyright"
+              value={copyright}
               placeholder="Copyright notice"
               renderBlock={({ children }) => (
                 <p className={`text-sm ${textColors.GRAY_500}`}>{children}</p>
@@ -64,7 +72,7 @@ const Footer: types.Brick<FooterProps> = ({
               )}
             />
           </div>
-          <Repeater propName="columns" />
+          <Repeater propName="columns" items={columns} />
         </Container>
       </Section>
     </footer>

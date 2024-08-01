@@ -9,6 +9,10 @@ import blockNames from '../blockNames'
 export interface DocumentProps {
   color?: { color: string; className: string }
   withSize?: boolean
+  file: types.IFileSource
+  fileName: types.TextValue
+  description: types.TextValue
+  linkText: types.TextValue
 }
 
 const formatFileSize = (bytes: number) => {
@@ -23,11 +27,18 @@ const formatFileSize = (bytes: number) => {
   }
 }
 
-const Document: types.Brick<DocumentProps> = ({ withSize }) => {
+const Document: types.Brick<DocumentProps> = ({
+  withSize,
+  file,
+  fileName,
+  description,
+  linkText,
+}) => {
   return (
     <div className="p-7 flex border border-black/10 dark:border-white/10 bg-white dark:bg-white/10 rounded">
       <File
         propName="file"
+        source={file}
         allowedExtensions={['pdf']}
         renderBlock={(file) => {
           return file ? (
@@ -40,6 +51,7 @@ const Document: types.Brick<DocumentProps> = ({ withSize }) => {
                 <Text
                   propName="fileName"
                   placeholder="file name..."
+                  value={fileName}
                   renderBlock={(props) => (
                     <div
                       className="font-bold mb-1 text-gray-800 dark:text-white"
@@ -50,6 +62,7 @@ const Document: types.Brick<DocumentProps> = ({ withSize }) => {
                   )}
                 />
                 <RichText
+                  value={description}
                   renderBlock={(props) => (
                     <div
                       className="text-gray-600 font-normal dark:text-white/60"
@@ -70,6 +83,7 @@ const Document: types.Brick<DocumentProps> = ({ withSize }) => {
                   }
                 >
                   <Text
+                    value={linkText}
                     renderBlock={(props) => (
                       <span className="align-middle" {...props.attributes}>
                         {props.children}

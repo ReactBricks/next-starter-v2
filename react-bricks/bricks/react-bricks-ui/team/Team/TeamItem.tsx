@@ -13,18 +13,25 @@ export interface TeamItemProps extends LayoutProps {
   twitter?: string
   github?: string
   linkedin?: string
+  picture: types.IImageSource
+  memberName: types.TextValue
+  jobTitle: types.TextValue
 }
 
 const TeamItem: types.Brick<TeamItemProps> = ({
   twitter,
   github,
   linkedin,
+  picture,
+  memberName,
+  jobTitle,
 }) => {
   return (
     <div className="flex flex-col items-center">
       <Image
         propName="picture"
         alt="team-item"
+        source={picture}
         aspectRatio={1}
         imageClassName={classNames(
           'block w-[72px] h-[72px] object-contain rounded-full mb-1'
@@ -44,6 +51,7 @@ const TeamItem: types.Brick<TeamItemProps> = ({
         )}
         placeholder="Name..."
         propName="memberName"
+        value={memberName}
       />
       <Text
         renderBlock={(props) => (
@@ -53,6 +61,7 @@ const TeamItem: types.Brick<TeamItemProps> = ({
         )}
         placeholder="Role..."
         propName="jobTitle"
+        value={jobTitle}
       />
 
       {(twitter || linkedin || github) && (

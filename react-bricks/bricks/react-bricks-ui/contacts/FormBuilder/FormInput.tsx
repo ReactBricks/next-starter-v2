@@ -11,7 +11,7 @@ export interface FormInputProps {
     [x: string]: any
   }>
   fieldName?: string
-  label?: any
+  label?: types.TextValue
   isRequired: boolean
   inputType: 'text' | 'number' | 'date' | 'email'
   pattern?: string
@@ -115,6 +115,7 @@ const FormInput: types.Brick<FormInputProps> = ({
         <Text
           propName="label"
           placeholder="label..."
+          value={label}
           renderBlock={(props) => (
             <span
               className={classNames(textColors.GRAY_600, 'mb-1 text-sm')}

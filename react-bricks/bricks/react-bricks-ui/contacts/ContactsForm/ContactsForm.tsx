@@ -15,8 +15,12 @@ import Section from '../../shared/components/Section'
 import TitleSubtitle from '../../shared/components/TitleSubtitle'
 
 export interface ContactsFormProps extends LayoutProps {
-  phoneNumber: string
-  email: string
+  address: types.TextValue
+  phoneNumber: types.TextValue
+  email: types.TextValue
+  formFields: types.RepeaterItems
+  title: types.TextValue
+  subtitle: types.TextValue
 }
 
 const ContactsForm: types.Brick<ContactsFormProps> = ({
@@ -25,8 +29,12 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
   borderBottom,
   paddingTop,
   paddingBottom,
+  address,
   phoneNumber,
   email,
+  formFields,
+  title,
+  subtitle,
 }) => {
   return (
     <Section
@@ -37,7 +45,7 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
       <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="pb-12 lg:pb-20 sm:text-left lg:pr-8 pr-5">
-            <TitleSubtitle />
+            <TitleSubtitle title={title} subtitle={subtitle} />
             <ul
               className={classNames(
                 'mt-10 space-y-4 text-base leading-7 list-none',
@@ -50,6 +58,7 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
                   <Text
                     propName="address"
                     placeholder="address..."
+                    value={address}
                     multiline={true}
                     renderBlock={(props) => (
                       <span
@@ -75,6 +84,7 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
                   <Text
                     propName="phoneNumber"
                     placeholder="Phone number"
+                    value={phoneNumber}
                     renderBlock={({ children }) => <span>{children}</span>}
                   />
                 </Link>
@@ -90,6 +100,7 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
                   <Text
                     propName="email"
                     placeholder="Email"
+                    value={email}
                     renderBlock={({ children }) => <span>{children}</span>}
                   />
                 </Link>
@@ -97,7 +108,7 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
             </ul>
           </div>
           <div className="sm:-mt-7">
-            <Repeater propName="form" />
+            <Repeater propName="form" items={formFields} />
           </div>
         </div>
       </Container>

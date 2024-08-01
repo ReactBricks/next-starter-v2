@@ -11,7 +11,9 @@ import blockNames from '../blockNames'
 import Container from '../shared/components/Container'
 import Section from '../shared/components/Section'
 
-export interface FaqProps extends LayoutProps {}
+export interface FaqProps extends LayoutProps {
+  faqs: types.RepeaterItems
+}
 
 const Faq: types.Brick<FaqProps> = ({
   backgroundColor,
@@ -20,6 +22,7 @@ const Faq: types.Brick<FaqProps> = ({
   paddingTop,
   paddingBottom,
   width,
+  faqs
 }) => {
   return (
     <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
@@ -29,7 +32,7 @@ const Faq: types.Brick<FaqProps> = ({
         paddingBottom={paddingBottom}
         className="flex flex-col space-y-12"
       >
-        <Repeater propName="faqs" />
+        <Repeater propName="faqs" items={faqs} />
       </Container>
     </Section>
   )

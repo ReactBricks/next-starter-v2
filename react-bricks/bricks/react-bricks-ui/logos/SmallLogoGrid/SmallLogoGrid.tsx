@@ -17,6 +17,8 @@ import { iconLogos } from '../../shared/defaultImages'
 
 export interface SmallLogoGridProps extends LayoutProps {
   targetBlank: boolean
+  logos: types.RepeaterItems
+  badges: types.RepeaterItems
 }
 
 const SmallLogoGrid: types.Brick<SmallLogoGridProps> = ({
@@ -27,23 +29,40 @@ const SmallLogoGrid: types.Brick<SmallLogoGridProps> = ({
   paddingBottom,
   width,
   targetBlank,
+  logos,
+  badges,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
-      <Container size={width} paddingTop={paddingTop} paddingBottom={paddingBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <Repeater
           propName="badge"
+          items={badges}
           itemProps={{
             textAlign: 'left',
           }}
-          renderWrapper={(items) => <div className="mb-6 flex justify-start">{items}</div>}
+          renderWrapper={(items) => (
+            <div className="mb-6 flex justify-start">{items}</div>
+          )}
         />
         <div
           className={classNames(
             'grid gap-5 auto-rows-auto grid-cols-[repeat(auto-fit,_minmax(60px,_60px))]'
           )}
         >
-          <Repeater propName="logos" itemProps={{ targetBlank }} />
+          <Repeater
+            propName="logos"
+            items={logos}
+            itemProps={{ targetBlank }}
+          />
         </div>
       </Container>
     </Section>

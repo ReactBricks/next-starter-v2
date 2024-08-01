@@ -16,6 +16,9 @@ import { avatars } from '../../shared/defaultImages'
 interface Team2ColsProps extends LayoutProps {
   withTitle?: boolean
   bigCenteredTitle?: boolean
+  title: types.TextValue
+  subtitle: types.TextValue
+  members: types.RepeaterItems
 }
 
 const Team2Cols: types.Brick<Team2ColsProps> = ({
@@ -26,6 +29,9 @@ const Team2Cols: types.Brick<Team2ColsProps> = ({
   borderBottom,
   paddingTop,
   paddingBottom,
+  title,
+  subtitle,
+  members,
 }) => {
   return (
     <Section
@@ -42,10 +48,12 @@ const Team2Cols: types.Brick<Team2ColsProps> = ({
           <TitleSubtitle
             className={classNames(bigCenteredTitle ? 'mb-12' : 'mb-8')}
             bigCentered={bigCenteredTitle}
+            title={title}
+            subtitle={subtitle}
           />
         )}
         <ul className="grid grid-cols-[repeat(auto-fit,_minmax(240px,_1fr))] lg:grid-cols-2 gap-8 mb-12">
-          <Repeater propName="members" />
+          <Repeater propName="members" items={members} />
         </ul>
       </Container>
     </Section>

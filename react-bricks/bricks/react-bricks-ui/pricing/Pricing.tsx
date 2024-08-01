@@ -12,7 +12,9 @@ import {
 } from '../LayoutSideProps'
 import { pricingColors } from '../colors'
 
-interface PricingProps extends LayoutProps {}
+interface PricingProps extends LayoutProps {
+  plans: types.RepeaterItems
+}
 
 const Pricing: types.Brick<PricingProps> = ({
   backgroundColor,
@@ -20,12 +22,21 @@ const Pricing: types.Brick<PricingProps> = ({
   borderBottom,
   paddingTop,
   paddingBottom,
+  plans,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
-      <Container size="medium" paddingTop={paddingTop} paddingBottom={paddingBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size="medium"
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <div className={`flex flex-wrap justify-center`}>
-          <Repeater propName="plans" />
+          <Repeater propName="plans" items={plans} />
         </div>
       </Container>
     </Section>

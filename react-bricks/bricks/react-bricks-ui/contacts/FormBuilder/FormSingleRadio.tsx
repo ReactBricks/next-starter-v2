@@ -8,7 +8,7 @@ import { textColors } from '../../colors'
 export interface FormSingleRadioProps {
   register: UseFormRegister<any>
   fieldName: string
-  label: string
+  label: types.TextValue
   value: string
 
   isRequired: boolean
@@ -60,6 +60,7 @@ const FormSingleRadio: types.Brick<FormSingleRadioProps> = ({
         <Text
           propName="label"
           placeholder="label..."
+          value={label}
           renderBlock={(props) => (
             <span
               className={classNames(textColors.GRAY_900)}

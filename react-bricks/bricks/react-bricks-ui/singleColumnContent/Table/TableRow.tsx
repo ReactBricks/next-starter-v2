@@ -8,7 +8,7 @@ export interface TableRowProps {
   striped?: boolean
   withHeader?: boolean
   borders?: 'none' | 'horizontal' | 'all'
-  cells: any[]
+  cells: types.RepeaterItems
 }
 
 const TableRow: types.Brick<TableRowProps> = ({
@@ -16,6 +16,7 @@ const TableRow: types.Brick<TableRowProps> = ({
   striped = false,
   withHeader = true,
   borders = 'horizontal',
+  cells,
 }) => {
   if (withHeader && index === 0) {
     return (
@@ -23,6 +24,7 @@ const TableRow: types.Brick<TableRowProps> = ({
         <tr className="align-middle">
           <Repeater
             propName="cells"
+            items={cells}
             itemProps={{
               isHeader: true,
               borders,
@@ -47,7 +49,7 @@ const TableRow: types.Brick<TableRowProps> = ({
             : 'bg-white dark:bg-gray-900'
         )}
       >
-        <Repeater propName="cells" itemProps={{ borders }} />
+        <Repeater propName="cells" items={cells} itemProps={{ borders }} />
       </tr>
     </tbody>
   )

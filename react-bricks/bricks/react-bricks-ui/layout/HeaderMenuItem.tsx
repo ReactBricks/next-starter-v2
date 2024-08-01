@@ -6,12 +6,8 @@ import useOnClickOutside from './useClickOutside'
 
 export interface MenuItems {
   linkPath: string
-  linkText: string
-  submenuItems?: {
-    linkText: string
-    linkDescription: string
-    linkPath: string
-  }[]
+  linkText: types.TextValue
+  submenuItems?: types.RepeaterItems
 }
 
 interface HeaderMenuItemProps extends MenuItems {
@@ -42,6 +38,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
           <Text
             propName="linkText"
             placeholder="Type a text..."
+            value={linkText}
             renderBlock={({ children }) => <span>{children}</span>}
           />
         </Link>
@@ -73,6 +70,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
           <Text
             propName="linkText"
             placeholder="Type a text..."
+            value={linkText}
             renderBlock={({ children }) => <div>{children}</div>}
           />
           {open ? (
@@ -105,6 +103,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
           <div className="w-64 bg-white p-3 border rounded-md shadow-lg absolute top-9 z-[1000]">
             <Repeater
               propName="submenuItems"
+              items={submenuItems}
               renderItemWrapper={(item) => (
                 <div
                   key={item.key}
@@ -126,6 +125,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
         </div>
         <Repeater
           propName="submenuItems"
+          items={submenuItems}
           renderItemWrapper={(item) => (
             <div key={item.key} onClick={() => setMobileMenuOpen(false)}>
               {item}
