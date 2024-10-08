@@ -44,6 +44,7 @@ enum blockNames {
   ImageCarouselItem = 'image-carousel-item',
   HorizontalRule = 'horizontal-rule',
   Spacer = 'spacer',
+  FormSection = 'form-section',
   FormBuilder = 'form-builder',
   FormButton = 'form-button',
   FormCheckbox = 'form-checkbox',

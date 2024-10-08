@@ -4,14 +4,8 @@ import { Repeater, types } from 'react-bricks/frontend'
 import { useForm } from 'react-hook-form'
 import blockNames from '../../blockNames'
 import { buttonColors } from '../../colors'
-import {
-  backgroundSideGroup,
-  LayoutProps,
-  paddingBordersSideGroup,
-  sectionDefaults,
-} from '../../LayoutSideProps'
+import { LayoutProps } from '../../LayoutSideProps'
 import Container from '../../shared/components/Container'
-import Section from '../../shared/components/Section'
 
 export interface FormBuilderProps extends LayoutProps {
   buttonPosition: string
@@ -20,11 +14,6 @@ export interface FormBuilderProps extends LayoutProps {
 }
 
 const FormBuilder: types.Brick<FormBuilderProps> = ({
-  backgroundColor,
-  borderTop,
-  borderBottom,
-  paddingTop,
-  paddingBottom,
   buttonPosition,
   formElements,
   formButtons,
@@ -39,42 +28,32 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({
 
   return (
     <div>
-      <Section
-        backgroundColor={backgroundColor}
-        borderTop={borderTop}
-        borderBottom={borderBottom}
-      >
-        <Container
-          size="full"
-          paddingTop={paddingTop}
-          paddingBottom={paddingBottom}
+      <Container className="pt-6 pb-6 px-6 lg:pt-6 lg:pb-6 bg-transparent" size="full">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="grid grid-cols-2 gap-4"
         >
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="grid grid-cols-2 gap-4 py-6"
-          >
-            <Repeater
-              propName="form-elements"
-              items={formElements}
-              itemProps={{ register, errors }}
-            />
-            <Repeater
-              propName="form-buttons"
-              items={formButtons}
-              renderWrapper={(items) => (
-                <div
-                  className={classNames(
-                    'w-full flex space-x-6 col-span-2',
-                    buttonPosition
-                  )}
-                >
-                  {items}
-                </div>
-              )}
-            />
-          </form>
-        </Container>
-      </Section>
+          <Repeater
+            propName="form-elements"
+            items={formElements}
+            itemProps={{ register, errors }}
+          />
+          <Repeater
+            propName="form-buttons"
+            items={formButtons}
+            renderWrapper={(items) => (
+              <div
+                className={classNames(
+                  'w-full flex space-x-6 col-span-2',
+                  buttonPosition
+                )}
+              >
+                {items}
+              </div>
+            )}
+          />
+        </form>
+      </Container>
     </div>
   )
 }
@@ -83,6 +62,7 @@ FormBuilder.schema = {
   name: blockNames.FormBuilder,
   label: 'Form',
   category: 'contact',
+  hideFromAddMenu: true,
   previewImageUrl: `/bricks-preview-images/${blockNames.FormBuilder}.png`,
   repeaterItems: [
     {
@@ -125,12 +105,9 @@ FormBuilder.schema = {
         },
       ],
     },
-    backgroundSideGroup,
-    paddingBordersSideGroup,
   ],
 
   getDefaultProps: () => ({
-    ...sectionDefaults,
     buttonPosition: 'justify-center',
     'form-elements': [
       {

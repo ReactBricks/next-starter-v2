@@ -68,6 +68,7 @@ import Offices from './contacts/Offices/Offices'
 import Office from './contacts/Offices/Office'
 import ContactsForm from './contacts/ContactsForm/ContactsForm'
 import Map from './contacts/Map/Map'
+import FormSection from './contacts/FormSection/FormSection'
 import FormBuilder from './contacts/FormBuilder/FormBuilder'
 import FormInput from './contacts/FormBuilder/FormInput'
 import FormTextarea from './contacts/FormBuilder/FormTextarea'
@@ -158,6 +159,7 @@ const allBricks: types.Theme = {
         Office,
         ContactsForm,
         Map,
+        FormSection,
         FormBuilder,
         FormInput,
         FormTextarea,
