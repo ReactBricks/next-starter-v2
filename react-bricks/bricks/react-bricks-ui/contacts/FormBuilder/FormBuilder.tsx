@@ -27,34 +27,27 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({
   const onSubmit = () => {}
 
   return (
-    <div>
-      <Container className="pt-6 pb-6 px-6 lg:pt-6 lg:pb-6 bg-transparent" size="full">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="grid grid-cols-2 gap-4"
-        >
-          <Repeater
-            propName="form-elements"
-            items={formElements}
-            itemProps={{ register, errors }}
-          />
-          <Repeater
-            propName="form-buttons"
-            items={formButtons}
-            renderWrapper={(items) => (
-              <div
-                className={classNames(
-                  'w-full flex space-x-6 col-span-2',
-                  buttonPosition
-                )}
-              >
-                {items}
-              </div>
+    <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-2 gap-4 p-6">
+      <Repeater
+        propName="form-elements"
+        items={formElements}
+        itemProps={{ register, errors }}
+      />
+      <Repeater
+        propName="form-buttons"
+        items={formButtons}
+        renderWrapper={(items) => (
+          <div
+            className={classNames(
+              'w-full flex space-x-6 col-span-2',
+              buttonPosition
             )}
-          />
-        </form>
-      </Container>
-    </div>
+          >
+            {items}
+          </div>
+        )}
+      />
+    </form>
   )
 }
 
