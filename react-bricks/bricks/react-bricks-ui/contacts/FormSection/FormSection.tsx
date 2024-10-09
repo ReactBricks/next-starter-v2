@@ -12,9 +12,7 @@ import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 
 export interface FormSectionProps extends LayoutProps {
-  buttonPosition: string
-  formElements: types.RepeaterItems
-  formButtons: types.RepeaterItems
+  form: types.RepeaterItems
 }
 
 const FormSection: types.Brick<FormSectionProps> = ({
@@ -24,6 +22,7 @@ const FormSection: types.Brick<FormSectionProps> = ({
   paddingTop,
   paddingBottom,
   width,
+  form,
 }) => {
   return (
     <div>
@@ -37,10 +36,7 @@ const FormSection: types.Brick<FormSectionProps> = ({
           paddingTop={paddingTop}
           paddingBottom={paddingBottom}
         >
-          <Repeater
-            propName="form-builder"
-            // items={formElements}
-          />
+          <Repeater propName="form" items={form} />
         </Container>
       </Section>
     </div>
@@ -55,9 +51,9 @@ FormSection.schema = {
 
   repeaterItems: [
     {
-      name: 'form-builder',
-      itemLabel: 'Form builder',
+      name: 'form',
       itemType: blockNames.FormBuilder,
+      itemLabel: 'form',
       min: 1,
       max: 1,
     },
