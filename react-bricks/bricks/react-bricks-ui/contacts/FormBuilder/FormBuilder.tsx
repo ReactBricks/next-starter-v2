@@ -1,19 +1,23 @@
 import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
+import { useSubmit } from '@formspree/react'
 import { useForm } from 'react-hook-form'
 import blockNames from '../../blockNames'
 import { buttonColors } from '../../colors'
 import { LayoutProps } from '../../LayoutSideProps'
-import Container from '../../shared/components/Container'
 
 export interface FormBuilderProps extends LayoutProps {
+  successMessage: string
+  formspreeFormId: string
   buttonPosition: string
   formElements: types.RepeaterItems
   formButtons: types.RepeaterItems
 }
 
 const FormBuilder: types.Brick<FormBuilderProps> = ({
+  successMessage,
+  formspreeFormId,
   buttonPosition,
   formElements,
   formButtons,
@@ -21,21 +25,77 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful, isSubmitting },
+    setError,
   } = useForm()
 
-  const onSubmit = () => {}
+  // const onSubmit = () => {}
+  const onSubmit = useSubmit(formspreeFormId, {
+    onError(errs) {
+      const formErrs = errs.getFormErrors()
+      for (const { code, message } of formErrs) {
+        setError(`root.${code}`, {
+          type: code,
+          message,
+        })
+      }
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-2 gap-4 p-6">
+      const fieldErrs = errs.getAllFieldErrors()
+      for (const [field, errs] of fieldErrs) {
+        setError(field, {
+          message: errs.map((e) => e.message).join(', '),
+        })
+      }
+    },
+  })
+
+  return isSubmitSuccessful ? (
+    <h2 className="mt-6 text-xl leading-7 font-bold text-lime-600">
+      {successMessage}
+    </h2>
+  ) : (
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="grid grid-cols-2 gap-4 p-6"
+    >
       <Repeater
         propName="form-elements"
         items={formElements}
         itemProps={{ register, errors }}
       />
+
+      {errors.root && (
+        <div className="block">
+          <ul className="error">
+            {Object.values(errors.root).map((err) => {
+              if (typeof err !== 'object') {
+                return (
+                  <li
+                    key={err}
+                    className="block mt-1 text-sm text-red-500 font-bold"
+                  >
+                    {err}
+                  </li>
+                )
+              }
+              const { type, message } = err
+              return (
+                <li
+                  key={type}
+                  className="block mt-1 text-sm text-red-500 font-bold"
+                >
+                  {message}
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      )}
+
       <Repeater
         propName="form-buttons"
         items={formButtons}
+        itemProps={{ disabled: isSubmitting }}
         renderWrapper={(items) => (
           <div
             className={classNames(
@@ -79,6 +139,22 @@ FormBuilder.schema = {
   ],
 
   sideEditProps: [
+    {
+      groupName: 'Formspree',
+      defaultOpen: true,
+      props: [
+        {
+          name: 'formspreeFormId',
+          label: 'Formspree Form ID',
+          type: types.SideEditPropType.Text,
+        },
+        {
+          name: 'successMessage',
+          label: 'Success Message',
+          type: types.SideEditPropType.Textarea,
+        },
+      ],
+    },
     {
       groupName: 'Buttons',
       defaultOpen: true,

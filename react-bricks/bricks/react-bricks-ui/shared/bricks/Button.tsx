@@ -22,6 +22,7 @@ export interface ButtonProps {
   className?: string
   simpleAnchorLink: boolean
   buttonText: types.TextValue
+  disabled?: boolean
 }
 
 const Button: types.Brick<ButtonProps> = ({
@@ -35,6 +36,7 @@ const Button: types.Brick<ButtonProps> = ({
   className,
   simpleAnchorLink = false,
   buttonText,
+  disabled = false
 }) => {
   const target = isTargetBlank
     ? { target: '_blank', rel: 'noopener noreferrer' }
@@ -79,9 +81,10 @@ const Button: types.Brick<ButtonProps> = ({
   return (
     <button
       type={isAdmin && !previewMode ? 'button' : buttonType}
+      disabled={disabled}
       //disabled={isAdmin && !previewMode}
       className={classNames(
-        'inline-block whitespace-nowrap text-center rounded-full font-bold leading-none hover:shadow-lg transition-all ease-out duration-150 hover:-translate-y-0.5',
+        'inline-block whitespace-nowrap text-center rounded-full font-bold leading-none hover:shadow-lg transition-all ease-out duration-150 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed',
         padding === 'small'
           ? 'py-2 px-4 text-sm min-w-[75px]'
           : 'py-3 px-5 min-w-[120px]',

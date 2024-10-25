@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@formspree/react": "^2.5.1",
     "@headlessui/react": "^1.7.17",
     "dayjs": "^1.11.8",
     "email-validator": "^2.0.4",
@@ -29,8 +30,8 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
     "@types/node": "^20.3.2",
-    "@types/react-slick": "^0.23.13",
     "@types/react": "^18.2.14",
+    "@types/react-slick": "^0.23.13",
     "autoprefixer": "^10.4.14",
     "concurrently": "^8.2.0",
     "postcss": "^8.4.24",
