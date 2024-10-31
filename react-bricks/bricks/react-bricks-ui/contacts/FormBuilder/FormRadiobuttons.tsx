@@ -79,6 +79,8 @@ const FormRadiobuttons: types.Brick<FormRadiobuttonsProps> = ({
       {errors[fieldName] && (
         <div className="block mt-1 text-xs text-red-500 font-bold">
           {errors[fieldName]?.type === 'required' && requiredError}
+          {errors[fieldName]?.message &&
+            `This field ${errors[fieldName]?.message}`}
         </div>
       )}
     </div>
