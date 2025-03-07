@@ -71,7 +71,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
               renderBlock={(props) => (
                 <p
                   className={classNames(
-                    'font-bold text-[32px] leading-tight md:text-4xl xl:text-5xl bg-clip-text bg-gradient-to-r',
+                    'font-bold text-[32px] leading-tight md:text-4xl xl:text-5xl bg-clip-text bg-linear-to-r',
                     textColors.GRAY_900
                   )}
                   {...props.attributes}
@@ -129,7 +129,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
                 </svg>
 
                 <input
-                  className="w-full md:w-auto bg-white focus:outline-none border-t border-l border-r sm:border-r-0 sm:border-b border-gray-300 focus:border-sky-500 rounded-t-md sm:rounded-tr-none sm:rounded-l-md py-2 px-4 appearance-none leading-normal pl-10"
+                  className="w-full md:w-auto bg-white focus:outline-hidden border-t border-l border-r sm:border-r-0 sm:border-b border-gray-300 focus:border-sky-500 rounded-t-md sm:rounded-tr-none sm:rounded-l-md py-2 px-4 appearance-none leading-normal pl-10"
                   type="text"
                   placeholder="Your email address"
                 />
