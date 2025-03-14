@@ -72,19 +72,14 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
               />
             </div>
 
-            <div
-              className={classNames(
-                titleColor,
-                gradients[textGradient]?.className
-              )}
-              style={titleStyle}
-            >
+            <div className={titleColor} style={titleStyle}>
               <RichText
                 renderBlock={(props) => (
                   <h1
                     className={classNames(
                       'text-[28px] leading-8 sm:text-[40px] sm:leading-tight lg:text-[44px] lg:leading-snug text-center lg:text-left font-extrabold mb-4 bg-clip-text bg-linear-to-r   ',
-                      titleColor
+                      titleColor,
+                      gradients[textGradient]?.className
                     )}
                     {...props.attributes}
                   >
