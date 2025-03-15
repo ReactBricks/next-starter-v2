@@ -1,9 +1,7 @@
-import { Menu } from '@headlessui/react'
-import blockNames from '../blockNames'
-import React from 'react'
-import { Text, types, Link } from 'react-bricks/frontend'
 import classNames from 'classnames'
+import { Link, Text, types } from 'react-bricks/frontend'
 import { FiChevronRight } from 'react-icons/fi'
+import blockNames from '../blockNames'
 
 interface HeaderMenuSubItemProps {
   linkPath: string
