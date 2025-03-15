@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-type Props = JSX.LibraryManagedAttributes<
+type Props = React.JSX.LibraryManagedAttributes<
   'div',
   React.ComponentProps<'div'>
 > & {
