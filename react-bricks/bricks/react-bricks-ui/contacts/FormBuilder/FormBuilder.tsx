@@ -7,16 +7,12 @@ import { buttonColors } from '../../colors'
 import { LayoutProps } from '../../LayoutSideProps'
 
 export interface FormBuilderProps extends LayoutProps {
-  successMessage: string
-  formspreeFormId: string
   buttonPosition: string
   formElements: types.RepeaterItems
   formButtons: types.RepeaterItems
 }
 
 const FormBuilder: types.Brick<FormBuilderProps> = ({
-  successMessage,
-  formspreeFormId,
   buttonPosition,
   formElements,
   formButtons,
@@ -29,28 +25,10 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({
   } = useForm()
 
   const onSubmit = () => {}
-  // const onSubmit = useSubmit(formspreeFormId, {
-  //   onError(errs) {
-  //     const formErrs = errs.getFormErrors()
-  //     for (const { code, message } of formErrs) {
-  //       setError(`root.${code}`, {
-  //         type: code,
-  //         message,
-  //       })
-  //     }
-
-  //     const fieldErrs = errs.getAllFieldErrors()
-  //     for (const [field, errs] of fieldErrs) {
-  //       setError(field, {
-  //         message: errs.map((e) => e.message).join(', '),
-  //       })
-  //     }
-  //   },
-  // })
 
   return isSubmitSuccessful ? (
     <h2 className="mt-6 text-xl leading-7 font-bold text-lime-600">
-      {successMessage}
+      Error: Please verify the entered data and try again.
     </h2>
   ) : (
     <form
@@ -138,22 +116,6 @@ FormBuilder.schema = {
   ],
 
   sideEditProps: [
-    {
-      groupName: 'Formspree',
-      defaultOpen: true,
-      props: [
-        {
-          name: 'formspreeFormId',
-          label: 'Formspree Form ID',
-          type: types.SideEditPropType.Text,
-        },
-        {
-          name: 'successMessage',
-          label: 'Success Message',
-          type: types.SideEditPropType.Textarea,
-        },
-      ],
-    },
     {
       groupName: 'Buttons',
       defaultOpen: true,
