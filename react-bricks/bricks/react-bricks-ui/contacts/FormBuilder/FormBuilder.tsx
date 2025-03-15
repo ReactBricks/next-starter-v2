@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
-import { useSubmit } from '@formspree/react'
 import { useForm } from 'react-hook-form'
 import blockNames from '../../blockNames'
 import { buttonColors } from '../../colors'
@@ -29,25 +28,25 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({
     setError,
   } = useForm()
 
-  // const onSubmit = () => {}
-  const onSubmit = useSubmit(formspreeFormId, {
-    onError(errs) {
-      const formErrs = errs.getFormErrors()
-      for (const { code, message } of formErrs) {
-        setError(`root.${code}`, {
-          type: code,
-          message,
-        })
-      }
+  const onSubmit = () => {}
+  // const onSubmit = useSubmit(formspreeFormId, {
+  //   onError(errs) {
+  //     const formErrs = errs.getFormErrors()
+  //     for (const { code, message } of formErrs) {
+  //       setError(`root.${code}`, {
+  //         type: code,
+  //         message,
+  //       })
+  //     }
 
-      const fieldErrs = errs.getAllFieldErrors()
-      for (const [field, errs] of fieldErrs) {
-        setError(field, {
-          message: errs.map((e) => e.message).join(', '),
-        })
-      }
-    },
-  })
+  //     const fieldErrs = errs.getAllFieldErrors()
+  //     for (const [field, errs] of fieldErrs) {
+  //       setError(field, {
+  //         message: errs.map((e) => e.message).join(', '),
+  //       })
+  //     }
+  //   },
+  // })
 
   return isSubmitSuccessful ? (
     <h2 className="mt-6 text-xl leading-7 font-bold text-lime-600">
