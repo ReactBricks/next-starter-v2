@@ -13,7 +13,7 @@
     "dayjs": "^1.11.8",
     "email-validator": "^2.0.4",
     "jsonp": "^0.2.1",
-    "next": "^13.4.7",
+    "next": "15.5.7",
     "next-themes": "^0.2.1",
     "pigeon-maps": "^0.21.3",
     "prism-theme-night-owl": "^1.4.0",
